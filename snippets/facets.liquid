@@ -463,6 +463,7 @@
     }
 
     .facets--vertical .facets__drawer {
+      --panel-from: translateY(100%);
       inset: auto 0 0;
       width: 100%;
       height: auto;
@@ -494,6 +495,22 @@
       overflow: visible;
       background: transparent;
       color: inherit;
+    }
+
+    /* Inline on desktop, so the closed-panel offset and its transition don't apply */
+    .facets--horizontal .facets__drawer:not([open]),
+    .facets--vertical .facets__drawer:not([open]) {
+      transform: none;
+      opacity: 1;
+      transition: none;
+    }
+
+    /* Horizontal filters open as dropdowns: nothing to grow, and the panel must not be clipped */
+    .facets--horizontal .facets__group::details-content {
+      block-size: auto;
+      overflow: visible;
+      opacity: 1;
+      transition: none;
     }
 
     .facets--horizontal .facets__drawer-header,

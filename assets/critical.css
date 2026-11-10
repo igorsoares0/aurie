@@ -83,9 +83,9 @@ ol[role='list'] {
   --font-h2-size: calc(1.625rem * var(--font-heading-scale));
   --font-h3-size: calc(1.25rem * var(--font-heading-scale));
 
-  --duration-short: 150ms;
-  --duration-medium: 250ms;
+  /* Durations (--duration-short, -medium, -long) come from the Animations theme setting */
   --ease: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media screen and (min-width: 750px) {
@@ -133,6 +133,7 @@ main {
 a {
   color: inherit;
   text-underline-offset: 3px;
+  transition: color var(--duration-short) var(--ease);
 }
 
 a:hover {
@@ -278,12 +279,22 @@ h4,
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity var(--duration-short) var(--ease);
+  transition:
+    opacity var(--duration-short) var(--ease),
+    color var(--duration-short) var(--ease),
+    border-color var(--duration-short) var(--ease),
+    background-color var(--duration-short) var(--ease),
+    transform var(--duration-short) var(--ease);
 }
 
 .button:hover {
   color: var(--color-button-label);
   opacity: 0.88;
+}
+
+/* A slight press, so a tap or click is felt before the result shows */
+.button:active:not(:disabled, [aria-disabled='true']) {
+  transform: scale(0.98);
 }
 
 .button--secondary {
@@ -325,6 +336,43 @@ h4,
   color: var(--color-text-muted);
   cursor: not-allowed;
   opacity: 1;
+}
+
+/* Waiting on the server (add to cart): the button keeps its look and shows a spinner
+   in place of the label, which stays in the layout so the width doesn't change */
+.button[aria-busy='true'] {
+  --spinner-color: var(--color-button-label);
+  position: relative;
+  border-color: var(--color-button);
+  background-color: var(--color-button);
+  color: transparent;
+  cursor: progress;
+  opacity: 1;
+}
+
+.button--secondary[aria-busy='true'] {
+  --spinner-color: var(--color-text);
+  border-color: var(--color-border);
+  background-color: transparent;
+}
+
+.button[aria-busy='true']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  border: 1.5px solid var(--spinner-color);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .button-unstyled {
@@ -396,6 +444,11 @@ select.field {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* A spinner cut to 0.01ms would flicker; a still ring reads as "busy" */
+  .button[aria-busy='true']::after {
+    animation: none;
   }
 }
 
@@ -512,8 +565,115 @@ facet-filters[aria-busy='true'] .results {
   overscroll-behavior: contain;
 }
 
-.drawer::backdrop {
+.drawer {
+  --panel-from: translateX(100%);
+}
+
+/**
+ * Panels (drawers, the menu drawer and the search modal) slide or fade in and out.
+ * Each one sets --panel-from, the transform it enters from and leaves to, and
+ * optionally --panel-from-opacity. Browsers without @starting-style or
+ * allow-discrete transitions simply open and close them at once.
+ */
+.drawer,
+.menu-drawer,
+.search-modal {
+  /* Only matters while a closing panel has already left the top layer */
+  z-index: 100;
+  transition:
+    transform var(--duration-long) var(--ease-out),
+    opacity var(--duration-long) var(--ease-out);
+  /* Dropped as a whole where allow-discrete is unknown, leaving the line above */
+  transition:
+    transform var(--duration-long) var(--ease-out),
+    opacity var(--duration-long) var(--ease-out),
+    overlay var(--duration-long) allow-discrete,
+    display var(--duration-long) allow-discrete;
+}
+
+:is(.drawer, .menu-drawer, .search-modal):not([open]) {
+  transform: var(--panel-from, none);
+  opacity: var(--panel-from-opacity, 1);
+}
+
+@starting-style {
+  :is(.drawer, .menu-drawer, .search-modal)[open] {
+    transform: var(--panel-from, none);
+    opacity: var(--panel-from-opacity, 1);
+  }
+}
+
+.drawer::backdrop,
+.search-modal::backdrop {
   background: rgb(0 0 0 / 0.4);
+  opacity: 0;
+  transition: opacity var(--duration-long) var(--ease);
+  transition:
+    opacity var(--duration-long) var(--ease),
+    overlay var(--duration-long) allow-discrete,
+    display var(--duration-long) allow-discrete;
+}
+
+.drawer[open]::backdrop,
+.search-modal[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .drawer[open]::backdrop,
+  .search-modal[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+/**
+ * Sections below the first screen fade up once as they scroll into view.
+ * theme.js adds .reveal only to sections that start off screen, and only when
+ * it can also reveal them, so without JavaScript nothing is ever hidden.
+ */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--duration-reveal) var(--ease),
+    transform var(--duration-reveal) var(--ease-out);
+}
+
+@media print {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/**
+ * Collapsible rows grow open and shrink closed instead of jumping. Needs
+ * ::details-content, and interpolate-size for the height; other browsers
+ * toggle at once. Listed by class because a dropdown with an absolutely
+ * positioned panel (header menu, horizontal filters) must not be clipped.
+ */
+:root {
+  interpolate-size: allow-keywords;
+}
+
+:is(.collapsible-row, .collapsible-tab, .footer__details, .menu-drawer__details, .cart-drawer__note, .facets__group)::details-content {
+  block-size: 0;
+  overflow: clip;
+  opacity: 0;
+  transition:
+    block-size var(--duration-medium) var(--ease),
+    opacity var(--duration-medium) var(--ease),
+    content-visibility var(--duration-medium) allow-discrete;
+}
+
+:is(.collapsible-row, .collapsible-tab, .footer__details, .menu-drawer__details, .cart-drawer__note, .facets__group)[open]::details-content {
+  block-size: auto;
+  opacity: 1;
 }
 
 .drawer__header {

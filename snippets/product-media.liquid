@@ -312,9 +312,15 @@
 
           const isGridDesktop = this.dataset.layout === 'grid' && window.matchMedia('(min-width: 750px)').matches;
           if (isGridDesktop && fromVariant) {
+            const moved = this.list.firstElementChild !== item;
             this.list.prepend(item);
+            // The grid reorders at once, so the image that comes to the front fades in.
+            if (moved && window.Theme.prefersMotion()) {
+              const duration = parseFloat(getComputedStyle(this).getPropertyValue('--duration-long')) || 0;
+              item.animate([{ opacity: 0 }, { opacity: 1 }], { duration, easing: 'ease-out' });
+            }
           } else {
-            this.list.scrollTo({ left: item.offsetLeft - this.list.offsetLeft, behavior: 'smooth' });
+            this.list.scrollTo({ left: item.offsetLeft - this.list.offsetLeft, behavior: window.Theme.scrollBehavior() });
           }
 
           this.markThumb(mediaId);

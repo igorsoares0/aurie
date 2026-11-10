@@ -25,6 +25,8 @@
         cartType: {{ settings.cart_type | json }},
         cartUrl: {{ routes.cart_url | json }},
         moneyLocale: {{ request.locale.iso_code | json }},
+        animations: {% if settings.animation_speed == 'none' %}false{% else %}true{% endif %},
+        revealSections: {% if settings.animation_reveal and settings.animation_speed != 'none' %}true{% else %}false{% endif %},
       };
     </script>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>

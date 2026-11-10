@@ -1,4 +1,14 @@
 /**
+ * Motion helpers. Animations are off when the Animations speed setting is None
+ * or the visitor asks their device for reduced motion.
+ */
+window.Theme.prefersMotion = () =>
+  window.Theme.animations !== false && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/** The `behavior` for scrollTo, scrollBy and scrollIntoView calls made from scripts. */
+window.Theme.scrollBehavior = () => (window.Theme.prefersMotion() ? 'smooth' : 'auto');
+
+/**
  * Opens a <dialog> when an element with [data-dialog-open="dialog-id"] is clicked,
  * closing any dialog the opener sits in first. Links keep their href as a
  * no-JavaScript fallback. Closes from [data-dialog-close] or a backdrop click.
@@ -182,7 +192,7 @@ if (!customElements.get('tab-panels')) {
         offset = distance;
       }
     }
-    scroller.scrollBy({ left: offset, behavior: 'smooth' });
+    scroller.scrollBy({ left: offset, behavior: window.Theme.scrollBehavior() });
     const timer = setTimeout(done, 500);
     scroller.addEventListener('scrollend', () => {
       clearTimeout(timer);
@@ -396,3 +406,39 @@ document.addEventListener('click', (event) => {
   const label = card.querySelector('.product-card__swatch-label');
   if (label && swatch.dataset.label) label.textContent = swatch.dataset.label;
 });
+
+/**
+ * Reveals sections as they scroll into view (Animations > Reveal sections on
+ * scroll). Only sections that start below the screen are hidden, so the first
+ * screen, and with it the largest contentful paint, is never delayed. Skipped
+ * in the theme editor, where sections are added and moved all the time.
+ */
+if (
+  window.Theme.revealSections &&
+  window.Theme.prefersMotion() &&
+  !window.Shopify?.designMode &&
+  'IntersectionObserver' in window
+) {
+  const reveal = (section) => {
+    section.classList.add('is-revealed');
+    const done = () => section.classList.remove('reveal', 'is-revealed');
+    section.addEventListener('transitionend', (event) => event.target === section && done());
+    // In case the transition never runs (a tab in the background, for example).
+    setTimeout(done, 2000);
+  };
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        reveal(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -8% 0px' }
+  );
+  document.querySelectorAll('#MainContent > .shopify-section:not(:first-child)').forEach((section) => {
+    if (section.getBoundingClientRect().top <= window.innerHeight) return;
+    section.classList.add('reveal');
+    observer.observe(section);
+  });
+}

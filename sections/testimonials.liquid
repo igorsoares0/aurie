@@ -73,6 +73,17 @@
     align-items: center;
     gap: 16px;
     margin: 0;
+    transition:
+      opacity var(--duration-long) var(--ease),
+      transform var(--duration-long) var(--ease-out);
+  }
+
+  /* The slide that becomes visible fades in; the previous one is hidden at once */
+  @starting-style {
+    .testimonials__slide:not([hidden]) {
+      opacity: 0;
+      transform: translateY(8px);
+    }
   }
 
   .testimonials__quote {

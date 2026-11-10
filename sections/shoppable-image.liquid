@@ -450,7 +450,7 @@
             const active = Number(line.dataset.line) === index;
             if (active) {
               line.setAttribute('aria-current', 'true');
-              line.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+              line.scrollIntoView({ block: 'nearest', behavior: window.Theme.scrollBehavior() });
             } else {
               line.removeAttribute('aria-current');
             }

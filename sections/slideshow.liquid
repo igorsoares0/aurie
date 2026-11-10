@@ -260,7 +260,7 @@
         goTo(index) {
           const count = this.slides.length;
           const next = (index + count) % count;
-          this.track.scrollTo({ left: this.slides[next].offsetLeft, behavior: 'smooth' });
+          this.track.scrollTo({ left: this.slides[next].offsetLeft, behavior: window.Theme.scrollBehavior() });
           this.setIndex(next);
         }
 

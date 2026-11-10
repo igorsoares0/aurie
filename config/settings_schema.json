@@ -238,6 +238,43 @@
     ]
   },
   {
+    "name": "t:settings.animations.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "animation_speed",
+        "label": "t:settings.animations.speed",
+        "info": "t:settings.animations.speed_info",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:settings.animations.speed_none"
+          },
+          {
+            "value": "quick",
+            "label": "t:settings.animations.speed_quick"
+          },
+          {
+            "value": "balanced",
+            "label": "t:settings.animations.speed_balanced"
+          },
+          {
+            "value": "slow",
+            "label": "t:settings.animations.speed_slow"
+          }
+        ],
+        "default": "balanced"
+      },
+      {
+        "type": "checkbox",
+        "id": "animation_reveal",
+        "label": "t:settings.animations.reveal",
+        "info": "t:settings.animations.reveal_info",
+        "default": true
+      }
+    ]
+  },
+  {
     "name": "t:settings.header.name",
     "settings": [
       {

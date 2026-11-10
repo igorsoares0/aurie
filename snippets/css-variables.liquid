@@ -17,6 +17,29 @@
   assign heading_font_italic = heading_font | font_modify: 'style', 'italic'
   assign heading_font_bold_italic = heading_font_bold | font_modify: 'style', 'italic'
 
+  case settings.animation_speed
+    when 'none'
+      assign duration_short = '0ms'
+      assign duration_medium = '0ms'
+      assign duration_long = '0ms'
+      assign duration_reveal = '0ms'
+    when 'quick'
+      assign duration_short = '120ms'
+      assign duration_medium = '200ms'
+      assign duration_long = '300ms'
+      assign duration_reveal = '450ms'
+    when 'slow'
+      assign duration_short = '200ms'
+      assign duration_medium = '350ms'
+      assign duration_long = '550ms'
+      assign duration_reveal = '900ms'
+    else
+      assign duration_short = '150ms'
+      assign duration_medium = '250ms'
+      assign duration_long = '400ms'
+      assign duration_reveal = '650ms'
+  endcase
+
   case settings.corner_style
     when 'rounded'
       assign radius_button = '8px'
@@ -66,6 +89,11 @@
     --radius-button: {{ radius_button }};
     --radius-input: {{ radius_input }};
     --radius-media: {{ radius_media }};
+
+    --duration-short: {{ duration_short }};
+    --duration-medium: {{ duration_medium }};
+    --duration-long: {{ duration_long }};
+    --duration-reveal: {{ duration_reveal }};
   }
 
   {% for scheme in settings.color_schemes %}

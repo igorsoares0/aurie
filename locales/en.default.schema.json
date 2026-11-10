@@ -133,6 +133,17 @@
       "corner_style_rounded": "Rounded",
       "corner_style_pill": "Pill buttons"
     },
+    "animations": {
+      "name": "Animations",
+      "speed": "Speed",
+      "speed_info": "Sets how fast drawers, menus and collapsible rows open and close. Visitors who ask their device to reduce motion never see animations.",
+      "speed_none": "None",
+      "speed_quick": "Quick",
+      "speed_balanced": "Balanced",
+      "speed_slow": "Slow",
+      "reveal": "Reveal sections on scroll",
+      "reveal_info": "Sections below the first screen fade in once as visitors scroll. Has no effect when the speed is None."
+    },
     "header": {
       "name": "Header",
       "layout": "Layout",
