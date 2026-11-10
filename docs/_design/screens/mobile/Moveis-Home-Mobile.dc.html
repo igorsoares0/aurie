@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sotto — home, mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&amp;family=Barlow:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#efe9e0}
+a{color:#1f1d1a}
+:focus-visible{outline:2px solid #1f1d1a;outline-offset:2px}
+input::placeholder{color:#8a7f72}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 100vh; position: relative; background: #efe9e0; color: #1f1d1a; font-family: Barlow, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column">
+
+  <div style="background: #1f1d1a; color: #efe9e0; text-align: center; font-size: 12px; line-height: 16px; font-weight: 500; padding: 10px 16px">Free delivery and assembly over $1,500</div>
+
+  <!-- Header: logo left, icons right -->
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 8px 4px 8px 16px">
+    <a href="#" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 28px; line-height: 1; font-weight: 600; letter-spacing: 0.04em; text-decoration: none">SOTTO</a>
+    <div style="display: flex">
+      <button type="button" aria-label="Search" style="width: 44px; height: 44px; border: 0; background: transparent; color: #1f1d1a; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg></button>
+      <a href="#" aria-label="Account" style="width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"></circle><path d="M4.5 20.5c1.2-3.6 4.1-5.5 7.5-5.5s6.3 1.9 7.5 5.5"></path></svg></a>
+      <a href="#" aria-label="Bag, {{bagCount}} items" style="height: 44px; padding: 0 6px; display: inline-flex; align-items: center; gap: 4px; text-decoration: none; font-size: 13px; font-weight: 600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5.5 8.5h13l-1 12h-11z"></path><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"></path></svg>{{bagCount}}</a>
+      <button type="button" aria-label="Menu" aria-expanded="{{menuExpanded}}" onClick="{{openMenu}}" style="width: 44px; height: 44px; border: 0; background: transparent; color: #1f1d1a; display: inline-flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+    </div>
+  </header>
+
+  <!-- Hero, inset rounded -->
+  <section style="padding: 0 8px">
+    <div style="height: 600px; border-radius: 16px; background: #6e6152; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; box-sizing: border-box; color: #efe9e0">
+      <span style="position: absolute; left: 24px; top: 20px; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase">Room image — living room</span>
+      <h1 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 64px; line-height: 0.88; font-weight: 600; text-transform: uppercase">Made to be<br>lived in</h1>
+      <p style="margin: 16px 0 20px; font-size: 15px; line-height: 24px">Solid oak and natural fabrics, built in our workshop and delivered to the room you choose.</p>
+      <a href="#rooms" style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border-radius: 8px; background: #efe9e0; color: #1f1d1a; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Shop by room <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a href="#" style="margin-top: 8px; min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid #efe9e0; color: #efe9e0; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Visit the showroom</a>
+    </div>
+  </section>
+
+  <!-- Promise 2x2 -->
+  <section aria-label="Our promise" style="padding: 32px 16px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px">
+    <sc-for list="{{promises}}" as="pr" hint-placeholder-count="4">
+      <div style="border-top: 1px solid #d6ccbe; padding-top: 16px">
+        <p style="margin: 0; font-size: 15px; line-height: 20px; font-weight: 600">{{pr.title}}</p>
+        <p style="margin: 4px 0 0; font-size: 13px; line-height: 20px; color: #5f574e">{{pr.text}}</p>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- Shop by room -->
+  <section id="rooms" style="padding: 64px 8px 0">
+    <h2 style="margin: 0 8px 20px; display: flex; align-items: center; gap: 16px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 40px; line-height: 0.92; font-weight: 600; text-transform: uppercase"><span>Shop</span><span aria-hidden="true" style="flex: 1; height: 1px; background: #d6ccbe"></span><span>by room</span></h2>
+    <a href="#" style="display: block; height: 340px; border-radius: 16px; background: #6e6152; position: relative; text-decoration: none; color: #efe9e0">
+      <span style="position: absolute; left: 20px; bottom: 20px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 36px; line-height: 1; font-weight: 600; text-transform: uppercase">Living room</span>
+    </a>
+    <div style="margin-top: 8px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+      <sc-for list="{{rooms}}" as="r" hint-placeholder-count="3">
+        <a href="#" style="{{r.style}}"><span style="position: absolute; left: 16px; bottom: 16px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 26px; line-height: 1; font-weight: 600; text-transform: uppercase">{{r.name}}</span></a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Signature pieces -->
+  <section style="padding: 64px 0 0">
+    <h2 style="margin: 0 16px 16px; display: flex; align-items: center; gap: 16px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 40px; line-height: 0.92; font-weight: 600; text-transform: uppercase"><span>Signature</span><span aria-hidden="true" style="flex: 1; height: 1px; background: #d6ccbe"></span><span>pieces</span></h2>
+    <div role="group" aria-label="Filter by category" style="display: flex; gap: 8px; overflow-x: auto; padding: 0 16px 20px">
+      <sc-for list="{{chips}}" as="ch" hint-placeholder-count="5">
+        <button type="button" aria-pressed="{{ch.pressed}}" onClick="{{ch.pick}}" style="{{ch.style}}">{{ch.label}}</button>
+      </sc-for>
+    </div>
+    <div style="display: flex; gap: 12px; overflow-x: auto; padding: 0 16px; scroll-snap-type: x mandatory">
+      <sc-for list="{{pieces}}" as="p" hint-placeholder-count="3">
+        <article style="flex: 0 0 300px; scroll-snap-align: start; box-sizing: border-box; background: #e5ddd1; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+            <h3 style="margin: 0; font-size: 15px; line-height: 20px; font-weight: 500"><a href="#" style="text-decoration: none">{{p.name}}</a></h3>
+            <span style="font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">{{p.cat}}</span>
+          </div>
+          <div style="aspect-ratio: 4 / 3; border-radius: 8px; background: #dcd2c4"></div>
+          <div style="display: flex; gap: 6px; align-items: center">
+            <span style="width: 16px; height: 16px; border-radius: 9999px; background: #e9e3d8; box-shadow: 0 0 0 1px #8a7f72"></span><span style="width: 16px; height: 16px; border-radius: 9999px; background: #cbb79b; box-shadow: 0 0 0 1px #8a7f72"></span><span style="width: 16px; height: 16px; border-radius: 9999px; background: #a8774f; box-shadow: 0 0 0 1px #8a7f72"></span>
+            <span style="font-size: 12px; color: #5f574e; margin-left: 4px">+3 fabrics</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #d6ccbe; padding-top: 12px">
+            <span style="font-size: 12px; line-height: 16px; color: #5f574e; font-variant-numeric: tabular-nums">{{p.dims}}</span>
+            <span style="font-size: 15px; line-height: 20px; font-weight: 600">{{p.price}}</span>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Shop the room: card under the image -->
+  <section style="padding: 64px 8px 0">
+    <h2 style="margin: 0 8px 8px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 34px; line-height: 1; font-weight: 600; text-transform: uppercase">Everything in this room is ours</h2>
+    <p style="margin: 0 8px 20px; font-size: 15px; line-height: 24px; color: #5f574e">Tap a piece to see its size and price.</p>
+    <div style="height: 420px; border-radius: 16px; background: #6e6152; position: relative; overflow: hidden">
+      <sc-for list="{{spots}}" as="sp" hint-placeholder-count="3">
+        <button type="button" aria-label="{{sp.name}}" aria-pressed="{{sp.pressed}}" onClick="{{sp.pick}}" style="{{sp.hotStyle}}">+</button>
+      </sc-for>
+    </div>
+    <div style="margin-top: 8px; background: #e5ddd1; border-radius: 16px; padding: 12px; display: flex; align-items: center; gap: 12px">
+      <div style="width: 64px; height: 64px; border-radius: 8px; background: #dcd2c4; flex: none"></div>
+      <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1">
+        <span style="font-size: 15px; line-height: 20px; font-weight: 500">{{active.name}}</span>
+        <span style="font-size: 12px; line-height: 16px; color: #5f574e">{{active.dims}}</span>
+        <span style="font-size: 15px; line-height: 20px; font-weight: 600">{{active.price}}</span>
+      </div>
+      <button type="button" aria-label="Add {{active.name}} to bag" onClick="{{addActive}}" style="width: 44px; height: 44px; flex: none; border: 0; border-radius: 8px; background: #1f1d1a; color: #efe9e0; font-size: 22px">+</button>
+    </div>
+  </section>
+
+  <!-- Oak panel -->
+  <section id="materials" style="padding: 64px 8px 0; display: flex; flex-direction: column; gap: 8px">
+    <div style="border-radius: 16px; background: #7a4a24; color: #efe9e0; padding: 32px 24px; display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Materials</p>
+      <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 48px; line-height: 0.92; font-weight: 600; text-transform: uppercase">Built from<br>solid oak</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 24px">Every frame is kiln-dried European oak, joined by hand and finished with plant oils.</p>
+      <ul style="list-style: none; margin: 8px 0 0; padding: 0; font-size: 14px; line-height: 20px">
+        <li style="padding: 12px 0; border-top: 1px solid #a8774f">FSC-certified timber</li>
+        <li style="padding: 12px 0; border-top: 1px solid #a8774f">Mortise-and-tenon joints</li>
+        <li style="padding: 12px 0; border-top: 1px solid #a8774f">Care kit in every delivery</li>
+      </ul>
+    </div>
+    <div style="border-radius: 16px; background: #e5ddd1; padding: 32px 24px">
+      <h2 style="margin: 0 0 24px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 32px; line-height: 1; font-weight: 600; text-transform: uppercase">Fabrics and finishes</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 12px">
+        <sc-for list="{{fabrics}}" as="f" hint-placeholder-count="6">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <span style="{{f.style}}"></span>
+            <span style="font-size: 13px; line-height: 18px; font-weight: 500">{{f.name}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <a href="#" style="margin-top: 24px; min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid #8a7f72; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Order free samples</a>
+    </div>
+  </section>
+
+  <!-- Craft, walnut -->
+  <section style="padding: 64px 8px 0">
+    <div style="border-radius: 16px; background: #2b2119; color: #efe9e0; padding: 40px 24px">
+      <h2 style="margin: 0 0 32px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 40px; line-height: 0.92; font-weight: 600; text-transform: uppercase">Made with<br>intention</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px">
+        <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 40px; line-height: 1; font-weight: 500; color: #d9a46b">{{s.n}}</span>
+            <h3 style="margin: 0; font-size: 16px; line-height: 22px; font-weight: 600">{{s.title}}</h3>
+            <p style="margin: 0; font-size: 13px; line-height: 20px; color: #c2b6a7">{{s.text}}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Delivery -->
+  <section id="delivery" style="padding: 64px 16px 0">
+    <h2 style="margin: 0 0 24px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 40px; line-height: 0.92; font-weight: 600; text-transform: uppercase">From our workshop to your room</h2>
+    <div style="display: flex; flex-direction: column; gap: 24px">
+      <sc-for list="{{delivery}}" as="d" hint-placeholder-count="3">
+        <div style="border-top: 1px solid #1f1d1a; padding-top: 16px; display: flex; flex-direction: column; gap: 6px">
+          <p style="margin: 0; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">{{d.when}}</p>
+          <h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">{{d.title}}</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 24px">{{d.text}}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section aria-label="Customer reviews" style="padding: 64px 8px 0">
+    <div style="height: 300px; border-radius: 16px; background: #6e6152"></div>
+    <div style="padding: 24px 8px 0; display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">In real homes</p>
+      <blockquote style="margin: 0; font-size: 22px; line-height: 1.4">“{{quote.text}}”</blockquote>
+      <p style="margin: 0; font-size: 14px; line-height: 20px"><span style="font-weight: 600">{{quote.who}}</span> <span style="color: #5f574e">· {{quote.bought}}</span></p>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 13px">
+        <button type="button" aria-label="Previous review" onClick="{{prevQuote}}" style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid #8a7f72; background: transparent; color: #1f1d1a">←</button>
+        <span style="font-variant-numeric: tabular-nums">{{quotePos}}</span>
+        <button type="button" aria-label="Next review" onClick="{{nextQuote}}" style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid #8a7f72; background: transparent; color: #1f1d1a">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer, linen card -->
+  <footer style="padding: 64px 8px 8px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <div style="border-radius: 16px; background: #e5ddd1; padding: 32px 20px 20px; flex: 1 0 auto; display: flex; flex-direction: column">
+      <p style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 44px; line-height: 0.92; font-weight: 600; text-transform: uppercase">Furnish slowly</p>
+      <p style="margin: 12px 0 16px; font-size: 14px; line-height: 22px; color: #5f574e">New pieces and sample sales. One email a month.</p>
+      <form style="display: flex; gap: 8px">
+        <label for="mm-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+        <input id="mm-email" type="email" placeholder="Email address" style="flex: 1; min-width: 0; min-height: 48px; border: 1px solid #8a7f72; border-radius: 8px; background: #efe9e0; padding: 0 14px; font-family: inherit; font-size: 15px; color: #1f1d1a">
+        <button type="button" style="min-height: 48px; padding: 0 18px; border: 0; border-radius: 8px; background: #1f1d1a; color: #efe9e0; font-family: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Sign up</button>
+      </form>
+      <div style="margin-top: 24px; border-top: 1px solid #d6ccbe">
+        <sc-for list="{{footerMenus}}" as="fm" hint-placeholder-count="3">
+          <div style="border-bottom: 1px solid #d6ccbe">
+            <button type="button" aria-expanded="{{fm.expanded}}" onClick="{{fm.toggle}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1f1d1a"><span>{{fm.title}}</span><span aria-hidden="true" style="font-size: 18px; font-weight: 400">{{fm.sign}}</span></button>
+            <sc-if value="{{fm.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0 0 16px; font-size: 14px; line-height: 28px; white-space: pre-line">{{fm.links}}</p></sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top: auto; padding-top: 32px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 18px; color: #5f574e">
+        <span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 24px; font-weight: 600; color: #1f1d1a">SOTTO</span>
+        <span>United States (USD $) · English</span>
+        <span>© 2026 Sotto · Powered by Shopify</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Menu drawer: rooms -->
+  <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+    <div role="dialog" aria-modal="true" aria-label="Menu" style="position: absolute; top: 0; left: 0; width: 390px; height: 844px; background: #efe9e0; display: flex; flex-direction: column; z-index: 10">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 4px 8px 16px">
+        <span style="font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 600; letter-spacing: 0.04em">SOTTO</span>
+        <button type="button" aria-label="Close menu" onClick="{{closeMenu}}" style="width: 44px; height: 44px; border: 0; background: transparent; color: #1f1d1a; font-size: 24px">×</button>
+      </div>
+      <div style="padding: 8px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+        <sc-for list="{{drawerRooms}}" as="dr" hint-placeholder-count="4">
+          <a href="#" style="height: 150px; border-radius: 16px; background: #6e6152; position: relative; text-decoration: none; color: #efe9e0"><span style="position: absolute; left: 14px; bottom: 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 600; text-transform: uppercase">{{dr}}</span></a>
+        </sc-for>
+      </div>
+      <nav aria-label="More" style="padding: 16px; display: flex; flex-direction: column; font-size: 16px; font-weight: 500">
+        <a href="#" style="text-decoration: none; padding: 12px 0; border-bottom: 1px solid #d6ccbe">Fabrics and samples</a><a href="#" style="text-decoration: none; padding: 12px 0; border-bottom: 1px solid #d6ccbe">Delivery and assembly</a><a href="#" style="text-decoration: none; padding: 12px 0; border-bottom: 1px solid #d6ccbe">Visit the showroom</a>
+      </nav>
+      <div style="margin-top: auto; padding: 16px; font-size: 12px; color: #5f574e">United States (USD $) · English</div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":6300}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { menu: false, chip: 0, spot: 0, q: 0, bag: 2, foot: -1 }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var labels = ['All', 'Sofas', 'Tables', 'Storage', 'Beds'];
+    var all = [
+      { name: 'Lune sofa', cat: 'Sofas', dims: 'W 220 × D 95 cm', price: '$2,890' },
+      { name: 'Plank dining table', cat: 'Tables', dims: 'W 200 × D 90 cm', price: '$2,150' },
+      { name: 'Arc sideboard', cat: 'Storage', dims: 'W 180 × D 45 cm', price: '$1,890' },
+      { name: 'Haven bed', cat: 'Beds', dims: 'Queen · W 170 cm', price: '$2,450' },
+      { name: 'Ode armchair', cat: 'Sofas', dims: 'W 78 × D 82 cm', price: '$1,290' }
+    ];
+    var pieces = st.chip === 0 ? all : all.filter(function (p) { return p.cat === labels[st.chip]; });
+    var spots = [
+      { name: 'Rest lounge chair', dims: 'W 76 × D 84 cm', price: '$1,450', x: 120, y: 240 },
+      { name: 'Mira side table', dims: 'Ø 45 × H 52 cm', price: '$420', x: 220, y: 280 },
+      { name: 'Arc sideboard', dims: 'W 180 × D 45 cm', price: '$1,890', x: 290, y: 150 }
+    ];
+    var quotes = [
+      { text: 'The sofa came up three flights of stairs and was in place within twenty minutes. It still looks new after two years with a dog.', who: 'Hannah R.', bought: 'Lune sofa, linen sand' },
+      { text: 'You can feel the weight of real oak. The team even took the old table away for us.', who: 'Marcus T.', bought: 'Plank dining table' }
+    ];
+    var fab = function (c) { return 'display: block; aspect-ratio: 1 / 1; border-radius: 8px; background: ' + c; };
+    var menus = [
+      { title: 'Shop by room', links: 'Living room\nBedroom\nDining\nWorkspace' },
+      { title: 'Help', links: 'Delivery and returns\nCare guides\nWarranty\nContact' },
+      { title: 'Showroom', links: '[SHOWROOM ADDRESS]\nOpen Thursday to Sunday\nPlan a visit' }
+    ];
+    var room = function (n, c, wide) { return { name: n, style: 'height: 200px; border-radius: 16px; background: ' + c + '; position: relative; text-decoration: none; color: #efe9e0' + (wide ? '; grid-column: 1 / -1; height: 160px' : '') }; };
+    return {
+      bagCount: st.bag,
+      menuOpen: st.menu, menuExpanded: st.menu ? 'true' : 'false',
+      openMenu: function () { self.setState({ menu: true }); },
+      closeMenu: function () { self.setState({ menu: false }); },
+      promises: [
+        { title: 'Solid oak', text: 'No veneers, no particle board.' },
+        { title: '10-year warranty', text: 'On every frame.' },
+        { title: 'Assembled for you', text: 'Packaging taken away.' },
+        { title: '30 nights at home', text: 'Free collection if not right.' }
+      ],
+      rooms: [room('Bedroom', '#5a4f42'), room('Dining', '#64584a'), room('Workspace', '#5f5346', true)],
+      chips: labels.map(function (l, i) {
+        var on = i === st.chip;
+        return { label: l, pressed: on ? 'true' : 'false', pick: function () { self.setState({ chip: i }); },
+          style: 'flex: none; min-height: 44px; padding: 0 16px; border-radius: 8px; font-family: inherit; font-size: 13px; font-weight: 500; border: 1px solid ' + (on ? '#1f1d1a' : '#8a7f72') + '; background: ' + (on ? '#1f1d1a' : 'transparent') + '; color: ' + (on ? '#efe9e0' : '#1f1d1a') };
+      }),
+      pieces: pieces,
+      spots: spots.map(function (s, i) {
+        var on = i === st.spot;
+        return { name: s.name, pressed: on ? 'true' : 'false', pick: function () { self.setState({ spot: i }); },
+          hotStyle: 'position: absolute; left: ' + s.x + 'px; top: ' + s.y + 'px; width: 44px; height: 44px; border-radius: 9999px; border: 0; font-size: 20px; background: ' + (on ? '#1f1d1a' : '#efe9e0') + '; color: ' + (on ? '#efe9e0' : '#1f1d1a') };
+      }),
+      active: spots[st.spot],
+      addActive: function () { self.setState({ bag: st.bag + 1 }); },
+      fabrics: [
+        { name: 'Bouclé ivory', style: fab('#e9e3d8') }, { name: 'Linen sand', style: fab('#cbb79b') }, { name: 'Velvet rust', style: fab('#8a4b2e') },
+        { name: 'Wool charcoal', style: fab('#4a4540') }, { name: 'Natural oak', style: fab('#c79a63') }, { name: 'Smoked oak', style: fab('#6e5038') }
+      ],
+      steps: [
+        { n: '01', title: 'Drawn to last', text: 'Simple forms that outlive trends.' },
+        { n: '02', title: 'Chosen by hand', text: 'Every board graded at the yard.' },
+        { n: '03', title: 'Joined, not screwed', text: 'Traditional joints, no brackets.' },
+        { n: '04', title: 'Checked twice', text: 'Inspected before and after finishing.' }
+      ],
+      delivery: [
+        { when: 'Weeks 1–6', title: 'Made to order', text: 'Built once you order, in the fabric and finish you chose.' },
+        { when: 'Week 7', title: 'Delivered to the room', text: 'A two-person team places it where you want it.' },
+        { when: 'Same visit', title: 'Assembled and cleared', text: 'We check it level and take every box away.' }
+      ],
+      quote: quotes[st.q], quotePos: (st.q + 1) + ' / ' + quotes.length,
+      prevQuote: function () { self.setState({ q: (st.q + quotes.length - 1) % quotes.length }); },
+      nextQuote: function () { self.setState({ q: (st.q + 1) % quotes.length }); },
+      drawerRooms: ['Living room', 'Bedroom', 'Dining', 'Workspace'],
+      footerMenus: menus.map(function (m, i) {
+        var open = st.foot === i;
+        return { title: m.title, links: m.links, open: open, expanded: open ? 'true' : 'false', sign: open ? '−' : '+', toggle: function () { self.setState({ foot: open ? -1 : i }); } };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

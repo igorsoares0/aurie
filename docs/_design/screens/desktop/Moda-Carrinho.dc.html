@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arvel — Bag</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#f8f5f0}
+a{color:#2a1f18}a:hover{color:#8a3f22}
+:focus-visible{outline:2px solid #2a1f18;outline-offset:2px}
+textarea::placeholder,input::placeholder{color:#6b5f55}
+</style>
+</helmet>
+<div style="background: #f8f5f0; color: #2a1f18; font-family: 'Work Sans', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; min-width: 0; min-height: 100vh; display: flex; flex-direction: column">
+
+  <div style="background: #2a1f18; color: #f3ede5; text-align: center; font-size: 12px; line-height: 16px; padding: 8px 16px">Free shipping and returns on all orders. <a href="#" style="color: #f3ede5; text-underline-offset: 3px">Find your fit</a></div>
+
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 16px 24px">
+    <nav aria-label="Main menu" style="flex: 1 1 280px">
+      <ul style="display: flex; flex-wrap: wrap; gap: 8px 24px; list-style: none; margin: 0; padding: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">New in</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Clothing</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Edits</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Fit guide</a></li>
+      </ul>
+    </nav>
+    <a href="#" style="font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: #2a1f18">Arvel</a>
+    <ul style="flex: 1 1 280px; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 24px; list-style: none; margin: 0; padding: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">
+      <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Search</a></li>
+      <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Account</a></li>
+      <li><a href="#" aria-current="page" style="text-decoration: underline; text-underline-offset: 4px; padding: 4px 0; display: inline-block">Bag ({{count}})</a></li>
+    </ul>
+  </header>
+
+  <section style="padding: 48px 24px 0">
+    <h1 style="margin: 0 0 24px; font-family: Cormorant, 'Times New Roman', serif; font-size: 44px; line-height: 1.05; font-weight: 400">Your bag <span style="font-family: 'Work Sans', sans-serif; font-size: 13px; color: #6b5f55; vertical-align: middle; margin-left: 8px">{{countLabel}}</span></h1>
+
+    <sc-if value="{{hasItems}}" hint-placeholder-val="{{true}}">
+      <div style="display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: flex-start">
+        <div style="flex: 999 1 560px; min-width: 0">
+          <sc-if value="{{twoSizes}}" hint-placeholder-val="{{true}}">
+            <div role="status" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding: 14px 16px; background: #ece7e0; margin-bottom: 16px; font-size: 13px; line-height: 20px">
+              <span>You have the Trinelle wool coat in two sizes. Not sure which one fits?</span>
+              <a href="#" style="font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-underline-offset: 4px">See size guide</a>
+            </div>
+          </sc-if>
+          <ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid #d9d1c7">
+            <sc-for list="{{lines}}" as="l" hint-placeholder-count="3">
+              <li style="display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid #d9d1c7">
+                <div style="flex: none; width: 120px; aspect-ratio: 3 / 4; background: #ece7e0; position: relative"><span style="position: absolute; left: 6px; bottom: 6px; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Image</span></div>
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+                  <div style="display: flex; justify-content: space-between; gap: 16px; font-size: 14px; line-height: 20px">
+                    <a href="#" style="text-decoration: none">{{l.title}}</a>
+                    <span style="white-space: nowrap">{{l.total}}</span>
+                  </div>
+                  <span style="font-size: 12px; line-height: 18px; color: #6b5f55">{{l.options}}</span>
+                  <span style="font-size: 12px; line-height: 18px; color: #6b5f55">{{l.unit}} each</span>
+                  <div style="margin-top: auto; display: flex; align-items: center; gap: 16px">
+                    <div role="group" aria-label="Quantity, {{l.title}}" style="display: flex; align-items: center; border: 1px solid #8c7f73">
+                      <button type="button" aria-label="Decrease quantity" onClick="{{l.dec}}" style="width: 36px; height: 36px; border: 0; background: transparent; color: #2a1f18; font-size: 16px; cursor: pointer">−</button>
+                      <span style="min-width: 24px; text-align: center; font-size: 13px">{{l.qty}}</span>
+                      <button type="button" aria-label="Increase quantity" onClick="{{l.inc}}" style="width: 36px; height: 36px; border: 0; background: transparent; color: #2a1f18; font-size: 16px; cursor: pointer">+</button>
+                    </div>
+                    <button type="button" onClick="{{l.remove}}" style="min-height: 24px; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 12px; color: #2a1f18; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Remove</button>
+                  </div>
+                </div>
+              </li>
+            </sc-for>
+          </ul>
+          <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 8px; max-width: 520px">
+            <label for="cart-note" style="font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Order note</label>
+            <textarea id="cart-note" rows="3" placeholder="Gift message, delivery instructions…" style="border: 1px solid #8c7f73; border-radius: 0; background: transparent; padding: 12px; font-family: inherit; font-size: 13px; line-height: 20px; color: #2a1f18; resize: vertical"></textarea>
+          </div>
+        </div>
+
+        <aside aria-label="Order summary" style="flex: 1 1 340px; max-width: 400px; background: #ece7e0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+          <h2 style="margin: 0 0 4px; font-family: Cormorant, 'Times New Roman', serif; font-size: 28px; line-height: 1.1; font-weight: 400">Summary</h2>
+          <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 20px"><span>Subtotal</span><span>{{subtotal}}</span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 20px; color: #8a3f22"><span>Members get 10% off (automatic)</span><span>−{{discount}}</span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px; line-height: 20px"><span>Shipping</span><span>Free</span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 15px; line-height: 24px; font-weight: 500; border-top: 1px solid #d9d1c7; padding-top: 14px"><span>Total</span><span>{{total}}</span></div>
+          <p style="margin: 0; font-size: 12px; line-height: 18px; color: #6b5f55">Taxes included. Discount codes are added at checkout.</p>
+          <a href="#" style="min-height: 48px; display: flex; align-items: center; justify-content: center; background: #2a1f18; color: #f8f5f0; text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Check out</a>
+          <div style="height: 48px; background: #f8f5f0; display: flex; align-items: center; justify-content: center; font-size: 12px; line-height: 16px; color: #6b5f55">Accelerated checkout — rendered by Shopify</div>
+        </aside>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+      <div style="padding: 96px 24px; background: #ece7e0; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+        <h2 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1.1; font-weight: 400">Your bag is empty</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 24px">The fall edit is a good place to start.</p>
+        <a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 24px; background: #2a1f18; color: #f8f5f0; text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Continue shopping</a>
+      </div>
+    </sc-if>
+  </section>
+
+  <footer style="padding: 96px 24px 24px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <div style="display: flex; flex-wrap: wrap; gap: 32px">
+      <div style="flex: 2 1 320px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Join our world</h2>
+        <p style="margin: 0 0 16px; font-size: 13px; line-height: 20px">New collections and edits, once a month.</p>
+        <form style="display: flex; border-bottom: 1px solid #8c7f73; max-width: 360px">
+          <label for="news-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+          <input id="news-email" type="email" placeholder="Email" style="flex: 1; min-width: 0; border: 0; background: transparent; padding: 8px 0; font-family: inherit; font-size: 13px; line-height: 20px; color: #2a1f18">
+          <button type="button" style="min-height: 44px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Sign up</button>
+        </form>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Help</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 20px"><li><a href="#" style="text-decoration: none">Shipping and returns</a></li><li><a href="#" style="text-decoration: none">Size guide</a></li><li><a href="#" style="text-decoration: none">Contact</a></li></ul>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Arvel</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 20px"><li><a href="#" style="text-decoration: none">Our story</a></li><li><a href="#" style="text-decoration: none">Journal</a></li><li><a href="#" style="text-decoration: none">Stores</a></li></ul>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Social media</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 20px"><li><a href="#" style="text-decoration: none">Instagram</a></li><li><a href="#" style="text-decoration: none">Pinterest</a></li><li><a href="#" style="text-decoration: none">TikTok</a></li></ul>
+      </div>
+    </div>
+    <p aria-hidden="true" style="margin: auto 0 16px; padding-top: 96px; font-family: Cormorant, 'Times New Roman', serif; font-size: clamp(72px, 17vw, 260px); line-height: 0.85; font-weight: 400; letter-spacing: -0.02em; text-align: center; text-transform: uppercase">Arvel</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 12px; line-height: 16px; color: #6b5f55">
+      <span>United States (USD $) · English</span>
+      <span>© 2026 Arvel · Powered by Shopify</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1620}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { lines: [
+      { id: 'a', title: 'Trinelle wool coat', options: 'Color: Camel · Size: S', unit: 640, qty: 1, coat: true },
+      { id: 'b', title: 'Trinelle wool coat', options: 'Color: Camel · Size: M', unit: 640, qty: 1, coat: true },
+      { id: 'c', title: 'Rowani knit', options: 'Color: Espresso · Size: M', unit: 280, qty: 1 }
+    ] };
+  }
+  renderVals() {
+    var self = this;
+    var lines = this.state.lines;
+    var money = function (n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
+    var update = function (id, fn) { self.setState({ lines: lines.map(function (l) { return l.id === id ? fn(l) : l; }).filter(function (l) { return l.qty > 0; }) }); };
+    var subtotal = lines.reduce(function (s, l) { return s + l.unit * l.qty; }, 0);
+    var discount = Math.round(subtotal * 0.1 * 100) / 100;
+    var count = lines.reduce(function (s, l) { return s + l.qty; }, 0);
+    return {
+      count: count,
+      countLabel: count + (count === 1 ? ' item' : ' items'),
+      hasItems: lines.length > 0,
+      empty: lines.length === 0,
+      twoSizes: lines.filter(function (l) { return l.coat; }).length > 1,
+      lines: lines.map(function (l) {
+        return { title: l.title, options: l.options, unit: money(l.unit), total: money(l.unit * l.qty), qty: l.qty,
+          dec: function () { update(l.id, function (x) { return Object.assign({}, x, { qty: x.qty - 1 }); }); },
+          inc: function () { update(l.id, function (x) { return Object.assign({}, x, { qty: x.qty + 1 }); }); },
+          remove: function () { update(l.id, function (x) { return Object.assign({}, x, { qty: 0 }); }); } };
+      }),
+      subtotal: money(subtotal),
+      discount: money(discount),
+      total: money(subtotal - discount)
+    };
+  }
+}
+</script>
+</body>
+</html>

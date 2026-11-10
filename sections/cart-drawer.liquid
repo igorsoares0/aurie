@@ -1,0 +1,166 @@
+{%- assign form_id = 'CartDrawerForm' -%}
+
+<cart-items class="cart-drawer" data-sections="cart-drawer">
+  <dialog class="drawer cart-drawer__dialog color-{{ section.settings.color_scheme }}" id="CartDrawer" aria-labelledby="CartDrawerTitle" scroll-lock>
+    <div class="cart-drawer__content" data-cart-content data-cart-count-value="{{ cart.item_count }}">
+      <div class="drawer__header">
+        <h2 class="drawer__title" id="CartDrawerTitle">
+          {{- 'cart.title' | t }}
+          {%- if cart.item_count > 0 %} <span class="text-small text-muted">({{ cart.item_count }})</span>{% endif -%}
+        </h2>
+        <button class="button-unstyled" type="button" data-dialog-close>
+          {% render 'icon', name: 'close' %}
+          <span class="visually-hidden">{{ 'accessibility.close' | t }}</span>
+        </button>
+      </div>
+
+      {%- if cart.item_count > 0 -%}
+        <div class="cart-drawer__body">
+          <form action="{{ routes.cart_url }}" method="post" id="{{ form_id }}" novalidate>
+            {% render 'cart-items', form_id: form_id, context: 'drawer' %}
+          </form>
+
+          {%- if settings.cart_note -%}
+            <details class="cart-drawer__note">
+              <summary class="cart-drawer__note-summary label">
+                {{- section.settings.note_label -}}
+                {% render 'icon', name: 'caret' %}
+              </summary>
+              <label class="visually-hidden" for="CartDrawerNote">{{ section.settings.note_label }}</label>
+              <textarea
+                class="field cart-drawer__note-field"
+                id="CartDrawerNote"
+                name="note"
+                form="{{ form_id }}"
+                rows="3"
+                placeholder="{{ section.settings.note_placeholder | escape }}"
+                data-cart-note
+              >{{ cart.note }}</textarea>
+            </details>
+          {%- endif -%}
+        </div>
+
+        <div class="cart-drawer__footer">
+          {% render 'cart-summary', form_id: form_id, context: 'drawer' %}
+          <a class="cart-drawer__view text-small" href="{{ routes.cart_url }}">{{ 'cart.view_cart' | t }}</a>
+        </div>
+      {%- else -%}
+        <div class="cart-drawer__empty">
+          <p class="h3">{{ 'cart.empty' | t }}</p>
+          <a class="button" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue_shopping' | t }}</a>
+        </div>
+      {%- endif -%}
+    </div>
+  </dialog>
+</cart-items>
+
+{% stylesheet %}
+  .cart-drawer__dialog {
+    width: min(480px, 100%);
+  }
+
+  .cart-drawer__dialog[open] {
+    display: flex;
+  }
+
+  .cart-drawer__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .cart-drawer__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 24px 24px;
+  }
+
+  .cart-drawer__body .cart-items {
+    border-top: 0;
+  }
+
+  .cart-drawer__note-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--touch-target);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .cart-drawer__note-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .cart-drawer__note-summary .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .cart-drawer__note[open] .cart-drawer__note-summary .icon {
+    transform: rotate(180deg);
+  }
+
+  .cart-drawer__note-field {
+    padding-block: 12px;
+    resize: vertical;
+  }
+
+  .cart-drawer__footer {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 24px 24px;
+    border-top: 1px solid var(--color-divider);
+    background-color: var(--color-background);
+  }
+
+  .cart-drawer__view {
+    align-self: center;
+    padding-block: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .cart-drawer__empty {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 48px 24px;
+    text-align: center;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.cart_drawer.name",
+  "class": "section-cart-drawer",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "note_label",
+      "label": "t:sections.main_cart.note_label",
+      "default": "Order note"
+    },
+    {
+      "type": "text",
+      "id": "note_placeholder",
+      "label": "t:sections.main_cart.note_placeholder",
+      "default": "Gift message, delivery instructions"
+    }
+  ]
+}
+{% endschema %}

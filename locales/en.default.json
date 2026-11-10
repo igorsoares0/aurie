@@ -1,0 +1,286 @@
+{
+  "blog": {
+    "article_comments": "Comments",
+    "article_metadata_html": "{{ date }} by {{ author }}",
+    "comment_form_body": "Comment",
+    "comment_form_email": "Email",
+    "comment_form_name": "Name",
+    "comment_form_submit": "Post",
+    "comment_form_title": "Add a comment",
+    "filter_by_tag": "Filter articles by tag",
+    "all": "All",
+    "empty": "There are no articles here yet.",
+    "tags": "Tags",
+    "back_to": "Back to {{ title }}",
+    "comments_count": {
+      "zero": "No comments",
+      "one": "{{ count }} comment",
+      "other": "{{ count }} comments"
+    },
+    "comment_moderated": "Thanks for your comment. It will appear once it's approved.",
+    "comment_posted": "Thanks for your comment.",
+    "moderated_notice": "Comments are reviewed before they're published."
+  },
+  "cart": {
+    "checkout": "Check out",
+    "title": "Your bag",
+    "update": "Update",
+    "remove": "Remove",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "empty": "Your bag is empty",
+    "continue_shopping": "Continue shopping",
+    "summary": "Summary",
+    "total": "Total",
+    "each": "{{ price }} each",
+    "quantity_for": "Quantity for {{ title }}",
+    "item_count": {
+      "one": "{{ count }} item",
+      "other": "{{ count }} items"
+    },
+    "taxes_at_checkout": "Taxes calculated at checkout.",
+    "shipping_and_codes_at_checkout": "Shipping and discount codes are added at checkout.",
+    "size_reminder": "You have the {{ product }} in two sizes. Not sure which one fits?",
+    "size_reminder_link": "See size guide",
+    "view_cart": "View bag",
+    "yes": "Yes"
+  },
+  "customers": {
+    "login": {
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "title": "Login"
+    }
+  },
+  "collections": {
+    "title": "Collections"
+  },
+  "gift_card": {
+    "add_to_apple_wallet": "Add to Apple Wallet",
+    "card": "Gift card",
+    "expired": "This gift card has expired",
+    "expires_on": "Expires on {{ expires_on }}",
+    "use_at_checkout": "Use this gift card at checkout",
+    "title": "Your {{ value }} gift card",
+    "balance": "Balance",
+    "copy_code": "Copy code",
+    "copied": "Copied",
+    "qr_label": "QR code for the gift card",
+    "print": "Print",
+    "shop_link": "Start shopping"
+  },
+  "password": {
+    "title": "This shop is private",
+    "password": "Password",
+    "enter": "Enter",
+    "newsletter_label": "Be the first to know when we open",
+    "enter_using_password": "Enter using password"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search products, pages or articles",
+    "submit": "Search",
+    "no_results_html": "No results for “{{ terms }}”",
+    "results_for_html": {
+      "one": "{{ count }} result for “{{ terms }}”",
+      "other": "{{ count }} results for “{{ terms }}”"
+    },
+    "suggestions": "Suggestions",
+    "products": "Products",
+    "pages_and_collections": "Pages and collections",
+    "search_for": "Search for “{{ terms }}”",
+    "results_count": {
+      "zero": "No results",
+      "one": "{{ count }} result",
+      "other": "{{ count }} results"
+    },
+    "types": {
+      "article": "Article",
+      "page": "Page"
+    },
+    "empty_title": "No results found",
+    "empty_text": "Check the spelling or try a different word."
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "close": "Close"
+  },
+  "general": {
+    "meta": {
+      "tagged": "tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    }
+  },
+  "header": {
+    "menu": "Menu",
+    "main_menu": "Main menu",
+    "search": "Search",
+    "account": "Account",
+    "find_a_store": "Find a store",
+    "bag_count_html": "Bag ({{ count }})"
+  },
+  "localization": {
+    "country_label": "Country/region",
+    "language_label": "Language",
+    "update": "Update"
+  },
+  "newsletter": {
+    "email_label": "Email",
+    "email_placeholder": "Email address",
+    "submit": "Sign up",
+    "success": "Thanks for signing up."
+  },
+  "social": {
+    "instagram": "Instagram",
+    "pinterest": "Pinterest",
+    "tiktok": "TikTok",
+    "facebook": "Facebook",
+    "youtube": "YouTube",
+    "x": "X"
+  },
+  "footer": {
+    "payment_methods": "Payment methods"
+  },
+  "sections": {
+    "announcement_bar": {
+      "label": "Announcements"
+    },
+    "collection_list": {
+      "placeholder_title": "Collection title"
+    },
+    "featured_collection": {
+      "placeholder": "Product title"
+    },
+    "blog_posts": {
+      "placeholder": "Article title"
+    },
+    "testimonials": {
+      "label": "Customer reviews",
+      "slide": "{{ number }} of {{ total }}",
+      "previous": "Previous review",
+      "next": "Next review"
+    },
+    "shoppable_image": {
+      "placeholder_product": "Product",
+      "add_item": "Add {{ title }} to bag",
+      "variant_for": "Option for {{ title }}",
+      "total": {
+        "one": "Total ({{ count }} item)",
+        "other": "Total ({{ count }} items)"
+      },
+      "add_look": "Add the look to bag"
+    },
+    "slideshow": {
+      "previous": "Previous slide",
+      "next": "Next slide",
+      "pause": "Pause slideshow"
+    },
+    "video": {
+      "play": "Play video: {{ description }}"
+    },
+    "featured_product": {
+      "view_details": "View full details"
+    },
+    "size_guide": {
+      "empty": "Choose a page with your size table in the theme editor."
+    },
+    "product_comparison": {
+      "price": "Price"
+    }
+  },
+  "product": {
+    "add_to_cart": "Add to bag",
+    "unavailable": "Unavailable",
+    "variant": "Variant",
+    "quantity": {
+      "label": "Quantity",
+      "decrease": "Decrease quantity",
+      "increase": "Increase quantity"
+    },
+    "breadcrumb": "Breadcrumb",
+    "home": "Home",
+    "media": {
+      "gallery": "Product media",
+      "choose": "Choose media",
+      "show_item": "Show media {{ number }} of {{ total }}"
+    },
+    "price": {
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "from": "From {{ price }}",
+      "sold_out": "Sold out",
+      "sale": "Sale",
+      "unit_price": "Unit price",
+      "per": "per",
+      "taxes_included": "Taxes included.",
+      "duties_included": "Duties included.",
+      "duties_and_taxes_included": "Duties and taxes included.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
+      "shipping_at_checkout": "Shipping calculated at checkout."
+    },
+    "selling_plans": {
+      "title": "Purchase options",
+      "one_time": "One-time purchase"
+    },
+    "gift_card_recipient": {
+      "toggle": "Send as a gift to someone",
+      "email": "Recipient email",
+      "name": "Recipient name (optional)",
+      "message": "Message (optional)",
+      "send_on": "Send on (optional)"
+    },
+    "pickup": {
+      "available_html": "Pickup available at <strong>{{ location }}</strong>. Usually ready in {{ time }}.",
+      "unavailable_html": "Pickup currently unavailable at <strong>{{ location }}</strong>.",
+      "check_other_stores": "Check availability at other stores",
+      "view_store": "View store information",
+      "ready_in": "Pickup available, usually ready in {{ time }}",
+      "not_available": "Pickup currently unavailable"
+    },
+    "engraving": {
+      "count_html": "{{ count }} of {{ max }} characters."
+    },
+    "card": {
+      "available_sizes": "Available sizes"
+    }
+  },
+  "facets": {
+    "filter": "Filter",
+    "sort": "Sort",
+    "from": "From",
+    "to": "To",
+    "clear_all": "Clear all",
+    "clear_filters": "Clear filters",
+    "show_results": "Show results",
+    "remove": "Remove filter",
+    "product_count": {
+      "one": "{{ count }} product",
+      "other": "{{ count }} products"
+    },
+    "showing": "Showing {{ shown }} of {{ total }}",
+    "load_more": "Load more",
+    "empty_filtered_title": "Nothing matches these filters",
+    "empty_filtered_text": "Try other options, or clear the filters to see the whole collection.",
+    "empty_title": "This collection is empty",
+    "empty_text": "New products are on their way. Browse the rest of the store in the meantime."
+  },
+  "pagination": {
+    "label": "Pagination",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page"
+  },
+  "not_found": {
+    "title": "Page not found",
+    "text": "The page you were looking for doesn't exist or has moved. Try a search, or keep browsing."
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone number",
+    "message": "Message",
+    "submit": "Send",
+    "success": "Thanks for getting in touch. We'll reply as soon as we can."
+  }
+}

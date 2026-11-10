@@ -1,0 +1,157 @@
+{%- liquid
+  assign product_id = product.id
+  assign card_sizes = '(min-width: 990px) calc((100vw - 120px) / 4), (min-width: 750px) calc((100vw - 64px) / 3), 70vw'
+-%}
+
+<product-recommendations
+  class="product-recommendations color-{{ section.settings.color_scheme }}"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product_id }}&limit={{ section.settings.products_to_show }}&intent={{ section.settings.intent }}"
+>
+  {%- if recommendations.performed and recommendations.products_count > 0 -%}
+    <div class="product-recommendations__inner page-width section-spacing">
+      <div class="product-recommendations__head">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="product-recommendations__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+      <ul class="product-recommendations__list" role="list">
+        {%- for recommendation in recommendations.products -%}
+          <li class="product-recommendations__item">
+            {% render 'product-card', product: recommendation, sizes: card_sizes %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
+</product-recommendations>
+
+{% stylesheet %}
+  .product-recommendations {
+    display: block;
+  }
+
+  .product-recommendations:empty {
+    display: none;
+  }
+
+  .product-recommendations__inner {
+    padding-top: 0;
+  }
+
+  .product-recommendations__head {
+    margin-bottom: 24px;
+  }
+
+  .product-recommendations__list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(min(70vw, 300px), 1fr);
+    gap: var(--grid-gap);
+    margin: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+  }
+
+  .product-recommendations__item {
+    scroll-snap-align: start;
+  }
+
+  @media screen and (min-width: 990px) {
+    .product-recommendations__list {
+      grid-auto-columns: minmax(240px, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('product-recommendations')) {
+    customElements.define(
+      'product-recommendations',
+      class ProductRecommendations extends HTMLElement {
+        connectedCallback() {
+          if (this.querySelector('.product-recommendations__list')) return;
+          this.observer = new IntersectionObserver(
+            (entries) => {
+              if (!entries[0].isIntersecting) return;
+              this.observer.disconnect();
+              this.load();
+            },
+            { rootMargin: '0px 0px 400px 0px' }
+          );
+          this.observer.observe(this);
+        }
+
+        disconnectedCallback() {
+          this.observer?.disconnect();
+        }
+
+        async load() {
+          try {
+            const response = await fetch(this.dataset.url);
+            const html = new DOMParser().parseFromString(await response.text(), 'text/html');
+            const next = html.querySelector('product-recommendations');
+            if (next?.innerHTML.trim()) this.innerHTML = next.innerHTML;
+          } catch (error) {
+            console.error(error);
+          }
+        }
+      }
+    );
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.product_recommendations.name",
+  "class": "section-product-recommendations",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "You may also like"
+    },
+    {
+      "type": "select",
+      "id": "intent",
+      "label": "t:sections.product_recommendations.intent",
+      "info": "t:sections.product_recommendations.intent_info",
+      "options": [
+        {
+          "value": "related",
+          "label": "t:sections.product_recommendations.intent_related"
+        },
+        {
+          "value": "complementary",
+          "label": "t:sections.product_recommendations.intent_complementary"
+        }
+      ],
+      "default": "related"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "t:sections.product_recommendations.products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product_recommendations.name"
+    }
+  ]
+}
+{% endschema %}

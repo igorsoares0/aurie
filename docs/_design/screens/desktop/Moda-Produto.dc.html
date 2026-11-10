@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arvel — Trinelle wool coat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#f8f5f0}
+a{color:#2a1f18}a:hover{color:#8a3f22}
+:focus-visible{outline:2px solid #2a1f18;outline-offset:2px}
+input::placeholder{color:#6b5f55}
+</style>
+</helmet>
+<div style="background: #f8f5f0; color: #2a1f18; font-family: 'Work Sans', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; min-width: 0; min-height: 100vh; display: flex; flex-direction: column">
+
+  <!-- Announcement bar -->
+  <div style="background: #2a1f18; color: #f3ede5; text-align: center; font-size: 12px; line-height: 16px; padding: 8px 16px">Free shipping and returns on all orders. <a href="#" style="color: #f3ede5; text-underline-offset: 3px">Find your fit</a></div>
+
+  <!-- Header -->
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 16px 24px">
+    <nav aria-label="Main menu" style="flex: 1 1 280px">
+      <ul style="display: flex; flex-wrap: wrap; gap: 8px 24px; list-style: none; margin: 0; padding: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">New in</a></li>
+        <li><a href="#" style="text-decoration: underline; text-underline-offset: 4px; padding: 4px 0; display: inline-block">Clothing</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Edits</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Fit guide</a></li>
+      </ul>
+    </nav>
+    <a href="#" style="font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: #2a1f18">Arvel</a>
+    <ul style="flex: 1 1 280px; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 24px; list-style: none; margin: 0; padding: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">
+      <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Search</a></li>
+      <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Account</a></li>
+      <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Bag ({{bagCount}})</a></li>
+    </ul>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" style="padding: 16px 24px; font-size: 12px; line-height: 16px; color: #6b5f55">
+    <a href="#" style="color: #6b5f55; text-decoration: none">Home</a> <span aria-hidden="true">/</span> <a href="#" style="color: #6b5f55; text-decoration: none">Outerwear</a> <span aria-hidden="true">/</span> <span aria-current="page" style="color: #2a1f18">Trinelle wool coat</span>
+  </nav>
+
+  <!-- Product -->
+  <section style="padding: 0 24px; display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: flex-start">
+
+    <!-- Gallery: 2x2, follows the selected color -->
+    <div aria-label="Product media" style="flex: 999 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px">
+      <sc-for list="{{media}}" as="m" hint-placeholder-count="4">
+        <div style="aspect-ratio: 3 / 4; background: #ece7e0; position: relative">
+          <span style="position: absolute; left: 8px; bottom: 8px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">{{m.label}}</span>
+          <sc-if value="{{m.isVideo}}" hint-placeholder-val="{{false}}"><span aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 9999px; background: #f8f5f0; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="#2a1f18"><path d="M8 5v14l11-7z"></path></svg></span></sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- Buy box -->
+    <form style="flex: 1 1 360px; max-width: 420px; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <p style="margin: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Outerwear</p>
+        <h1 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 44px; line-height: 1.05; font-weight: 400">Trinelle wool coat</h1>
+        <p style="margin: 4px 0 0; font-size: 15px; line-height: 24px">$640 <span style="font-size: 12px; color: #6b5f55">Taxes included.</span></p>
+        <p style="margin: 0; font-size: 12px; line-height: 16px; color: #6b5f55">Pay in 4 interest-free installments of $160 with Shop Pay. <a href="#" style="color: #6b5f55; text-underline-offset: 3px">Learn more</a></p>
+      </div>
+
+      <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+        <legend style="padding: 0; margin-bottom: 12px; font-size: 13px; line-height: 20px">Color — {{colorName}}</legend>
+        <div style="display: flex; gap: 8px">
+          <sc-for list="{{colors}}" as="c" hint-placeholder-count="3">
+            <button type="button" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><span style="{{c.dot}}"></span></button>
+          </sc-for>
+        </div>
+      </fieldset>
+
+      <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline">
+          <legend style="padding: 0; font-size: 13px; line-height: 20px; float: left">Size — {{sizeName}}</legend>
+          <button type="button" onClick="{{openGuide}}" style="min-height: 24px; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 13px; line-height: 20px; color: #2a1f18; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Size guide</button>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px">
+          <sc-for list="{{sizes}}" as="s" hint-placeholder-count="5">
+            <button type="button" aria-pressed="{{s.pressed}}" aria-disabled="{{s.disabled}}" aria-label="{{s.aria}}" onClick="{{s.pick}}" style="{{s.style}}">{{s.label}}</button>
+          </sc-for>
+        </div>
+        <p style="margin: 0; padding: 12px 16px; background: #ece7e0; font-size: 13px; line-height: 20px">Model is 177 cm and wears S. Relaxed through the body — size down for a closer cut.</p>
+      </fieldset>
+
+      <div style="display: flex; gap: 8px; align-items: stretch">
+        <div role="group" aria-label="Quantity" style="display: flex; align-items: center; border: 1px solid #8c7f73">
+          <button type="button" aria-label="Decrease quantity" onClick="{{dec}}" style="width: 44px; height: 46px; border: 0; background: transparent; color: #2a1f18; font-size: 18px; cursor: pointer">−</button>
+          <span aria-live="polite" style="min-width: 28px; text-align: center; font-size: 14px">{{qty}}</span>
+          <button type="button" aria-label="Increase quantity" onClick="{{inc}}" style="width: 44px; height: 46px; border: 0; background: transparent; color: #2a1f18; font-size: 18px; cursor: pointer">+</button>
+        </div>
+        <button type="button" onClick="{{add}}" style="{{addStyle}}">{{addLabel}}</button>
+      </div>
+      <div style="height: 48px; background: #ece7e0; display: flex; align-items: center; justify-content: center; font-size: 12px; line-height: 16px; color: #6b5f55; margin-top: -16px">Accelerated checkout — rendered by Shopify</div>
+
+      <div style="display: flex; gap: 10px; align-items: baseline; font-size: 13px; line-height: 20px">
+        <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 9999px; background: #2f5d3a; flex: none; transform: translateY(-1px)"></span>
+        <span>Pickup available at <strong style="font-weight: 500">Arvel Studio</strong>. Usually ready in 2 hours. <a href="#" style="text-underline-offset: 3px">Check other stores</a></span>
+      </div>
+
+      <div style="border-top: 1px solid #d9d1c7">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+          <div style="border-bottom: 1px solid #d9d1c7">
+            <button type="button" aria-expanded="{{t.expanded}}" onClick="{{t.toggle}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #2a1f18; cursor: pointer"><span>{{t.title}}</span><span aria-hidden="true" style="font-size: 18px; font-weight: 400">{{t.sign}}</span></button>
+            <sc-if value="{{t.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0 0 16px; font-size: 14px; line-height: 22px; white-space: pre-line">{{t.body}}</p></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </form>
+  </section>
+
+  <!-- Complete the look (complementary) -->
+  <section style="padding: 96px 24px 0">
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 24px">
+      <h2 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1.1; font-weight: 400">Complete the look</h2>
+      <a href="#" style="font-size: 13px; line-height: 20px; text-underline-offset: 3px">Add the full look</a>
+    </div>
+    <div style="display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 4px; overflow-x: auto">
+      <sc-for list="{{pairs}}" as="p" hint-placeholder-count="4">
+        <a href="#" style="display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #2a1f18">
+          <div style="aspect-ratio: 3 / 4; background: #ece7e0; position: relative"><span style="position: absolute; left: 8px; bottom: 8px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Product image, 3:4</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 0 8px 8px">
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; line-height: 20px"><span>{{p.name}}</span><span style="white-space: nowrap">{{p.price}}</span></div>
+            <div style="font-size: 12px; line-height: 16px; color: #6b5f55">{{p.note}}</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- You may also like (related) -->
+  <section style="padding: 96px 24px 0">
+    <h2 style="margin: 0 0 24px; font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1.1; font-weight: 400">You may also like</h2>
+    <div style="display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 4px; overflow-x: auto">
+      <sc-for list="{{related}}" as="p" hint-placeholder-count="4">
+        <a href="#" style="display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #2a1f18">
+          <div style="aspect-ratio: 3 / 4; background: #ece7e0; position: relative"><span style="position: absolute; left: 8px; bottom: 8px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Product image, 3:4</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 0 8px 8px">
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; line-height: 20px"><span>{{p.name}}</span><span style="white-space: nowrap">{{p.price}}</span></div>
+            <div style="font-size: 12px; line-height: 16px">{{p.sizes}}</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 96px 24px 24px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <div style="display: flex; flex-wrap: wrap; gap: 32px">
+      <div style="flex: 2 1 320px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Join our world</h2>
+        <p style="margin: 0 0 16px; font-size: 13px; line-height: 20px">New collections and edits, once a month.</p>
+        <form style="display: flex; border-bottom: 1px solid #8c7f73; max-width: 360px">
+          <label for="news-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+          <input id="news-email" type="email" placeholder="Email" style="flex: 1; min-width: 0; border: 0; background: transparent; padding: 8px 0; font-family: inherit; font-size: 13px; line-height: 20px; color: #2a1f18">
+          <button type="button" style="min-height: 44px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Sign up</button>
+        </form>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Help</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 20px">
+          <li><a href="#" style="text-decoration: none">Shipping and returns</a></li><li><a href="#" style="text-decoration: none">Size guide</a></li><li><a href="#" style="text-decoration: none">Contact</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Arvel</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 20px">
+          <li><a href="#" style="text-decoration: none">Our story</a></li><li><a href="#" style="text-decoration: none">Journal</a></li><li><a href="#" style="text-decoration: none">Stores</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Social media</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 20px">
+          <li><a href="#" style="text-decoration: none">Instagram</a></li><li><a href="#" style="text-decoration: none">Pinterest</a></li><li><a href="#" style="text-decoration: none">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <p aria-hidden="true" style="margin: auto 0 16px; padding-top: 96px; font-family: Cormorant, 'Times New Roman', serif; font-size: clamp(72px, 17vw, 260px); line-height: 0.85; font-weight: 400; letter-spacing: -0.02em; text-align: center; text-transform: uppercase">Arvel</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 12px; line-height: 16px; color: #6b5f55">
+      <span>United States (USD $) · English</span>
+      <span>© 2026 Arvel · Powered by Shopify</span>
+    </div>
+  </footer>
+
+  <!-- Size guide drawer -->
+  <sc-if value="{{guideOpen}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; background: rgba(42, 31, 24, 0.4); display: flex; justify-content: flex-end; z-index: 10">
+      <div role="dialog" aria-modal="true" aria-label="Size guide" style="width: 440px; max-width: 100%; height: 100%; overflow-y: auto; box-sizing: border-box; background: #f8f5f0; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+        <div style="display: flex; justify-content: space-between; align-items: center">
+          <h2 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1.1; font-weight: 400">Size guide</h2>
+          <button type="button" aria-label="Close size guide" onClick="{{closeGuide}}" style="width: 44px; height: 44px; border: 0; background: transparent; color: #2a1f18; font-size: 22px; cursor: pointer">×</button>
+        </div>
+        <p style="margin: 0; font-size: 14px; line-height: 22px">Body measurements in centimeters. Between two sizes? Take the smaller for a closer fit.</p>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px; line-height: 20px; font-variant-numeric: tabular-nums">
+          <thead><tr style="text-align: left; border-bottom: 1px solid #8c7f73"><th scope="col" style="padding: 8px 0; font-weight: 500">Size</th><th scope="col" style="padding: 8px 0; font-weight: 500">Bust</th><th scope="col" style="padding: 8px 0; font-weight: 500">Waist</th><th scope="col" style="padding: 8px 0; font-weight: 500">Hips</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400; text-align: left">XS</th><td>80–84</td><td>62–66</td><td>88–92</td></tr>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400; text-align: left">S</th><td>85–89</td><td>67–71</td><td>93–97</td></tr>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400; text-align: left">M</th><td>90–94</td><td>72–76</td><td>98–102</td></tr>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400; text-align: left">L</th><td>95–100</td><td>77–82</td><td>103–108</td></tr>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400; text-align: left">XL</th><td>101–106</td><td>83–88</td><td>109–114</td></tr>
+          </tbody>
+        </table>
+        <p style="margin: 0; padding: 12px 16px; background: #ece7e0; font-size: 13px; line-height: 20px">This coat: length 112 cm in size S, measured from the shoulder.</p>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3340}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { color: 0, size: 1, qty: 1, tab: 0, guide: false, added: false };
+  }
+  renderVals() {
+    var self = this;
+    var st = this.state;
+    var COLORS = [
+      { name: 'Camel', hex: '#a47a52', soldOut: ['XS'] },
+      { name: 'Espresso', hex: '#3a2a20', soldOut: [] },
+      { name: 'Ecru', hex: '#ddd1bf', soldOut: ['XS', 'XL'] }
+    ];
+    var SIZES = ['XS', 'S', 'M', 'L', 'XL'];
+    var color = COLORS[st.color];
+    var colors = COLORS.map(function (c, i) {
+      var on = i === st.color;
+      return {
+        name: c.name,
+        pressed: on ? 'true' : 'false',
+        pick: function () {
+          var size = st.size;
+          if (c.soldOut.indexOf(SIZES[size]) !== -1) { size = 2; }
+          self.setState({ color: i, size: size, added: false });
+        },
+        dot: 'display: block; width: 24px; height: 24px; border-radius: 9999px; background: ' + c.hex + '; box-shadow: 0 0 0 1px #8c7f73' + (on ? ', 0 0 0 3px #f8f5f0, 0 0 0 4px #2a1f18' : '')
+      };
+    });
+    var sizes = SIZES.map(function (s, i) {
+      var gone = color.soldOut.indexOf(s) !== -1;
+      var on = i === st.size && !gone;
+      return {
+        label: s,
+        aria: gone ? s + ', sold out' : s,
+        pressed: on ? 'true' : 'false',
+        disabled: gone ? 'true' : 'false',
+        pick: function () { if (!gone) { self.setState({ size: i, added: false }); } },
+        style: 'min-height: 44px; font-family: inherit; font-size: 13px; line-height: 20px; cursor: ' + (gone ? 'not-allowed' : 'pointer') + '; border: 1px ' + (gone ? 'dashed #8c7f73' : 'solid ' + (on ? '#2a1f18' : '#8c7f73')) + '; background: ' + (on ? '#2a1f18' : 'transparent') + '; color: ' + (on ? '#f8f5f0' : (gone ? '#6b5f55' : '#2a1f18')) + '; text-decoration: ' + (gone ? 'line-through' : 'none')
+      };
+    });
+    var TABS = [
+      { title: 'Description', body: 'A long, unlined coat in double-faced wool with dropped shoulders and a tie belt. Patch pockets, no buttons.' },
+      { title: 'Composition and care', body: '80% recycled wool, 20% polyamide.\nDry clean only. Hang on a wide hanger.' },
+      { title: 'Shipping and returns', body: 'Free shipping in 2–4 business days.\nFree returns within 30 days.' }
+    ];
+    var tabs = TABS.map(function (t, i) {
+      var open = st.tab === i;
+      return { title: t.title, body: t.body, open: open, expanded: open ? 'true' : 'false', sign: open ? '−' : '+', toggle: function () { self.setState({ tab: open ? -1 : i }); } };
+    });
+    return {
+      bagCount: st.added ? 1 + st.qty : 1,
+      colorName: color.name,
+      sizeName: SIZES[st.size],
+      colors: colors,
+      sizes: sizes,
+      media: [
+        { label: color.name + ' — front', isVideo: false },
+        { label: color.name + ' — back', isVideo: false },
+        { label: color.name + ' — fit video', isVideo: true },
+        { label: color.name + ' — fabric detail', isVideo: false }
+      ],
+      qty: st.qty,
+      dec: function () { self.setState({ qty: Math.max(1, st.qty - 1) }); },
+      inc: function () { self.setState({ qty: st.qty + 1 }); },
+      add: function () { self.setState({ added: true }); },
+      addLabel: st.added ? 'Added to bag' : 'Add to bag',
+      addStyle: 'flex: 1; min-height: 48px; border: 1px solid #2a1f18; background: #2a1f18; color: #f8f5f0; font-family: inherit; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer',
+      tabs: tabs,
+      guideOpen: st.guide,
+      openGuide: function () { self.setState({ guide: true }); },
+      closeGuide: function () { self.setState({ guide: false }); },
+      pairs: [
+        { name: 'Adeline wide trousers', price: '$320', note: 'Worn here in ecru' },
+        { name: 'Rowani knit', price: '$280', note: 'Worn here in espresso' },
+        { name: 'Maren loafers', price: '$290', note: 'Leather, made in Portugal' },
+        { name: 'Oda wool scarf', price: '$140', note: 'Worn here in camel' }
+      ],
+      related: [
+        { name: 'Rowani shearling jacket', price: '$890', sizes: 'XS  S  M  L  XL' },
+        { name: 'Edda trench coat', price: '$560', sizes: 'XS  S  M  L' },
+        { name: 'Lia belted blazer', price: '$420', sizes: 'S  M  L  XL' },
+        { name: 'Tove wool cape', price: '$480', sizes: 'One size' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

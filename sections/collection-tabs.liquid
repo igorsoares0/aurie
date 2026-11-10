@@ -1,0 +1,181 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+  assign card_sizes = '(min-width: 990px) calc((100vw - 120px) / 4), (min-width: 750px) calc((100vw - 64px) / 3), 75vw'
+-%}
+
+<tab-panels class="section collection-tabs color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="section-heading">
+        <h2 class="section-heading__title">{% render 'split-heading', text: section.settings.heading %}</h2>
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 1 -%}
+      <div class="chip-tabs collection-tabs__tabs" role="tablist" aria-label="{{ section.settings.heading | strip_html | escape }}">
+        {%- for block in section.blocks -%}
+          <button
+            class="chip-tabs__tab"
+            type="button"
+            role="tab"
+            id="CollectionTab-{{ block.id }}"
+            aria-controls="CollectionPanel-{{ block.id }}"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+            data-block-id="{{ block.id }}"
+            {{ block.shopify_attributes }}
+          >
+            {{- block.settings.label | default: block.settings.collection.title -}}
+          </button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- for block in section.blocks -%}
+      {%- assign tab_collection = block.settings.collection -%}
+      <div
+        class="collection-tabs__panel"
+        id="CollectionPanel-{{ block.id }}"
+        {% if section.blocks.size > 1 %}
+          role="tabpanel"
+          aria-labelledby="CollectionTab-{{ block.id }}"
+          tabindex="0"
+        {% endif %}
+        {% unless forloop.first %}
+          hidden
+        {% endunless %}
+      >
+        <ul class="scroll-row" role="list">
+          {%- if tab_collection != blank and tab_collection.products_count > 0 -%}
+            {%- for product in tab_collection.products limit: section.settings.products_to_show -%}
+              <li>{% render 'product-card', product: product, sizes: card_sizes %}</li>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for i in (1..4) -%}
+              <li>
+                <div class="collection-tabs__placeholder">{{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+                <p class="text-small">{{ 'sections.featured_collection.placeholder' | t }}</p>
+              </li>
+            {%- endfor -%}
+          {%- endif -%}
+        </ul>
+        {%- if tab_collection != blank and section.settings.link_label != blank -%}
+          <a class="text-link collection-tabs__link" href="{{ tab_collection.url }}">{{ section.settings.link_label }}</a>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</tab-panels>
+
+{% stylesheet %}
+  .collection-tabs {
+    display: block;
+  }
+
+  .collection-tabs__tabs {
+    margin-bottom: 24px;
+  }
+
+  .collection-tabs__panel .scroll-row {
+    --scroll-item-min: 280px;
+    --scroll-item-mobile: 75%;
+  }
+
+  .collection-tabs__placeholder {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 8px;
+    border-radius: var(--radius-media);
+  }
+
+  .collection-tabs__link {
+    display: inline-block;
+    margin-top: 24px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.collection_tabs.name",
+  "class": "section-collection-tabs",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info",
+      "default": "Signature | pieces"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "t:sections.featured_collection.products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:labels.link_label",
+      "default": "View all"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "t:sections.collection_tabs.blocks.tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.collection_tabs.blocks.label",
+          "info": "t:sections.collection_list.blocks.title_info"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.featured_collection.collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collection_tabs.name",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "label": "All"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "label": "Sofas"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "label": "Tables"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

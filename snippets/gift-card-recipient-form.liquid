@@ -1,0 +1,153 @@
+{% doc %}
+  Renders the optional gift card recipient fields for a gift card product:
+  recipient email, name, message and send date. The fields only submit when
+  the shopper chooses to send the gift card to someone else.
+
+  @param {form} form - The product form object
+  @param {string} form_id - The id of the product form
+
+  @example
+  {% render 'gift-card-recipient-form', form: form, form_id: 'ProductForm-main' %}
+{% enddoc %}
+
+{%- liquid
+  assign today = 'now' | date: '%Y-%m-%d'
+  assign max_date = 'now' | date: '%s' | plus: 7776000 | date: '%Y-%m-%d'
+-%}
+
+<gift-card-recipient class="recipient">
+  <label class="recipient__toggle">
+    <input
+      type="checkbox"
+      name="properties[__shopify_send_gift_card_to_recipient]"
+      form="{{ form_id }}"
+      data-recipient-toggle
+      {% if form.gift_card_recipient %}
+        checked
+      {% endif %}
+    >
+    <span>{{ 'product.gift_card_recipient.toggle' | t }}</span>
+  </label>
+
+  <div class="recipient__fields" data-recipient-fields hidden>
+    {%- if form.errors -%}
+      <div class="recipient__errors text-small" role="alert">{{ form.errors | default_errors }}</div>
+    {%- endif -%}
+
+    <label class="label" for="Recipient-email-{{ form_id }}">{{ 'product.gift_card_recipient.email' | t }}</label>
+    <input
+      class="field"
+      id="Recipient-email-{{ form_id }}"
+      type="email"
+      name="properties[Recipient email]"
+      form="{{ form_id }}"
+      autocomplete="email"
+      value="{{ form.email }}"
+      required
+      disabled
+    >
+
+    <label class="label" for="Recipient-name-{{ form_id }}">{{ 'product.gift_card_recipient.name' | t }}</label>
+    <input
+      class="field"
+      id="Recipient-name-{{ form_id }}"
+      type="text"
+      name="properties[Recipient name]"
+      form="{{ form_id }}"
+      autocomplete="name"
+      value="{{ form.name }}"
+      disabled
+    >
+
+    <label class="label" for="Recipient-message-{{ form_id }}">{{ 'product.gift_card_recipient.message' | t }}</label>
+    <textarea
+      class="field recipient__message"
+      id="Recipient-message-{{ form_id }}"
+      name="properties[Message]"
+      form="{{ form_id }}"
+      rows="3"
+      maxlength="200"
+      disabled
+    >{{ form.message }}</textarea>
+
+    <label class="label" for="Recipient-date-{{ form_id }}">{{ 'product.gift_card_recipient.send_on' | t }}</label>
+    <input
+      class="field"
+      id="Recipient-date-{{ form_id }}"
+      type="date"
+      name="properties[Send on]"
+      form="{{ form_id }}"
+      min="{{ today }}"
+      max="{{ max_date }}"
+      value="{{ form.send_on }}"
+      disabled
+    >
+
+    <input type="hidden" name="properties[__shopify_offset]" form="{{ form_id }}" data-recipient-offset disabled>
+  </div>
+</gift-card-recipient>
+
+{% stylesheet %}
+  .recipient {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .recipient__toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: var(--touch-target);
+    font-size: var(--font-small-size);
+    cursor: pointer;
+  }
+
+  .recipient__toggle input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--color-text);
+  }
+
+  .recipient__fields:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .recipient__message {
+    padding-block: 12px;
+  }
+
+  .recipient__errors {
+    color: var(--color-error);
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('gift-card-recipient')) {
+    customElements.define(
+      'gift-card-recipient',
+      class GiftCardRecipient extends HTMLElement {
+        connectedCallback() {
+          this.toggle = this.querySelector('[data-recipient-toggle]');
+          this.fields = this.querySelector('[data-recipient-fields]');
+          this.toggle.addEventListener('change', () => this.sync());
+          this.sync();
+        }
+
+        sync() {
+          const enabled = this.toggle.checked;
+          this.fields.hidden = !enabled;
+          this.fields.querySelectorAll('input, textarea').forEach((field) => {
+            field.disabled = !enabled;
+          });
+          const offset = this.querySelector('[data-recipient-offset]');
+          if (offset) offset.value = new Date().getTimezoneOffset().toString();
+        }
+      }
+    );
+  }
+{% endjavascript %}

@@ -1,0 +1,13 @@
+mutation DemoEnableColorPattern {
+  standardMetaobjectDefinitionEnable(type: "shopify--color-pattern") {
+    metaobjectDefinition {
+      id
+      type
+    }
+    userErrors {
+      field
+      message
+      code
+    }
+  }
+}

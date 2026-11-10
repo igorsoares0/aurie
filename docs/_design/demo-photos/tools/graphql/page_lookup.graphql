@@ -1,0 +1,8 @@
+query DemoPageLookup($query: String!) {
+  pages(first: 1, query: $query) {
+    nodes {
+      id
+      handle
+    }
+  }
+}

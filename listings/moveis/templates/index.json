@@ -1,0 +1,371 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "height": "large",
+        "inset": true,
+        "color_scheme": "scheme-2",
+        "overlay_opacity": 25,
+        "content_position": "bottom-left",
+        "content_layout": "stacked",
+        "heading": "Made to be lived in",
+        "heading_size": "display",
+        "text": "<p>Solid oak and natural fabrics, built in our workshop and delivered to the room you choose.</p>",
+        "button_style": "button",
+        "button_label": "Shop by room",
+        "button_link": "/collections/all",
+        "button_label_2": "Visit the showroom"
+      }
+    },
+    "promise": {
+      "type": "multicolumn",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "style": "icon_inline",
+        "heading": ""
+      },
+      "blocks": {
+        "p1": {
+          "type": "column",
+          "settings": {
+            "icon": "leaf",
+            "title": "Solid oak, no veneers",
+            "text": "<p>Kiln-dried, responsibly sourced timber.</p>"
+          }
+        },
+        "p2": {
+          "type": "column",
+          "settings": {
+            "icon": "shield",
+            "title": "10-year frame warranty",
+            "text": "<p>On every sofa, bed and table.</p>"
+          }
+        },
+        "p3": {
+          "type": "column",
+          "settings": {
+            "icon": "truck",
+            "title": "Delivered and assembled",
+            "text": "<p>We take the packaging away.</p>"
+          }
+        },
+        "p4": {
+          "type": "column",
+          "settings": {
+            "icon": "return",
+            "title": "30 nights at home",
+            "text": "<p>Not right? We collect it for free.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    "rooms": {
+      "type": "collection-list",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "style": "mosaic",
+        "heading": "Shop | by room",
+        "show_count": true
+      },
+      "blocks": {
+        "c1": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c2": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c3": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c4": {
+          "type": "collection",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "signature": {
+      "type": "collection-tabs",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Signature | pieces",
+        "products_to_show": 6,
+        "link_label": "View all"
+      },
+      "blocks": {
+        "t1": {
+          "type": "tab",
+          "settings": {
+            "label": "All"
+          }
+        },
+        "t2": {
+          "type": "tab",
+          "settings": {
+            "label": "Sofas"
+          }
+        },
+        "t3": {
+          "type": "tab",
+          "settings": {
+            "label": "Tables"
+          }
+        },
+        "t4": {
+          "type": "tab",
+          "settings": {
+            "label": "Storage"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "room": {
+      "type": "shoppable-image",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "floating",
+        "heading": "Everything in this room is ours",
+        "text": "<p>Tap a piece to see its size and price, then add it straight to your bag.</p>"
+      },
+      "blocks": {
+        "h1": {
+          "type": "hotspot",
+          "settings": {
+            "position_x": 30,
+            "position_y": 60
+          }
+        },
+        "h2": {
+          "type": "hotspot",
+          "settings": {
+            "position_x": 55,
+            "position_y": 70
+          }
+        },
+        "h3": {
+          "type": "hotspot",
+          "settings": {
+            "position_x": 78,
+            "position_y": 45
+          }
+        }
+      },
+      "block_order": [
+        "h1",
+        "h2",
+        "h3"
+      ]
+    },
+    "materials": {
+      "type": "fabric-library",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "show_panel": true,
+        "panel_eyebrow": "Materials",
+        "panel_heading": "Built from solid oak",
+        "panel_text": "<p>Every frame is kiln-dried European oak, joined by hand and finished with plant oils.</p>",
+        "heading": "Fabrics and finishes",
+        "link_label": "Order free samples"
+      },
+      "blocks": {
+        "f1": {
+          "type": "fabric",
+          "settings": {
+            "name": "Oat",
+            "kind": "Linen blend",
+            "color": "#d8cbb5"
+          }
+        },
+        "f2": {
+          "type": "fabric",
+          "settings": {
+            "name": "Moss",
+            "kind": "Wool bouclé",
+            "color": "#7d7a5c"
+          }
+        },
+        "f3": {
+          "type": "fabric",
+          "settings": {
+            "name": "Clay",
+            "kind": "Cotton canvas",
+            "color": "#b07a5a"
+          }
+        },
+        "f4": {
+          "type": "fabric",
+          "settings": {
+            "name": "Ink",
+            "kind": "Velvet",
+            "color": "#2f3440"
+          }
+        },
+        "f5": {
+          "type": "fabric",
+          "settings": {
+            "name": "Natural oak",
+            "kind": "Oiled finish",
+            "color": "#c49a6c"
+          }
+        },
+        "f6": {
+          "type": "fabric",
+          "settings": {
+            "name": "Smoked oak",
+            "kind": "Oiled finish",
+            "color": "#6b4a33"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6"
+      ]
+    },
+    "craft": {
+      "type": "craft-process",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "panel": true,
+        "heading": "Made with | intention"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Drawn to last",
+            "text": "<p>Proportions tested at full scale before a single board is cut.</p>"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Chosen by hand",
+            "text": "<p>Each board picked for grain, so a tabletop reads as one surface.</p>"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Joined, not screwed",
+            "text": "<p>Traditional joinery that tightens with use.</p>"
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Checked twice",
+            "text": "<p>Inspected in the workshop and again in your room.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ]
+    },
+    "delivery": {
+      "type": "delivery-and-assembly",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "From our workshop | to your room"
+      },
+      "blocks": {
+        "d1": {
+          "type": "stage",
+          "settings": {
+            "timing": "Weeks 1 to 6",
+            "title": "Made to order",
+            "text": "<p>Your piece is built once you order, in the fabric and finish you chose.</p>"
+          }
+        },
+        "d2": {
+          "type": "stage",
+          "settings": {
+            "timing": "Week 7",
+            "title": "We call to book",
+            "text": "<p>We agree a delivery slot that suits you.</p>"
+          }
+        },
+        "d3": {
+          "type": "stage",
+          "settings": {
+            "timing": "Delivery day",
+            "title": "Placed and assembled",
+            "text": "<p>Two people bring it to the room and take the packaging away.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2",
+        "d3"
+      ]
+    },
+    "testimonial": {
+      "type": "testimonials",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "eyebrow": "In their words"
+      },
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>The sofa arrived exactly when they said, and it fits the room perfectly.</p>",
+            "author": "Customer name"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>Solid, beautiful and easy to live with.</p>",
+            "author": "Customer name"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "promise",
+    "rooms",
+    "signature",
+    "room",
+    "materials",
+    "craft",
+    "delivery",
+    "testimonial"
+  ]
+}

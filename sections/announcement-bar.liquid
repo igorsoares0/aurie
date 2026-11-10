@@ -1,0 +1,80 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="announcement-bar color-{{ section.settings.color_scheme }}{% if section.settings.tile_background %} announcement-bar--tile{% endif %}" role="region" aria-label="{{ 'sections.announcement_bar.label' | t }}">
+    <div class="announcement-bar__list page-width">
+      {%- for block in section.blocks -%}
+        <p class="announcement-bar__message" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .announcement-bar__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 32px;
+    padding-block: 8px;
+    font-size: var(--font-caption-size);
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .announcement-bar.announcement-bar--tile {
+    background-color: var(--color-tile);
+  }
+
+  .announcement-bar__message a {
+    color: inherit;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.announcement_bar.name",
+  "class": "section-announcement-bar",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "checkbox",
+      "id": "tile_background",
+      "label": "t:sections.announcement_bar.tile_background",
+      "info": "t:sections.announcement_bar.tile_background_info",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement_bar.announcement",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "Free shipping and returns on all orders"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement_bar.name",
+      "blocks": [
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,48 @@
+<div class="main-404 color-{{ section.settings.color_scheme }}">
+  <div class="main-404__inner page-width">
+    <p class="label text-muted">404</p>
+    <h1 class="main-404__title">{{ 'not_found.title' | t }}</h1>
+    <p>{{ 'not_found.text' | t }}</p>
+
+    <form class="main-404__search" action="{{ routes.search_url }}" method="get" role="search">
+      <label class="visually-hidden" for="NotFoundSearch">{{ 'search.placeholder' | t }}</label>
+      <input class="field" id="NotFoundSearch" type="search" name="q" placeholder="{{ 'search.placeholder' | t }}">
+      <button class="button button--secondary" type="submit">{{ 'search.submit' | t }}</button>
+    </form>
+
+    <a class="button" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue_shopping' | t }}</a>
+  </div>
+</div>
+
+{% stylesheet %}
+  .main-404__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-block: var(--section-spacing);
+    text-align: center;
+  }
+
+  .main-404__search {
+    display: flex;
+    gap: 8px;
+    width: min(100%, 480px);
+    margin-top: 8px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_404.name",
+  "class": "section-main-404",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    }
+  ]
+}
+{% endschema %}

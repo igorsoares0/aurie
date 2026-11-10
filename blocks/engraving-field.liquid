@@ -1,0 +1,164 @@
+{%- liquid
+  assign form_id = 'ProductForm-' | append: section.id
+  assign field_id = 'Engraving-' | append: block.id
+  assign property_name = block.settings.property_name | default: 'Engraving' | escape
+-%}
+
+<engraving-field class="engraving" {{ block.shopify_attributes }}>
+  <label class="engraving__toggle">
+    <input type="checkbox" data-engraving-toggle aria-controls="{{ field_id }}-group" aria-expanded="false">
+    <span>
+      {{- block.settings.toggle_label -}}
+      {%- if block.settings.toggle_note != blank %}
+        <span class="text-muted">· {{ block.settings.toggle_note }}</span>
+      {%- endif -%}
+    </span>
+  </label>
+
+  <div class="engraving__group" id="{{ field_id }}-group" hidden>
+    <label class="text-caption text-muted" for="{{ field_id }}">{{ block.settings.field_label }}</label>
+    <input
+      class="field engraving__input"
+      id="{{ field_id }}"
+      type="text"
+      name="properties[{{ property_name }}]"
+      form="{{ form_id }}"
+      maxlength="{{ block.settings.max_characters }}"
+      placeholder="{{ block.settings.placeholder | escape }}"
+      aria-describedby="{{ field_id }}-count"
+      disabled
+    >
+    <p class="text-caption text-muted" id="{{ field_id }}-count" aria-live="polite">
+      {%- assign count_html = '<span data-engraving-count>0</span>' -%}
+      {{- 'product.engraving.count_html' | t: count: count_html, max: block.settings.max_characters -}}
+      {%- if block.settings.helper != blank %} {{ block.settings.helper }}{% endif -%}
+    </p>
+  </div>
+</engraving-field>
+
+{% stylesheet %}
+  .engraving {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .engraving__toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 24px;
+    font-size: var(--font-small-size);
+    cursor: pointer;
+  }
+
+  .engraving__toggle input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--color-text);
+  }
+
+  .engraving__group:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .engraving__input {
+    background-color: var(--color-background);
+    font-family: var(--font-heading-family);
+    font-style: italic;
+    font-size: 16px;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('engraving-field')) {
+    customElements.define(
+      'engraving-field',
+      class EngravingField extends HTMLElement {
+        connectedCallback() {
+          this.toggle = this.querySelector('[data-engraving-toggle]');
+          this.group = this.querySelector('.engraving__group');
+          this.input = this.querySelector('.engraving__input');
+
+          this.toggle.addEventListener('change', () => {
+            const enabled = this.toggle.checked;
+            this.group.hidden = !enabled;
+            this.input.disabled = !enabled;
+            this.toggle.setAttribute('aria-expanded', String(enabled));
+            if (enabled) this.input.focus();
+          });
+
+          this.input.addEventListener('input', () => {
+            const counter = this.querySelector('[data-engraving-count]');
+            if (counter) counter.textContent = this.input.value.length;
+          });
+        }
+      }
+    );
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:blocks.engraving_field.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "toggle_label",
+      "label": "t:blocks.engraving_field.toggle_label",
+      "default": "Add engraving"
+    },
+    {
+      "type": "text",
+      "id": "toggle_note",
+      "label": "t:blocks.engraving_field.toggle_note",
+      "default": "Free, inside the band"
+    },
+    {
+      "type": "text",
+      "id": "field_label",
+      "label": "t:blocks.engraving_field.field_label",
+      "default": "Your text"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "t:blocks.engraving_field.placeholder",
+      "default": "e.g. A · 2026"
+    },
+    {
+      "type": "range",
+      "id": "max_characters",
+      "label": "t:blocks.engraving_field.max_characters",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "text",
+      "id": "helper",
+      "label": "t:blocks.engraving_field.helper",
+      "default": "Engraved pieces ship in 5 days."
+    },
+    {
+      "type": "text",
+      "id": "property_name",
+      "label": "t:blocks.engraving_field.property_name",
+      "info": "t:blocks.engraving_field.property_name_info",
+      "default": "Engraving"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.engraving_field.name"
+    }
+  ]
+}
+{% endschema %}

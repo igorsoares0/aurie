@@ -1,0 +1,21 @@
+{% doc %}
+  Outputs heading text. When the text contains " | ", it is split into two
+  halves: with the "Show rule in split headings" setting on, a hairline rule
+  fills the space between them; otherwise the halves read as one line.
+
+  @param {string} text - Heading text, optionally with " | " between the halves
+
+  @example
+  <h2>{% render 'split-heading', text: section.settings.heading %}</h2>
+{% enddoc %}
+
+{%- if text contains ' | ' -%}
+  {%- assign halves = text | split: ' | ' -%}
+  <span class="split-heading">
+    <span>{{ halves[0] }}</span>
+    <span class="split-heading__rule" aria-hidden="true"></span>
+    <span>{{ halves[1] }}</span>
+  </span>
+{%- else -%}
+  {{- text -}}
+{%- endif -%}

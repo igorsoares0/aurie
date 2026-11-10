@@ -1,0 +1,789 @@
+/** Critical CSS for the theme. This file is included on every page. */
+
+/* Reset styles inspired by https://www.joshwcomeau.com/css/custom-css-reset/ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* The hidden attribute always wins over a component's own display value */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100svh;
+}
+
+html:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
+  overflow: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p:empty {
+  display: none;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  /* Only the default indent: a component can still set its own padding */
+  padding-inline-start: 0;
+}
+
+/** Tokens that change by breakpoint: < 750px mobile, 750–989px tablet, ≥ 990px desktop */
+:root {
+  --page-margin: 16px;
+  --section-spacing: 64px;
+  --touch-target: 44px;
+
+  --font-body-size: 15px;
+  --font-body-line-height: 1.6;
+  --font-small-size: 13px;
+  --font-caption-size: 12px;
+  --font-label-size: 11px;
+  --font-label-spacing: 0.08em;
+
+  --font-display-size: calc(2.75rem * var(--font-heading-scale));
+  --font-h1-size: calc(2rem * var(--font-heading-scale));
+  --font-h2-size: calc(1.625rem * var(--font-heading-scale));
+  --font-h3-size: calc(1.25rem * var(--font-heading-scale));
+
+  --duration-short: 150ms;
+  --duration-medium: 250ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media screen and (min-width: 750px) {
+  :root {
+    --page-margin: max(24px, calc(var(--page-margin-desktop) * 0.75));
+    --section-spacing: calc(var(--section-spacing-desktop) * 0.8);
+    --font-display-size: calc(3.25rem * var(--font-heading-scale));
+    --font-h1-size: calc(2.375rem * var(--font-heading-scale));
+    --font-h2-size: calc(1.875rem * var(--font-heading-scale));
+  }
+}
+
+@media screen and (min-width: 990px) {
+  :root {
+    --page-margin: var(--page-margin-desktop);
+    --section-spacing: var(--section-spacing-desktop);
+    --font-display-size: calc(4rem * var(--font-heading-scale));
+    --font-h1-size: calc(2.75rem * var(--font-heading-scale));
+    --font-h2-size: calc(2rem * var(--font-heading-scale));
+    --font-h3-size: calc(1.5rem * var(--font-heading-scale));
+  }
+}
+
+/** Base */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: var(--font-body-size);
+  line-height: var(--font-body-line-height);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+/** Typography */
+h1,
+h2,
+h3,
+h4,
+.display,
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  text-transform: var(--font-heading-case);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.display {
+  font-size: var(--font-display-size);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+h1,
+.h1 {
+  font-size: var(--font-h1-size);
+  line-height: 1.05;
+}
+
+h2,
+.h2 {
+  font-size: var(--font-h2-size);
+}
+
+h3,
+.h3 {
+  font-size: var(--font-h3-size);
+  line-height: 1.2;
+}
+
+h4,
+.h4 {
+  font-size: var(--font-body-size);
+}
+
+.text-small {
+  font-size: var(--font-small-size);
+  line-height: 20px;
+}
+
+.text-caption {
+  font-size: var(--font-caption-size);
+  line-height: 16px;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.label {
+  font-family: var(--font-body-family);
+  font-size: var(--font-label-size);
+  line-height: 16px;
+  font-weight: var(--font-body-weight-medium);
+  letter-spacing: var(--font-label-spacing);
+  text-transform: uppercase;
+}
+
+/** Layout */
+.page-width {
+  width: 100%;
+  max-width: calc(var(--page-width) + var(--page-margin) * 2);
+  margin-inline: auto;
+  padding-inline: var(--page-margin);
+}
+
+.section-spacing {
+  padding-block: var(--section-spacing);
+}
+
+/** Utilities */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 12px 16px;
+  background-color: var(--color-button);
+  color: var(--color-button-label);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/** Buttons and fields */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--touch-target);
+  padding: 0 24px;
+  border: 1px solid var(--color-button);
+  border-radius: var(--radius-button);
+  background-color: var(--color-button);
+  color: var(--color-button-label);
+  font-family: var(--font-body-family);
+  font-size: var(--font-label-size);
+  line-height: 16px;
+  font-weight: var(--font-body-weight-medium);
+  letter-spacing: var(--font-label-spacing);
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity var(--duration-short) var(--ease);
+}
+
+.button:hover {
+  color: var(--color-button-label);
+  opacity: 0.88;
+}
+
+.button--secondary {
+  border-color: var(--color-border);
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.button--secondary:hover {
+  color: var(--color-text);
+  border-color: var(--color-text);
+  opacity: 1;
+}
+
+/* Dynamic checkout "Buy it now": match the secondary button instead of Shopify's default blue (fails contrast). */
+.shopify-payment-button .shopify-payment-button__button--unbranded {
+  min-height: var(--touch-target);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  background-color: transparent;
+  color: var(--color-text);
+  font-family: var(--font-body-family);
+  font-size: var(--font-label-size);
+  font-weight: var(--font-body-weight-medium);
+  letter-spacing: var(--font-label-spacing);
+  text-transform: uppercase;
+}
+
+.shopify-payment-button .shopify-payment-button__button--unbranded:hover:not([disabled]) {
+  border-color: var(--color-text);
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.button:disabled,
+.button[aria-disabled='true'] {
+  border-color: var(--color-border);
+  background-color: transparent;
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.button-unstyled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.field {
+  min-height: var(--touch-target);
+  width: 100%;
+  padding: 0 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  background-color: transparent;
+  font-size: max(15px, var(--font-small-size));
+}
+
+select.field {
+  appearance: none;
+  padding-inline-end: 40px;
+  background-image: linear-gradient(45deg, transparent 50%, currentcolor 50%),
+    linear-gradient(135deg, currentcolor 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/** Skeleton block container, used by the starter templates until they move to JSON templates */
+.block-container {
+  --content-width: min(
+    calc(var(--page-width) - var(--page-margin) * 2),
+    calc(100% - var(--page-margin) * 2)
+  );
+  --content-margin: minmax(var(--page-margin), 1fr);
+  --content-grid: var(--content-margin) var(--content-width) var(--content-margin);
+
+  position: relative;
+  grid-template-columns: var(--content-grid);
+  display: grid;
+  text-align: var(--text-align, left);
+  width: 100%;
+}
+
+.block-container > * {
+  grid-column: 2;
+}
+
+.block-container > .full-width {
+  grid-column: 1 / -1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/** Product grid and results layout, shared by collection and search */
+.results-layout {
+  display: grid;
+  gap: 24px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns-mobile), minmax(0, 1fr));
+  gap: calc(var(--grid-gap) + 28px) var(--grid-gap);
+  margin: 0;
+}
+
+.card--framed .product-grid {
+  row-gap: var(--grid-gap);
+}
+
+@media screen and (min-width: 750px) {
+  .product-grid {
+    grid-template-columns: repeat(min(3, var(--columns-desktop)), minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .product-grid {
+    grid-template-columns: repeat(var(--columns-desktop), minmax(0, 1fr));
+  }
+
+  .results-layout--vertical {
+    grid-template-columns: 240px minmax(0, 1fr);
+    column-gap: 48px;
+    align-items: start;
+  }
+
+  .results-layout--vertical .facets {
+    display: contents;
+  }
+
+  .results-layout--vertical .facets__drawer {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+  }
+
+  .results-layout--vertical .facets__toolbar,
+  .results-layout--vertical .facets__active,
+  .results-layout--vertical .results {
+    grid-column: 2;
+  }
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  transition: opacity var(--duration-short) var(--ease);
+}
+
+facet-filters[aria-busy='true'] .results {
+  opacity: 0.5;
+}
+
+.results__more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.results__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 96px 24px;
+  border-radius: var(--radius-media);
+  background-color: var(--color-tile);
+  text-align: center;
+}
+
+.results__empty p {
+  max-width: 420px;
+}
+
+/** Color and pattern swatches from option value swatch settings */
+.swatch {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background-color: var(--color-tile);
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12);
+}
+
+/** Drawers: native <dialog class="drawer"> opened with [data-dialog-open="id"] */
+.drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(440px, 100%);
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0 0 0 auto;
+  padding: 0;
+  border: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.drawer::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
+
+.drawer__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 8px 8px 24px;
+  border-bottom: 1px solid var(--color-divider);
+  background-color: var(--color-background);
+}
+
+.drawer__title {
+  font-size: var(--font-h3-size);
+}
+
+.drawer__body {
+  padding: 24px;
+}
+
+/** Rich text from the editor or product descriptions */
+.rte > * + * {
+  margin-top: 1em;
+}
+
+.rte ul,
+.rte ol {
+  padding-inline-start: 1.25em;
+}
+
+.rte img {
+  height: auto;
+}
+
+.rte table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rte th,
+.rte td {
+  padding: 8px;
+  border: 1px solid var(--color-divider);
+  text-align: start;
+}
+
+/** Content sections: same-scheme sections are separated by margin, filled sections get padding */
+.section {
+  margin-top: var(--section-spacing);
+}
+
+.section--filled {
+  padding-block: var(--section-spacing);
+}
+
+#MainContent > .shopify-section:first-child .section {
+  margin-top: 0;
+}
+
+/* A first section without its own background or full-bleed media still needs air below the header */
+#MainContent > .shopify-section:first-child .section:not(.section--filled, .image-banner, .slideshow, .video-section, .rich-text--split) {
+  padding-top: var(--section-spacing);
+}
+
+/* Above a footer with its own background, the last section needs the same air below it.
+   On a matching background the footer's top padding already provides it. */
+body:has(.footer--filled) #MainContent > .shopify-section:last-child .section:not(.section--filled, .image-banner, .slideshow, .video-section) {
+  padding-bottom: var(--section-spacing);
+}
+
+.section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-bottom: 24px;
+}
+
+.section-heading--center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-heading__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.3em;
+}
+
+.section-heading__count {
+  font-family: var(--font-body-family);
+  font-style: normal;
+  font-weight: var(--font-body-weight);
+  font-size: var(--font-small-size);
+  text-transform: none;
+  color: var(--color-text-muted);
+}
+
+.split-heading__rule {
+  display: none;
+}
+
+.headings--split-rule .split-heading {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.headings--split-rule .split-heading__rule {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 40px;
+  height: 1px;
+  background-color: var(--color-divider);
+}
+
+.text-link {
+  display: inline-block;
+  padding-block: 2px;
+  font-size: var(--font-small-size);
+  line-height: 20px;
+  text-underline-offset: 3px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/** Horizontal scrolling rows: lists that don't fill a row scroll instead of leaving gaps */
+.scroll-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(var(--scroll-item-mobile, 70%), 1fr);
+  gap: var(--grid-gap);
+  margin: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-row > * {
+  scroll-snap-align: start;
+}
+
+/*
+ * Horizontal scrollers with a visible bar share one slim, hairline bar in the
+ * scheme's colors instead of the browser's default scrollbar.
+ */
+.scroll-row,
+.lookbook__list,
+.product-recommendations__list,
+.product-media__thumbs {
+  padding-bottom: 16px;
+}
+
+.scroll-row::-webkit-scrollbar,
+.lookbook__list::-webkit-scrollbar,
+.product-recommendations__list::-webkit-scrollbar,
+.product-media__thumbs::-webkit-scrollbar {
+  height: 2px;
+}
+
+.scroll-row::-webkit-scrollbar-track,
+.lookbook__list::-webkit-scrollbar-track,
+.product-recommendations__list::-webkit-scrollbar-track,
+.product-media__thumbs::-webkit-scrollbar-track {
+  background: var(--color-divider);
+}
+
+.scroll-row::-webkit-scrollbar-thumb,
+.lookbook__list::-webkit-scrollbar-thumb,
+.product-recommendations__list::-webkit-scrollbar-thumb,
+.product-media__thumbs::-webkit-scrollbar-thumb {
+  background: var(--color-text);
+}
+
+.scroll-row::-webkit-scrollbar-button,
+.lookbook__list::-webkit-scrollbar-button,
+.product-recommendations__list::-webkit-scrollbar-button,
+.product-media__thumbs::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Browsers without ::-webkit-scrollbar (Firefox) get the closest standard equivalent */
+@supports not selector(::-webkit-scrollbar) {
+  .scroll-row,
+  .lookbook__list,
+  .product-recommendations__list,
+  .product-media__thumbs {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-text) var(--color-divider);
+  }
+}
+
+/* Drag to scroll with a mouse (theme.js); touch scrolls natively */
+.is-draggable {
+  cursor: grab;
+}
+
+.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  user-select: none;
+}
+
+.is-dragging * {
+  pointer-events: none;
+}
+
+@media screen and (min-width: 750px) {
+  .scroll-row {
+    grid-auto-columns: minmax(var(--scroll-item-min, 240px), 1fr);
+  }
+}
+
+.placeholder-svg {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-tile);
+  fill: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+/** Chip tabs used by sections with tabbed content */
+.chip-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chip-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: var(--touch-target);
+  padding: 0 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  background: transparent;
+  font-size: var(--font-small-size);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.chip-tabs__tab {
+  text-decoration: none;
+}
+
+.chip-tabs__tab[aria-current='page'],
+.chip-tabs__tab[aria-selected='true'] {
+  border-color: var(--color-text);
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+/** App blocks rendered inside theme sections */
+.app-block {
+  margin-block: 24px;
+}

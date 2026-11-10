@@ -1,0 +1,110 @@
+{% doc %}
+  Renders the cart totals: subtotal, automatic cart discounts, total, the
+  tax and shipping note, the checkout button and accelerated checkout
+  buttons.
+
+  @param {string} form_id - Id of the cart form the checkout button submits
+  @param {string} [context] - 'page' or 'drawer'. Default: 'page'
+
+  @example
+  {% render 'cart-summary', form_id: 'CartForm' %}
+{% enddoc %}
+
+<div class="cart-summary cart-summary--{{ context | default: 'page' }}">
+  <dl class="cart-summary__lines">
+    <div class="cart-summary__line">
+      <dt>{{ 'cart.subtotal' | t }}</dt>
+      <dd>{{ cart.items_subtotal_price | money }}</dd>
+    </div>
+    {%- for discount in cart.cart_level_discount_applications -%}
+      <div class="cart-summary__line cart-summary__line--discount">
+        <dt>{{ discount.title }}</dt>
+        <dd>−{{ discount.total_allocated_amount | money }}</dd>
+      </div>
+    {%- endfor -%}
+    <div class="cart-summary__line cart-summary__line--total">
+      <dt>{{ 'cart.total' | t }}</dt>
+      <dd>{{ cart.total_price | money_with_currency }}</dd>
+    </div>
+  </dl>
+
+  <p class="cart-summary__note text-caption text-muted">
+    {%- if cart.duties_included and cart.taxes_included -%}
+      {{ 'product.price.duties_and_taxes_included' | t }}
+    {%- elsif cart.taxes_included -%}
+      {{ 'product.price.taxes_included' | t }}
+    {%- elsif cart.duties_included -%}
+      {{ 'product.price.duties_included' | t }}
+    {%- else -%}
+      {{ 'cart.taxes_at_checkout' | t }}
+    {%- endif %}
+    {{ 'cart.shipping_and_codes_at_checkout' | t }}
+  </p>
+
+  <div class="cart-summary__checkout">
+    <button class="button cart-summary__button" type="submit" name="checkout" form="{{ form_id }}">
+      {{- 'cart.checkout' | t -}}
+    </button>
+
+    {%- if additional_checkout_buttons -%}
+      <div class="cart-summary__dynamic">{{ content_for_additional_checkout_buttons }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .cart-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cart-summary__lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+  }
+
+  .cart-summary__line {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: var(--font-small-size);
+    line-height: 20px;
+  }
+
+  .cart-summary__line dd {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .cart-summary__line--discount {
+    color: var(--color-accent);
+  }
+
+  .cart-summary__line--total {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-divider);
+    font-size: var(--font-body-size);
+    font-weight: var(--font-body-weight-medium);
+  }
+
+  .cart-summary__checkout {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cart-summary__button {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .cart-summary__dynamic {
+    --shopify-accelerated-checkout-button-block-size: 48px;
+    --shopify-accelerated-checkout-button-border-radius: var(--radius-button);
+    --shopify-accelerated-checkout-row-gap: 8px;
+  }
+{% endstylesheet %}

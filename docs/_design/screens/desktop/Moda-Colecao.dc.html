@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arvel — Outerwear</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#f8f5f0}
+a{color:#2a1f18}a:hover{color:#8a3f22}
+:focus-visible{outline:2px solid #2a1f18;outline-offset:2px}
+input::placeholder{color:#6b5f55}
+</style>
+</helmet>
+<div style="background: #f8f5f0; color: #2a1f18; font-family: 'Work Sans', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; min-width: 0; min-height: 100vh; display: flex; flex-direction: column">
+
+  <div style="background: #2a1f18; color: #f3ede5; text-align: center; font-size: 12px; line-height: 16px; padding: 8px 16px">Free shipping and returns on all orders. <a href="#" style="color: #f3ede5; text-underline-offset: 3px">Find your fit</a></div>
+
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 16px 24px">
+    <nav aria-label="Main menu" style="flex: 1 1 280px">
+      <ul style="display: flex; flex-wrap: wrap; gap: 8px 24px; list-style: none; margin: 0; padding: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">New in</a></li>
+        <li><a href="#" style="text-decoration: underline; text-underline-offset: 4px; padding: 4px 0; display: inline-block">Clothing</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Edits</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Fit guide</a></li>
+      </ul>
+    </nav>
+    <a href="#" style="font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: #2a1f18">Arvel</a>
+    <ul style="flex: 1 1 280px; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 24px; list-style: none; margin: 0; padding: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">
+      <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Search</a></li>
+      <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Account</a></li>
+      <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Bag (1)</a></li>
+    </ul>
+  </header>
+
+  <nav aria-label="Breadcrumb" style="padding: 16px 24px; font-size: 12px; line-height: 16px; color: #6b5f55">
+    <a href="#" style="color: #6b5f55; text-decoration: none">Home</a> <span aria-hidden="true">/</span> <a href="#" style="color: #6b5f55; text-decoration: none">Clothing</a> <span aria-hidden="true">/</span> <span aria-current="page" style="color: #2a1f18">Outerwear</span>
+  </nav>
+
+  <!-- Collection header: text + collection image -->
+  <section style="padding: 0 24px; display: flex; flex-wrap: wrap; gap: 4px">
+    <div style="flex: 1 1 480px; min-height: 360px; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; padding: 0 0 32px; box-sizing: border-box">
+      <h1 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 64px; line-height: 1; font-weight: 300; letter-spacing: -0.01em">Outerwear</h1>
+      <p style="margin: 0; max-width: 460px; font-size: 15px; line-height: 24px">Coats and jackets cut to layer over knitwear. Every piece lists the model's height and size, so you can choose with confidence.</p>
+    </div>
+    <div style="flex: 1 1 480px; height: 360px; background: #ece7e0; position: relative"><span style="position: absolute; left: 8px; bottom: 8px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Collection image</span></div>
+  </section>
+
+  <!-- Filters + sort -->
+  <section aria-label="Filter and sort" style="margin: 48px 24px 0; padding: 16px 0; border-top: 1px solid #d9d1c7; border-bottom: 1px solid #d9d1c7; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
+    <div role="group" aria-label="Size" style="display: flex; align-items: center; gap: 4px">
+      <span style="font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 8px">Size</span>
+      <sc-for list="{{sizeChips}}" as="c" hint-placeholder-count="5">
+        <button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+    <div role="group" aria-label="Color" style="display: flex; align-items: center; gap: 2px">
+      <span style="font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 8px">Color</span>
+      <sc-for list="{{colorChips}}" as="c" hint-placeholder-count="4">
+        <button type="button" aria-label="{{c.label}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><span style="{{c.dot}}"></span></button>
+      </sc-for>
+    </div>
+    <label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 13px; line-height: 20px; cursor: pointer">
+      <input type="checkbox" checked="{{inStock}}" onChange="{{toggleStock}}" style="width: 18px; height: 18px; margin: 0; accent-color: #2a1f18">In stock only
+    </label>
+    <label style="margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 20px">
+      <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Sort</span>
+      <select onChange="{{pickSort}}" value="{{sort}}" style="min-height: 44px; border: 1px solid #8c7f73; border-radius: 0; background: #f8f5f0; color: #2a1f18; padding: 0 12px; font-family: inherit; font-size: 13px">
+        <option value="featured">Featured</option>
+        <option value="new">Newest</option>
+        <option value="low">Price, low to high</option>
+        <option value="high">Price, high to low</option>
+      </select>
+    </label>
+  </section>
+
+  <div style="margin: 16px 24px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 13px; line-height: 20px">
+    <span aria-live="polite" style="color: #6b5f55">{{countLabel}}</span>
+    <sc-if value="{{hasFilters}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{clear}}" style="min-height: 24px; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 13px; color: #2a1f18; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Clear all filters</button></sc-if>
+  </div>
+
+  <!-- Grid -->
+  <sc-if value="{{hasResults}}" hint-placeholder-val="{{true}}">
+    <section aria-label="Products" style="padding: 0 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 4px">
+      <sc-for list="{{products}}" as="p" hint-placeholder-count="12">
+        <a href="#" style="display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #2a1f18">
+          <div style="aspect-ratio: 3 / 4; background: #ece7e0; position: relative">
+            <sc-if value="{{p.onSale}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 8px; left: 8px; background: #f8f5f0; color: #8a3f22; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px">Sale</span></sc-if>
+            <sc-if value="{{p.soldOut}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 8px; left: 8px; background: #f8f5f0; color: #6b5f55; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px">Sold out</span></sc-if>
+            <span style="position: absolute; left: 8px; bottom: 8px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">{{p.color}}</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 0 8px">
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; line-height: 20px">
+              <span>{{p.name}}</span>
+              <span style="white-space: nowrap"><sc-if value="{{p.onSale}}" hint-placeholder-val="{{false}}"><s style="color: #6b5f55; margin-right: 8px">{{p.was}}</s><span style="color: #8a3f22">{{p.price}}</span></sc-if><sc-if value="{{p.full}}" hint-placeholder-val="{{true}}">{{p.price}}</sc-if></span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; line-height: 16px">
+              <sc-for list="{{p.sizes}}" as="sz" hint-placeholder-count="5">
+                <sc-if value="{{sz.na}}" hint-placeholder-val="{{false}}"><span style="color: #6b5f55; text-decoration: line-through">{{sz.label}}</span></sc-if>
+                <sc-if value="{{sz.ok}}" hint-placeholder-val="{{true}}"><span>{{sz.label}}</span></sc-if>
+              </sc-for>
+            </div>
+          </div>
+        </a>
+      </sc-for>
+    </section>
+    <nav aria-label="Pagination" style="margin: 64px 24px 0; display: flex; justify-content: center; align-items: center; gap: 4px; font-size: 13px">
+      <a href="#" aria-current="page" style="min-width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; background: #2a1f18; color: #f8f5f0; text-decoration: none">1</a>
+      <a href="#" style="min-width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none">2</a>
+      <a href="#" style="min-width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none">3</a>
+      <a href="#" style="height: 44px; padding: 0 12px; display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 4px">Next</a>
+    </nav>
+  </sc-if>
+
+  <!-- Empty state -->
+  <sc-if value="{{noResults}}" hint-placeholder-val="{{false}}">
+    <section style="margin: 0 24px; padding: 96px 24px; background: #ece7e0; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+      <h2 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1.1; font-weight: 400">Nothing matches these filters</h2>
+      <p style="margin: 0; max-width: 420px; font-size: 15px; line-height: 24px">Try another size or color, or clear the filters to see the whole collection.</p>
+      <button type="button" onClick="{{clear}}" style="min-height: 44px; padding: 0 24px; border: 1px solid #2a1f18; background: #2a1f18; color: #f8f5f0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Clear filters</button>
+    </section>
+  </sc-if>
+
+  <footer style="padding: 96px 24px 24px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <div style="display: flex; flex-wrap: wrap; gap: 32px">
+      <div style="flex: 2 1 320px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Join our world</h2>
+        <p style="margin: 0 0 16px; font-size: 13px; line-height: 20px">New collections and edits, once a month.</p>
+        <form style="display: flex; border-bottom: 1px solid #8c7f73; max-width: 360px">
+          <label for="news-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+          <input id="news-email" type="email" placeholder="Email" style="flex: 1; min-width: 0; border: 0; background: transparent; padding: 8px 0; font-family: inherit; font-size: 13px; line-height: 20px; color: #2a1f18">
+          <button type="button" style="min-height: 44px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Sign up</button>
+        </form>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Help</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 20px"><li><a href="#" style="text-decoration: none">Shipping and returns</a></li><li><a href="#" style="text-decoration: none">Size guide</a></li><li><a href="#" style="text-decoration: none">Contact</a></li></ul>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Arvel</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 20px"><li><a href="#" style="text-decoration: none">Our story</a></li><li><a href="#" style="text-decoration: none">Journal</a></li><li><a href="#" style="text-decoration: none">Stores</a></li></ul>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 12px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Social media</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 20px"><li><a href="#" style="text-decoration: none">Instagram</a></li><li><a href="#" style="text-decoration: none">Pinterest</a></li><li><a href="#" style="text-decoration: none">TikTok</a></li></ul>
+      </div>
+    </div>
+    <p aria-hidden="true" style="margin: auto 0 16px; padding-top: 96px; font-family: Cormorant, 'Times New Roman', serif; font-size: clamp(72px, 17vw, 260px); line-height: 0.85; font-weight: 400; letter-spacing: -0.02em; text-align: center; text-transform: uppercase">Arvel</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 12px; line-height: 16px; color: #6b5f55">
+      <span>United States (USD $) · English</span>
+      <span>© 2026 Arvel · Powered by Shopify</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2944}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sizes: [], colors: [], inStock: false, sort: 'featured' };
+  }
+  renderVals() {
+    var self = this;
+    var st = this.state;
+    var SIZES = ['XS', 'S', 'M', 'L', 'XL'];
+    var COLORS = [
+      { name: 'Camel', hex: '#a47a52' }, { name: 'Black', hex: '#1e1a17' }, { name: 'Ecru', hex: '#ddd1bf' }, { name: 'Grey', hex: '#8e8a85' }
+    ];
+    var ALL = [
+      { name: 'Trinelle wool coat', color: 'Camel', p: 640, gone: ['XS'], i: 1 },
+      { name: 'Rowani shearling jacket', color: 'Black', p: 890, gone: [], i: 2 },
+      { name: 'Edda trench coat', color: 'Ecru', p: 392, was: 560, gone: ['XL'], i: 3 },
+      { name: 'Lia belted blazer', color: 'Grey', p: 420, gone: ['XS', 'S'], i: 4 },
+      { name: 'Tove wool cape', color: 'Camel', p: 480, gone: [], i: 5 },
+      { name: 'Adeline shearling jacket', color: 'Ecru', p: 940, gone: ['M'], i: 6 },
+      { name: 'Mira quilted vest', color: 'Black', p: 210, was: 300, gone: [], i: 7 },
+      { name: 'Sol cropped jacket', color: 'Grey', p: 360, gone: ['XS', 'S', 'M', 'L', 'XL'], i: 8 },
+      { name: 'Noor long coat', color: 'Black', p: 720, gone: ['L'], i: 9 },
+      { name: 'Ines car coat', color: 'Camel', p: 580, gone: [], i: 10 },
+      { name: 'Bea wool bomber', color: 'Grey', p: 340, gone: ['XL'], i: 11 },
+      { name: 'Vera wrap coat', color: 'Ecru', p: 610, gone: [], i: 12 }
+    ];
+    var toggle = function (arr, v) { return arr.indexOf(v) === -1 ? arr.concat([v]) : arr.filter(function (x) { return x !== v; }); };
+    var list = ALL.filter(function (p) {
+      if (st.colors.length && st.colors.indexOf(p.color) === -1) { return false; }
+      var avail = SIZES.filter(function (s) { return p.gone.indexOf(s) === -1; });
+      if (st.inStock && !avail.length) { return false; }
+      if (st.sizes.length && !st.sizes.some(function (s) { return avail.indexOf(s) !== -1; })) { return false; }
+      return true;
+    });
+    if (st.sort === 'low') { list = list.slice().sort(function (a, b) { return a.p - b.p; }); }
+    if (st.sort === 'high') { list = list.slice().sort(function (a, b) { return b.p - a.p; }); }
+    if (st.sort === 'new') { list = list.slice().sort(function (a, b) { return b.i - a.i; }); }
+    var money = function (n) { return '$' + n; };
+    var products = list.map(function (p) {
+      var soldOut = p.gone.length === SIZES.length;
+      return {
+        name: p.name, color: p.color, price: money(p.p), was: p.was ? money(p.was) : '', onSale: !!p.was, full: !p.was, soldOut: soldOut && !p.was,
+        sizes: SIZES.map(function (s) { var na = p.gone.indexOf(s) !== -1; return { label: s, na: na, ok: !na }; })
+      };
+    });
+    var hasFilters = st.sizes.length > 0 || st.colors.length > 0 || st.inStock;
+    return {
+      sizeChips: SIZES.map(function (s) {
+        var on = st.sizes.indexOf(s) !== -1;
+        return { label: s, pressed: on ? 'true' : 'false', pick: function () { self.setState({ sizes: toggle(st.sizes, s) }); },
+          style: 'min-width: 44px; height: 44px; padding: 0 8px; font-family: inherit; font-size: 13px; cursor: pointer; border: 1px solid ' + (on ? '#2a1f18' : '#8c7f73') + '; background: ' + (on ? '#2a1f18' : 'transparent') + '; color: ' + (on ? '#f8f5f0' : '#2a1f18') };
+      }),
+      colorChips: COLORS.map(function (c) {
+        var on = st.colors.indexOf(c.name) !== -1;
+        return { label: c.name, pressed: on ? 'true' : 'false', pick: function () { self.setState({ colors: toggle(st.colors, c.name) }); },
+          dot: 'display: block; width: 22px; height: 22px; border-radius: 9999px; background: ' + c.hex + '; box-shadow: 0 0 0 1px #8c7f73' + (on ? ', 0 0 0 3px #f8f5f0, 0 0 0 4px #2a1f18' : '') };
+      }),
+      inStock: st.inStock,
+      toggleStock: function () { self.setState({ inStock: !st.inStock }); },
+      sort: st.sort,
+      pickSort: function (e) { self.setState({ sort: e.target.value }); },
+      products: products,
+      countLabel: products.length + (products.length === 1 ? ' piece' : ' pieces') + (hasFilters ? ' match your filters' : ' · showing 1–12 of 34'),
+      hasFilters: hasFilters,
+      hasResults: products.length > 0,
+      noResults: products.length === 0,
+      clear: function () { self.setState({ sizes: [], colors: [], inStock: false }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<div class="contact-form color-{{ section.settings.color_scheme }}">
+  <div class="contact-form__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="contact-form__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- assign contact_form_id = 'ContactForm-' | append: section.id -%}
+    {%- form 'contact', id: contact_form_id, class: 'contact-form__form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="contact-form__success text-small" role="status" tabindex="-1" autofocus>{{ 'contact.success' | t }}</p>
+      {%- elsif form.errors -%}
+        <div class="contact-form__errors text-small" role="alert">{{ form.errors | default_errors }}</div>
+      {%- endif -%}
+
+      <div class="contact-form__fields">
+        <div class="contact-form__field">
+          <label class="label" for="ContactName-{{ section.id }}">{{ 'contact.name' | t }}</label>
+          <input class="field" type="text" id="ContactName-{{ section.id }}" name="contact[{{ 'contact.name' | t }}]" value="{{ form.name }}" autocomplete="name">
+        </div>
+        <div class="contact-form__field">
+          <label class="label" for="ContactEmail-{{ section.id }}">{{ 'contact.email' | t }} <span aria-hidden="true">*</span></label>
+          <input
+            class="field"
+            type="email"
+            id="ContactEmail-{{ section.id }}"
+            name="contact[email]"
+            value="{{ form.email }}"
+            autocomplete="email"
+            autocapitalize="off"
+            spellcheck="false"
+            required
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+            {% endif %}
+          >
+        </div>
+      </div>
+
+      <div class="contact-form__field">
+        <label class="label" for="ContactPhone-{{ section.id }}">{{ 'contact.phone' | t }}</label>
+        <input class="field" type="tel" id="ContactPhone-{{ section.id }}" name="contact[{{ 'contact.phone' | t }}]" value="{{ form.phone }}" autocomplete="tel" pattern="[0-9\-\s\+\(\)]*">
+      </div>
+
+      <div class="contact-form__field">
+        <label class="label" for="ContactBody-{{ section.id }}">{{ 'contact.message' | t }}</label>
+        <textarea class="field contact-form__textarea" id="ContactBody-{{ section.id }}" name="contact[{{ 'contact.message' | t }}]" rows="6">{{ form.body }}</textarea>
+      </div>
+
+      <button class="button" type="submit">{{ 'contact.submit' | t }}</button>
+    {%- endform -%}
+  </div>
+</div>
+
+{%- for block in section.blocks -%}
+  {%- if block.type == '@app' -%}
+    <div class="app-block page-width">{% render block %}</div>
+  {%- endif -%}
+{%- endfor -%}
+
+{% stylesheet %}
+  .contact-form__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: calc(44rem + var(--page-margin) * 2);
+    padding-block: 0 var(--section-spacing);
+  }
+
+  .contact-form__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .contact-form__fields {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .contact-form__textarea {
+    padding-block: 12px;
+    resize: vertical;
+  }
+
+  .contact-form__success {
+    color: var(--color-success);
+  }
+
+  .contact-form__errors {
+    color: var(--color-error);
+  }
+
+  @media screen and (min-width: 750px) {
+    .contact-form__fields {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.contact_form.name",
+  "class": "section-contact-form",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Send us a message"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contact_form.name"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,254 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-19T03:50:00Z"
+  },
+  "title": "Tema multi-nicho — páginas",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 6800,
+      "title": "Home — preset Moda",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Joias.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 6760,
+      "title": "Home — preset Joias",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Moveis.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 6020,
+      "title": "Home — preset Móveis",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Moda-Produto.dc.html": {
+      "x": 0,
+      "y": 6920,
+      "w": 1440,
+      "h": 3340,
+      "title": "Produto — preset Moda",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Joias-Produto.dc.html": {
+      "x": 1520,
+      "y": 6880,
+      "w": 1440,
+      "h": 3100,
+      "title": "Produto — preset Joias",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Moveis-Produto.dc.html": {
+      "x": 3040,
+      "y": 6140,
+      "w": 1440,
+      "h": 3080,
+      "title": "Produto — preset Móveis",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Moda-Colecao.dc.html": {
+      "x": 0,
+      "y": 10380,
+      "w": 1440,
+      "h": 2944,
+      "title": "Coleção — preset Moda",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Joias-Colecao.dc.html": {
+      "x": 1520,
+      "y": 10100,
+      "w": 1440,
+      "h": 2860,
+      "title": "Coleção — preset Joias",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Moveis-Colecao.dc.html": {
+      "x": 3040,
+      "y": 9340,
+      "w": 1440,
+      "h": 2730,
+      "title": "Coleção — preset Móveis",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Moda-Carrinho.dc.html": {
+      "x": 0,
+      "y": 13444,
+      "w": 1440,
+      "h": 1620,
+      "title": "Carrinho — preset Moda",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Joias-Carrinho.dc.html": {
+      "x": 1520,
+      "y": 13080,
+      "w": 1440,
+      "h": 1640,
+      "title": "Carrinho — preset Joias",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Moveis-Carrinho.dc.html": {
+      "x": 3040,
+      "y": 12190,
+      "w": 1440,
+      "h": 1410,
+      "title": "Carrinho — preset Móveis",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Moda-Home-Mobile.dc.html": {
+      "x": 4640,
+      "y": 0,
+      "w": 390,
+      "h": 5510,
+      "title": "Mobile — home Moda",
+      "is_interactive": true
+    },
+    "Joias-Home-Mobile.dc.html": {
+      "x": 5110,
+      "y": 0,
+      "w": 390,
+      "h": 5100,
+      "title": "Mobile — home Joias",
+      "is_interactive": true
+    },
+    "Moveis-Home-Mobile.dc.html": {
+      "x": 5580,
+      "y": 0,
+      "w": 390,
+      "h": 6300,
+      "title": "Mobile — home Móveis",
+      "is_interactive": true
+    },
+    "Moda-Produto-Mobile.dc.html": {
+      "x": 4640,
+      "y": 5630,
+      "w": 390,
+      "h": 3260,
+      "title": "Mobile — produto Moda",
+      "is_interactive": true
+    },
+    "Joias-Produto-Mobile.dc.html": {
+      "x": 5110,
+      "y": 5220,
+      "w": 390,
+      "h": 2940,
+      "title": "Mobile — produto Joias",
+      "is_interactive": true
+    },
+    "Moveis-Produto-Mobile.dc.html": {
+      "x": 5580,
+      "y": 6420,
+      "w": 390,
+      "h": 3400,
+      "title": "Mobile — produto Móveis",
+      "is_interactive": true
+    },
+    "Moda-Colecao-Mobile.dc.html": {
+      "x": 4640,
+      "y": 9010,
+      "w": 390,
+      "h": 2420,
+      "title": "Mobile — coleção Moda",
+      "is_interactive": true
+    },
+    "Joias-Colecao-Mobile.dc.html": {
+      "x": 5110,
+      "y": 8280,
+      "w": 390,
+      "h": 2220,
+      "title": "Mobile — coleção Joias",
+      "is_interactive": true
+    },
+    "Moveis-Colecao-Mobile.dc.html": {
+      "x": 5580,
+      "y": 9940,
+      "w": 390,
+      "h": 2680,
+      "title": "Mobile — coleção Móveis",
+      "is_interactive": true
+    },
+    "Moda-Carrinho-Mobile.dc.html": {
+      "x": 4640,
+      "y": 11550,
+      "w": 390,
+      "h": 1660,
+      "title": "Mobile — carrinho Moda",
+      "is_interactive": true
+    },
+    "Joias-Carrinho-Mobile.dc.html": {
+      "x": 5110,
+      "y": 10620,
+      "w": 390,
+      "h": 1640,
+      "title": "Mobile — carrinho Joias",
+      "is_interactive": true
+    },
+    "Moveis-Carrinho-Mobile.dc.html": {
+      "x": 5580,
+      "y": 12740,
+      "w": 390,
+      "h": 1630,
+      "title": "Mobile — carrinho Móveis",
+      "is_interactive": true
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Joias.dc.html",
+    "Moveis.dc.html",
+    "Moda-Produto.dc.html",
+    "Joias-Produto.dc.html",
+    "Moveis-Produto.dc.html",
+    "Moda-Colecao.dc.html",
+    "Joias-Colecao.dc.html",
+    "Moveis-Colecao.dc.html",
+    "Moda-Carrinho.dc.html",
+    "Joias-Carrinho.dc.html",
+    "Moveis-Carrinho.dc.html",
+    "Moda-Home-Mobile.dc.html",
+    "Joias-Home-Mobile.dc.html",
+    "Moveis-Home-Mobile.dc.html",
+    "Moda-Produto-Mobile.dc.html",
+    "Joias-Produto-Mobile.dc.html",
+    "Moveis-Produto-Mobile.dc.html",
+    "Moda-Colecao-Mobile.dc.html",
+    "Joias-Colecao-Mobile.dc.html",
+    "Moveis-Colecao-Mobile.dc.html",
+    "Moda-Carrinho-Mobile.dc.html",
+    "Joias-Carrinho-Mobile.dc.html",
+    "Moveis-Carrinho-Mobile.dc.html"
+  ],
+  "notes": {},
+  "designSystems": [
+    {
+      "title": "Tema multi-nicho",
+      "namespace": "moda",
+      "artifact": "https://claude.ai/artifact/UApnb2PAHtQgBERvMsDyLZ",
+      "version": "1792383573-55f7",
+      "copiedAt": "2026-10-19T04:22:00Z"
+    }
+  ]
+}

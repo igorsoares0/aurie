@@ -1,0 +1,353 @@
+{%- liquid
+  assign form_id = 'CartForm-' | append: section.id
+  assign sections_to_render = section.id
+  if settings.cart_type == 'drawer'
+    assign sections_to_render = sections_to_render | append: ',cart-drawer'
+  endif
+
+  assign reminder_product = blank
+  if settings.cart_size_reminder
+    for item in cart.items
+      assign same_product_lines = cart.items | where: 'product_id', item.product_id
+      if same_product_lines.size > 1
+        assign reminder_product = item.product
+        break
+      endif
+    endfor
+  endif
+-%}
+
+<cart-items class="main-cart color-{{ section.settings.color_scheme }}" data-sections="{{ sections_to_render }}">
+  <div class="main-cart__inner page-width" data-cart-content>
+    <h1 class="main-cart__title">
+      <span>{{ 'cart.title' | t }}</span>
+      <span class="main-cart__rule" aria-hidden="true"></span>
+      {%- if cart.item_count > 0 -%}
+        <span class="main-cart__count text-small text-muted">{{ 'cart.item_count' | t: count: cart.item_count }}</span>
+      {%- endif -%}
+    </h1>
+
+    {%- if cart.item_count > 0 -%}
+      <div class="main-cart__grid">
+        <div class="main-cart__items">
+          {%- if reminder_product != blank -%}
+            <div class="main-cart__reminder text-small" role="status">
+              <span>{{ 'cart.size_reminder' | t: product: reminder_product.title }}</span>
+              {%- if section.settings.size_guide_page != blank -%}
+                <a href="{{ section.settings.size_guide_page.url }}">{{ 'cart.size_reminder_link' | t }}</a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          <form class="main-cart__form" action="{{ routes.cart_url }}" method="post" id="{{ form_id }}" novalidate>
+            {% render 'cart-items', form_id: form_id, context: 'page' %}
+            <noscript>
+              <button class="button button--secondary main-cart__update" type="submit" name="update">{{ 'cart.update' | t }}</button>
+            </noscript>
+          </form>
+
+          {%- if section.settings.show_gift_wrap -%}
+            {%- assign gift_wrap_attribute = section.settings.gift_wrap_attribute | default: 'Gift wrapping' -%}
+            <label class="main-cart__option text-small">
+              <input
+                type="checkbox"
+                name="attributes[{{ gift_wrap_attribute | escape }}]"
+                value="{{ 'cart.yes' | t }}"
+                form="{{ form_id }}"
+                data-cart-attribute="{{ gift_wrap_attribute | escape }}"
+                {% if cart.attributes[gift_wrap_attribute] != blank %}
+                  checked
+                {% endif %}
+              >
+              <span>
+                {{- section.settings.gift_wrap_label -}}
+                {%- if section.settings.gift_wrap_note != blank %}
+                  <span class="text-muted">· {{ section.settings.gift_wrap_note }}</span>
+                {%- endif -%}
+              </span>
+            </label>
+          {%- endif -%}
+
+          {%- if settings.cart_note -%}
+            <div class="main-cart__note">
+              <label class="label" for="CartNote-{{ section.id }}">{{ section.settings.note_label }}</label>
+              <textarea
+                class="field main-cart__note-field"
+                id="CartNote-{{ section.id }}"
+                name="note"
+                form="{{ form_id }}"
+                rows="3"
+                placeholder="{{ section.settings.note_placeholder | escape }}"
+                data-cart-note
+              >{{ cart.note }}</textarea>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <aside class="main-cart__summary" aria-labelledby="CartSummaryTitle-{{ section.id }}">
+          <h2 class="main-cart__summary-title h3" id="CartSummaryTitle-{{ section.id }}">{{ 'cart.summary' | t }}</h2>
+          {% render 'cart-summary', form_id: form_id, context: 'page' %}
+        </aside>
+      </div>
+    {%- else -%}
+      <div class="main-cart__empty">
+        <h2>{{ section.settings.empty_heading }}</h2>
+        {%- if section.settings.empty_text != blank -%}
+          <p>{{ section.settings.empty_text }}</p>
+        {%- endif -%}
+        {%- assign continue_label = 'cart.continue_shopping' | t -%}
+        <a class="button" href="{{ section.settings.empty_button_link | default: routes.all_products_collection_url }}">
+          {{- section.settings.empty_button_label | default: continue_label -}}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</cart-items>
+
+{%- for block in section.blocks -%}
+  {%- if block.type == '@app' -%}
+    <div class="app-block page-width">{% render block %}</div>
+  {%- endif -%}
+{%- endfor -%}
+
+{% stylesheet %}
+  .main-cart {
+    display: block;
+    padding-block: 48px var(--section-spacing);
+  }
+
+  .main-cart__title {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .main-cart__rule {
+    display: none;
+  }
+
+  .headings--split-rule .main-cart__rule {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 40px;
+    height: 1px;
+    align-self: center;
+    background-color: var(--color-divider);
+  }
+
+  .main-cart__count {
+    font-family: var(--font-body-family);
+    font-style: normal;
+    font-weight: var(--font-body-weight);
+    text-transform: none;
+  }
+
+  .main-cart__grid {
+    display: grid;
+    gap: 32px;
+  }
+
+  .main-cart__items {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-width: 0;
+  }
+
+  .main-cart__reminder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin-bottom: -16px;
+    padding: 12px 16px;
+    border-radius: var(--radius-input);
+    background-color: var(--color-tile);
+  }
+
+  .main-cart__update {
+    margin-top: 16px;
+  }
+
+  .main-cart__option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: var(--touch-target);
+    cursor: pointer;
+  }
+
+  .main-cart__option input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--color-text);
+  }
+
+  .main-cart__note {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 520px;
+  }
+
+  .main-cart__note-field {
+    padding-block: 12px;
+    resize: vertical;
+  }
+
+  .main-cart__summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .main-cart__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 96px 24px;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+    text-align: center;
+  }
+
+  @media screen and (max-width: 749px) {
+    .main-cart__summary .cart-summary__checkout {
+      position: sticky;
+      bottom: 0;
+      margin-inline: -24px;
+      margin-bottom: -24px;
+      padding: 12px 24px 16px;
+      border-top: 1px solid var(--color-divider);
+      background-color: var(--color-tile);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .main-cart__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+      gap: 64px;
+      align-items: start;
+    }
+
+    .main-cart__summary {
+      position: sticky;
+      top: 24px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_cart.name",
+  "class": "section-main-cart",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_cart.note_header"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main_cart.note_info"
+    },
+    {
+      "type": "text",
+      "id": "note_label",
+      "label": "t:sections.main_cart.note_label",
+      "default": "Order note"
+    },
+    {
+      "type": "text",
+      "id": "note_placeholder",
+      "label": "t:sections.main_cart.note_placeholder",
+      "default": "Gift message, delivery instructions"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_cart.gift_wrap_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gift_wrap",
+      "label": "t:sections.main_cart.show_gift_wrap",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "gift_wrap_label",
+      "label": "t:sections.main_cart.gift_wrap_label",
+      "default": "Wrap each piece separately",
+      "visible_if": "{{ section.settings.show_gift_wrap }}"
+    },
+    {
+      "type": "text",
+      "id": "gift_wrap_note",
+      "label": "t:sections.main_cart.gift_wrap_note",
+      "default": "Free",
+      "visible_if": "{{ section.settings.show_gift_wrap }}"
+    },
+    {
+      "type": "text",
+      "id": "gift_wrap_attribute",
+      "label": "t:sections.main_cart.gift_wrap_attribute",
+      "info": "t:sections.main_cart.gift_wrap_attribute_info",
+      "default": "Gift wrapping",
+      "visible_if": "{{ section.settings.show_gift_wrap }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_cart.size_reminder_header"
+    },
+    {
+      "type": "page",
+      "id": "size_guide_page",
+      "label": "t:sections.main_cart.size_guide_page",
+      "info": "t:sections.main_cart.size_guide_page_info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_cart.empty_header"
+    },
+    {
+      "type": "text",
+      "id": "empty_heading",
+      "label": "t:labels.heading",
+      "default": "Your bag is empty"
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "t:labels.text",
+      "default": "Our newest pieces are a good place to start."
+    },
+    {
+      "type": "text",
+      "id": "empty_button_label",
+      "label": "t:labels.button_label",
+      "default": "Continue shopping"
+    },
+    {
+      "type": "url",
+      "id": "empty_button_link",
+      "label": "t:labels.link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

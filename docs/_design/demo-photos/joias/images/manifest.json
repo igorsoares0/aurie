@@ -1,0 +1,1604 @@
+{
+  "pebble-signet--18k-gold-vermeil--front": {
+    "file": "pebble-signet/pebble-signet-18k-gold-vermeil-front.jpg",
+    "alt": "Pebble signet in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "9kpfp9snesrmw0d1epvvptwwhm",
+    "prompt": "Product photograph of a handmade oval signet ring with a smooth softly brushed oval face, no engraving, and a slim polished band, standing upright at a slight three-quarter angle, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp macro focus. Only the described piece in the frame, no duplicates, no reflections of other objects. No text, no logo, no watermark, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.9,
+        244.5,
+        228.3
+      ],
+      "gains": [
+        0.949,
+        0.973,
+        1.025
+      ]
+    },
+    "created_at": "2026-10-26T00:59:09+00:00"
+  },
+  "sculpted-hoop--18k-gold-vermeil--front": {
+    "file": "sculpted-hoop/sculpted-hoop-18k-gold-vermeil-front.jpg",
+    "alt": "Sculpted hoop in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "4mffnqrw3drmt0d1epw9fy7008",
+    "prompt": "Product photograph of a pair of organic hand-sculpted hoop earrings, 22 mm wide, tubular with a gently irregular, softly undulating thickness, one lying flat and one leaning against it, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp macro focus. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections. No text, no logo, no watermark, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        252.3,
+        244.6,
+        229.2
+      ],
+      "gains": [
+        0.955,
+        0.973,
+        1.021
+      ]
+    },
+    "created_at": "2026-10-26T01:01:03+00:00"
+  },
+  "drop-chain--18k-gold-vermeil--front": {
+    "file": "drop-chain/drop-chain-18k-gold-vermeil-front.jpg",
+    "alt": "Drop chain in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "vr4zg0n7xxrmw0d1epw9zbk1y8",
+    "prompt": "Product photograph of a fine cable chain necklace with a single small polished teardrop pendant, the chain laid in a soft curve, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp macro focus. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections. No text, no logo, no watermark, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        249.9,
+        238.2,
+        221.2
+      ],
+      "gains": [
+        0.964,
+        0.999,
+        1.058
+      ]
+    },
+    "created_at": "2026-10-26T01:01:04+00:00"
+  },
+  "pebble-signet--18k-gold-vermeil--side": {
+    "file": "pebble-signet/pebble-signet-18k-gold-vermeil-side.jpg",
+    "alt": "Pebble signet in 18k gold vermeil, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "1eqkw8vtddrmt0d1epx8367k38",
+    "prompt": "Change only the camera angle: show this exact piece from a side profile view. Keep the same piece, metal, background color, lighting and shadow style. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "pebble-signet--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        252.1,
+        241.8,
+        226.5
+      ],
+      "gains": [
+        0.956,
+        0.984,
+        1.033
+      ]
+    },
+    "created_at": "2026-10-26T01:05:36+00:00"
+  },
+  "pebble-signet--18k-gold-vermeil--worn": {
+    "file": "pebble-signet/pebble-signet-18k-gold-vermeil-worn.jpg",
+    "alt": "Pebble signet in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "c5jej97zd5rmy0d1epxanckja0",
+    "prompt": "Lifestyle photograph: a woman's relaxed hand resting on soft ivory linen, the ring on the index finger, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "pebble-signet--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:05:37+00:00"
+  },
+  "pebble-signet--sterling-silver--front": {
+    "file": "pebble-signet/pebble-signet-sterling-silver-front.jpg",
+    "alt": "Pebble signet in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "d1y9nrwpjsrmy0d1epxryrvzym",
+    "prompt": "Change only the metal of this piece to polished sterling silver with cool neutral reflections. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "pebble-signet--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        251.5,
+        241.8,
+        227.9
+      ],
+      "gains": [
+        0.958,
+        0.984,
+        1.027
+      ]
+    },
+    "created_at": "2026-10-26T01:05:38+00:00"
+  },
+  "sculpted-hoop--18k-gold-vermeil--side": {
+    "file": "sculpted-hoop/sculpted-hoop-18k-gold-vermeil-side.jpg",
+    "alt": "Sculpted hoop in 18k gold vermeil, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "sbzk8gr201rmy0d1epy9r0jq78",
+    "prompt": "Change only the camera angle: show this exact piece from a side profile view. Keep the same piece, metal, background color, lighting and shadow style. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "sculpted-hoop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        251.8,
+        243.0,
+        227.4
+      ],
+      "gains": [
+        0.957,
+        0.979,
+        1.029
+      ]
+    },
+    "created_at": "2026-10-26T01:05:38+00:00"
+  },
+  "sculpted-hoop--18k-gold-vermeil--worn": {
+    "file": "sculpted-hoop/sculpted-hoop-18k-gold-vermeil-worn.jpg",
+    "alt": "Sculpted hoop in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "jn370kbxdhrmt0d1epyakgx3dg",
+    "prompt": "Lifestyle photograph: a close crop of a woman's ear and jawline in profile, hair tucked back, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "sculpted-hoop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:05:40+00:00"
+  },
+  "sculpted-hoop--sterling-silver--front": {
+    "file": "sculpted-hoop/sculpted-hoop-sterling-silver-front.jpg",
+    "alt": "Sculpted hoop in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "0tzh7ehxmxrmw0d1epyrtqy278",
+    "prompt": "Change only the metal of this piece to polished sterling silver with cool neutral reflections. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "sculpted-hoop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        250.1,
+        242.2,
+        227.7
+      ],
+      "gains": [
+        0.964,
+        0.983,
+        1.028
+      ]
+    },
+    "created_at": "2026-10-26T01:05:40+00:00"
+  },
+  "pebble-signet--sterling-silver--side": {
+    "file": "pebble-signet/pebble-signet-sterling-silver-side.jpg",
+    "alt": "Pebble signet in sterling silver, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "rfjnr0kwynrmw0d1epz86h2vhc",
+    "prompt": "Change only the metal of this piece to polished sterling silver with cool neutral reflections. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "pebble-signet--18k-gold-vermeil--side"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        251.1,
+        240.7,
+        226.9
+      ],
+      "gains": [
+        0.96,
+        0.989,
+        1.031
+      ]
+    },
+    "created_at": "2026-10-26T01:08:26+00:00"
+  },
+  "sculpted-hoop--sterling-silver--side": {
+    "file": "sculpted-hoop/sculpted-hoop-sterling-silver-side.jpg",
+    "alt": "Sculpted hoop in sterling silver, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "qyee7azwjxrmy0d1epzbr70yhc",
+    "prompt": "Change only the metal of this piece to polished sterling silver with cool neutral reflections. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "sculpted-hoop--18k-gold-vermeil--side"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        252.3,
+        244.4,
+        231.3
+      ],
+      "gains": [
+        0.955,
+        0.974,
+        1.012
+      ]
+    },
+    "created_at": "2026-10-26T01:08:27+00:00"
+  },
+  "editorial--hero-banner": {
+    "file": "editorial/hero-banner.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "8srewbkzfnrmy0d1epzt21nshm",
+    "prompt": "Editorial fine jewelry campaign photograph for a website hero banner. Close crop of a woman in her early thirties, collarbone to jaw, head slightly turned, wearing the reference necklace and the reference hoop earring with a simple ivory silk top. Natural window light, very light airy near-white and warm beige palette, realistic skin, calm and luminous, shallow depth of field, medium format film look, negative space on the left for a headline. No text, no logo, no watermark.",
+    "refs": [
+      "drop-chain--18k-gold-vermeil--front",
+      "sculpted-hoop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2752,
+      1536
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:08:27+00:00"
+  },
+  "oval-signet--18k-solid-gold--front": {
+    "file": "oval-signet/oval-signet-18k-solid-gold-front.jpg",
+    "alt": "Oval signet in 18k solid gold, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "6gzev1e805rmt0d1eq1vesvwg0",
+    "prompt": "Product photograph of a substantial signet ring with a wide horizontal oval face, high-polish finish and a thick band, lying at a three-quarter angle, in rich deep 18k solid yellow gold, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.6,
+        247.2,
+        231.1
+      ],
+      "gains": [
+        0.95,
+        0.963,
+        1.013
+      ]
+    },
+    "created_at": "2026-10-26T01:15:07+00:00"
+  },
+  "seal-ring--sterling-silver--front": {
+    "file": "seal-ring/seal-ring-sterling-silver-front.jpg",
+    "alt": "Seal ring in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "0m0cp59c7drmr0d1eq284nrs3c",
+    "prompt": "Product photograph of a round signet ring with a flat circular face and crisp bevelled edge, satin finish, standing upright, in polished sterling silver with cool neutral reflections, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.6,
+        243.5,
+        227.1
+      ],
+      "gains": [
+        0.95,
+        0.978,
+        1.03
+      ]
+    },
+    "created_at": "2026-10-26T01:15:09+00:00"
+  },
+  "thread-ring--18k-gold-vermeil--front": {
+    "file": "thread-ring/thread-ring-18k-gold-vermeil-front.jpg",
+    "alt": "Thread ring in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "3436a2m3b9rmr0d1eq2856yr3g",
+    "prompt": "Product photograph of a very fine delicate band ring, 1.2 mm thin round wire, high polish, standing upright, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.8,
+        244.4,
+        229.2
+      ],
+      "gains": [
+        0.95,
+        0.974,
+        1.021
+      ]
+    },
+    "created_at": "2026-10-26T01:15:09+00:00"
+  },
+  "stacking-band--18k-gold-vermeil--front": {
+    "file": "stacking-band/stacking-band-18k-gold-vermeil-front.jpg",
+    "alt": "Stacking band in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "gw4w8wfw75rmr0d1eq2ayt18tm",
+    "prompt": "Product photograph of a flat 2 mm band ring with squared edges and a high-polish finish, standing upright, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        249.8,
+        240.2,
+        223.9
+      ],
+      "gains": [
+        0.965,
+        0.991,
+        1.045
+      ]
+    },
+    "created_at": "2026-10-26T01:15:11+00:00"
+  },
+  "twist-ring--sterling-silver--front": {
+    "file": "twist-ring/twist-ring-sterling-silver-front.jpg",
+    "alt": "Twist ring in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "22c5kxtbhhrmt0d1eq2recgx8m",
+    "prompt": "Product photograph of a slim twisted rope band ring, 1.8 mm, two strands twisted together, polished, standing upright, in polished sterling silver with cool neutral reflections, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.7,
+        244.5,
+        228.8
+      ],
+      "gains": [
+        0.95,
+        0.973,
+        1.023
+      ]
+    },
+    "created_at": "2026-10-26T01:15:12+00:00"
+  },
+  "mini-hoop--18k-gold-vermeil--front": {
+    "file": "mini-hoop/mini-hoop-18k-gold-vermeil-front.jpg",
+    "alt": "Mini hoop in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "2396t3x79xrmy0d1eq2v8wzwrg",
+    "prompt": "Product photograph of a pair of small huggie hoop earrings, 12 mm, smooth polished round tube, one lying flat and one standing on its edge, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.1,
+        243.6,
+        226.9
+      ],
+      "gains": [
+        0.952,
+        0.977,
+        1.031
+      ]
+    },
+    "created_at": "2026-10-26T01:15:13+00:00"
+  },
+  "seed-studs--sterling-silver--front": {
+    "file": "seed-studs/seed-studs-sterling-silver-front.jpg",
+    "alt": "Seed studs in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "bcw27k05knrmy0d1eq38cm5qm4",
+    "prompt": "Product photograph of a pair of tiny 4 mm round dome stud earrings, polished, with butterfly backs, arranged side by side, in polished sterling silver with cool neutral reflections, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        251.5,
+        243.4,
+        225.9
+      ],
+      "gains": [
+        0.958,
+        0.978,
+        1.036
+      ]
+    },
+    "created_at": "2026-10-26T01:15:13+00:00"
+  },
+  "pearl-drop--18k-gold-vermeil--front": {
+    "file": "pearl-drop/pearl-drop-18k-gold-vermeil-front.jpg",
+    "alt": "Pearl drop in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "m38ygk7ttnrmr0d1eq3bjjjhnm",
+    "prompt": "Product photograph of a pair of drop earrings, each a small freshwater pearl with a soft natural luster hanging from a fine curved hook, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.6,
+        244.0,
+        228.9
+      ],
+      "gains": [
+        0.95,
+        0.975,
+        1.022
+      ]
+    },
+    "created_at": "2026-10-26T01:19:14+00:00"
+  },
+  "bar-studs--18k-solid-gold--front": {
+    "file": "bar-studs/bar-studs-18k-solid-gold-front.jpg",
+    "alt": "Bar studs in 18k solid gold, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "dg7tcn2zcxrmy0d1eq3ve4c6pw",
+    "prompt": "Product photograph of a pair of slim 8 mm vertical bar stud earrings with a brushed finish, arranged side by side, in rich deep 18k solid yellow gold, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        254.1,
+        246.6,
+        228.2
+      ],
+      "gains": [
+        0.948,
+        0.965,
+        1.026
+      ]
+    },
+    "created_at": "2026-10-26T01:19:14+00:00"
+  },
+  "knot-studs--sterling-silver--front": {
+    "file": "knot-studs/knot-studs-sterling-silver-front.jpg",
+    "alt": "Knot studs in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "mfvg8k5jhxrmr0d1eq3sz8k6mm",
+    "prompt": "Product photograph of a pair of 6 mm stud earrings shaped like a small tied knot of round wire, polished, in polished sterling silver with cool neutral reflections, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.5,
+        241.8,
+        226.9
+      ],
+      "gains": [
+        0.951,
+        0.984,
+        1.031
+      ]
+    },
+    "created_at": "2026-10-26T01:19:15+00:00"
+  },
+  "fine-chain--sterling-silver--front": {
+    "file": "fine-chain/fine-chain-sterling-silver-front.jpg",
+    "alt": "Fine chain in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "c26k5p81wdrmy0d1eq4as0wm20",
+    "prompt": "Product photograph of a very fine delicate cable chain necklace laid in a loose loop, in polished sterling silver with cool neutral reflections, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        247.2,
+        240.0,
+        226.1
+      ],
+      "gains": [
+        0.975,
+        0.992,
+        1.035
+      ]
+    },
+    "created_at": "2026-10-26T01:19:16+00:00"
+  },
+  "pebble-pendant--18k-gold-vermeil--front": {
+    "file": "pebble-pendant/pebble-pendant-18k-gold-vermeil-front.jpg",
+    "alt": "Pebble pendant in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "8gqmvvtvadrmw0d1eq49s6knew",
+    "prompt": "Product photograph of a necklace with a smooth flat pebble-shaped pendant, softly brushed, on a fine chain laid in a curve, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        254.1,
+        247.1,
+        231.8
+      ],
+      "gains": [
+        0.948,
+        0.963,
+        1.009
+      ]
+    },
+    "created_at": "2026-10-26T01:19:17+00:00"
+  },
+  "paperclip-chain--18k-solid-gold--front": {
+    "file": "paperclip-chain/paperclip-chain-18k-solid-gold-front.jpg",
+    "alt": "Paperclip chain in 18k solid gold, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "xdwxjxy6mxrmy0d1eq4b1k9v04",
+    "prompt": "Product photograph of an elongated paperclip link chain necklace, polished, laid in a loose curve, in rich deep 18k solid yellow gold, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.8,
+        251.4,
+        235.4
+      ],
+      "gains": [
+        0.949,
+        0.947,
+        0.994
+      ]
+    },
+    "created_at": "2026-10-26T01:19:17+00:00"
+  },
+  "bead-choker--sterling-silver--front": {
+    "file": "bead-choker/bead-choker-sterling-silver-front.jpg",
+    "alt": "Bead choker in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "a758a716b9rmt0d1eq4scee328",
+    "prompt": "Product photograph of a short necklace of small polished round metal beads spaced along a fine chain, laid in a circle, in polished sterling silver with cool neutral reflections, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        252.3,
+        244.0,
+        228.8
+      ],
+      "gains": [
+        0.955,
+        0.976,
+        1.023
+      ]
+    },
+    "created_at": "2026-10-26T01:19:19+00:00"
+  },
+  "disc-pendant--18k-gold-vermeil--front": {
+    "file": "disc-pendant/disc-pendant-18k-gold-vermeil-front.jpg",
+    "alt": "Disc pendant in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "fqfrj366xxrmt0d1eq4r94vgmc",
+    "prompt": "Product photograph of a necklace with a small flat round disc pendant, satin finish, on a fine chain laid in a curve, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.8,
+        247.7,
+        234.5
+      ],
+      "gains": [
+        0.949,
+        0.961,
+        0.998
+      ]
+    },
+    "created_at": "2026-10-26T01:19:19+00:00"
+  },
+  "wave-cuff--sterling-silver--front": {
+    "file": "wave-cuff/wave-cuff-sterling-silver-front.jpg",
+    "alt": "Wave cuff in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "1wfc1redbnrmt0d1eq59wa10zg",
+    "prompt": "Product photograph of an open cuff bracelet, 15 mm wide, with a gently rippling wave-shaped surface, polished, standing on its edge, in polished sterling silver with cool neutral reflections, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        254.4,
+        248.0,
+        234.3
+      ],
+      "gains": [
+        0.947,
+        0.96,
+        0.999
+      ]
+    },
+    "created_at": "2026-10-26T01:23:16+00:00"
+  },
+  "open-cuff--18k-gold-vermeil--front": {
+    "file": "open-cuff/open-cuff-18k-gold-vermeil-front.jpg",
+    "alt": "Open cuff in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "1v145fsyw5rmr0d1eq5vr695yc",
+    "prompt": "Product photograph of a slim 6 mm open cuff bracelet with rounded ends, high polish, standing on its edge, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        254.1,
+        248.0,
+        230.5
+      ],
+      "gains": [
+        0.949,
+        0.96,
+        1.015
+      ]
+    },
+    "created_at": "2026-10-26T01:23:17+00:00"
+  },
+  "fine-chain-bracelet--18k-gold-vermeil--front": {
+    "file": "fine-chain-bracelet/fine-chain-bracelet-18k-gold-vermeil-front.jpg",
+    "alt": "Fine chain bracelet in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "je2x58dxg5rmr0d1eq5rvrj7r0",
+    "prompt": "Product photograph of a very fine cable chain bracelet with a small round clasp, laid in a loose loop, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.9,
+        245.1,
+        228.5
+      ],
+      "gains": [
+        0.949,
+        0.971,
+        1.024
+      ]
+    },
+    "created_at": "2026-10-26T01:23:17+00:00"
+  },
+  "link-bracelet--sterling-silver--front": {
+    "file": "link-bracelet/link-bracelet-sterling-silver-front.jpg",
+    "alt": "Link bracelet in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "xga8fk8wpxrmw0d1eq68b2950m",
+    "prompt": "Product photograph of a chain bracelet of rounded oval links, polished, with a toggle clasp, laid in a loose curve, in polished sterling silver with cool neutral reflections, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.5,
+        246.8,
+        231.8
+      ],
+      "gains": [
+        0.951,
+        0.964,
+        1.009
+      ]
+    },
+    "created_at": "2026-10-26T01:23:18+00:00"
+  },
+  "pearl-bracelet--18k-gold-vermeil--front": {
+    "file": "pearl-bracelet/pearl-bracelet-18k-gold-vermeil-front.jpg",
+    "alt": "Pearl bracelet in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "zdqyk0x08hrmw0d1eq693974fg",
+    "prompt": "Product photograph of a fine chain bracelet with three small freshwater pearls spaced along it, laid in a loose curve, in warm 18k gold vermeil, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        252.1,
+        243.8,
+        226.9
+      ],
+      "gains": [
+        0.956,
+        0.976,
+        1.031
+      ]
+    },
+    "created_at": "2026-10-26T01:23:19+00:00"
+  },
+  "gift-card--front": {
+    "file": "gift-card/gift-card.jpg",
+    "alt": "Gift card",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "2xydwjbbshrmy0d1eq6r1a1f4m",
+    "prompt": "A small ivory jewelry box with the lid open beside a folded ivory linen pouch and a plain blank card, warm off-white background (#f1eeea), soft diffused studio light. No text, no logo. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        246.6,
+        236.0,
+        222.3
+      ],
+      "gains": [
+        0.977,
+        1.009,
+        1.053
+      ]
+    },
+    "created_at": "2026-10-26T01:23:21+00:00"
+  },
+  "oval-signet--18k-solid-gold--worn": {
+    "file": "oval-signet/oval-signet-18k-solid-gold-worn.jpg",
+    "alt": "Oval signet in 18k solid gold, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "z3g1zxac59rmy0d1eqfs6tmq80",
+    "prompt": "Lifestyle photograph: a woman's hand holding the edge of a linen napkin, the ring on the little finger, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "oval-signet--18k-solid-gold--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:47:53+00:00"
+  },
+  "seal-ring--sterling-silver--worn": {
+    "file": "seal-ring/seal-ring-sterling-silver-worn.jpg",
+    "alt": "Seal ring in sterling silver, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "21x3nezak1rmr0d1eqftd6sv7c",
+    "prompt": "Lifestyle photograph: a woman's hand resting on a folded ivory sweater, the ring on the ring finger, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "seal-ring--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:47:53+00:00"
+  },
+  "thread-ring--18k-gold-vermeil--side": {
+    "file": "thread-ring/thread-ring-18k-gold-vermeil-side.jpg",
+    "alt": "Thread ring in 18k gold vermeil, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "k9wx6gk3mdrmt0d1eqg8e0zvmm",
+    "prompt": "Change only the camera angle: show this exact piece from a side profile view. Keep the same piece, metal, background color, lighting and shadow style. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "thread-ring--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        252.4,
+        242.6,
+        228.5
+      ],
+      "gains": [
+        0.955,
+        0.981,
+        1.024
+      ]
+    },
+    "created_at": "2026-10-26T01:47:54+00:00"
+  },
+  "thread-ring--18k-gold-vermeil--worn": {
+    "file": "thread-ring/thread-ring-18k-gold-vermeil-worn.jpg",
+    "alt": "Thread ring in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "0mxk0shgfdrmt0d1eqgr3bfr04",
+    "prompt": "Lifestyle photograph: a woman's hand with fingers lightly curled against ivory silk, the thin ring on the middle finger, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "thread-ring--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:47:55+00:00"
+  },
+  "stacking-band--18k-gold-vermeil--worn": {
+    "file": "stacking-band/stacking-band-18k-gold-vermeil-worn.jpg",
+    "alt": "Stacking band in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "5xdxdbej4hrmt0d1eqgspaqzrg",
+    "prompt": "Lifestyle photograph: a woman's hand resting on ivory linen, two of these bands stacked on the ring finger, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "stacking-band--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:47:56+00:00"
+  },
+  "twist-ring--sterling-silver--worn": {
+    "file": "twist-ring/twist-ring-sterling-silver-worn.jpg",
+    "alt": "Twist ring in sterling silver, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "87mk3q49k1rmy0d1eqhbh8ng7w",
+    "prompt": "Lifestyle photograph: a woman's hand touching her collarbone, the ring on the index finger, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "twist-ring--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:47:56+00:00"
+  },
+  "mini-hoop--18k-gold-vermeil--worn": {
+    "file": "mini-hoop/mini-hoop-18k-gold-vermeil-worn.jpg",
+    "alt": "Mini hoop in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "wdc1t09pt1rmt0d1eqhvn052z8",
+    "prompt": "Lifestyle photograph: a close crop of a woman's ear lobe with a small huggie hoop, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "mini-hoop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:47:57+00:00"
+  },
+  "mini-hoop--sterling-silver--front": {
+    "file": "mini-hoop/mini-hoop-sterling-silver-front.jpg",
+    "alt": "Mini hoop in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "45jwjwfbtdrmw0d1eqht79y410",
+    "prompt": "Change only the metal of this piece to polished sterling silver with cool neutral reflections. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "mini-hoop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        251.6,
+        242.5,
+        226.9
+      ],
+      "gains": [
+        0.958,
+        0.982,
+        1.031
+      ]
+    },
+    "created_at": "2026-10-26T01:47:58+00:00"
+  },
+  "seed-studs--sterling-silver--worn": {
+    "file": "seed-studs/seed-studs-sterling-silver-worn.jpg",
+    "alt": "Seed studs in sterling silver, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "qgkz1n0b5drmw0d1eqjt4drzwr",
+    "prompt": "Lifestyle photograph: a close crop of a woman's ear lobe with a tiny dome stud, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "seed-studs--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:53:44+00:00"
+  },
+  "pearl-drop--18k-gold-vermeil--worn": {
+    "file": "pearl-drop/pearl-drop-18k-gold-vermeil-worn.jpg",
+    "alt": "Pearl drop in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "zhgmtrsyk9rmt0d1eqk8rtkybc",
+    "prompt": "Lifestyle photograph: a close crop of a woman's ear and neck in soft profile, wearing one pearl drop earring, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "pearl-drop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:53:46+00:00"
+  },
+  "bar-studs--18k-solid-gold--worn": {
+    "file": "bar-studs/bar-studs-18k-solid-gold-worn.jpg",
+    "alt": "Bar studs in 18k solid gold, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "025fdtpp19rmy0d1eqkavskmag",
+    "prompt": "Lifestyle photograph: a close crop of a woman's ear lobe with a slim bar stud, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "bar-studs--18k-solid-gold--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:53:46+00:00"
+  },
+  "knot-studs--sterling-silver--worn": {
+    "file": "knot-studs/knot-studs-sterling-silver-worn.jpg",
+    "alt": "Knot studs in sterling silver, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "q22m1navk5rmw0d1eqkr0hm87g",
+    "prompt": "Lifestyle photograph: a close crop of a woman's ear lobe with a small knot stud, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "knot-studs--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T01:53:47+00:00"
+  },
+  "drop-chain--18k-gold-vermeil--side": {
+    "file": "drop-chain/drop-chain-18k-gold-vermeil-side.jpg",
+    "alt": "Drop chain in 18k gold vermeil, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "5jaw73s11nrmr0d1eqm8r2dfn4",
+    "prompt": "Change only the camera angle: show this exact piece from a side profile view. Keep the same piece, metal, background color, lighting and shadow style. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "drop-chain--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        249.4,
+        237.5,
+        221.6
+      ],
+      "gains": [
+        0.966,
+        1.002,
+        1.056
+      ]
+    },
+    "created_at": "2026-10-26T01:53:48+00:00"
+  },
+  "drop-chain--sterling-silver--front": {
+    "file": "drop-chain/drop-chain-sterling-silver-front.jpg",
+    "alt": "Drop chain in sterling silver, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "jt4zcyj345rmr0d1eqmsfbgcwm",
+    "prompt": "Change only the metal of this piece to polished sterling silver with cool neutral reflections. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "drop-chain--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        246.2,
+        234.2,
+        218.1
+      ],
+      "gains": [
+        0.979,
+        1.016,
+        1.073
+      ]
+    },
+    "created_at": "2026-10-26T01:53:49+00:00"
+  },
+  "wave-cuff--sterling-silver--side": {
+    "file": "wave-cuff/wave-cuff-sterling-silver-side.jpg",
+    "alt": "Wave cuff in sterling silver, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "hfztcn98ksrmt0d1eqqb9s2b3g",
+    "prompt": "Change only the camera angle: show this exact piece from a side profile view. Keep the same piece, metal, background color, lighting and shadow style. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "wave-cuff--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        254.1,
+        246.3,
+        233.1
+      ],
+      "gains": [
+        0.949,
+        0.966,
+        1.004
+      ]
+    },
+    "created_at": "2026-10-26T02:00:18+00:00"
+  },
+  "wave-cuff--18k-gold-vermeil--front": {
+    "file": "wave-cuff/wave-cuff-18k-gold-vermeil-front.jpg",
+    "alt": "Wave cuff in 18k gold vermeil, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "3qp9kra2qnrmy0d1eqqv1974ew",
+    "prompt": "Change only the metal of this piece to warm 18k gold vermeil. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "wave-cuff--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        252.3,
+        244.0,
+        230.4
+      ],
+      "gains": [
+        0.955,
+        0.975,
+        1.016
+      ]
+    },
+    "created_at": "2026-10-26T02:00:19+00:00"
+  },
+  "fine-chain-bracelet--18k-gold-vermeil--worn": {
+    "file": "fine-chain-bracelet/fine-chain-bracelet-18k-gold-vermeil-worn.jpg",
+    "alt": "Fine chain bracelet in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "bcz53d7y81rmy0d1eqrat9v66g",
+    "prompt": "Lifestyle photograph: a woman's wrist with a very fine chain bracelet, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "fine-chain-bracelet--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:05:12+00:00"
+  },
+  "pearl-bracelet--18k-gold-vermeil--worn": {
+    "file": "pearl-bracelet/pearl-bracelet-18k-gold-vermeil-worn.jpg",
+    "alt": "Pearl bracelet in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "g4j7p2224srmt0d1eqsa4enstw",
+    "prompt": "Lifestyle photograph: a woman's wrist with a fine chain bracelet set with three small pearls, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "pearl-bracelet--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:05:13+00:00"
+  },
+  "solid-bangle--18k-solid-gold--front": {
+    "file": "solid-bangle/solid-bangle-18k-solid-gold-front.jpg",
+    "alt": "Solid bangle in 18k solid gold, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "0zs73j6g0drmw0d1eqsbj780wm",
+    "prompt": "Product photograph of a slim closed perfectly circular bangle bracelet with a 3 mm round profile and high polish, lying flat on the surface, seen from a slight high angle so its round shape is clear, in rich deep 18k solid yellow gold, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        254.5,
+        247.7,
+        232.2
+      ],
+      "gains": [
+        0.947,
+        0.961,
+        1.008
+      ]
+    },
+    "created_at": "2026-10-26T02:05:14+00:00"
+  },
+  "drop-chain--sterling-silver--side": {
+    "file": "drop-chain/drop-chain-sterling-silver-side.jpg",
+    "alt": "Drop chain in sterling silver, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "3fhq40jqtxrmr0d1eqsr8k1cpg",
+    "prompt": "Change only the metal of this piece to polished sterling silver with cool neutral reflections. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "drop-chain--18k-gold-vermeil--side"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        247.6,
+        235.7,
+        221.4
+      ],
+      "gains": [
+        0.973,
+        1.01,
+        1.057
+      ]
+    },
+    "created_at": "2026-10-26T02:05:15+00:00"
+  },
+  "wave-cuff--18k-gold-vermeil--side": {
+    "file": "wave-cuff/wave-cuff-18k-gold-vermeil-side.jpg",
+    "alt": "Wave cuff in 18k gold vermeil, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "cwtqtdy33hrmt0d1eqsrzapnqg",
+    "prompt": "Change only the metal of this piece to warm 18k gold vermeil. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "wave-cuff--sterling-silver--side"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        253.8,
+        244.2,
+        230.1
+      ],
+      "gains": [
+        0.949,
+        0.975,
+        1.017
+      ]
+    },
+    "created_at": "2026-10-26T02:05:16+00:00"
+  },
+  "solid-bangle--18k-solid-gold--worn": {
+    "file": "solid-bangle/solid-bangle-18k-solid-gold-worn.jpg",
+    "alt": "Solid bangle in 18k solid gold, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "907eg5wr8xrmr0d1eqt9w7j628",
+    "prompt": "Lifestyle photograph: a woman's wrist with a slim closed gold bangle, hand relaxed on ivory linen, wearing exactly the piece from the reference image (for a pair of earrings, one earring). The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. No other jewelry. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "solid-bangle--18k-solid-gold--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:06:18+00:00"
+  },
+  "pearl-drop--18k-gold-vermeil--side": {
+    "file": "pearl-drop/pearl-drop-18k-gold-vermeil-side.jpg",
+    "alt": "Pearl drop in 18k gold vermeil, side view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "vv2jpc2a1srmt0d1eqwtpq1m4c",
+    "prompt": "Change only the camera angle: show this exact piece from a side profile view. Keep every detail of the piece exactly as in the reference, including hooks, clasps and closures. Keep the same metal, background color, lighting and shadow style. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark. Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "refs": [
+      "pearl-drop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": {
+      "measured_border": [
+        252.6,
+        243.0,
+        228.7
+      ],
+      "gains": [
+        0.954,
+        0.979,
+        1.023
+      ]
+    },
+    "created_at": "2026-10-26T02:16:53+00:00"
+  },
+  "drop-chain--18k-gold-vermeil--worn": {
+    "file": "drop-chain/drop-chain-18k-gold-vermeil-worn.jpg",
+    "alt": "Drop chain in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "wc2ajhns5xrmw0d1eqwtsn08sr",
+    "prompt": "Lifestyle photograph: a close crop of a woman's neck and collarbone in an ivory silk top, wearing exactly the piece from the reference image, worn around the neck as a necklace, resting on the collarbone. No earrings, no other jewelry. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "drop-chain--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:16:54+00:00"
+  },
+  "fine-chain--sterling-silver--worn": {
+    "file": "fine-chain/fine-chain-sterling-silver-worn.jpg",
+    "alt": "Fine chain in sterling silver, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "tqvn3w29wxrmw0d1eqxa6eek5g",
+    "prompt": "Lifestyle photograph: a close crop of a woman's collarbone wearing a very fine chain, wearing exactly the piece from the reference image, worn around the neck as a necklace, resting on the collarbone. No earrings, no other jewelry. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "fine-chain--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:16:55+00:00"
+  },
+  "pebble-pendant--18k-gold-vermeil--worn": {
+    "file": "pebble-pendant/pebble-pendant-18k-gold-vermeil-worn.jpg",
+    "alt": "Pebble pendant in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "jdaeanye41rmw0d1eqx8yxrbmr",
+    "prompt": "Lifestyle photograph: a close crop of a woman's neckline in an open ivory shirt, wearing this pebble pendant, wearing exactly the piece from the reference image, worn around the neck as a necklace, resting on the collarbone. No earrings, no other jewelry. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "pebble-pendant--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:16:55+00:00"
+  },
+  "paperclip-chain--18k-solid-gold--worn": {
+    "file": "paperclip-chain/paperclip-chain-18k-solid-gold-worn.jpg",
+    "alt": "Paperclip chain in 18k solid gold, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "e03qxkv4s5rmw0d1eqxr9j85ng",
+    "prompt": "Lifestyle photograph: a close crop of a woman's collarbone wearing a paperclip link chain, wearing exactly the piece from the reference image, worn around the neck as a necklace, resting on the collarbone. No earrings, no other jewelry. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "paperclip-chain--18k-solid-gold--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:16:56+00:00"
+  },
+  "bead-choker--sterling-silver--worn": {
+    "file": "bead-choker/bead-choker-sterling-silver-worn.jpg",
+    "alt": "Bead choker in sterling silver, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "87e0r5hc89rmw0d1eqybfg2ex4",
+    "prompt": "Lifestyle photograph: a close crop of a woman's neck wearing a short bead necklace close to the base of the neck, wearing exactly the piece from the reference image, worn around the neck as a necklace, resting on the collarbone. No earrings, no other jewelry. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "bead-choker--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:16:57+00:00"
+  },
+  "disc-pendant--18k-gold-vermeil--worn": {
+    "file": "disc-pendant/disc-pendant-18k-gold-vermeil-worn.jpg",
+    "alt": "Disc pendant in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "097x9vx861rmr0d1eqya5jgz1g",
+    "prompt": "Lifestyle photograph: a close crop of a woman's collarbone wearing a small disc pendant, wearing exactly the piece from the reference image, worn around the neck as a necklace, resting on the collarbone. No earrings, no other jewelry. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "disc-pendant--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:16:58+00:00"
+  },
+  "wave-cuff--sterling-silver--worn": {
+    "file": "wave-cuff/wave-cuff-sterling-silver-worn.jpg",
+    "alt": "Wave cuff in sterling silver, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "fzzne0t70drmt0d1eqys6hxpm8",
+    "prompt": "Lifestyle photograph: a woman's wrist and hand resting on ivory linen, wearing exactly the piece from the reference image, worn on the wrist as a bracelet. No earrings, no other jewelry. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "wave-cuff--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:16:59+00:00"
+  },
+  "open-cuff--18k-gold-vermeil--worn": {
+    "file": "open-cuff/open-cuff-18k-gold-vermeil-worn.jpg",
+    "alt": "Open cuff in 18k gold vermeil, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "1gb9046c3srmt0d1eqytqbpvgr",
+    "prompt": "Lifestyle photograph: a woman's wrist with a slim open cuff, hand relaxed, wearing exactly the piece from the reference image, worn on the wrist as a bracelet. No earrings, no other jewelry. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "open-cuff--18k-gold-vermeil--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:16:59+00:00"
+  },
+  "link-bracelet--sterling-silver--worn": {
+    "file": "link-bracelet/link-bracelet-sterling-silver-worn.jpg",
+    "alt": "Link bracelet in sterling silver, worn",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "zax1na2thsrmy0d1eqzbre0g9r",
+    "prompt": "Lifestyle photograph: a woman's wrist with a rounded oval link bracelet, wearing exactly the piece from the reference image, worn on the wrist as a bracelet. No earrings, no other jewelry. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece. Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "link-bracelet--sterling-silver--front"
+    ],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:17:00+00:00"
+  },
+  "editorial--collection-rings": {
+    "file": "editorial/collection-rings.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "y45nxvrdbhrmw0d1er0s1m808m",
+    "prompt": "Portrait crop of a woman's hand with stacked rings resting on ivory linen, wearing the reference rings, soft window light, airy near-white palette. No text, no logo, no watermark.",
+    "refs": [
+      "thread-ring--18k-gold-vermeil--front",
+      "stacking-band--18k-gold-vermeil--front",
+      "oval-signet--18k-solid-gold--front"
+    ],
+    "size": [
+      1792,
+      2400
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:22:13+00:00"
+  },
+  "editorial--collection-earrings": {
+    "file": "editorial/collection-earrings.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "ddpt3am08xrmt0d1er0stk2dxw",
+    "prompt": "Portrait crop of a woman in profile, hair tucked back, wearing the reference hoop earring, soft window light, airy near-white palette. No text, no logo, no watermark.",
+    "refs": [
+      "sculpted-hoop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      1792,
+      2400
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:22:14+00:00"
+  },
+  "editorial--collection-necklaces": {
+    "file": "editorial/collection-necklaces.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "53pe8qqezdrmr0d1er0s2beg2m",
+    "prompt": "Portrait crop of a woman's collarbone wearing the reference chains layered, ivory silk top, soft window light, airy near-white palette. No text, no logo, no watermark.",
+    "refs": [
+      "fine-chain--sterling-silver--front",
+      "drop-chain--18k-gold-vermeil--side"
+    ],
+    "size": [
+      1792,
+      2400
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:22:15+00:00"
+  },
+  "editorial--collection-bracelets": {
+    "file": "editorial/collection-bracelets.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "qw907qjy05rmt0d1er1b68ytr4",
+    "prompt": "Portrait crop of a woman's wrist wearing the reference cuff, hand relaxed on ivory linen, soft window light, airy near-white palette. No text, no logo, no watermark.",
+    "refs": [
+      "wave-cuff--sterling-silver--front"
+    ],
+    "size": [
+      1792,
+      2400
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:22:16+00:00"
+  },
+  "editorial--story-split": {
+    "file": "editorial/story-split.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "q4wh03z5edrmw0d1er185xmqwr",
+    "prompt": "Editorial still life of a jeweler's bench: a few unfinished gold vermeil rings, a small wax carving and a soft polishing cloth on a pale wooden bench, warm window light, airy near-white palette, calm and precise. No tools brand names, no text. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      1856,
+      2304
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:22:17+00:00"
+  },
+  "editorial--gift-anniversary": {
+    "file": "editorial/gift-anniversary.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "8z21wfk511rmr0d1er1txnd4p8",
+    "prompt": "Still life of an open small ivory jewelry box holding the reference signet ring, a sprig of dried flowers and a folded linen napkin, warm window light, airy near-white palette. No text. No text, no logo, no watermark.",
+    "refs": [
+      "oval-signet--18k-solid-gold--front"
+    ],
+    "size": [
+      1856,
+      2304
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:22:19+00:00"
+  },
+  "editorial--material-solid-gold": {
+    "file": "editorial/material-solid-gold.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "m434gf22h9rmy0d1er28z3e6b4",
+    "prompt": "Extreme macro of a polished 18k solid gold surface with a soft brushed band, warm light, abstract and luminous. No text. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:24:46+00:00"
+  },
+  "editorial--material-vermeil": {
+    "file": "editorial/material-vermeil.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "0emyb2dp2drmr0d1er29s3d0k0",
+    "prompt": "Extreme macro of a gold vermeil ring edge showing a warm satin finish, soft light, abstract and luminous. No text. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:24:46+00:00"
+  },
+  "editorial--gift-engravable": {
+    "file": "editorial/gift-engravable.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "cy8m5rxcg9rmr0d1er2r0618xr",
+    "prompt": "Close still life of the reference disc pendant lying on ivory silk beside a small engraving burin with a plain wooden handle, soft window light, airy near-white palette. No letters or text anywhere. No text, no logo, no watermark.",
+    "refs": [
+      "disc-pendant--18k-gold-vermeil--front"
+    ],
+    "size": [
+      1856,
+      2304
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:24:48+00:00"
+  },
+  "editorial--material-silver": {
+    "file": "editorial/material-silver.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "6w22w2qq01rmy0d1er48axevp4",
+    "prompt": "Generate an image: extreme macro photograph of the polished edge of a sterling silver ring with a soft satin band, neutral cool grey reflections against a warm off-white background, calm, minimal and luminous, airy near-white palette. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:28:45+00:00"
+  },
+  "editorial--gift-birthday": {
+    "file": "editorial/gift-birthday.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "z3vapgv2f5rmr0d1er4tbrv3z0",
+    "prompt": "Still life of the reference pearl drop earrings, fine curved gold vermeil hooks each holding one freshwater pearl exactly as in the reference, laid on a folded ivory linen pouch beside a plain blank card, warm window light, airy near-white palette. No text, no logo, no watermark.",
+    "refs": [
+      "pearl-drop--18k-gold-vermeil--front"
+    ],
+    "size": [
+      1856,
+      2304
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-26T02:28:46+00:00"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "note_label": "Delivery notes",
+        "note_placeholder": "Floor, stairs or lift, narrow doorways, parking",
+        "show_gift_wrap": false,
+        "empty_heading": "Your bag is empty",
+        "empty_text": "Start with a room, we will help you furnish the rest.",
+        "empty_button_label": "Shop by room"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Join our world",
+            "heading_size": "label",
+            "text": "<p>New collections and edits, once a month.</p>"
+          }
+        },
+        "menu": {
+          "type": "menu",
+          "settings": {
+            "heading": "",
+            "menu": "footer"
+          }
+        },
+        "social": {
+          "type": "social",
+          "settings": {
+            "heading": "Social media"
+          }
+        }
+      },
+      "block_order": ["newsletter", "menu", "social"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "style": "plain",
+        "show_wordmark": true,
+        "show_country_selector": true,
+        "show_language_selector": true,
+        "show_follow_on_shop": true,
+        "show_payment_icons": false
+      }
+    }
+  },
+  "order": ["footer"]
+}

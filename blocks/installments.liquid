@@ -1,0 +1,36 @@
+{%- liquid
+  assign product = closest.product
+  assign variant = product.selected_or_first_available_variant
+  assign installments_form_id = 'InstallmentsForm-' | append: block.id
+-%}
+
+<div class="installments" data-product-part="installments-{{ block.id }}" {{ block.shopify_attributes }}>
+  {%- form 'product', product, id: installments_form_id -%}
+    <input type="hidden" name="id" value="{{ variant.id }}">
+    {{ form | payment_terms }}
+  {%- endform -%}
+</div>
+
+{% stylesheet %}
+  .installments {
+    font-size: var(--font-caption-size);
+    color: var(--color-text-muted);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.installments.name",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:blocks.installments.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.installments.name"
+    }
+  ]
+}
+{% endschema %}

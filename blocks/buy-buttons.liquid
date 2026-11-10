@@ -1,0 +1,371 @@
+{%- liquid
+  assign product = closest.product
+  assign variant = product.selected_or_first_available_variant
+  assign form_id = 'ProductForm-' | append: section.id
+
+  assign selected_values = product.options_with_values | map: 'selected_value' | join: '|'
+  assign variant_values = variant.options | join: '|'
+  assign variant_exists = true
+  if selected_values != variant_values
+    assign variant_exists = false
+  endif
+
+  assign quantity_min = variant.quantity_rule.min | default: 1
+  assign quantity_step = variant.quantity_rule.increment | default: 1
+  assign quantity_max = variant.quantity_rule.max
+-%}
+
+<buy-buttons class="buy-buttons" {{ block.shopify_attributes }}>
+  {%- form 'product', product, id: form_id, class: 'buy-buttons__form', novalidate: 'novalidate', data-ajax-add: 'true' -%}
+    <input
+      type="hidden"
+      name="id"
+      value="{{ variant.id }}"
+      data-product-part="variant-id-{{ block.id }}"
+      {% unless variant_exists %}
+        disabled
+      {% endunless %}
+    >
+
+    {%- if product.selling_plan_groups.size > 0 -%}
+      <fieldset class="buy-buttons__plans" data-product-part="plans-{{ block.id }}">
+        <legend class="label">{{ 'product.selling_plans.title' | t }}</legend>
+
+        {%- unless product.requires_selling_plan -%}
+          <label class="buy-buttons__plan">
+            <input type="radio" name="selling_plan" value="" checked data-plan-price="{{ variant.price | money }}">
+            <span>{{ 'product.selling_plans.one_time' | t }}</span>
+            <span class="buy-buttons__plan-price">{{ variant.price | money }}</span>
+          </label>
+        {%- endunless -%}
+
+        {%- for group in product.selling_plan_groups -%}
+          {%- for plan in group.selling_plans -%}
+            {%- liquid
+              assign plan_price = blank
+              for allocation in variant.selling_plan_allocations
+                if allocation.selling_plan.id == plan.id
+                  assign plan_price = allocation.price
+                endif
+              endfor
+            -%}
+            <label class="buy-buttons__plan">
+              <input
+                type="radio"
+                name="selling_plan"
+                value="{{ plan.id }}"
+                {% if plan_price != blank %}
+                  data-plan-price="{{ plan_price | money }}"
+                  data-plan-compare="{% if plan_price < variant.price %}{{ variant.price | money }}{% endif %}"
+                {% endif %}
+                {% if product.requires_selling_plan and forloop.parentloop.first and forloop.first %}
+                  checked
+                {% endif %}
+              >
+              <span>
+                {{- group.name }} · {{ plan.name -}}
+                {%- if plan.description != blank -%}
+                  <span class="buy-buttons__plan-description text-caption text-muted">{{ plan.description }}</span>
+                {%- endif -%}
+              </span>
+              {%- if plan_price != blank -%}
+                <span class="buy-buttons__plan-price">{{ plan_price | money }}</span>
+              {%- endif -%}
+            </label>
+          {%- endfor -%}
+        {%- endfor -%}
+      </fieldset>
+    {%- endif -%}
+
+    {%- if product.gift_card? and block.settings.show_gift_card_recipient -%}
+      {% render 'gift-card-recipient-form', form: form, form_id: form_id %}
+    {%- endif -%}
+
+    <div class="buy-buttons__row">
+      {%- if block.settings.show_quantity -%}
+        {%- assign quantity_id = 'Quantity-' | append: block.id -%}
+        {% render 'quantity-input',
+          id: quantity_id,
+          name: 'quantity',
+          value: quantity_min,
+          min: quantity_min,
+          max: quantity_max,
+          step: quantity_step
+        %}
+      {%- endif -%}
+
+      <button
+        class="button buy-buttons__add"
+        type="submit"
+        name="add"
+        data-product-part="add-{{ block.id }}"
+        {% unless variant_exists and variant.available %}
+          disabled
+        {% endunless %}
+      >
+        {%- if variant_exists == false -%}
+          {{ 'product.unavailable' | t }}
+        {%- elsif variant.available -%}
+          {{ 'product.add_to_cart' | t }}
+        {%- else -%}
+          {{ 'product.price.sold_out' | t }}
+        {%- endif -%}
+      </button>
+    </div>
+
+    {%- if block.settings.show_dynamic_checkout -%}
+      <div class="buy-buttons__dynamic">{{ form | payment_button }}</div>
+    {%- endif -%}
+
+    <p class="buy-buttons__error text-small" role="alert" data-add-error hidden></p>
+  {%- endform -%}
+
+  {%- if block.settings.show_sticky_bar -%}
+    <div class="sticky-add color-{{ section.settings.color_scheme }}" data-sticky-add data-product-part="sticky-{{ block.id }}" aria-hidden="true">
+      <div class="sticky-add__info">
+        <span class="sticky-add__title text-small">{{ product.title }}</span>
+        <span class="sticky-add__meta text-caption text-muted">
+          {%- unless product.has_only_default_variant -%}{{ variant.title }} · {% endunless -%}
+          {{- variant.price | money -}}
+        </span>
+      </div>
+      <button
+        class="button sticky-add__button"
+        type="submit"
+        name="add"
+        form="{{ form_id }}"
+        tabindex="-1"
+        {% unless variant_exists and variant.available %}
+          disabled
+        {% endunless %}
+      >
+        {%- if variant_exists == false -%}
+          {{ 'product.unavailable' | t }}
+        {%- elsif variant.available -%}
+          {{ 'product.add_to_cart' | t }}
+        {%- else -%}
+          {{ 'product.price.sold_out' | t }}
+        {%- endif -%}
+      </button>
+    </div>
+  {%- endif -%}
+</buy-buttons>
+
+{% stylesheet %}
+  buy-buttons {
+    display: block;
+  }
+
+  .sticky-add {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px var(--page-margin) calc(10px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--color-divider);
+    transform: translateY(110%);
+    transition: transform var(--duration-medium) var(--ease);
+  }
+
+  .sticky-add--visible {
+    transform: none;
+  }
+
+  .sticky-add__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .sticky-add__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sticky-add__button {
+    flex-shrink: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .sticky-add {
+      display: none;
+    }
+  }
+
+  .buy-buttons__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .buy-buttons__row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .buy-buttons__add {
+    flex: 1;
+    min-height: 48px;
+  }
+
+  .buy-buttons__dynamic {
+    --shopify-accelerated-checkout-button-block-size: 48px;
+    --shopify-accelerated-checkout-button-border-radius: var(--radius-button);
+  }
+
+  .buy-buttons__dynamic .shopify-payment-button__more-options {
+    margin-top: 8px;
+    font-size: var(--font-small-size);
+    text-decoration: underline;
+  }
+
+  .buy-buttons__error {
+    color: var(--color-error);
+  }
+
+  .buy-buttons__plans {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 0 16px;
+    padding: 0;
+    border: 0;
+  }
+
+  .buy-buttons__plans legend {
+    margin-bottom: 8px;
+    padding: 0;
+  }
+
+  .buy-buttons__plan {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    min-height: var(--touch-target);
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-input);
+    font-size: var(--font-small-size);
+    cursor: pointer;
+  }
+
+  .buy-buttons__plan:has(input:checked) {
+    border-color: var(--color-text);
+  }
+
+  .buy-buttons__plan input {
+    margin: 0;
+    accent-color: var(--color-text);
+  }
+
+  .buy-buttons__plan-description {
+    display: block;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('buy-buttons')) {
+    customElements.define(
+      'buy-buttons',
+      class BuyButtons extends HTMLElement {
+        connectedCallback() {
+          this.addEventListener('change', (event) => {
+            if (event.target.name === 'selling_plan') this.showPlanPrice(event.target);
+          });
+
+          const row = this.querySelector('.buy-buttons__row');
+          if (!row || !this.querySelector('[data-sticky-add]')) return;
+
+          this.visible = false;
+          this.observer = new IntersectionObserver(([entry]) => {
+            this.visible = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+            this.applyVisibility();
+          });
+          this.observer.observe(row);
+
+          this.onVariantChange = () => this.applyVisibility();
+          document.addEventListener('product:variant-change', this.onVariantChange);
+        }
+
+        disconnectedCallback() {
+          this.observer?.disconnect();
+          document.removeEventListener('product:variant-change', this.onVariantChange);
+        }
+
+        showPlanPrice(input) {
+          const price = this.closest('product-info')?.querySelector('.product-price .price');
+          if (!price || !input.dataset.planPrice) return;
+          const current = price.querySelector('.price__current');
+          if (current) current.textContent = input.dataset.planPrice;
+
+          let compare = price.querySelector('[data-plan-compare]');
+          if (input.dataset.planCompare) {
+            if (!compare) {
+              compare = document.createElement('s');
+              compare.className = 'price__compare';
+              compare.dataset.planCompare = '';
+              current.after(compare);
+            }
+            compare.textContent = input.dataset.planCompare;
+          } else {
+            compare?.remove();
+          }
+        }
+
+        applyVisibility() {
+          const bar = this.querySelector('[data-sticky-add]');
+          if (!bar) return;
+          bar.classList.toggle('sticky-add--visible', this.visible);
+          bar.setAttribute('aria-hidden', String(!this.visible));
+          bar.querySelector('button')?.setAttribute('tabindex', this.visible ? '0' : '-1');
+        }
+      }
+    );
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:blocks.buy_buttons.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_quantity",
+      "label": "t:blocks.buy_buttons.show_quantity",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "label": "t:blocks.buy_buttons.show_dynamic_checkout",
+      "info": "t:blocks.buy_buttons.show_dynamic_checkout_info",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sticky_bar",
+      "label": "t:blocks.buy_buttons.show_sticky_bar",
+      "info": "t:blocks.buy_buttons.show_sticky_bar_info",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gift_card_recipient",
+      "label": "t:blocks.buy_buttons.show_gift_card_recipient",
+      "info": "t:blocks.buy_buttons.show_gift_card_recipient_info",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.buy_buttons.name"
+    }
+  ]
+}
+{% endschema %}

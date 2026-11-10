@@ -1,0 +1,11 @@
+query DemoFileStatus($ids: [ID!]!) {
+  nodes(ids: $ids) {
+    ... on MediaImage {
+      id
+      fileStatus
+      image {
+        url
+      }
+    }
+  }
+}

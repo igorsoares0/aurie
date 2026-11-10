@@ -1,0 +1,43 @@
+<!-- @dsCard group="Product" height=760 width=1200 subtitle="Product page: gallery column and buy box" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Buy box — preview</title></head>
+<body style="padding:24px">
+<div style="display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:start">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-gutter)">
+    <div class="md-ph r34"><span>Product image</span></div>
+    <div class="md-ph r34"><span>Product image</span></div>
+    <div class="md-ph r34"><span>Fit video</span></div>
+    <div class="md-ph r34"><span>Detail image</span></div>
+  </div>
+  <form class="md-buy" onsubmit="return false">
+    <div>
+      <h1>Trinelle wool coat</h1>
+      <p class="md-price" style="margin:8px 0 0;font:400 15px/24px var(--font-sans)">$640 <span class="md-muted" style="font-size:12px">Taxes included.</span></p>
+      <p style="margin:4px 0 0" class="md-muted caption">Or 4 interest-free payments of $160 with Shop Pay</p>
+    </div>
+    <div class="md-field">
+      <div class="md-field-head"><span>Color — Camel</span></div>
+      <div class="md-swatches"><span class="md-sw on" style="background:#a47a52;width:20px;height:20px"></span><span class="md-sw" style="background:#2a1f18;width:20px;height:20px"></span><span class="md-sw" style="background:#d8cbb8;width:20px;height:20px"></span></div>
+    </div>
+    <div class="md-field">
+      <div class="md-field-head"><span>Size</span><a class="md-link" href="#">Size guide</a></div>
+      <div class="md-sizebtns">
+        <button class="md-size na" aria-disabled="true">XS</button>
+        <button class="md-size on" aria-pressed="true">S</button>
+        <button class="md-size">M</button>
+        <button class="md-size">L</button>
+        <button class="md-size">XL</button>
+        <button class="md-size na" aria-disabled="true">XXL</button>
+      </div>
+      <p class="md-fit">Model is 177 cm and wears S. Relaxed fit — size down for a closer cut.</p>
+    </div>
+    <div style="display:grid;gap:8px">
+      <button class="md-btn block">Add to bag</button>
+      <div class="md-ph" style="height:44px;display:flex;align-items:center;justify-content:center;font:400 12px/16px var(--font-sans);color:var(--ink-muted)">Accelerated checkout — rendered by Shopify</div>
+    </div>
+    <div class="md-pickup"><span class="md-dot"></span><span>Pickup available at Arvel Studio, usually ready in 2 hours.</span></div>
+  </form>
+</div>
+</body>
+</html>

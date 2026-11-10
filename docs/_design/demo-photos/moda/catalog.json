@@ -1,0 +1,1314 @@
+{
+  "preset": "moda",
+  "notes": "Demo catalog for the Moda preset (demo brand Arvel). 24 pieces in 5 collections of 8/4/4/4/4 (collection grid is 4 columns on desktop, 2 on mobile; 'all' is exactly one page of 24). Names, prices, colors and sold-out sizes follow the Moda mockups. Every on-model shot uses the model reference image so the same woman appears across the catalog.",
+  "vendor": "Arvel",
+  "option": "Color",
+  "art_direction": {
+    "background": "#ece7e0",
+    "aspect": "3:4",
+    "model_reference": "model--reference",
+    "style": "Contemporary womenswear e-commerce photography, calm and editorial, realistic fabric texture and drape, natural skin, sharp focus. No text, no logo, no watermark.",
+    "packshot_rules": "Only one person in the frame, no extra people, no props.",
+    "reference_prompt": "Full-length studio portrait of a European woman in her late twenties with fair skin, natural shoulder-length light brown hair with soft waves, light eyes, minimal makeup, relaxed and confident, standing front-facing with arms loose. She wears a plain fitted ecru crewneck and simple straight ecru trousers with flat leather shoes. Seamless warm paper background (#ece7e0), soft diffused daylight from the left, gentle floor shadow.",
+    "shots": {
+      "front": "Full-length fashion e-commerce photograph of the woman from the reference image, same face, hair and body, wearing {look} in {color}, styled with {styling}. Standing front-facing in a relaxed natural pose, full body visible from head to toe including the feet, same framing and camera distance as the reference image. Seamless warm paper background (#ece7e0), soft diffused daylight from the left, gentle floor shadow.",
+      "back": "Show the same woman wearing exactly the same outfit from behind, back view, same pose height and framing. Keep the same garment, color, background, lighting and shadow.",
+      "detail": "Close-up detail photograph of the {garment} from the reference image, and only the {garment}, not the other clothes, showing its fabric texture, seams and construction. Same color and lighting, warm paper background.",
+      "color_swap": "Change only the color of the {garment} to {color}. Keep exactly the same woman, pose, framing, background, lighting and every other garment."
+    },
+    "color_prompts": {
+      "Camel": "warm camel",
+      "Espresso": "deep espresso brown",
+      "Ecru": "soft ecru off-white",
+      "Black": "black",
+      "Grey": "mid heather grey",
+      "Indigo": "dark indigo denim",
+      "Light wash": "light vintage-wash blue denim"
+    },
+    "extra_models": [
+      {
+        "id": "model--petite",
+        "file": "model/petite.jpg",
+        "alt": "Petite model reference",
+        "prompt": "Full-length studio portrait of a petite Southern European woman in her early thirties, about 158 cm tall with a small frame and short legs in proportion, olive skin, dark brown hair in a sleek chin-length bob, brown eyes, minimal makeup, warm and composed, standing front-facing with arms loose. She wears a plain fitted ecru crewneck and simple straight ecru trousers with flat leather shoes. Seamless warm paper background (#ece7e0), soft diffused daylight from the left, gentle floor shadow."
+      },
+      {
+        "id": "model--tall",
+        "file": "model/tall.jpg",
+        "alt": "Tall model reference",
+        "prompt": "Full-length studio portrait of a tall, slim Brazilian fashion model in her late twenties, about 180 cm tall with long legs and a slender model figure, warm golden-brown skin, long dark brown wavy hair, brown eyes, minimal makeup, relaxed and confident, standing front-facing with arms loose. She wears a plain fitted ecru crewneck and simple straight ecru trousers with flat leather shoes. Seamless warm paper background (#ece7e0), soft diffused daylight from the left, gentle floor shadow."
+      }
+    ]
+  },
+  "colors": {
+    "Camel": {
+      "swatch": "#a47a52",
+      "handle": "camel",
+      "taxonomy": "gid://shopify/TaxonomyValue/7"
+    },
+    "Espresso": {
+      "swatch": "#3a2a20",
+      "handle": "espresso",
+      "taxonomy": "gid://shopify/TaxonomyValue/7"
+    },
+    "Ecru": {
+      "swatch": "#ddd1bf",
+      "handle": "ecru",
+      "taxonomy": "gid://shopify/TaxonomyValue/6"
+    },
+    "Black": {
+      "swatch": "#1e1a17",
+      "handle": "black",
+      "taxonomy": "gid://shopify/TaxonomyValue/1"
+    },
+    "Grey": {
+      "swatch": "#8e8a85",
+      "handle": "grey",
+      "taxonomy": "gid://shopify/TaxonomyValue/8"
+    },
+    "Indigo": {
+      "swatch": "#33405a",
+      "handle": "indigo",
+      "taxonomy": "gid://shopify/TaxonomyValue/15"
+    },
+    "Light wash": {
+      "swatch": "#9fb3c8",
+      "handle": "light-wash",
+      "taxonomy": "gid://shopify/TaxonomyValue/2"
+    }
+  },
+  "collections": [
+    {
+      "handle": "coats-jackets",
+      "title": "Coats and jackets",
+      "category": "gid://shopify/TaxonomyCategory/aa-1-10-2"
+    },
+    {
+      "handle": "knitwear",
+      "title": "Knitwear",
+      "category": "gid://shopify/TaxonomyCategory/aa-1-13-12"
+    },
+    {
+      "handle": "dresses",
+      "title": "Dresses",
+      "category": "gid://shopify/TaxonomyCategory/aa-1-4"
+    },
+    {
+      "handle": "tailoring",
+      "title": "Tailoring",
+      "category": "gid://shopify/TaxonomyCategory/aa-1-12"
+    },
+    {
+      "handle": "denim",
+      "title": "Denim",
+      "category": "gid://shopify/TaxonomyCategory/aa-1-12-4"
+    },
+    {
+      "handle": "new-in",
+      "title": "New in",
+      "tag": "new"
+    },
+    {
+      "handle": "sale",
+      "title": "Sale",
+      "tag": "sale"
+    },
+    {
+      "handle": "petite",
+      "title": "Petite fit",
+      "tag": "petite"
+    },
+    {
+      "handle": "tall",
+      "title": "Tall fit",
+      "tag": "tall"
+    },
+    {
+      "handle": "relaxed",
+      "title": "Relaxed fit",
+      "tag": "relaxed"
+    },
+    {
+      "handle": "the-fall-edit",
+      "title": "The fall edit",
+      "products": [
+        "trinelle-wool-coat",
+        "rowani-knit",
+        "adeline-wide-trousers",
+        "noor-long-coat",
+        "elin-slip-dress",
+        "liv-cashmere-cardigan",
+        "edda-trench-coat",
+        "sorrel-denim"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "handle": "trinelle-wool-coat",
+      "title": "Trinelle wool coat",
+      "collection": "coats-jackets",
+      "tier": "hero",
+      "garment": "coat",
+      "look": "a long unlined double-faced wool coat with dropped shoulders, a tie belt and patch pockets, no buttons, worn open",
+      "styling": "an ecru knit, ecru wide trousers and flat leather loafers",
+      "colors": {
+        "Camel": 640,
+        "Espresso": 640,
+        "Ecru": 640
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "sold_out": [
+        {
+          "color": "Camel",
+          "size": "XS"
+        },
+        {
+          "color": "Ecru",
+          "size": "XS"
+        },
+        {
+          "color": "Ecru",
+          "size": "XL"
+        }
+      ],
+      "tags": [
+        "new",
+        "relaxed"
+      ],
+      "fit": "Model is 177 cm and wears S. Relaxed through the body; size down for a closer cut.",
+      "composition": "80% recycled wool, 20% polyamide. Dry clean only. Hang on a wide hanger.",
+      "description": "A long, unlined coat in double-faced wool with dropped shoulders and a tie belt. Patch pockets, no buttons.",
+      "shots": [
+        "front",
+        "back",
+        "detail",
+        "color_swap:Espresso",
+        "color_swap:Ecru"
+      ]
+    },
+    {
+      "handle": "rowani-shearling-jacket",
+      "title": "Rowani shearling jacket",
+      "collection": "coats-jackets",
+      "tier": "simple",
+      "garment": "jacket",
+      "look": "a hip-length shearling jacket with a wide collar, smooth suede outside and curly fleece lining",
+      "styling": "a grey knit and straight black trousers",
+      "colors": {
+        "Black": 890
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 177 cm and wears S. Boxy and short; take your usual size.",
+      "composition": "100% lambskin shearling. Specialist leather clean only.",
+      "description": "A short, boxy shearling jacket with a wide collar that buttons up against the wind.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "relaxed"
+      ]
+    },
+    {
+      "handle": "edda-trench-coat",
+      "title": "Edda trench coat",
+      "collection": "coats-jackets",
+      "tier": "hero",
+      "garment": "trench coat",
+      "look": "a classic double-breasted cotton gabardine trench coat with a belt, storm flap and knee length",
+      "styling": "a white tee, straight blue jeans and white sneakers",
+      "colors": {
+        "Ecru": 392
+      },
+      "compare_at": {
+        "Ecru": 560
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "fit": "Model is 177 cm and wears S. Classic fit with room for a knit underneath.",
+      "composition": "100% organic cotton gabardine, water-repellent finish. Machine wash cold, line dry.",
+      "description": "Our classic trench in water-repellent cotton gabardine, with a full belt and a storm flap at the back.",
+      "shots": [
+        "front",
+        "back",
+        "detail"
+      ],
+      "tags": [
+        "sale",
+        "tall"
+      ]
+    },
+    {
+      "handle": "tove-wool-cape",
+      "title": "Tove wool cape",
+      "collection": "coats-jackets",
+      "tier": "simple",
+      "garment": "cape",
+      "look": "a hip-length wool cape with arm slits and a soft funnel neck",
+      "styling": "a black turtleneck and slim black trousers",
+      "colors": {
+        "Camel": 480
+      },
+      "sizes": [
+        "One size"
+      ],
+      "fit": "Model is 177 cm. One size, generous across the shoulders.",
+      "composition": "90% wool, 10% cashmere. Dry clean only.",
+      "description": "A soft wool and cashmere cape with arm slits, made to throw over a knit on cold mornings.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "relaxed"
+      ]
+    },
+    {
+      "handle": "mira-quilted-vest",
+      "title": "Mira quilted vest",
+      "collection": "coats-jackets",
+      "tier": "simple",
+      "garment": "vest",
+      "look": "a lightweight diamond-quilted vest with a stand collar and snap buttons",
+      "styling": "a white shirt and straight ecru trousers",
+      "colors": {
+        "Black": 210
+      },
+      "compare_at": {
+        "Black": 300
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 177 cm and wears S. Close to the body; size up to layer over knits.",
+      "composition": "Recycled polyester shell and padding. Machine wash cold.",
+      "description": "A light quilted vest for layering under coats or over shirts in between seasons.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/aa-1-10-6",
+      "tags": [
+        "petite",
+        "sale"
+      ]
+    },
+    {
+      "handle": "noor-long-coat",
+      "title": "Noor long coat",
+      "collection": "coats-jackets",
+      "tier": "simple",
+      "garment": "coat",
+      "look": "an ankle-length single-breasted wool coat with notch lapels and a straight clean cut",
+      "styling": "a grey knit and wide black trousers",
+      "colors": {
+        "Black": 720
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "sold_out": [
+        {
+          "color": "Black",
+          "size": "L"
+        }
+      ],
+      "fit": "Model is 180 cm and wears S. Straight cut; take your usual size.",
+      "composition": "100% recycled wool. Dry clean only.",
+      "description": "A long, straight wool coat with notch lapels and hidden buttons. Ankle length on most.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "tall"
+      ],
+      "model": "model--tall"
+    },
+    {
+      "handle": "ines-car-coat",
+      "title": "Ines car coat",
+      "collection": "coats-jackets",
+      "tier": "simple",
+      "garment": "coat",
+      "look": "a mid-thigh wool car coat with a small collar and a hidden button placket",
+      "styling": "a white shirt and straight blue jeans",
+      "colors": {
+        "Camel": 464
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 177 cm and wears S. Slightly relaxed; take your usual size.",
+      "composition": "70% wool, 30% recycled polyamide. Dry clean only.",
+      "description": "A shorter wool coat that sits mid-thigh, with a small collar and a clean, hidden placket.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "petite",
+        "sale"
+      ],
+      "compare_at": {
+        "Camel": 580
+      }
+    },
+    {
+      "handle": "vera-wrap-coat",
+      "title": "Vera wrap coat",
+      "collection": "coats-jackets",
+      "tier": "simple",
+      "garment": "coat",
+      "look": "a knee-length wool wrap coat with a shawl collar and a self-tie belt",
+      "styling": "a black turtleneck and black trousers",
+      "colors": {
+        "Ecru": 610
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 177 cm and wears S. Wrap fit adjusts at the waist.",
+      "composition": "80% wool, 20% polyamide. Dry clean only.",
+      "description": "A soft wrap coat with a shawl collar. No buttons; the belt holds it in place.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "tall"
+      ]
+    },
+    {
+      "handle": "rowani-knit",
+      "title": "Rowani knit",
+      "collection": "knitwear",
+      "tier": "hero",
+      "garment": "sweater",
+      "look": "a relaxed chunky rib-knit crewneck sweater with dropped shoulders",
+      "styling": "ecru wide trousers and flat leather loafers",
+      "colors": {
+        "Espresso": 280,
+        "Ecru": 280,
+        "Camel": 280
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "sold_out": [
+        {
+          "color": "Espresso",
+          "size": "XS"
+        }
+      ],
+      "tags": [
+        "new",
+        "relaxed"
+      ],
+      "fit": "Model is 177 cm and wears S. Oversized; size down for a neater fit.",
+      "composition": "70% recycled wool, 30% alpaca. Hand wash cold, dry flat.",
+      "description": "A chunky rib crewneck in a soft wool and alpaca blend, with dropped shoulders and a deep hem.",
+      "shots": [
+        "front",
+        "back",
+        "detail",
+        "color_swap:Ecru",
+        "color_swap:Camel"
+      ]
+    },
+    {
+      "handle": "saga-merino-crewneck",
+      "title": "Saga merino crewneck",
+      "collection": "knitwear",
+      "tier": "simple",
+      "garment": "sweater",
+      "look": "a fine-gauge merino crewneck sweater with a slim fit",
+      "styling": "straight black trousers",
+      "colors": {
+        "Grey": 180
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 158 cm and wears XS. Slim fit; take your usual size.",
+      "composition": "100% extra-fine merino wool. Hand wash cold, dry flat.",
+      "description": "A fine merino crewneck to wear on its own or under tailoring.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "new",
+        "petite"
+      ],
+      "model": "model--petite"
+    },
+    {
+      "handle": "liv-cashmere-cardigan",
+      "title": "Liv cashmere cardigan",
+      "collection": "knitwear",
+      "tier": "simple",
+      "garment": "cardigan",
+      "look": "a soft V-neck cashmere cardigan with horn buttons, slightly cropped",
+      "styling": "a white tee and straight blue jeans",
+      "colors": {
+        "Ecru": 340
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "new",
+        "petite"
+      ],
+      "fit": "Model is 177 cm and wears S. Slightly cropped; take your usual size.",
+      "composition": "100% cashmere. Hand wash cold, dry flat.",
+      "description": "A slightly cropped cashmere cardigan with horn buttons. Wear it open or buttoned up.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/aa-1-13-3"
+    },
+    {
+      "handle": "maja-ribbed-turtleneck",
+      "title": "Maja ribbed turtleneck",
+      "collection": "knitwear",
+      "tier": "simple",
+      "garment": "turtleneck",
+      "look": "a slim fine-rib turtleneck sweater",
+      "styling": "wide ecru trousers",
+      "colors": {
+        "Black": 160
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 177 cm and wears S. Second-skin fit.",
+      "composition": "95% merino wool, 5% elastane. Hand wash cold, dry flat.",
+      "description": "A fine rib turtleneck that sits close to the body. The base layer for every coat.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "petite"
+      ]
+    },
+    {
+      "handle": "elin-slip-dress",
+      "title": "Elin slip dress",
+      "collection": "dresses",
+      "tier": "hero",
+      "garment": "dress",
+      "look": "a bias-cut satin slip dress with thin straps and a midi length",
+      "styling": "flat leather sandals",
+      "colors": {
+        "Espresso": 260,
+        "Black": 260
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "new",
+        "tall"
+      ],
+      "fit": "Model is 177 cm and wears S. Cut on the bias; skims the body.",
+      "composition": "100% recycled polyester satin. Hand wash cold.",
+      "description": "A bias-cut slip dress in a fluid satin, with adjustable straps and a midi hem.",
+      "shots": [
+        "front",
+        "back",
+        "detail",
+        "color_swap:Black"
+      ]
+    },
+    {
+      "handle": "ada-knit-midi-dress",
+      "title": "Ada knit midi dress",
+      "collection": "dresses",
+      "tier": "simple",
+      "garment": "dress",
+      "look": "a long-sleeve fine-rib knit midi dress with a crew neck",
+      "styling": "flat leather ankle boots",
+      "colors": {
+        "Camel": 320
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 158 cm and wears XS. Close to the body; size up for a looser fit.",
+      "composition": "80% merino wool, 20% polyamide. Hand wash cold, dry flat.",
+      "description": "A rib knit midi dress that layers easily under coats.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "new",
+        "petite"
+      ],
+      "model": "model--petite"
+    },
+    {
+      "handle": "runa-shirt-dress",
+      "title": "Runa shirt dress",
+      "collection": "dresses",
+      "tier": "simple",
+      "garment": "dress",
+      "look": "a relaxed cotton poplin shirt dress with a self-tie belt and rolled sleeves",
+      "styling": "flat leather sandals",
+      "colors": {
+        "Ecru": 240
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 177 cm and wears S. Relaxed; belt it for shape.",
+      "composition": "100% organic cotton poplin. Machine wash cold.",
+      "description": "A relaxed shirt dress in crisp poplin with a belt you can tie or leave off.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "relaxed"
+      ]
+    },
+    {
+      "handle": "ilse-wrap-dress",
+      "title": "Ilse wrap dress",
+      "collection": "dresses",
+      "tier": "simple",
+      "garment": "dress",
+      "look": "a jersey wrap dress with long sleeves and a midi length",
+      "styling": "flat leather loafers",
+      "colors": {
+        "Black": 290
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 177 cm and wears S. Wrap fit adjusts at the waist.",
+      "composition": "95% lyocell, 5% elastane jersey. Machine wash cold.",
+      "description": "A fluid jersey wrap dress with long sleeves, easy from desk to dinner.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "petite"
+      ]
+    },
+    {
+      "handle": "adeline-wide-trousers",
+      "title": "Adeline wide trousers",
+      "collection": "tailoring",
+      "tier": "hero",
+      "garment": "trousers",
+      "look": "high-waisted wide-leg pleated wool trousers with a long floor-grazing length",
+      "styling": "a fitted ecru knit and flat leather loafers",
+      "colors": {
+        "Ecru": 224,
+        "Black": 224
+      },
+      "compare_at": {
+        "Ecru": 320,
+        "Black": 320
+      },
+      "sizes": [
+        "32",
+        "34",
+        "36",
+        "38",
+        "40",
+        "42"
+      ],
+      "sold_out": [
+        {
+          "color": "Ecru",
+          "size": "32"
+        },
+        {
+          "color": "Ecru",
+          "size": "40"
+        }
+      ],
+      "fit": "Model is 177 cm and wears 36. High waist, wide leg; take your usual size.",
+      "composition": "70% wool, 30% recycled polyester. Dry clean only.",
+      "description": "High-waisted trousers with soft front pleats and a wide leg that grazes the floor.",
+      "shots": [
+        "front",
+        "back",
+        "detail",
+        "color_swap:Black"
+      ],
+      "tags": [
+        "sale",
+        "tall"
+      ]
+    },
+    {
+      "handle": "lia-belted-blazer",
+      "title": "Lia belted blazer",
+      "collection": "tailoring",
+      "tier": "simple",
+      "garment": "blazer",
+      "look": "a single-breasted wool blazer with a matching belt at the waist and slightly padded shoulders",
+      "styling": "matching straight grey trousers",
+      "colors": {
+        "Grey": 420
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 180 cm and wears S. Tailored; size up to wear over knits.",
+      "composition": "100% wool. Dry clean only.",
+      "description": "A sharp wool blazer with a belt that cinches the waist.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/aa-1-10-2-18",
+      "tags": [
+        "tall"
+      ],
+      "model": "model--tall"
+    },
+    {
+      "handle": "frida-pleated-trousers",
+      "title": "Frida pleated trousers",
+      "collection": "tailoring",
+      "tier": "simple",
+      "garment": "trousers",
+      "look": "tapered double-pleated wool trousers with turn-ups at the ankle",
+      "styling": "a fine black knit and flat leather loafers",
+      "colors": {
+        "Grey": 260
+      },
+      "sizes": [
+        "32",
+        "34",
+        "36",
+        "38",
+        "40",
+        "42"
+      ],
+      "fit": "Model is 177 cm and wears 36. Relaxed through the hip, tapered at the ankle.",
+      "composition": "100% wool. Dry clean only.",
+      "description": "Double-pleated trousers that taper to a neat turn-up.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "relaxed"
+      ]
+    },
+    {
+      "handle": "hedda-waistcoat",
+      "title": "Hedda waistcoat",
+      "collection": "tailoring",
+      "tier": "simple",
+      "garment": "waistcoat",
+      "look": "a fitted single-breasted wool waistcoat with a V-neck",
+      "styling": "a white shirt and wide ecru trousers",
+      "colors": {
+        "Camel": 220
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 158 cm and wears XS. Fitted; size up to wear over a shirt.",
+      "composition": "70% wool, 30% recycled polyester. Dry clean only.",
+      "description": "A fitted waistcoat to wear on its own or layered over a crisp shirt.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/aa-1-10-6",
+      "tags": [
+        "petite"
+      ],
+      "model": "model--petite"
+    },
+    {
+      "handle": "sorrel-denim",
+      "title": "Sorrel denim",
+      "collection": "denim",
+      "tier": "hero",
+      "garment": "jeans",
+      "look": "high-rise straight-leg rigid jeans with a full-length leg",
+      "styling": "a fitted ecru knit and flat leather loafers",
+      "colors": {
+        "Light wash": 190,
+        "Indigo": 210
+      },
+      "sizes": [
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29"
+      ],
+      "sold_out": [
+        {
+          "color": "Light wash",
+          "size": "27"
+        }
+      ],
+      "fit": "Model is 177 cm and wears 26. Rigid denim; take your usual size, it softens with wear.",
+      "composition": "100% organic cotton rigid denim. Machine wash cold, inside out.",
+      "description": "Our signature straight jean in rigid organic denim, cut long so you can hem it to your height.",
+      "shots": [
+        "front",
+        "back",
+        "detail",
+        "color_swap:Indigo"
+      ],
+      "tags": [
+        "tall"
+      ]
+    },
+    {
+      "handle": "kaia-straight-jeans",
+      "title": "Kaia straight jeans",
+      "collection": "denim",
+      "tier": "simple",
+      "garment": "jeans",
+      "look": "mid-rise relaxed straight jeans with a slightly cropped ankle",
+      "styling": "a white tee and flat leather loafers",
+      "colors": {
+        "Indigo": 210
+      },
+      "sizes": [
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29"
+      ],
+      "fit": "Model is 177 cm and wears 26. Relaxed through the leg.",
+      "composition": "98% organic cotton, 2% elastane. Machine wash cold, inside out.",
+      "description": "A relaxed straight jean with a little stretch and a cropped ankle.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "relaxed"
+      ]
+    },
+    {
+      "handle": "tilde-denim-jacket",
+      "title": "Tilde denim jacket",
+      "collection": "denim",
+      "tier": "simple",
+      "garment": "jacket",
+      "look": "a boxy cropped denim jacket with chest pockets and metal buttons",
+      "styling": "an ecru tee and wide ecru trousers",
+      "colors": {
+        "Indigo": 260
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "fit": "Model is 177 cm and wears S. Boxy and cropped.",
+      "composition": "100% organic cotton denim. Machine wash cold, inside out.",
+      "description": "A boxy, cropped denim jacket that works over dresses and knits.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/aa-1-10-2-16",
+      "tags": [
+        "new",
+        "relaxed"
+      ]
+    },
+    {
+      "handle": "wren-barrel-jeans",
+      "title": "Wren barrel jeans",
+      "collection": "denim",
+      "tier": "simple",
+      "garment": "jeans",
+      "look": "high-rise barrel-leg jeans curved through the knee and tapered at the ankle",
+      "styling": "a fitted black knit and flat black loafers",
+      "colors": {
+        "Black": 220
+      },
+      "sizes": [
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29"
+      ],
+      "fit": "Model is 180 cm and wears 26. Curved leg; take your usual size.",
+      "composition": "100% organic cotton denim. Machine wash cold, inside out.",
+      "description": "A barrel-leg jean with a soft curve through the knee.",
+      "shots": [
+        "front",
+        "back"
+      ],
+      "tags": [
+        "new",
+        "tall"
+      ],
+      "model": "model--tall"
+    }
+  ],
+  "editorial": [
+    {
+      "id": "hero-banner",
+      "section": "image-banner",
+      "aspect": "16:9",
+      "model": "pro",
+      "prompt": "Editorial womenswear campaign photograph for a website hero banner, one continuous real photograph: the woman from the reference image walking slowly on a quiet cobbled stone street in soft autumn morning light, wearing the reference camel wool coat open over an ecru knit and ecru wide trousers. She is placed in the right third of the frame; the street, stone facades and fallen leaves continue across the left side, softly out of focus. Calm, warm, film-like palette of camel, ecru and espresso, natural skin, shallow depth of field. No flat color panels, no borders, no collage.",
+      "references": [
+        "model--reference",
+        "trinelle-wool-coat:front"
+      ]
+    },
+    {
+      "id": "category-dresses",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Editorial portrait of the woman from the reference image wearing the reference espresso satin slip dress, seated on a simple wooden bench by a window, soft daylight, warm paper-toned walls.",
+      "references": [
+        "model--tall",
+        "elin-slip-dress:front"
+      ]
+    },
+    {
+      "id": "category-knitwear",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Editorial close portrait of the petite woman from the first reference image, with her sleek dark brown chin-length bob, olive skin and brown eyes, wearing the chunky rib knit from the second reference image. Use only the sweater from the second reference, not the person wearing it. Hands in the sleeves, soft window light, warm paper-toned background.",
+      "references": [
+        "model--petite",
+        "rowani-knit:front"
+      ]
+    },
+    {
+      "id": "category-tailoring",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Editorial portrait of the woman from the reference image wearing the reference wide ecru trousers with a fitted knit, leaning against a pale plaster wall, soft daylight.",
+      "references": [
+        "model--reference",
+        "adeline-wide-trousers:front"
+      ]
+    },
+    {
+      "id": "category-denim",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Editorial portrait of the woman from the reference image wearing the reference straight jeans and an ecru knit, sitting on stone steps outdoors, soft overcast light.",
+      "references": [
+        "model--reference",
+        "sorrel-denim:front"
+      ]
+    },
+    {
+      "id": "editorial-split",
+      "section": "image-with-text",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Editorial still of a tailor's work table with folded wool fabric swatches in camel, ecru and espresso, a paper pattern, chalk and pins, soft daylight, warm calm palette. No text.",
+      "references": []
+    },
+    {
+      "id": "shop-the-look",
+      "section": "shoppable-image",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Full-length editorial photograph of the woman from the reference image wearing the reference camel coat open over the reference rib knit and the reference wide ecru trousers, standing in a bright minimal room with a warm plaster wall, soft daylight.",
+      "references": [
+        "trinelle-wool-coat:front",
+        "rowani-knit:front",
+        "adeline-wide-trousers:front"
+      ]
+    },
+    {
+      "id": "pair-left",
+      "section": "multicolumn",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Close editorial detail of a camel wool coat collar and an ecru knit neckline on a woman with wavy light brown hair, face cropped at the lips, soft daylight.",
+      "references": []
+    },
+    {
+      "id": "pair-right",
+      "section": "multicolumn",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Close editorial detail of hands adjusting the waistband of wide ecru wool trousers, soft daylight, warm paper background.",
+      "references": [
+        "adeline-wide-trousers:front"
+      ]
+    },
+    {
+      "id": "fit-guide",
+      "section": "image-with-text",
+      "aspect": "3:4",
+      "model": "pro",
+      "prompt": "Generate an image: a vertical candid editorial fashion photograph of the two women from the reference images together: the petite woman with the sleek dark brown chin-length bob from the first reference and the tall slim woman with long dark wavy hair from the second reference. Both wear the same ecru crewneck knit and the same straight ecru trousers with flat leather shoes. They stand close together in a sunlit studio with a warm off-white plaster wall and pale wooden floor, mid-conversation: the tall woman laughs softly and glances down at the petite woman, who looks up at her smiling with one hand in her trouser pocket. Natural relaxed body language, weight on one leg, not posed like mannequins, real human proportions, the height difference clearly visible. Soft natural window light from the left, realistic skin texture, shot on a 50mm lens on film with subtle grain, warm calm palette. Both women in frame from head to toe.",
+      "references": [
+        "model--petite",
+        "model--tall"
+      ],
+      "alt": "The same ecru knit and trousers on a petite and a tall model"
+    },
+    {
+      "id": "fit-guide-wide",
+      "section": "image-with-text",
+      "aspect": "4:3",
+      "model": "pro",
+      "references": [
+        "model--petite",
+        "model--tall"
+      ],
+      "alt": "The same ecru knit and trousers on a petite and a tall model",
+      "prompt": "Generate an image: a wide candid editorial fashion photograph of the two women from the reference images together: the petite woman with the sleek dark brown chin-length bob from the first reference and the tall slim woman with long dark wavy hair from the second reference. Both wear the same ecru crewneck knit and the same straight ecru trousers with flat leather shoes. They stand close together in a sunlit studio with a warm off-white plaster wall and pale wooden floor, mid-conversation: the tall woman laughs softly and glances down at the petite woman, who looks up at her smiling with one hand in her trouser pocket. Natural relaxed body language, weight on one leg, not posed like mannequins, real human proportions, the height difference clearly visible. Soft natural window light from the left, realistic skin texture, shot on a 50mm lens on film with subtle grain, warm calm palette. Both women in frame from head to toe, centered, with calm wall space on both sides."
+    }
+  ],
+  "metafields": [
+    {
+      "key": "fit",
+      "name": "Fit notes",
+      "field": "fit"
+    },
+    {
+      "key": "composition",
+      "name": "Composition and care",
+      "field": "composition"
+    }
+  ],
+  "pages": [
+    {
+      "handle": "size-guide",
+      "title": "Size guide",
+      "body": "<p>Our pieces are cut on a true-to-size block. Each product lists the model's height and the size she wears, plus how the piece is cut.</p><h3>Tops, dresses and outerwear</h3><table><thead><tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hip</th></tr></thead><tbody><tr><td>XS</td><td>80 cm</td><td>62 cm</td><td>88 cm</td></tr><tr><td>S</td><td>84 cm</td><td>66 cm</td><td>92 cm</td></tr><tr><td>M</td><td>88 cm</td><td>70 cm</td><td>96 cm</td></tr><tr><td>L</td><td>94 cm</td><td>76 cm</td><td>102 cm</td></tr><tr><td>XL</td><td>100 cm</td><td>82 cm</td><td>108 cm</td></tr></tbody></table><h3>Trousers (EU sizes)</h3><table><thead><tr><th>Size</th><th>Waist</th><th>Hip</th></tr></thead><tbody><tr><td>32</td><td>62 cm</td><td>88 cm</td></tr><tr><td>34</td><td>66 cm</td><td>92 cm</td></tr><tr><td>36</td><td>70 cm</td><td>96 cm</td></tr><tr><td>38</td><td>74 cm</td><td>100 cm</td></tr><tr><td>40</td><td>78 cm</td><td>104 cm</td></tr><tr><td>42</td><td>84 cm</td><td>110 cm</td></tr></tbody></table><h3>Denim (waist in inches)</h3><table><thead><tr><th>Size</th><th>Waist</th><th>Inseam</th></tr></thead><tbody><tr><td>24</td><td>61 cm</td><td>84 cm</td></tr><tr><td>25</td><td>64 cm</td><td>84 cm</td></tr><tr><td>26</td><td>66 cm</td><td>84 cm</td></tr><tr><td>27</td><td>69 cm</td><td>84 cm</td></tr><tr><td>28</td><td>71 cm</td><td>84 cm</td></tr><tr><td>29</td><td>74 cm</td><td>84 cm</td></tr></tbody></table><p>Between sizes? Take the larger one for outerwear and the smaller one for knitwear.</p>"
+    },
+    {
+      "handle": "shipping-and-returns",
+      "title": "Shipping and returns",
+      "body": "<p>Free shipping in 2–4 business days on every order in the United States.</p><p>Free returns within 30 days. Pieces must be unworn with their tags attached.</p>"
+    },
+    {
+      "handle": "contact",
+      "title": "Contact",
+      "template_suffix": "contact",
+      "body": "<p>Questions about sizing, an order or a return? Write to us and we reply within one business day.</p>"
+    },
+    {
+      "handle": "our-story",
+      "title": "Our story",
+      "body": "<p><img src=\"{file:editorial--category-tailoring}\" alt=\"A woman in wide ecru trousers leaning against a plaster wall\"></p><p>Arvel started with a simple frustration: well-made basics that never quite fit. So we built our collection around the cut first, and the label second.</p><p>Every piece is pattern-made in our studio and fitted on real bodies in three heights, which is why each product page tells you exactly how it falls and who is wearing it.</p><p>We make a small collection each season, in natural and recycled fibers, and we keep the colors calm on purpose: camel, ecru, espresso and black, so everything works together.</p>"
+    },
+    {
+      "handle": "stores",
+      "title": "Stores",
+      "body": "<p>Visit our showroom by appointment to try pieces on with a stylist. Book a fitting through the contact page and we'll confirm a time within one business day.</p>"
+    }
+  ],
+  "blog": {
+    "handle": "journal",
+    "title": "Journal",
+    "author": "The Arvel studio",
+    "articles": [
+      {
+        "handle": "how-to-read-a-size-guide",
+        "title": "How to read a size guide",
+        "image": "adeline-wide-trousers--ecru--detail",
+        "tags": [
+          "Fit notes"
+        ],
+        "summary": "<p>Three measurements that matter more than the label on the tag.</p>",
+        "body": "<p>The size on a label is a starting point, not an answer. Three measurements tell you much more: your bust, your natural waist and the widest part of your hips.</p><p>Measure over light clothing with a soft tape, keeping it level and snug but not tight. Then compare each number with our <a href=\"/pages/size-guide\">size guide</a>.</p><p>Finally, read the fit notes on each product. They tell you the model's height, the size she wears and whether the piece runs relaxed or close, which is often the difference between your usual size and the one that actually fits.</p>"
+      },
+      {
+        "handle": "one-coat-five-weeks",
+        "title": "One coat, five weeks",
+        "image": "trinelle-wool-coat--camel--detail",
+        "tags": [
+          "Styling"
+        ],
+        "summary": "<p>Wearing the Trinelle from the first cold morning to the last.</p>",
+        "body": "<p>We gave the Trinelle wool coat to one of our team for five weeks and asked her to wear it every day.</p><p>Week one, it went over a rib knit and wide ecru trousers. By week three it was belted over a slip dress for dinner. On the coldest days it layered over a turtleneck with the collar turned up.</p><p>Her verdict: a coat with no buttons sounds impractical until you wear one. The belt does the work, and the dropped shoulders mean there is always room for one more layer.</p>"
+      },
+      {
+        "handle": "why-our-denim-runs-long",
+        "title": "Why our denim runs long",
+        "image": "sorrel-denim--light-wash--detail",
+        "tags": [
+          "Behind the cut"
+        ],
+        "summary": "<p>The inseam we chose, and how to hem it at home.</p>",
+        "body": "<p>Our Sorrel jeans are cut with an 84 cm inseam, longer than most. That is on purpose: a long leg can always be shortened, but a short one cannot be saved.</p><p>To hem them, put them on with the shoes you wear most, fold the hem under to just graze the top of your foot, and pin. Rigid denim holds a clean hem, so a simple single fold is enough.</p><p>Prefer to keep the length? Wear them with a small heel, or roll a single cuff for a cropped look.</p>"
+      }
+    ]
+  },
+  "menus": [
+    {
+      "handle": "arvel-main",
+      "title": "Arvel main",
+      "items": [
+        {
+          "title": "New in",
+          "collection": "new-in"
+        },
+        {
+          "title": "Clothing",
+          "collection": "the-fall-edit",
+          "items": [
+            {
+              "title": "Coats and jackets",
+              "collection": "coats-jackets"
+            },
+            {
+              "title": "Knitwear",
+              "collection": "knitwear"
+            },
+            {
+              "title": "Dresses",
+              "collection": "dresses"
+            },
+            {
+              "title": "Tailoring",
+              "collection": "tailoring"
+            },
+            {
+              "title": "Denim",
+              "collection": "denim"
+            }
+          ]
+        },
+        {
+          "title": "Edits",
+          "collection": "the-fall-edit",
+          "items": [
+            {
+              "title": "The fall edit",
+              "collection": "the-fall-edit"
+            },
+            {
+              "title": "Petite fit",
+              "collection": "petite"
+            },
+            {
+              "title": "Tall fit",
+              "collection": "tall"
+            },
+            {
+              "title": "Relaxed fit",
+              "collection": "relaxed"
+            },
+            {
+              "title": "Sale",
+              "collection": "sale"
+            }
+          ]
+        },
+        {
+          "title": "Fit guide",
+          "page": "size-guide"
+        }
+      ]
+    },
+    {
+      "handle": "arvel-help",
+      "title": "Help",
+      "items": [
+        {
+          "title": "Shipping and returns",
+          "page": "shipping-and-returns"
+        },
+        {
+          "title": "Size guide",
+          "page": "size-guide"
+        },
+        {
+          "title": "Contact",
+          "page": "contact"
+        }
+      ]
+    },
+    {
+      "handle": "arvel-studio",
+      "title": "Arvel",
+      "items": [
+        {
+          "title": "Our story",
+          "page": "our-story"
+        },
+        {
+          "title": "Journal",
+          "blog": "journal"
+        },
+        {
+          "title": "Stores",
+          "page": "stores"
+        }
+      ]
+    }
+  ],
+  "theme": {
+    "listing": null,
+    "preset": "Moda",
+    "name": "Arvel demo",
+    "settings": {
+      "templates/index.json": {
+        "sections.hero.settings.image": "shopify://shop_images/hero-banner.jpg",
+        "sections.category_index.blocks.c1.settings.collection": "dresses",
+        "sections.category_index.blocks.c1.settings.image": "shopify://shop_images/category-dresses.jpg",
+        "sections.category_index.blocks.c2.settings.collection": "knitwear",
+        "sections.category_index.blocks.c2.settings.image": "shopify://shop_images/category-knitwear.jpg",
+        "sections.category_index.blocks.c3.settings.collection": "tailoring",
+        "sections.category_index.blocks.c3.settings.image": "shopify://shop_images/category-tailoring.jpg",
+        "sections.category_index.blocks.c4.settings.collection": "denim",
+        "sections.category_index.blocks.c4.settings.image": "shopify://shop_images/category-denim.jpg",
+        "sections.category_index.blocks.c5.settings.link": "shopify://pages/size-guide",
+        "sections.category_index.blocks.c5.settings.image": "shopify://shop_images/fit-guide.jpg",
+        "sections.new_in.settings.collection": "new-in",
+        "sections.new_in.settings.link": "shopify://collections/new-in",
+        "sections.editorial_split.settings.image": "shopify://shop_images/editorial-split.jpg",
+        "sections.editorial_split.blocks.link.settings.link": "shopify://collections/denim",
+        "sections.shop_the_look.settings.image": "shopify://shop_images/shop-the-look.jpg",
+        "sections.shop_the_look.blocks.h1.settings.product": "trinelle-wool-coat",
+        "sections.shop_the_look.blocks.h2.settings.product": "rowani-knit",
+        "sections.shop_the_look.blocks.h3.settings.product": "adeline-wide-trousers",
+        "sections.captioned_pair.blocks.a.settings.image": "shopify://shop_images/pair-right.jpg",
+        "sections.captioned_pair.blocks.a.settings.link": "shopify://collections/tailoring",
+        "sections.captioned_pair.blocks.b.settings.image": "shopify://shop_images/pair-left.jpg",
+        "sections.captioned_pair.blocks.b.settings.link": "shopify://collections/coats-jackets",
+        "sections.testimonials.blocks.t1.settings.author": "Marta, Trinelle wool coat in S",
+        "sections.testimonials.blocks.t2.settings.author": "Hannah, Adeline wide trousers in 36",
+        "sections.testimonials.blocks.t3.settings.author": "Clara, Rowani knit in M",
+        "sections.fit_guide.settings.image": "shopify://shop_images/fit-guide-wide.jpg",
+        "sections.fit_guide.blocks.petite.settings.link": "shopify://collections/petite",
+        "sections.fit_guide.blocks.tall.settings.link": "shopify://collections/tall",
+        "sections.fit_guide.blocks.relaxed.settings.link": "shopify://collections/relaxed",
+        "sections.fit_guide.blocks.guide.settings.link": "shopify://pages/size-guide",
+        "sections.journal.settings.blog": "journal",
+        "sections.hero.settings.mobile_image": "shopify://shop_images/hero-banner-mobile.jpg"
+      },
+      "templates/product.json": {
+        "sections.main.blocks.variant_picker.settings.size_guide_page": "size-guide",
+        "sections.main.blocks.fit_notes.settings.text": "<p>{{ product.metafields.custom.fit.value }}</p>",
+        "sections.main.blocks.tab_care.settings.content": "<p>{{ product.metafields.custom.composition.value }}</p>",
+        "sections.main.blocks.tab_shipping.settings.content": "",
+        "sections.main.blocks.tab_shipping.settings.page": "shipping-and-returns"
+      },
+      "sections/header-group.json": {
+        "sections.header.settings.menu": "arvel-main"
+      },
+      "sections/footer-group.json": {
+        "sections.footer.blocks.menu.settings.menu": "arvel-help",
+        "sections.footer.blocks.studio": {
+          "type": "menu",
+          "settings": {
+            "heading": "",
+            "menu": "arvel-studio"
+          }
+        },
+        "sections.footer.block_order": [
+          "newsletter",
+          "menu",
+          "studio",
+          "social"
+        ]
+      },
+      "config/settings_data.json": {
+        "presets.Moda.social_instagram_link": "https://www.instagram.com/shopify",
+        "presets.Moda.social_pinterest_link": "https://www.pinterest.com/shopify",
+        "presets.Moda.social_tiktok_link": "https://www.tiktok.com/@shopify"
+      }
+    }
+  }
+}

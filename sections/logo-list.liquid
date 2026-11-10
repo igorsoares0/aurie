@@ -1,0 +1,128 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+-%}
+
+<div class="section logo-list color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="section-heading section-heading--center">
+        <h2 class="section-heading__title h3">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+    <ul class="logo-list__items" role="list">
+      {%- for block in section.blocks -%}
+        <li class="logo-list__item" {{ block.shopify_attributes }}>
+          {%- assign logo_alt = block.settings.image.alt | default: block.settings.name -%}
+          {%- capture logo_image -%}
+            {%- if block.settings.image -%}
+              {{
+                block.settings.image
+                | image_url: width: 400
+                | image_tag: widths: '200, 400', sizes: '160px', loading: 'lazy', alt: logo_alt, class: 'logo-list__image'
+              }}
+            {%- else -%}
+              <span class="logo-list__placeholder label text-muted">{{ block.settings.name }}</span>
+            {%- endif -%}
+          {%- endcapture -%}
+          {%- if block.settings.link != blank -%}
+            <a class="logo-list__link" href="{{ block.settings.link }}">{{ logo_image }}</a>
+          {%- else -%}
+            {{ logo_image }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .logo-list__items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0;
+  }
+
+  .logo-list__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+  }
+
+  .logo-list__image {
+    max-width: 140px;
+    max-height: 56px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media screen and (min-width: 750px) {
+    .logo-list__items {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.logo_list.name",
+  "class": "section-logo-list",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "As seen in"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "t:sections.logo_list.blocks.logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.logo_list.blocks.image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "t:sections.material_guide.blocks.name",
+          "info": "t:sections.logo_list.blocks.name_info",
+          "default": "Logo"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:labels.link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.logo_list.name",
+      "blocks": [
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

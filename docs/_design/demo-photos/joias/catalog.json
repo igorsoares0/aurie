@@ -1,0 +1,1056 @@
+{
+  "preset": "joias",
+  "notes": "Demo catalog for the Joias preset. 24 pieces, 6 per collection (collection grid is 3 columns on desktop, 2 on mobile). Names, prices and specs follow the Joias mockups. Shot prompts are composed by the generator from art_direction.shots + product.look.",
+  "vendor": "Oriel",
+  "pages": [
+    {
+      "handle": "ring-size-guide",
+      "title": "Ring size guide",
+      "body": "<p>Our rings follow US sizing. Measure a ring that already fits the finger you have in mind, or wrap a strip of paper around the base of that finger and mark where it overlaps.</p><table><thead><tr><th>US size</th><th>Inner diameter</th><th>Circumference</th></tr></thead><tbody><tr><td>5</td><td>15.7 mm</td><td>49.3 mm</td></tr><tr><td>6</td><td>16.5 mm</td><td>51.9 mm</td></tr><tr><td>7</td><td>17.3 mm</td><td>54.4 mm</td></tr><tr><td>8</td><td>18.1 mm</td><td>57.0 mm</td></tr><tr><td>9</td><td>18.9 mm</td><td>59.5 mm</td></tr></tbody></table><p>Measure at the end of the day, when fingers are at their largest. For bands wider than 4 mm, such as our signets, choose half a size up.</p><p>Not sure? Order your best guess. Resizing is free within 30 days on solid gold and sterling silver.</p>"
+    },
+    {
+      "handle": "materials-and-care",
+      "title": "Materials and care",
+      "body": "<h3>18k gold vermeil</h3><p>A thick layer of 18k gold over recycled sterling silver: the look of gold at a lighter price. Take it off before swimming or the gym, and store it in its pouch.</p><h3>18k solid gold</h3><p>Recycled gold through and through. It never wears away, can be resized and is safe in water. Polish with a soft cloth.</p><h3>Sterling silver</h3><p>92.5% recycled silver with a soft, cool shine that deepens over time. Silver darkens with air; the cloth in your box brings it back.</p>"
+    },
+    {
+      "handle": "shipping-and-returns",
+      "title": "Shipping and returns",
+      "body": "<p>Free shipping in 2–4 business days. Every order arrives in our linen gift box with a card.</p><p>Free returns within 30 days of delivery. Engraved pieces are made for you and are final sale.</p>"
+    },
+    {
+      "handle": "contact",
+      "title": "Contact",
+      "template_suffix": "contact",
+      "body": "<p>Questions about sizing, engraving or an order? Write to us and the studio replies within one business day.</p>"
+    },
+    {
+      "handle": "our-story",
+      "title": "Our story",
+      "body": "<p><img src=\"{file:editorial--collection-earrings}\" alt=\"A woman in profile wearing a hand-hammered gold hoop\"></p><p>Oriel began at a single bench by a north-facing window, with a block of carving wax and the idea that fine jewelry should be worn every day, not saved for later.</p><p>Every piece still starts the same way. We carve each design by hand in wax, cast it in recycled gold or silver, then file, polish and finish it in the studio. Because of that, no two hoops curve exactly alike, and we think that is the point.</p><p>We keep the collection small on purpose: around thirty pieces, each made to be layered, stacked and lived in for years. When something needs care, send it back. Cleaning and polishing are free for as long as you own the piece.</p>"
+    }
+  ],
+  "art_direction": {
+    "background": "#f1eeea",
+    "style": "Fine jewelry e-commerce photography, minimal and luxurious, realistic metal texture, sharp focus. No text, no logo, no watermark.",
+    "shots": {
+      "front": "Product photograph of {look}, in {metal}, front view, centered with generous negative space. Seamless warm off-white background (#f1eeea), soft diffused studio light from the upper left, gentle natural contact shadow.",
+      "side": "Change only the camera angle: show this exact piece from a side profile view. Keep every detail of the piece exactly as in the reference, including hooks, clasps and closures. Keep the same metal, background color, lighting and shadow style.",
+      "worn": "Lifestyle photograph: {worn}, wearing exactly the piece from the reference image, {placement}. The piece must match the reference exactly in shape and metal. Natural, anatomically correct body, realistic skin texture, short natural nails with sheer nude polish. Soft natural window light, warm and airy near-white palette, shallow depth of field with sharp focus on the piece.",
+      "metal_swap": "Change only the metal of this piece to {metal}. Keep exactly the same shape, proportions, angle, camera position, background color, lighting and shadow."
+    },
+    "metal_prompts": {
+      "18k gold vermeil": "warm 18k gold vermeil",
+      "18k solid gold": "rich deep 18k solid yellow gold",
+      "Sterling silver": "polished sterling silver with cool neutral reflections"
+    },
+    "packshot_rules": "Only the described piece (or pair) in the frame, no extra copies, no ghosted reflections, no props.",
+    "placements": {
+      "rings": "worn on the finger as a ring. No other jewelry",
+      "earrings": "worn on the ear lobe (only one earring of the pair is visible). No other jewelry",
+      "necklaces": "worn around the neck as a necklace, resting on the collarbone. No earrings, no other jewelry",
+      "bracelets": "worn on the wrist as a bracelet. No earrings, no other jewelry"
+    }
+  },
+  "metals": {
+    "18k gold vermeil": {
+      "swatch": "#c9a45c",
+      "filter": "Gold vermeil",
+      "handle": "gold-vermeil",
+      "taxonomy": "gid://shopify/TaxonomyValue/4"
+    },
+    "18k solid gold": {
+      "swatch": "#b8893b",
+      "filter": "Solid gold",
+      "handle": "solid-gold",
+      "taxonomy": "gid://shopify/TaxonomyValue/4"
+    },
+    "Sterling silver": {
+      "swatch": "#c4c6c8",
+      "filter": "Sterling silver",
+      "handle": "sterling-silver",
+      "taxonomy": "gid://shopify/TaxonomyValue/5"
+    }
+  },
+  "collections": [
+    {
+      "handle": "rings",
+      "title": "Rings",
+      "image_hint": "hand with stacked rings",
+      "category": "gid://shopify/TaxonomyCategory/aa-6-9"
+    },
+    {
+      "handle": "earrings",
+      "title": "Earrings",
+      "image_hint": "profile with hoop",
+      "category": "gid://shopify/TaxonomyCategory/aa-6-6"
+    },
+    {
+      "handle": "necklaces",
+      "title": "Necklaces",
+      "image_hint": "collarbone, layered chains",
+      "category": "gid://shopify/TaxonomyCategory/aa-6-8"
+    },
+    {
+      "handle": "bracelets",
+      "title": "Bracelets",
+      "image_hint": "wrist with cuff",
+      "category": "gid://shopify/TaxonomyCategory/aa-6-3"
+    },
+    {
+      "handle": "the-icons",
+      "title": "The icons",
+      "products": [
+        "pebble-signet",
+        "sculpted-hoop",
+        "drop-chain",
+        "wave-cuff",
+        "thread-ring",
+        "pearl-drop",
+        "mini-hoop",
+        "disc-pendant"
+      ]
+    },
+    {
+      "handle": "birthday-gifts",
+      "title": "Birthday gifts",
+      "tag": "birthday"
+    },
+    {
+      "handle": "wedding-gifts",
+      "title": "Wedding gifts",
+      "tag": "anniversary"
+    },
+    {
+      "handle": "just-because",
+      "title": "Just because",
+      "tag": "under-150"
+    }
+  ],
+  "products": [
+    {
+      "handle": "pebble-signet",
+      "title": "Pebble signet",
+      "collection": "rings",
+      "style": "Signets",
+      "tier": "hero",
+      "look": "a handmade oval signet ring with a smooth softly brushed oval face, no engraving, and a slim polished band, standing upright at a slight three-quarter angle",
+      "worn": "a woman's relaxed hand resting on soft ivory linen, the ring on the index finger",
+      "metals": {
+        "18k gold vermeil": 320,
+        "Sterling silver": 210
+      },
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "sold_out": [
+        {
+          "metal": "Sterling silver",
+          "size": "9"
+        }
+      ],
+      "spec": "Face 11 × 9 mm",
+      "dimensions": "Face 11 × 9 mm. Band 2.4 mm at the back. Weight about 6 g.",
+      "tags": [
+        "engravable",
+        "anniversary"
+      ],
+      "description": "A soft oval signet with a brushed face and a polished band that tapers at the back. Wear it plain or add up to three initials.",
+      "shots": [
+        "front",
+        "side",
+        "worn",
+        "metal_swap:front",
+        "metal_swap:side"
+      ]
+    },
+    {
+      "handle": "oval-signet",
+      "title": "Oval signet",
+      "collection": "rings",
+      "style": "Signets",
+      "tier": "simple",
+      "look": "a substantial signet ring with a wide horizontal oval face, high-polish finish and a thick band, lying at a three-quarter angle",
+      "worn": "a woman's hand holding the edge of a linen napkin, the ring on the little finger",
+      "metals": {
+        "18k solid gold": 890
+      },
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "spec": "Face 13 × 10 mm",
+      "dimensions": "Face 13 × 10 mm. Band 3 mm at the back. Weight about 9 g.",
+      "tags": [
+        "engravable",
+        "anniversary"
+      ],
+      "description": "Our heaviest signet, cast in recycled solid gold. A piece to keep for decades and pass on.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "seal-ring",
+      "title": "Seal ring",
+      "collection": "rings",
+      "style": "Signets",
+      "tier": "simple",
+      "look": "a round signet ring with a flat circular face and crisp bevelled edge, satin finish, standing upright",
+      "worn": "a woman's hand resting on a folded ivory sweater, the ring on the ring finger",
+      "metals": {
+        "Sterling silver": 190
+      },
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "spec": "Face 12 mm",
+      "dimensions": "Face 12 mm round. Band 2.2 mm at the back. Weight about 5 g.",
+      "tags": [
+        "engravable",
+        "birthday"
+      ],
+      "description": "A round seal face with a crisp bevelled edge, in recycled sterling silver.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "thread-ring",
+      "title": "Thread ring",
+      "collection": "rings",
+      "style": "Bands",
+      "tier": "hero",
+      "look": "a very fine delicate band ring, 1.2 mm thin round wire, high polish, standing upright",
+      "worn": "a woman's hand with fingers lightly curled against ivory silk, the thin ring on the middle finger",
+      "metals": {
+        "18k gold vermeil": 120
+      },
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "spec": "1.2 mm band",
+      "dimensions": "Band 1.2 mm. Weight about 1 g.",
+      "tags": [
+        "birthday",
+        "under-150"
+      ],
+      "description": "A ring as fine as a thread, made to stack or to wear alone.",
+      "shots": [
+        "front",
+        "side",
+        "worn"
+      ]
+    },
+    {
+      "handle": "stacking-band",
+      "title": "Stacking band",
+      "collection": "rings",
+      "style": "Bands",
+      "tier": "simple",
+      "look": "a flat 2 mm band ring with squared edges and a high-polish finish, standing upright",
+      "worn": "a woman's hand resting on ivory linen, two of these bands stacked on the ring finger",
+      "metals": {
+        "18k gold vermeil": 95
+      },
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "spec": "2 mm band",
+      "dimensions": "Band 2 mm, flat profile. Weight about 2 g.",
+      "tags": [
+        "under-150"
+      ],
+      "description": "A flat, square-edged band that sits neatly beside any other ring.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "twist-ring",
+      "title": "Twist ring",
+      "collection": "rings",
+      "style": "Stackers",
+      "tier": "simple",
+      "look": "a slim twisted rope band ring, 1.8 mm, two strands twisted together, polished, standing upright",
+      "worn": "a woman's hand touching her collarbone, the ring on the index finger",
+      "metals": {
+        "Sterling silver": 84
+      },
+      "compare_at": {
+        "Sterling silver": 120
+      },
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "spec": "1.8 mm band",
+      "dimensions": "Band 1.8 mm, two twisted strands. Weight about 2 g.",
+      "tags": [
+        "under-150"
+      ],
+      "description": "Two fine strands twisted into one band. Catches the light from every side.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "sculpted-hoop",
+      "title": "Sculpted hoop",
+      "collection": "earrings",
+      "style": "Hoops",
+      "tier": "hero",
+      "look": "a pair of hand-hammered hoop earrings, 22 mm wide, slim round wire with a softly faceted, irregular hammered surface and a fine post closure, one lying flat and one leaning against it",
+      "worn": "a close crop of a woman's ear and jawline in profile, hair tucked back",
+      "metals": {
+        "18k gold vermeil": 240,
+        "Sterling silver": 160
+      },
+      "spec": "22 mm",
+      "dimensions": "22 mm across, 2 mm hammered wire. Post closure. Weight about 3 g per pair.",
+      "tags": [
+        "anniversary"
+      ],
+      "description": "Each hoop is hammered by hand, so every facet catches the light a little differently.",
+      "shots": [
+        "front",
+        "side",
+        "worn",
+        "metal_swap:front",
+        "metal_swap:side"
+      ]
+    },
+    {
+      "handle": "mini-hoop",
+      "title": "Mini hoop",
+      "collection": "earrings",
+      "style": "Hoops",
+      "tier": "simple",
+      "look": "a pair of small huggie hoop earrings, 12 mm, smooth polished round tube, one lying flat and one standing on its edge",
+      "worn": "a close crop of a woman's ear lobe with a small huggie hoop",
+      "metals": {
+        "18k gold vermeil": 110,
+        "Sterling silver": 75
+      },
+      "spec": "12 mm",
+      "dimensions": "12 mm across, 2.5 mm tube. Hinged closure.",
+      "tags": [
+        "birthday",
+        "under-150"
+      ],
+      "description": "A small, close-fitting hoop you can sleep in.",
+      "shots": [
+        "front",
+        "worn",
+        "metal_swap:front"
+      ]
+    },
+    {
+      "handle": "seed-studs",
+      "title": "Seed studs",
+      "collection": "earrings",
+      "style": "Studs",
+      "tier": "simple",
+      "look": "a pair of tiny 4 mm round dome stud earrings, polished, with butterfly backs, arranged side by side",
+      "worn": "a close crop of a woman's ear lobe with a tiny dome stud",
+      "metals": {
+        "Sterling silver": 90
+      },
+      "spec": "4 mm",
+      "dimensions": "4 mm dome. Butterfly backs.",
+      "tags": [
+        "birthday",
+        "under-150"
+      ],
+      "description": "A small polished dome, the stud you forget you're wearing.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "pearl-drop",
+      "title": "Pearl drop",
+      "collection": "earrings",
+      "style": "Drops",
+      "tier": "hero",
+      "look": "a pair of drop earrings, each a small freshwater pearl with a soft natural luster hanging from a fine curved hook",
+      "worn": "a close crop of a woman's ear and neck in soft profile, wearing one pearl drop earring",
+      "metals": {
+        "18k gold vermeil": 140
+      },
+      "spec": "Freshwater pearl",
+      "dimensions": "Pearl 7–8 mm. Drop length 25 mm.",
+      "tags": [
+        "birthday",
+        "under-150"
+      ],
+      "description": "A single freshwater pearl on a fine hook. No two pearls are quite the same.",
+      "shots": [
+        "front",
+        "side",
+        "worn"
+      ]
+    },
+    {
+      "handle": "bar-studs",
+      "title": "Bar studs",
+      "collection": "earrings",
+      "style": "Studs",
+      "tier": "simple",
+      "look": "a pair of slim 8 mm vertical bar stud earrings with a brushed finish, arranged side by side",
+      "worn": "a close crop of a woman's ear lobe with a slim bar stud",
+      "metals": {
+        "18k solid gold": 260
+      },
+      "spec": "8 mm",
+      "dimensions": "8 × 1.5 mm bar. Screw backs.",
+      "tags": [
+        "anniversary"
+      ],
+      "description": "A short brushed line of solid gold, worn vertical on the lobe.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "knot-studs",
+      "title": "Knot studs",
+      "collection": "earrings",
+      "style": "Studs",
+      "tier": "simple",
+      "look": "a pair of 6 mm stud earrings shaped like a small tied knot of round wire, polished",
+      "worn": "a close crop of a woman's ear lobe with a small knot stud",
+      "metals": {
+        "Sterling silver": 85
+      },
+      "spec": "6 mm",
+      "dimensions": "6 mm knot. Butterfly backs.",
+      "tags": [
+        "birthday",
+        "under-150"
+      ],
+      "description": "A tiny tied knot in recycled silver.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "drop-chain",
+      "title": "Drop chain",
+      "collection": "necklaces",
+      "style": "Pendants",
+      "tier": "hero",
+      "look": "a fine cable chain necklace with a single small polished teardrop pendant, the chain laid in a soft curve",
+      "worn": "a close crop of a woman's neck and collarbone in an ivory silk top",
+      "metals": {
+        "18k gold vermeil": 280,
+        "Sterling silver": 180
+      },
+      "spec": "45 cm",
+      "dimensions": "Chain 45 cm with a ring at 40 cm. Drop 12 mm.",
+      "tags": [
+        "anniversary"
+      ],
+      "description": "A small teardrop on a fine chain, adjustable to sit just below the collarbone.",
+      "shots": [
+        "front",
+        "side",
+        "worn",
+        "metal_swap:front",
+        "metal_swap:side"
+      ]
+    },
+    {
+      "handle": "fine-chain",
+      "title": "Fine chain",
+      "collection": "necklaces",
+      "style": "Chains",
+      "tier": "simple",
+      "look": "a very fine delicate cable chain necklace laid in a loose loop",
+      "worn": "a close crop of a woman's collarbone wearing a very fine chain",
+      "metals": {
+        "Sterling silver": 110
+      },
+      "spec": "40 cm",
+      "dimensions": "Chain 40 cm, 1 mm cable links.",
+      "tags": [
+        "birthday",
+        "under-150"
+      ],
+      "description": "The chain for layering: barely there, and strong enough to wear every day.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "pebble-pendant",
+      "title": "Pebble pendant",
+      "collection": "necklaces",
+      "style": "Pendants",
+      "tier": "simple",
+      "look": "a necklace with a smooth flat pebble-shaped pendant, softly brushed, on a fine chain laid in a curve",
+      "worn": "a close crop of a woman's neckline in an open ivory shirt, wearing this pebble pendant",
+      "metals": {
+        "18k gold vermeil": 190
+      },
+      "spec": "45 cm",
+      "dimensions": "Chain 45 cm. Pendant 14 × 11 mm.",
+      "tags": [
+        "engravable",
+        "birthday"
+      ],
+      "description": "A smooth brushed pebble that matches our signet. Engrave the back.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "paperclip-chain",
+      "title": "Paperclip chain",
+      "collection": "necklaces",
+      "style": "Chains",
+      "tier": "simple",
+      "look": "an elongated paperclip link chain necklace, polished, laid in a loose curve",
+      "worn": "a close crop of a woman's collarbone wearing a paperclip link chain",
+      "metals": {
+        "18k solid gold": 640
+      },
+      "spec": "42 cm",
+      "dimensions": "Chain 42 cm, links 9 × 3 mm.",
+      "tags": [
+        "anniversary"
+      ],
+      "description": "Long, open links in solid recycled gold. Wear it alone or with a pendant.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "bead-choker",
+      "title": "Bead choker",
+      "collection": "necklaces",
+      "style": "Chains",
+      "tier": "simple",
+      "look": "a short necklace of small polished round metal beads spaced along a fine chain, laid in a circle",
+      "worn": "a close crop of a woman's neck wearing a short bead necklace close to the base of the neck",
+      "metals": {
+        "Sterling silver": 150
+      },
+      "spec": "38 cm",
+      "dimensions": "Chain 38 cm with a 4 cm extender. Beads 3 mm.",
+      "tags": [
+        "birthday"
+      ],
+      "description": "Tiny silver beads spaced along a fine chain, worn close to the neck.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "disc-pendant",
+      "title": "Disc pendant",
+      "collection": "necklaces",
+      "style": "Pendants",
+      "tier": "simple",
+      "look": "a necklace with a small flat round disc pendant, satin finish, on a fine chain laid in a curve",
+      "worn": "a close crop of a woman's collarbone wearing a small disc pendant",
+      "metals": {
+        "18k gold vermeil": 165
+      },
+      "spec": "45 cm",
+      "dimensions": "Chain 45 cm. Disc 12 mm.",
+      "tags": [
+        "engravable",
+        "birthday"
+      ],
+      "description": "A small satin disc with room for a name or a date.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "wave-cuff",
+      "title": "Wave cuff",
+      "collection": "bracelets",
+      "style": "Cuffs",
+      "tier": "hero",
+      "look": "an open cuff bracelet, 15 mm wide, with a gently rippling wave-shaped surface, polished, standing on its edge",
+      "worn": "a woman's wrist and hand resting on ivory linen",
+      "metals": {
+        "Sterling silver": 260,
+        "18k gold vermeil": 360
+      },
+      "spec": "15 mm",
+      "dimensions": "15 mm wide. Fits wrists 15–17 cm. Gently adjustable.",
+      "tags": [
+        "anniversary"
+      ],
+      "description": "A wide open cuff with a surface that ripples like sand after the tide.",
+      "shots": [
+        "front",
+        "side",
+        "worn",
+        "metal_swap:front",
+        "metal_swap:side"
+      ]
+    },
+    {
+      "handle": "open-cuff",
+      "title": "Open cuff",
+      "collection": "bracelets",
+      "style": "Cuffs",
+      "tier": "simple",
+      "look": "a slim 6 mm open cuff bracelet with rounded ends, high polish, standing on its edge",
+      "worn": "a woman's wrist with a slim open cuff, hand relaxed",
+      "metals": {
+        "18k gold vermeil": 150
+      },
+      "spec": "6 mm",
+      "dimensions": "6 mm wide. Fits wrists 15–17 cm.",
+      "tags": [
+        "birthday"
+      ],
+      "description": "A slim cuff with rounded ends that slips on sideways.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "fine-chain-bracelet",
+      "title": "Fine chain bracelet",
+      "collection": "bracelets",
+      "style": "Chains",
+      "tier": "simple",
+      "look": "a very fine cable chain bracelet with a small round clasp, laid in a loose loop",
+      "worn": "a woman's wrist with a very fine chain bracelet",
+      "metals": {
+        "18k gold vermeil": 95
+      },
+      "spec": "17 cm",
+      "dimensions": "17 cm with a ring at 15 cm.",
+      "tags": [
+        "under-150"
+      ],
+      "description": "A whisper of a chain for the wrist. Layers with any cuff.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "link-bracelet",
+      "title": "Link bracelet",
+      "collection": "bracelets",
+      "style": "Chains",
+      "tier": "simple",
+      "look": "a chain bracelet of rounded oval links, polished, with a toggle clasp, laid in a loose curve",
+      "worn": "a woman's wrist with a rounded oval link bracelet",
+      "metals": {
+        "Sterling silver": 170
+      },
+      "spec": "18 cm",
+      "dimensions": "18 cm. Links 7 × 5 mm. Toggle clasp.",
+      "tags": [
+        "birthday"
+      ],
+      "description": "Rounded oval links with a toggle clasp that's easy to close with one hand.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "pearl-bracelet",
+      "title": "Pearl bracelet",
+      "collection": "bracelets",
+      "style": "Chains",
+      "tier": "simple",
+      "look": "a fine chain bracelet with three small freshwater pearls spaced along it, laid in a loose curve",
+      "worn": "a woman's wrist with a fine chain bracelet set with three small pearls",
+      "metals": {
+        "18k gold vermeil": 130
+      },
+      "spec": "Freshwater pearl",
+      "dimensions": "17 cm. Pearls 4–5 mm.",
+      "tags": [
+        "birthday",
+        "under-150"
+      ],
+      "description": "Three small freshwater pearls on a fine chain. Pairs with the pearl drop.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    },
+    {
+      "handle": "solid-bangle",
+      "title": "Solid bangle",
+      "collection": "bracelets",
+      "style": "Bangles",
+      "tier": "simple",
+      "look": "a slim closed perfectly circular bangle bracelet with a 3 mm round profile and high polish, lying flat on the surface, seen from a slight high angle so its round shape is clear",
+      "worn": "a woman's wrist with a slim closed gold bangle, hand relaxed on ivory linen",
+      "metals": {
+        "18k solid gold": 720
+      },
+      "spec": "3 mm",
+      "dimensions": "3 mm round profile. Inner diameter 62 mm.",
+      "tags": [
+        "engravable",
+        "anniversary"
+      ],
+      "description": "A slim closed bangle in solid recycled gold. Engrave the inside.",
+      "shots": [
+        "front",
+        "worn"
+      ]
+    }
+  ],
+  "gift_card": {
+    "handle": "gift-card",
+    "title": "Gift card",
+    "denominations": [
+      50,
+      100,
+      200,
+      500
+    ],
+    "image": "A small ivory jewelry box with the lid open beside a folded ivory linen pouch and a plain blank card, warm off-white background (#f1eeea), soft diffused studio light. No text, no logo."
+  },
+  "editorial": [
+    {
+      "id": "hero-banner",
+      "section": "image-banner",
+      "aspect": "16:9",
+      "model": "pro",
+      "prompt": "Editorial fine jewelry campaign photograph for a website hero banner. Close crop of a woman in her early thirties, collarbone to jaw, head slightly turned, wearing the reference necklace and the reference hoop earring with a simple ivory silk top. Natural window light, very light airy near-white and warm beige palette, realistic skin, calm and luminous, shallow depth of field, medium format film look, negative space on the left for a headline.",
+      "references": [
+        "drop-chain:front",
+        "sculpted-hoop:front"
+      ]
+    },
+    {
+      "id": "story-split",
+      "section": "image-with-text",
+      "aspect": "4:5",
+      "model": "pro",
+      "prompt": "Editorial still life of a jeweler's bench: a few unfinished gold vermeil rings, a small wax carving and a soft polishing cloth on a pale wooden bench, warm window light, airy near-white palette, calm and precise. No tools brand names, no text."
+    },
+    {
+      "id": "collection-rings",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "pro",
+      "prompt": "Portrait crop of a woman's hand with stacked rings resting on ivory linen, wearing the reference rings, soft window light, airy near-white palette.",
+      "references": [
+        "thread-ring:front",
+        "stacking-band:front",
+        "oval-signet:front"
+      ]
+    },
+    {
+      "id": "collection-earrings",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "pro",
+      "prompt": "Portrait crop of a woman in profile, hair tucked back, wearing the reference hoop earring, soft window light, airy near-white palette.",
+      "references": [
+        "sculpted-hoop:front"
+      ]
+    },
+    {
+      "id": "collection-necklaces",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "pro",
+      "prompt": "Portrait crop of a woman's collarbone wearing the reference chains layered, ivory silk top, soft window light, airy near-white palette.",
+      "references": [
+        "fine-chain:front",
+        "drop-chain:side"
+      ]
+    },
+    {
+      "id": "collection-bracelets",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "pro",
+      "prompt": "Portrait crop of a woman's wrist wearing the reference cuff, hand relaxed on ivory linen, soft window light, airy near-white palette.",
+      "references": [
+        "wave-cuff:front"
+      ]
+    },
+    {
+      "id": "material-solid-gold",
+      "section": "material-guide",
+      "aspect": "1:1",
+      "model": "pro",
+      "prompt": "Extreme macro of a polished 18k solid gold surface with a soft brushed band, warm light, abstract and luminous. No text."
+    },
+    {
+      "id": "material-vermeil",
+      "section": "material-guide",
+      "aspect": "1:1",
+      "model": "pro",
+      "prompt": "Extreme macro of a gold vermeil ring edge showing a warm satin finish, soft light, abstract and luminous. No text."
+    },
+    {
+      "id": "material-silver",
+      "section": "material-guide",
+      "aspect": "1:1",
+      "model": "pro",
+      "prompt": "Generate an image: extreme macro photograph of the polished edge of a sterling silver ring with a soft satin band, neutral cool grey reflections against a warm off-white background, calm, minimal and luminous, airy near-white palette."
+    },
+    {
+      "id": "gift-anniversary",
+      "section": "gift-guide",
+      "aspect": "4:5",
+      "model": "pro",
+      "prompt": "Still life of an open small ivory jewelry box holding the reference signet ring, a sprig of dried flowers and a folded linen napkin, warm window light, airy near-white palette. No text.",
+      "references": [
+        "oval-signet:front"
+      ]
+    },
+    {
+      "id": "gift-birthday",
+      "section": "gift-guide",
+      "aspect": "4:5",
+      "model": "pro",
+      "prompt": "Still life of the reference pearl drop earrings, fine curved gold vermeil hooks each holding one freshwater pearl exactly as in the reference, laid on a folded ivory linen pouch beside a plain blank card, warm window light, airy near-white palette.",
+      "references": [
+        "pearl-drop:front"
+      ]
+    },
+    {
+      "id": "gift-engravable",
+      "section": "gift-guide",
+      "aspect": "4:5",
+      "model": "pro",
+      "prompt": "Close still life of the reference disc pendant lying on ivory silk beside a small engraving burin with a plain wooden handle, soft window light, airy near-white palette. No letters or text anywhere.",
+      "references": [
+        "disc-pendant:front"
+      ]
+    }
+  ],
+  "theme": {
+    "listing": "joias",
+    "preset": "Joias",
+    "name": "Oriel demo",
+    "settings": {
+      "templates/index.json": {
+        "sections.macro.settings.image": "shopify://shop_images/hero-banner.jpg",
+        "sections.icons.settings.collection": "the-icons",
+        "sections.icons.settings.link": "shopify://collections/the-icons",
+        "sections.editorial.settings.image": "shopify://shop_images/story-split.jpg",
+        "sections.editorial.blocks.button.settings.link": "shopify://collections/earrings",
+        "sections.portraits.blocks.c1.settings.collection": "rings",
+        "sections.portraits.blocks.c1.settings.image": "shopify://shop_images/collection-rings.jpg",
+        "sections.portraits.blocks.c2.settings.collection": "earrings",
+        "sections.portraits.blocks.c2.settings.image": "shopify://shop_images/collection-earrings.jpg",
+        "sections.portraits.blocks.c3.settings.collection": "necklaces",
+        "sections.portraits.blocks.c3.settings.image": "shopify://shop_images/collection-necklaces.jpg",
+        "sections.portraits.blocks.c4.settings.collection": "bracelets",
+        "sections.portraits.blocks.c4.settings.image": "shopify://shop_images/collection-bracelets.jpg",
+        "sections.metals.blocks.m1.settings.swatch_image": "shopify://shop_images/material-vermeil.jpg",
+        "sections.metals.blocks.m2.settings.swatch_image": "shopify://shop_images/material-silver.jpg",
+        "sections.metals.blocks.m3.settings.swatch_image": "shopify://shop_images/material-solid-gold.jpg",
+        "sections.gifts.blocks.g1.settings.collection": "birthday-gifts",
+        "sections.gifts.blocks.g1.settings.image": "shopify://shop_images/gift-birthday.jpg",
+        "sections.gifts.blocks.g2.settings.collection": "wedding-gifts",
+        "sections.gifts.blocks.g2.settings.image": "shopify://shop_images/gift-anniversary.jpg",
+        "sections.gifts.blocks.g3.settings.collection": "just-because",
+        "sections.gifts.blocks.g3.settings.image": "shopify://shop_images/gift-engravable.jpg"
+      },
+      "templates/product.json": {
+        "sections.main.blocks.spec.settings.text": "<p>{{ product.metafields.custom.material.value }}</p>",
+        "sections.main.blocks.variant_picker.settings.size_guide_page": "ring-size-guide",
+        "sections.main.blocks.tab_details.settings.content": "<p>{{ product.metafields.custom.dimensions.value }}</p>",
+        "sections.main.blocks.tab_materials.settings.content": "",
+        "sections.main.blocks.tab_materials.settings.page": "materials-and-care",
+        "sections.main.blocks.tab_shipping.settings.content": "",
+        "sections.main.blocks.tab_shipping.settings.page": "shipping-and-returns"
+      },
+      "sections/header-group.json": {
+        "sections.header.settings.menu": "oriel-main"
+      },
+      "sections/footer-group.json": {
+        "sections.footer.blocks.menu.settings.menu": "oriel-footer",
+        "sections.footer.blocks.social.settings.menu": "oriel-studio"
+      },
+      "config/settings_data.json": {
+        "presets.Joias.social_instagram_link": "https://www.instagram.com/shopify",
+        "presets.Joias.social_pinterest_link": "https://www.pinterest.com/shopify"
+      }
+    }
+  },
+  "menus": [
+    {
+      "handle": "oriel-main",
+      "title": "Oriel main",
+      "items": [
+        {
+          "title": "Rings",
+          "collection": "rings"
+        },
+        {
+          "title": "Earrings",
+          "collection": "earrings"
+        },
+        {
+          "title": "Necklaces",
+          "collection": "necklaces"
+        },
+        {
+          "title": "Bracelets",
+          "collection": "bracelets"
+        },
+        {
+          "title": "Gifts",
+          "collection": "just-because",
+          "items": [
+            {
+              "title": "Birthday gifts",
+              "collection": "birthday-gifts"
+            },
+            {
+              "title": "Wedding gifts",
+              "collection": "wedding-gifts"
+            },
+            {
+              "title": "Just because",
+              "collection": "just-because"
+            },
+            {
+              "title": "Gift card",
+              "product": "gift-card"
+            }
+          ]
+        },
+        {
+          "title": "Material guide",
+          "page": "materials-and-care"
+        }
+      ]
+    },
+    {
+      "handle": "oriel-footer",
+      "title": "Oriel footer",
+      "items": [
+        {
+          "title": "Shipping and returns",
+          "page": "shipping-and-returns"
+        },
+        {
+          "title": "Ring size guide",
+          "page": "ring-size-guide"
+        },
+        {
+          "title": "Material guide",
+          "page": "materials-and-care"
+        },
+        {
+          "title": "Contact",
+          "page": "contact"
+        }
+      ]
+    },
+    {
+      "handle": "oriel-studio",
+      "title": "Oriel studio",
+      "items": [
+        {
+          "title": "Our story",
+          "page": "our-story"
+        },
+        {
+          "title": "Journal",
+          "blog": "journal"
+        }
+      ]
+    }
+  ],
+  "blog": {
+    "handle": "journal",
+    "title": "Journal",
+    "author": "The Oriel studio",
+    "articles": [
+      {
+        "handle": "how-a-hoop-is-carved",
+        "title": "How a hoop is carved",
+        "image": "editorial--story-split",
+        "tags": [
+          "Studio",
+          "Craft"
+        ],
+        "summary": "<p>From a block of wax to a finished hoop: a week at the bench, step by step.</p>",
+        "body": "<p>Every Sculpted hoop starts as a block of blue carving wax. We saw a ring from it, then shape the curve with files and a warm blade until it feels right in the hand, not just on paper.</p><p>The wax model goes into a flask of plaster. Once it sets, the flask is heated until the wax melts away and leaves a hollow in its exact shape. Molten recycled silver fills that hollow, and for vermeil pieces a thick layer of 18k gold is added after casting.</p><p>Then comes the slow part. Each hoop is filed, hammered for its faceted surface and polished in three stages. A single pair takes most of a day, which is why no two pairs are ever quite the same.</p>"
+      },
+      {
+        "handle": "vermeil-solid-gold-or-silver",
+        "title": "Vermeil, solid gold or silver?",
+        "image": "editorial--collection-necklaces",
+        "tags": [
+          "Materials",
+          "Care"
+        ],
+        "summary": "<p>What each metal is, how it wears, and which one suits the way you live.</p>",
+        "body": "<p><strong>18k gold vermeil</strong> is a thick layer of 18k gold over recycled sterling silver. It gives you the warmth of gold at a lighter price. Take it off before swimming or the gym and it will keep its color for years.</p><p><strong>18k solid gold</strong> is gold all the way through. It never wears away, it can be resized, and it is happy in water. It is the choice for pieces you never plan to take off.</p><p><strong>Sterling silver</strong> is 92.5% recycled silver with a soft, cool shine. Air darkens it over time; the polishing cloth in every Oriel box brings it back in a minute.</p><p>Not sure? Many of our pieces come in two metals, so you can start in vermeil or silver and add solid gold later.</p>"
+      },
+      {
+        "handle": "finding-your-ring-size",
+        "title": "Finding your ring size at home",
+        "image": "pebble-signet--18k-gold-vermeil--worn",
+        "tags": [
+          "Guides",
+          "Rings"
+        ],
+        "summary": "<p>Three simple ways to measure, and why signets need half a size more.</p>",
+        "body": "<p>The easiest way is to measure a ring you already wear on the same finger. Lay it on a ruler and read the inner diameter in millimeters, then match it to our <a href=\"/pages/ring-size-guide\">ring size guide</a>.</p><p>No ring to hand? Wrap a thin strip of paper around the base of your finger, mark where it overlaps and measure the length. That is your circumference.</p><p>Measure at the end of the day, when fingers are slightly larger, and avoid cold hands. For wide bands like our signets, choose half a size up. And if it still is not right, resizing is free within 30 days on solid gold and sterling silver.</p>"
+      },
+      {
+        "handle": "gifts-that-last",
+        "title": "Gifts that last",
+        "image": "editorial--gift-anniversary",
+        "tags": [
+          "Gifts"
+        ],
+        "summary": "<p>A short guide to choosing jewelry for someone else, from first birthdays to tenth anniversaries.</p>",
+        "body": "<p>When you are not sure of their style, start with pieces that sit close to the body and go with everything: a fine chain, small studs or a thread ring. They are easy to wear every day, which is the best compliment a gift can get.</p><p>For anniversaries, signets and solid gold mark the moment. Add up to three initials or a date inside the band; engraving is free and every piece arrives in our linen gift box with a handwritten card.</p><p>Still undecided? A <a href=\"/products/gift-card\">gift card</a> lets them choose, and it never goes out of size.</p>"
+      }
+    ]
+  }
+}

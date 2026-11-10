@@ -1,0 +1,37 @@
+query DemoVerify {
+  productByIdentifier(identifier: { handle: "pebble-signet" }) {
+    title
+    status
+    mediaCount {
+      count
+    }
+    variantsCount {
+      count
+    }
+    material: metafield(namespace: "custom", key: "material") {
+      value
+    }
+    variants(first: 10) {
+      nodes {
+        title
+        inventoryQuantity
+        media(first: 1) {
+          nodes {
+            alt
+          }
+        }
+      }
+    }
+  }
+  collections(first: 10, query: "handle:rings OR handle:earrings OR handle:necklaces OR handle:bracelets") {
+    nodes {
+      handle
+      productsCount {
+        count
+      }
+      image {
+        url
+      }
+    }
+  }
+}

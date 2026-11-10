@@ -1,0 +1,292 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+  assign style = section.settings.style
+-%}
+
+<div class="section multicolumn multicolumn--{{ style }} color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="section-heading{% if style == 'icon_centered' %} section-heading--center{% endif %}">
+        <h2 class="section-heading__title">{% render 'split-heading', text: section.settings.heading %}</h2>
+      </div>
+    {%- endif -%}
+
+    <ul class="multicolumn__list" role="list" style="--columns: {{ section.blocks.size | at_most: 4 }};">
+      {%- for block in section.blocks -%}
+        <li class="multicolumn__item" {{ block.shopify_attributes }}>
+          {%- if style == 'captioned' -%}
+            <figure class="multicolumn__figure">
+              <div class="multicolumn__media">
+                {%- if block.settings.image -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1600
+                    | image_tag:
+                      widths: '400, 600, 800, 1200, 1600',
+                      sizes: '(min-width: 750px) 50vw, 100vw',
+                      loading: 'lazy',
+                      alt: block.settings.image.alt,
+                      class: 'multicolumn__image'
+                  }}
+                {%- else -%}
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'multicolumn__image placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              {%- if block.settings.title != blank -%}
+                <figcaption class="multicolumn__caption label">
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}">{{ block.settings.title }}</a>
+                  {%- else -%}
+                    {{ block.settings.title }}
+                  {%- endif -%}
+                </figcaption>
+              {%- endif -%}
+            </figure>
+          {%- else -%}
+            {%- if block.settings.icon != 'none' -%}
+              <span class="multicolumn__icon">{% render 'icon', name: block.settings.icon %}</span>
+            {%- endif -%}
+            <div class="multicolumn__body">
+              {%- if block.settings.title != blank -%}
+                <h3 class="multicolumn__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="multicolumn__text rte">{{ block.settings.text }}</div>
+              {%- endif -%}
+              {%- if block.settings.link_label != blank and block.settings.link != blank -%}
+                <a class="text-link" href="{{ block.settings.link }}">{{ block.settings.link_label }}</a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .multicolumn__list {
+    display: grid;
+    gap: 40px 24px;
+    margin: 0;
+  }
+
+  .multicolumn--captioned .multicolumn__list {
+    gap: 32px var(--grid-gap);
+  }
+
+  .multicolumn__media {
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .multicolumn__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .multicolumn__figure {
+    margin: 0;
+  }
+
+  .multicolumn__caption {
+    padding: 8px 8px 0;
+  }
+
+  .multicolumn__caption a {
+    text-decoration: none;
+  }
+
+  .multicolumn__icon .icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .multicolumn__body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .multicolumn--icon_centered .multicolumn__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .multicolumn--icon_centered .multicolumn__title {
+    font-size: calc(1.25rem * var(--font-heading-scale));
+  }
+
+  .multicolumn--icon_centered .multicolumn__text {
+    max-width: 240px;
+    font-size: var(--font-small-size);
+  }
+
+  .multicolumn--icon_inline .multicolumn__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .multicolumn--icon_inline .multicolumn__title {
+    font-family: var(--font-body-family);
+    font-style: normal;
+    font-weight: var(--font-body-weight-medium);
+    text-transform: none;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .multicolumn--icon_inline .multicolumn__text {
+    font-size: var(--font-small-size);
+    color: var(--color-text-muted);
+  }
+
+  .multicolumn--icon_inline .multicolumn__body {
+    gap: 4px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .multicolumn__list {
+      grid-template-columns: repeat(min(2, var(--columns)), minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .multicolumn__list {
+      grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+    }
+
+    .multicolumn--captioned .multicolumn__list {
+      grid-template-columns: repeat(min(2, var(--columns)), minmax(0, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.multicolumn.name",
+  "class": "section-multicolumn",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:sections.collection_list.style",
+      "options": [
+        {
+          "value": "captioned",
+          "label": "t:sections.multicolumn.style_captioned"
+        },
+        {
+          "value": "icon_centered",
+          "label": "t:sections.multicolumn.style_icon_centered"
+        },
+        {
+          "value": "icon_inline",
+          "label": "t:sections.multicolumn.style_icon_inline"
+        }
+      ],
+      "default": "icon_centered"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.multicolumn.blocks.column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.image_banner.image",
+          "info": "t:sections.multicolumn.blocks.image_info"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:blocks.lead_time.icon",
+          "options": [
+            { "value": "none", "label": "t:blocks.lead_time.icon_none" },
+            { "value": "truck", "label": "t:blocks.lead_time.icon_truck" },
+            { "value": "gift", "label": "t:blocks.lead_time.icon_gift" },
+            { "value": "pen", "label": "t:sections.multicolumn.blocks.icon_pen" },
+            { "value": "sparkle", "label": "t:sections.multicolumn.blocks.icon_sparkle" },
+            { "value": "pin", "label": "t:blocks.lead_time.icon_pin" },
+            { "value": "leaf", "label": "t:sections.multicolumn.blocks.icon_leaf" },
+            { "value": "shield", "label": "t:sections.multicolumn.blocks.icon_shield" },
+            { "value": "box", "label": "t:sections.multicolumn.blocks.icon_box" },
+            { "value": "return", "label": "t:sections.multicolumn.blocks.icon_return" },
+            { "value": "ruler", "label": "t:sections.multicolumn.blocks.icon_ruler" },
+            { "value": "home", "label": "t:sections.multicolumn.blocks.icon_home" },
+            { "value": "clock", "label": "t:blocks.lead_time.icon_clock" }
+          ],
+          "default": "gift"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "t:labels.heading",
+          "default": "Column"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "<p>Pair text with an icon or image to highlight a service or a detail.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "t:labels.link_label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:labels.link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.multicolumn.name",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

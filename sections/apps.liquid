@@ -1,0 +1,55 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+-%}
+
+<div class="section apps-section color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="{% if section.settings.page_width %}page-width{% endif %} apps-section__inner">
+    {%- for block in section.blocks -%}
+      {% render block %}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .apps-section__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.apps.name",
+  "class": "section-apps",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "page_width",
+      "label": "t:sections.custom_liquid.page_width",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.apps.name"
+    }
+  ]
+}
+{% endschema %}

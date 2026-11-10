@@ -1,0 +1,237 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+-%}
+
+<tab-panels class="section gift-guide color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="page-width">
+    <div class="section-heading">
+      <h2 class="section-heading__title">{% render 'split-heading', text: section.settings.heading %}</h2>
+      {%- if section.blocks.size > 1 -%}
+        <div class="chip-tabs" role="tablist" aria-label="{{ section.settings.heading | strip_html | escape }}">
+          {%- for block in section.blocks -%}
+            <button
+              class="chip-tabs__tab"
+              type="button"
+              role="tab"
+              id="GiftTab-{{ block.id }}"
+              aria-controls="GiftPanel-{{ block.id }}"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+              data-block-id="{{ block.id }}"
+              {{ block.shopify_attributes }}
+            >
+              {{- block.settings.label -}}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- for block in section.blocks -%}
+      {%- assign gift_collection = block.settings.collection -%}
+      <div
+        class="gift-guide__panel"
+        id="GiftPanel-{{ block.id }}"
+        {% if section.blocks.size > 1 %}
+          role="tabpanel"
+          aria-labelledby="GiftTab-{{ block.id }}"
+        {% endif %}
+        {% unless forloop.first %}
+          hidden
+        {% endunless %}
+      >
+        <a class="gift-guide__feature" href="{{ gift_collection.url | default: routes.all_products_collection_url }}">
+          {%- assign feature_image = block.settings.image | default: gift_collection.image -%}
+          {%- if feature_image -%}
+            {{
+              feature_image
+              | image_url: width: 1600
+              | image_tag:
+                widths: '500, 800, 1200, 1600',
+                sizes: '(min-width: 990px) 50vw, 100vw',
+                loading: 'lazy',
+                alt: '',
+                class: 'gift-guide__image'
+            }}
+          {%- else -%}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'gift-guide__image placeholder-svg' }}
+          {%- endif -%}
+          <span class="gift-guide__caption">{{ block.settings.title | default: block.settings.label }}</span>
+        </a>
+
+        <ul class="gift-guide__products" role="list">
+          {%- if gift_collection != blank and gift_collection.products_count > 0 -%}
+            {%- for product in gift_collection.products limit: 4 -%}
+              <li>{% render 'product-card', product: product, sizes: '(min-width: 990px) 25vw, 50vw' %}</li>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for i in (1..4) -%}
+              <li>
+                <div class="gift-guide__placeholder">{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+                <p class="text-small">{{ 'sections.featured_collection.placeholder' | t }}</p>
+              </li>
+            {%- endfor -%}
+          {%- endif -%}
+        </ul>
+      </div>
+    {%- endfor -%}
+  </div>
+</tab-panels>
+
+{% stylesheet %}
+  .gift-guide {
+    display: block;
+  }
+
+  .gift-guide__panel:not([hidden]) {
+    display: grid;
+    gap: 24px;
+  }
+
+  .gift-guide__feature {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    min-height: 420px;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+    text-decoration: none;
+  }
+
+  .gift-guide__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gift-guide__feature::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(0 0 0 / 0.4), transparent 45%);
+  }
+
+  .gift-guide__caption {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 40px;
+    z-index: 1;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: var(--font-h2-size);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 1px 16px rgb(0 0 0 / 0.35);
+  }
+
+  .gift-guide__products {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px var(--grid-gap);
+    margin: 0;
+  }
+
+  .gift-guide__placeholder {
+    overflow: hidden;
+    aspect-ratio: 1;
+    margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .gift-guide__panel:not([hidden]) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gift-guide__feature {
+      min-height: 640px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.gift_guide.name",
+  "class": "section-gift-guide",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Gifts, <em>by moment</em>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "moment",
+      "name": "t:sections.gift_guide.blocks.moment",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.collection_tabs.blocks.label",
+          "default": "Birthdays"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "t:sections.gift_guide.blocks.title",
+          "default": "Gifts <em>for birthdays</em>"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.featured_collection.collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.collection_list.blocks.image",
+          "info": "t:sections.collection_list.blocks.image_info"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.gift_guide.name",
+      "blocks": [
+        {
+          "type": "moment",
+          "settings": {
+            "label": "Birthdays",
+            "title": "Gifts <em>for birthdays</em>"
+          }
+        },
+        {
+          "type": "moment",
+          "settings": {
+            "label": "Weddings",
+            "title": "Gifts <em>for weddings</em>"
+          }
+        },
+        {
+          "type": "moment",
+          "settings": {
+            "label": "Just because",
+            "title": "Gifts <em>just because</em>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

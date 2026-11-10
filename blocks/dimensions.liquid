@@ -1,0 +1,157 @@
+{%- liquid
+  assign has_values = false
+  if block.settings.value_1 != blank or block.settings.value_2 != blank
+    assign has_values = true
+  endif
+  if block.settings.value_3 != blank or block.settings.value_4 != blank
+    assign has_values = true
+  endif
+-%}
+
+{%- if has_values or request.design_mode -%}
+  <div class="dimensions" {{ block.shopify_attributes }}>
+    <div class="dimensions__head">
+      <h2 class="dimensions__heading">{{ block.settings.heading }}</h2>
+      {%- if block.settings.unit_note != blank -%}
+        <span class="text-caption text-muted">{{ block.settings.unit_note }}</span>
+      {%- endif -%}
+    </div>
+
+    <dl class="dimensions__list">
+      {%- for i in (1..4) -%}
+        {%- liquid
+          assign label_key = 'label_' | append: i
+          assign value_key = 'value_' | append: i
+          assign label = block.settings[label_key]
+          assign value = block.settings[value_key]
+        -%}
+        {%- if value != blank -%}
+          <div class="dimensions__item">
+            <dt class="text-caption text-muted">{{ label }}</dt>
+            <dd class="dimensions__value">{{ value }}</dd>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </dl>
+
+    {%- if block.settings.note != blank -%}
+      <div class="text-small">{{ block.settings.note }}</div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .dimensions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .dimensions__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .dimensions__heading {
+    font-size: calc(1.125rem * var(--font-heading-scale));
+    line-height: 1;
+  }
+
+  .dimensions__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+    gap: 8px;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .dimensions__value {
+    margin: 2px 0 0;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: var(--font-body-weight-medium);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.dimensions.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Will it fit?"
+    },
+    {
+      "type": "text",
+      "id": "unit_note",
+      "label": "t:blocks.dimensions.unit_note",
+      "default": "All sizes in cm"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:blocks.dimensions.values_info"
+    },
+    {
+      "type": "text",
+      "id": "label_1",
+      "label": "t:blocks.dimensions.label_1",
+      "default": "Width"
+    },
+    {
+      "type": "text",
+      "id": "value_1",
+      "label": "t:blocks.dimensions.value_1"
+    },
+    {
+      "type": "text",
+      "id": "label_2",
+      "label": "t:blocks.dimensions.label_2",
+      "default": "Depth"
+    },
+    {
+      "type": "text",
+      "id": "value_2",
+      "label": "t:blocks.dimensions.value_2"
+    },
+    {
+      "type": "text",
+      "id": "label_3",
+      "label": "t:blocks.dimensions.label_3",
+      "default": "Height"
+    },
+    {
+      "type": "text",
+      "id": "value_3",
+      "label": "t:blocks.dimensions.value_3"
+    },
+    {
+      "type": "text",
+      "id": "label_4",
+      "label": "t:blocks.dimensions.label_4",
+      "default": "Seat height"
+    },
+    {
+      "type": "text",
+      "id": "value_4",
+      "label": "t:blocks.dimensions.value_4"
+    },
+    {
+      "type": "richtext",
+      "id": "note",
+      "label": "t:blocks.dimensions.note"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.dimensions.name"
+    }
+  ]
+}
+{% endschema %}

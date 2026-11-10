@@ -1,0 +1,160 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+-%}
+
+<div class="section delivery color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="delivery__heading">{% render 'split-heading', text: section.settings.heading %}</h2>
+    {%- endif -%}
+
+    <ol class="delivery__stages" role="list">
+      {%- for block in section.blocks -%}
+        <li class="delivery__stage" {{ block.shopify_attributes }}>
+          {%- if block.settings.timing != blank -%}
+            <p class="label text-muted">{{ block.settings.timing }}</p>
+          {%- endif -%}
+          <h3 class="delivery__title">{{ block.settings.title }}</h3>
+          {%- if block.settings.text != blank -%}
+            <div class="rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+
+    {%- if section.settings.link_label != blank and section.settings.link != blank -%}
+      <a class="text-link delivery__link" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .delivery__heading {
+    margin-bottom: 40px;
+  }
+
+  .delivery__stages {
+    display: grid;
+    gap: 32px;
+    margin: 0;
+  }
+
+  .delivery__stage {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-text);
+  }
+
+  .delivery__title {
+    font-family: var(--font-body-family);
+    font-style: normal;
+    font-weight: var(--font-body-weight-medium);
+    text-transform: none;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .delivery__link {
+    display: inline-block;
+    margin-top: 32px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .delivery__stages {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.delivery.name",
+  "class": "section-delivery",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info",
+      "default": "From our workshop | to your room"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:labels.link_label"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:labels.link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "t:sections.delivery.blocks.stage",
+      "settings": [
+        {
+          "type": "text",
+          "id": "timing",
+          "label": "t:sections.delivery.blocks.timing",
+          "default": "Week 1"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "t:labels.heading",
+          "default": "Stage"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "<p>Describe what happens at this stage of delivery.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.delivery.name",
+      "blocks": [
+        {
+          "type": "stage",
+          "settings": {
+            "timing": "Weeks 1 to 6",
+            "title": "Made to order"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "timing": "Week 7",
+            "title": "We call to book"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "timing": "Delivery day",
+            "title": "Placed and assembled"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

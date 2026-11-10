@@ -1,0 +1,123 @@
+<div class="main-list-collections color-{{ section.settings.color_scheme }}">
+  <div class="main-list-collections__inner page-width">
+    {%- assign default_heading = 'collections.title' | t -%}
+    <h1>{{ section.settings.heading | default: default_heading }}</h1>
+
+    {%- paginate collections by section.settings.per_page -%}
+      <ul class="main-list-collections__grid" role="list">
+        {%- for collection in collections -%}
+          <li>
+            <a class="collection-card" href="{{ collection.url }}">
+              <span class="collection-card__media">
+                {%- assign card_image = collection.featured_image -%}
+                {%- if card_image -%}
+                  {{
+                    card_image
+                    | image_url: width: 1200
+                    | image_tag:
+                      widths: '400, 600, 800, 1000, 1200',
+                      sizes: '(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw',
+                      loading: 'lazy',
+                      alt: '',
+                      class: 'collection-card__image'
+                  }}
+                {%- else -%}
+                  {{ 'collection-1' | placeholder_svg_tag: 'collection-card__image' }}
+                {%- endif -%}
+              </span>
+              <span class="collection-card__title h3">{{ collection.title }}</span>
+              <span class="text-caption text-muted">{{ 'facets.product_count' | t: count: collection.all_products_count }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+      {% render 'pagination', paginate: paginate %}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{%- for block in section.blocks -%}
+  {%- if block.type == '@app' -%}
+    <div class="app-block page-width">{% render block %}</div>
+  {%- endif -%}
+{%- endfor -%}
+
+{% stylesheet %}
+  .main-list-collections__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-block: 48px var(--section-spacing);
+  }
+
+  .main-list-collections__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: 40px var(--grid-gap);
+    margin: 0;
+  }
+
+  .collection-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .collection-card__media {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    margin-bottom: 4px;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .collection-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-medium) var(--ease);
+  }
+
+  @media (hover: hover) {
+    .collection-card:hover .collection-card__image {
+      transform: scale(1.03);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_list_collections.name",
+  "class": "section-main-list-collections",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Collections"
+    },
+    {
+      "type": "range",
+      "id": "per_page",
+      "label": "t:sections.main_list_collections.per_page",
+      "min": 6,
+      "max": 48,
+      "step": 6,
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

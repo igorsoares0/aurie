@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "width": "narrow"
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Send us a message"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "form"
+  ]
+}

@@ -1,0 +1,12 @@
+mutation DemoFileCreate($files: [FileCreateInput!]!) {
+  fileCreate(files: $files) {
+    files {
+      id
+      alt
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}

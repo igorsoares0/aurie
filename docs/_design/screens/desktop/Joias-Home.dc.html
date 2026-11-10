@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Oriel — home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;family=Jost:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#fcfbf9}
+a{color:#161514}a:hover{color:#8a6d2f}
+:focus-visible{outline:2px solid #161514;outline-offset:2px}
+input::placeholder{color:#b3ada5}
+</style>
+</helmet>
+<div style="background: #fcfbf9; color: #161514; font-family: Jost, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; min-width: 0; min-height: 100vh; display: flex; flex-direction: column">
+
+  <!-- Announcement bar -->
+  <div style="background: #f1eeea; color: #161514; text-align: center; font-size: 12px; line-height: 16px; letter-spacing: 0.04em; padding: 10px 16px">Complimentary gift wrapping and engraving on every piece</div>
+
+  <!-- Header -->
+  <header style="padding: 12px 64px 0">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+      <div style="display: flex; gap: 4px; flex: 1 1 0">
+        <button type="button" aria-label="Search" style="width: 44px; height: 44px; border: 0; background: transparent; color: #161514; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg></button>
+        <a href="#" aria-label="Find a store" style="width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.2"></circle></svg></a>
+      </div>
+      <a href="#" style="font-family: 'Playfair Display', Georgia, serif; font-size: 34px; line-height: 1; letter-spacing: 0.02em; text-decoration: none; color: #161514">Oriel</a>
+      <div style="display: flex; gap: 4px; flex: 1 1 0; justify-content: flex-end">
+        <a href="#" aria-label="Account" style="width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"></circle><path d="M4.5 20.5c1.2-3.6 4.1-5.5 7.5-5.5s6.3 1.9 7.5 5.5"></path></svg></a>
+        <a href="#" aria-label="Bag, {{bagCount}} items" style="width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5.5 8.5h13l-1 12h-11z"></path><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"></path></svg>{{bagCount}}</a>
+      </div>
+    </div>
+    <nav aria-label="Main menu" style="border-bottom: 1px solid #e4dfd8; margin-top: 8px">
+      <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 40px; list-style: none; margin: 0; padding: 12px 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Rings</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Earrings</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Necklaces</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 4px 0; display: inline-block">Bracelets</a></li>
+        <li><a href="#gifts" style="text-decoration: none; padding: 4px 0; display: inline-block">Gifts</a></li>
+        <li><a href="#metals" style="text-decoration: none; padding: 4px 0; display: inline-block">Material guide</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Split headline hero -->
+  <section style="padding: 72px 64px 48px">
+    <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(48px, 7vw, 104px); line-height: 0.95; letter-spacing: -0.02em; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 64px">
+      <span>Made to be</span>
+      <span style="font-style: italic; text-align: right; padding-top: 0.6em">worn every day</span>
+    </h1>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-top: 32px">
+      <p style="margin: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #67625c">Recycled 18k gold · Sterling silver</p>
+      <a href="#icons" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 28px; border-radius: 9999px; background: #161514; color: #fcfbf9; text-decoration: none; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">Shop the icons</a>
+    </div>
+  </section>
+  <div style="height: 640px; background: #d9cdb4; position: relative"><span style="position: absolute; left: 16px; bottom: 16px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #161514">Macro image, full bleed — necklace on skin, warm light</span></div>
+
+  <!-- Intro -->
+  <section style="padding: 128px 64px 0; display: flex; justify-content: center">
+    <p style="margin: 0; max-width: 680px; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 24px; line-height: 1.5">Cast in small runs and polished by hand in our studio, every Oriel piece is made to be worn daily — and to be passed on.</p>
+  </section>
+
+  <!-- The icons -->
+  <section id="icons" style="padding: 128px 64px 0">
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 32px">
+      <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 32px; line-height: 1.15; font-weight: 400">The icons <span style="font-family: Jost, Helvetica, Arial, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #67625c; vertical-align: middle; margin-left: 12px">12 pieces</span></h2>
+      <a href="#" style="font-size: 13px; line-height: 20px; text-underline-offset: 3px">View all</a>
+    </div>
+    <div style="display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 1fr); gap: 24px; overflow-x: auto">
+      <sc-for list="{{icons}}" as="p" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+          <a href="#" style="display: block; width: 100%; aspect-ratio: 1 / 1; background: #f1eeea; position: relative; margin-bottom: 14px">
+            <span style="position: absolute; left: 12px; bottom: 12px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #67625c">Product image, 1:1 — {{p.metalName}}</span>
+          </a>
+          <a href="#" style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; line-height: 1.3; text-decoration: none">{{p.name}}</a>
+          <p style="margin: 0; font-size: 12px; line-height: 18px; color: #67625c">{{p.spec}}</p>
+          <p style="margin: 0; font-size: 14px; line-height: 20px">{{p.price}}</p>
+          <div role="group" aria-label="Metal" style="display: flex; gap: 4px; margin-top: 4px">
+            <sc-for list="{{p.metals}}" as="m" hint-placeholder-count="2">
+              <button type="button" aria-label="{{m.label}}" aria-pressed="{{m.pressed}}" onClick="{{m.pick}}" style="width: 32px; height: 32px; border: 0; background: transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><span style="{{m.dot}}"></span></button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Editorial with tag -->
+  <section style="padding: 128px 64px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+    <div style="flex: 1 1 460px; position: relative; padding: 24px">
+      <div style="aspect-ratio: 4 / 3; background: #e7ddcb; position: relative"><span style="position: absolute; left: 12px; bottom: 12px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #67625c">Editorial image — hoop on model</span></div>
+      <span style="position: absolute; top: 8px; left: 48px; background: #efe3b3; color: #161514; padding: 6px 16px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 18px; line-height: 1.2">Sculpted hoops</span>
+    </div>
+    <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 20px; max-width: 480px">
+      <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 48px; line-height: 1.05; font-weight: 400">Shaped by <span style="font-style: italic">hand</span></h2>
+      <p style="margin: 0; font-size: 15px; line-height: 26px">Each hoop starts as a wax model carved at the bench, so no two curves are exactly alike. Solid enough to sleep in, light enough to forget.</p>
+      <a href="#" style="align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; padding: 0 28px; border-radius: 9999px; border: 1px solid #8d8780; text-decoration: none; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">Shop hoops</a>
+    </div>
+  </section>
+
+  <!-- Portrait collections 2x2 -->
+  <section aria-label="Collections" style="padding: 128px 0 0; display: flex; flex-wrap: wrap">
+    <sc-for list="{{collections}}" as="c" hint-placeholder-count="4">
+      <a href="#" style="display: block; flex: 1 1 50%; min-width: 320px; box-sizing: border-box; height: 720px; background: #7d7266; position: relative; text-decoration: none; color: #fcfbf9">
+        <span style="position: absolute; left: 16px; top: 16px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fcfbf9">Portrait image — {{c.hint}}</span>
+        <span style="position: absolute; left: 0; right: 0; bottom: 40px; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 32px; line-height: 1.2">{{c.name}} <span style="font-style: italic">Collection</span><br><span style="font-family: Jost, Helvetica, Arial, sans-serif; font-size: 11px; line-height: 16px; letter-spacing: 0.12em; text-transform: uppercase">{{c.count}}</span></span>
+      </a>
+    </sc-for>
+  </section>
+
+  <!-- Material guide -->
+  <section id="metals" style="padding: 128px 64px 0">
+    <h2 style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 32px; line-height: 1.15; font-weight: 400">Know your <span style="font-style: italic">metals</span></h2>
+    <p style="margin: 0 0 40px; max-width: 520px; font-size: 15px; line-height: 26px; color: #67625c">What each finish is, how it wears, and how to keep it bright.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px 24px">
+      <sc-for list="{{metals}}" as="mt" hint-placeholder-count="3">
+        <div style="flex: 1 1 260px; border-top: 1px solid #e4dfd8; padding-top: 24px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; align-items: center; gap: 12px"><span style="{{mt.dot}}"></span><h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; line-height: 1.2; font-weight: 400">{{mt.name}}</h3></div>
+          <p style="margin: 0; font-size: 14px; line-height: 22px">{{mt.what}}</p>
+          <p style="margin: 0; font-size: 12px; line-height: 18px; color: #67625c">{{mt.care}}</p>
+          <p style="margin: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">{{mt.daily}}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Gift guide -->
+  <section id="gifts" style="padding: 128px 64px 0">
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px 24px; margin-bottom: 32px">
+      <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 32px; line-height: 1.15; font-weight: 400">Gifts, <span style="font-style: italic">by moment</span></h2>
+      <div role="group" aria-label="Gift filters" style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-for list="{{chips}}" as="ch" hint-placeholder-count="5">
+          <button type="button" aria-pressed="{{ch.pressed}}" onClick="{{ch.pick}}" style="{{ch.style}}">{{ch.label}}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px">
+      <a href="#" style="flex: 1 1 480px; min-height: 640px; background: #e7ddcb; position: relative; text-decoration: none; color: #161514">
+        <span style="position: absolute; left: 12px; top: 12px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #67625c">Gift image — wrapped box, ribbon</span>
+        <span style="position: absolute; left: 0; right: 0; bottom: 40px; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 32px; line-height: 1.2">Gifts <span style="font-style: italic">{{giftTitle}}</span></span>
+      </a>
+      <div style="flex: 1 1 480px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px">
+        <sc-for list="{{gifts}}" as="g" hint-placeholder-count="4">
+          <a href="#" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none">
+            <span style="display: block; aspect-ratio: 1 / 1; background: #f1eeea; margin-bottom: 8px"></span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.3">{{g.name}}</span>
+            <span style="font-size: 12px; line-height: 18px; color: #67625c">{{g.spec}}</span>
+            <span style="font-size: 14px; line-height: 20px">{{g.price}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section aria-label="Our services" style="padding: 128px 64px; display: flex; flex-wrap: wrap; gap: 40px 24px; text-align: center">
+    <div style="flex: 1 1 460px; display: flex; flex-wrap: wrap; gap: 40px 24px">
+    <div style="flex: 1 1 200px; display: flex; flex-direction: column; align-items: center; gap: 10px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11.5"></rect><path d="M2.5 9h19v-3h-19z"></path><path d="M12 6v14.5"></path><path d="M12 6c-1.5-3-5-3.5-5-1.2C7 6 9.5 6 12 6c2.5 0 5 0 5-1.2 0-2.3-3.5-1.8-5 1.2z"></path></svg>
+      <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.3; font-weight: 400">Gift wrapping</h3>
+      <p style="margin: 0; max-width: 220px; font-size: 13px; line-height: 20px; color: #67625c">Every order leaves in our linen box, with a handwritten card on request.</p>
+    </div>
+    <div style="flex: 1 1 200px; display: flex; flex-direction: column; align-items: center; gap: 10px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="12" r="7.5"></circle><circle cx="12" cy="12" r="5"></circle><path d="M9.5 12.5c.8-1 1.7-1 2.5 0s1.7 1 2.5 0"></path></svg>
+      <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.3; font-weight: 400">Engraving</h3>
+      <p style="margin: 0; max-width: 220px; font-size: 13px; line-height: 20px; color: #67625c">Up to 12 characters inside rings and on pendants, added at checkout.</p>
+    </div>
+    </div>
+    <div style="flex: 1 1 460px; display: flex; flex-wrap: wrap; gap: 40px 24px">
+    <div style="flex: 1 1 200px; display: flex; flex-direction: column; align-items: center; gap: 10px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 3.5l7 2.5v5.5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></svg>
+      <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.3; font-weight: 400">Lifetime care</h3>
+      <p style="margin: 0; max-width: 220px; font-size: 13px; line-height: 20px; color: #67625c">Free cleaning and polishing for as long as you own the piece.</p>
+    </div>
+    <div style="flex: 1 1 200px; display: flex; flex-direction: column; align-items: center; gap: 10px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5"></rect><path d="M3.5 9.5h17"></path><path d="M8 3v4M16 3v4"></path></svg>
+      <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.3; font-weight: 400">Visit the studio</h3>
+      <p style="margin: 0; max-width: 220px; font-size: 13px; line-height: 20px; color: #67625c">Try pieces on and see the bench. <a href="#" style="text-underline-offset: 3px">Contact us to book</a>.</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- Footer (Onyx scheme) -->
+  <footer style="background: #161514; color: #f5f2ed; padding: 96px 64px 32px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <div style="display: flex; flex-wrap: wrap; gap: 48px; margin-bottom: 80px">
+      <div style="flex: 2 1 340px; display: flex; flex-direction: column; gap: 16px">
+        <p style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 28px; line-height: 1.2">Letters from <span style="font-style: italic">the bench</span></p>
+        <p style="margin: 0; font-size: 13px; line-height: 20px; color: #b3ada5">New pieces and studio notes, a few times a year.</p>
+        <form style="display: flex; gap: 8px; max-width: 420px">
+          <label for="j-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+          <input id="j-email" type="email" placeholder="Email address" style="flex: 1; min-width: 0; min-height: 44px; border: 1px solid #8a847c; border-radius: 9999px; background: transparent; padding: 0 20px; font-family: inherit; font-size: 13px; color: #f5f2ed">
+          <button type="button" style="min-height: 44px; padding: 0 24px; border: 0; border-radius: 9999px; background: #f5f2ed; color: #161514; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Sign up</button>
+        </form>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 16px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #b3ada5">Client care</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 20px">
+          <li><a href="#" style="color: #f5f2ed; text-decoration: none">Shipping and returns</a></li>
+          <li><a href="#" style="color: #f5f2ed; text-decoration: none">Ring size guide</a></li>
+          <li><a href="#metals" style="color: #f5f2ed; text-decoration: none">Material guide</a></li>
+          <li><a href="#" style="color: #f5f2ed; text-decoration: none">Contact</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 160px">
+        <h2 style="margin: 0 0 16px; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #b3ada5">The studio</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 20px">
+          <li><a href="#" style="color: #f5f2ed; text-decoration: none">Our story</a></li>
+          <li><a href="#" style="color: #f5f2ed; text-decoration: none">Journal</a></li>
+          <li><a href="#" style="color: #f5f2ed; text-decoration: none">Instagram</a></li>
+          <li><a href="#" style="color: #f5f2ed; text-decoration: none">Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid #3a3633; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: 12px; line-height: 16px; color: #b3ada5">
+      <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: #f5f2ed">Oriel</span>
+      <span>United States (USD $) · English</span>
+      <span>© 2026 Oriel · Powered by Shopify</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6760}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { metal: { 0: 'gold', 1: 'gold', 2: 'silver' }, chip: 1 };
+  }
+  renderVals() {
+    var self = this;
+    var METAL = {
+      gold: { label: '18k gold vermeil', color: '#c9a45c' },
+      silver: { label: 'Sterling silver', color: '#c4c6c8' },
+      solid: { label: '18k solid gold', color: '#b8893b' }
+    };
+    var dot = function (color, on) {
+      return 'display: block; width: 18px; height: 18px; border-radius: 9999px; background: ' + color + '; box-shadow: 0 0 0 1px #8d8780' + (on ? ', 0 0 0 3px #fcfbf9, 0 0 0 4px #161514' : '');
+    };
+    var base = [
+      { name: 'Sculpted hoop', size: '22 mm', price: { gold: '$240', silver: '$160' } },
+      { name: 'Pebble signet', size: 'Sizes 5–9', price: { gold: '$320', silver: '$210' } },
+      { name: 'Drop chain', size: '45 cm', price: { gold: '$280', silver: '$180' } }
+    ];
+    var icons = base.map(function (p, i) {
+      var cur = self.state.metal[i];
+      return {
+        name: p.name,
+        metalName: METAL[cur].label,
+        spec: METAL[cur].label + ' · ' + p.size,
+        price: p.price[cur],
+        metals: ['gold', 'silver'].map(function (k) {
+          var on = k === cur;
+          return {
+            label: METAL[k].label,
+            pressed: on ? 'true' : 'false',
+            dot: dot(METAL[k].color, on),
+            pick: function () {
+              var next = Object.assign({}, self.state.metal);
+              next[i] = k;
+              self.setState({ metal: next });
+            }
+          };
+        })
+      };
+    });
+    var chipLabels = ['Under $150', 'Under $300', 'Anniversary', 'Birthday', 'Engravable'];
+    var chips = chipLabels.map(function (label, i) {
+      var on = i === self.state.chip;
+      return {
+        label: label,
+        pressed: on ? 'true' : 'false',
+        pick: function () { self.setState({ chip: i }); },
+        style: 'min-height: 44px; padding: 0 20px; border-radius: 9999px; cursor: pointer; font-family: inherit; font-size: 13px; line-height: 20px; border: 1px solid ' + (on ? '#161514' : '#8d8780') + '; background: ' + (on ? '#161514' : 'transparent') + '; color: ' + (on ? '#fcfbf9' : '#161514')
+      };
+    });
+    var giftSets = [
+      [
+        { name: 'Seed studs', spec: 'Sterling silver · 4 mm', price: '$90' },
+        { name: 'Thread ring', spec: '18k gold vermeil · Sizes 5–9', price: '$120' },
+        { name: 'Fine chain', spec: 'Sterling silver · 40 cm', price: '$110' },
+        { name: 'Pearl drop', spec: '18k gold vermeil · Freshwater pearl', price: '$140' }
+      ],
+      [
+        { name: 'Sculpted hoop', spec: '18k gold vermeil · 22 mm', price: '$240' },
+        { name: 'Drop chain', spec: '18k gold vermeil · 45 cm', price: '$280' },
+        { name: 'Wave cuff', spec: 'Sterling silver · 15 mm', price: '$260' },
+        { name: 'Pearl drop', spec: '18k gold vermeil · Freshwater pearl', price: '$140' }
+      ]
+    ];
+    var gifts = giftSets[self.state.chip === 0 ? 0 : 1];
+    return {
+      bagCount: 1,
+      icons: icons,
+      chips: chips,
+      giftTitle: chipLabels[self.state.chip].toLowerCase(),
+      gifts: gifts,
+      collections: [
+        { name: 'Rings', count: '24 pieces', hint: 'hand with stacked rings' },
+        { name: 'Earrings', count: '18 pieces', hint: 'profile with hoop' },
+        { name: 'Necklaces', count: '15 pieces', hint: 'collarbone, layered chains' },
+        { name: 'Bracelets', count: '11 pieces', hint: 'wrist with cuff' }
+      ],
+      metals: [
+        { name: '18k solid gold', what: 'Recycled gold through and through. It never wears away and can be resized.', care: 'Polish with a soft cloth. Safe in water.', daily: 'Wear every day', dot: dot(METAL.solid.color, false) },
+        { name: '18k gold vermeil', what: 'A thick layer of gold over sterling silver: the look of gold at a lighter price.', care: 'Take off before swimming or the gym. Store in the pouch.', daily: 'Wear most days', dot: dot(METAL.gold.color, false) },
+        { name: 'Sterling silver', what: '92.5% recycled silver with a soft, cool shine that deepens over time.', care: 'Darkens with air; a silver cloth brings it back.', daily: 'Wear every day', dot: dot(METAL.silver.color, false) }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

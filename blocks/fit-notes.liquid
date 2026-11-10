@@ -1,0 +1,35 @@
+{%- if block.settings.text != blank -%}
+  <div class="fit-notes text-small" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+{%- endif -%}
+
+{% stylesheet %}
+  .fit-notes {
+    padding: 12px 16px;
+    border-radius: var(--radius-input);
+    background-color: var(--color-tile);
+  }
+
+  .shape--pill .fit-notes {
+    border-radius: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.fit_notes.name",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text",
+      "info": "t:blocks.fit_notes.text_info",
+      "default": "<p>Model is 177 cm and wears S. Relaxed through the body, size down for a closer cut.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.fit_notes.name"
+    }
+  ]
+}
+{% endschema %}

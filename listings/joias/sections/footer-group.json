@@ -1,0 +1,49 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "style": "plain",
+        "show_wordmark": false,
+        "show_country_selector": true,
+        "show_language_selector": true,
+        "show_follow_on_shop": true,
+        "show_payment_icons": false
+      },
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Letters from <em>the bench</em>",
+            "heading_size": "small",
+            "text": "<p>New pieces and studio notes, a few times a year.</p>"
+          }
+        },
+        "menu": {
+          "type": "menu",
+          "settings": {
+            "heading": "Client care",
+            "menu": "footer"
+          }
+        },
+        "social": {
+          "type": "social",
+          "settings": {
+            "heading": "The studio"
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "menu",
+        "social"
+      ]
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

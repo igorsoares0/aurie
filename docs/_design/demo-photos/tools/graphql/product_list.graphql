@@ -1,0 +1,10 @@
+query DemoProductList {
+  products(first: 100) {
+    nodes {
+      id
+      handle
+      title
+      status
+    }
+  }
+}

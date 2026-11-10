@@ -1,0 +1,250 @@
+{%- liquid
+  assign selected_variant = product.selected_or_first_available_variant
+
+  case section.settings.media_ratio
+    when 'portrait'
+      assign media_ratio = '3 / 4'
+    when 'square'
+      assign media_ratio = '1 / 1'
+    when 'landscape'
+      assign media_ratio = '16 / 10'
+    when 'adapt'
+      assign media_ratio = product.featured_media.aspect_ratio | default: 1
+    else
+      case settings.media_layout
+        when 'grid'
+          assign media_ratio = '3 / 4'
+        when 'thumbnails_beside'
+          assign media_ratio = '1 / 1'
+        else
+          assign media_ratio = '16 / 10'
+      endcase
+  endcase
+-%}
+
+<product-info
+  class="main-product color-{{ section.settings.color_scheme }}"
+  data-section="{{ section.id }}"
+  data-url="{{ product.url }}"
+  data-variant-id="{{ selected_variant.id }}"
+  data-media-id="{{ selected_variant.featured_media.id }}"
+>
+  {%- if section.settings.show_breadcrumb -%}
+    <nav class="main-product__breadcrumb page-width text-caption text-muted" aria-label="{{ 'product.breadcrumb' | t }}">
+      <ol class="main-product__breadcrumb-list" role="list">
+        <li><a href="{{ routes.root_url }}">{{ 'product.home' | t }}</a></li>
+        {%- if collection -%}
+          <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+        {%- endif -%}
+        <li aria-current="page">{{ product.title }}</li>
+      </ol>
+    </nav>
+  {%- endif -%}
+
+  <div class="main-product__grid page-width">
+    <div class="main-product__media">
+      {% render 'product-media', product: product, ratio: media_ratio, section_id: section.id %}
+    </div>
+
+    <div class="main-product__info{% if section.settings.sticky_info %} main-product__info--sticky{% endif %}">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</product-info>
+
+{% stylesheet %}
+  .main-product {
+    display: block;
+    padding-block: 16px var(--section-spacing);
+  }
+
+  .main-product__breadcrumb {
+    padding-block: 0 16px;
+  }
+
+  .main-product__breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    margin: 0;
+  }
+
+  .main-product__breadcrumb-list li + li::before {
+    content: '/';
+    margin-inline-end: 8px;
+  }
+
+  .main-product__breadcrumb-list a {
+    text-decoration: none;
+  }
+
+  .main-product__breadcrumb-list [aria-current='page'] {
+    color: var(--color-text);
+  }
+
+  .main-product__grid {
+    display: grid;
+    gap: 32px;
+  }
+
+  .main-product__media {
+    min-width: 0;
+    margin-inline: calc(var(--page-margin) * -1);
+  }
+
+  .main-product__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .main-product__media {
+      margin-inline: 0;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .main-product__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 440px);
+      gap: 64px;
+      align-items: start;
+    }
+
+    .main-product__info--sticky {
+      position: sticky;
+      top: 24px;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('product-info')) {
+    customElements.define(
+      'product-info',
+      class ProductInfo extends HTMLElement {
+        connectedCallback() {
+          this.addEventListener('change', (event) => {
+            if (event.target.closest('[data-variant-picker]')) this.onOptionChange();
+          });
+        }
+
+        selectedOptionValueIds() {
+          return [...this.querySelectorAll('[data-variant-picker] [data-option]')]
+            .map((option) => {
+              if (option.tagName === 'SELECT') return option.selectedOptions[0]?.dataset.optionValueId;
+              return option.querySelector('input:checked')?.dataset.optionValueId;
+            })
+            .filter(Boolean);
+        }
+
+        async onOptionChange() {
+          const ids = this.selectedOptionValueIds();
+          const url = `${this.dataset.url}?option_values=${ids.join(',')}&section_id=${this.dataset.section}`;
+          const activeId = document.activeElement?.id;
+
+          this.abortController?.abort();
+          this.abortController = new AbortController();
+          this.setAttribute('aria-busy', 'true');
+
+          try {
+            const response = await fetch(url, { signal: this.abortController.signal });
+            const html = new DOMParser().parseFromString(await response.text(), 'text/html');
+            const next = html.querySelector(`product-info[data-section="${this.dataset.section}"]`);
+            if (!next) return;
+
+            this.querySelectorAll('[data-product-part]').forEach((part) => {
+              const replacement = next.querySelector(`[data-product-part="${part.dataset.productPart}"]`);
+              if (replacement) part.replaceWith(replacement);
+            });
+
+            if (activeId) document.getElementById(activeId)?.focus();
+
+            const variantId = next.dataset.variantId;
+            this.dataset.variantId = variantId;
+            if (variantId) {
+              const pageUrl = new URL(window.location.href);
+              pageUrl.searchParams.set('variant', variantId);
+              window.history.replaceState({}, '', pageUrl.toString());
+            }
+
+            document.dispatchEvent(
+              new CustomEvent('product:variant-change', {
+                detail: { sectionId: this.dataset.section, variantId, mediaId: next.dataset.mediaId },
+              })
+            );
+          } catch (error) {
+            if (error.name !== 'AbortError') console.error(error);
+          } finally {
+            this.removeAttribute('aria-busy');
+          }
+        }
+      }
+    );
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.main_product.name",
+  "class": "section-main-product",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "media_ratio",
+      "label": "t:sections.main_product.media_ratio",
+      "options": [
+        {
+          "value": "auto",
+          "label": "t:sections.main_product.media_ratio_auto"
+        },
+        {
+          "value": "adapt",
+          "label": "t:sections.main_product.media_ratio_adapt"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main_product.media_ratio_portrait"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main_product.media_ratio_square"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.main_product.media_ratio_landscape"
+        }
+      ],
+      "default": "auto",
+      "info": "t:sections.main_product.media_ratio_info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumb",
+      "label": "t:sections.main_product.show_breadcrumb",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_info",
+      "label": "t:sections.main_product.sticky_info",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,99 @@
+{% doc %}
+  Renders a quantity stepper: a number field between decrease and increase
+  buttons. Respects quantity rules through min, max and step. Changing the
+  value fires a bubbling `change` event on the input.
+
+  @param {string} id - Id for the number input
+  @param {string} name - Name for the number input, such as 'quantity' or 'updates[]'
+  @param {number} value - Current quantity
+  @param {number} [min] - Minimum quantity. Default: 1
+  @param {number} [max] - Maximum quantity
+  @param {number} [step] - Quantity increment. Default: 1
+  @param {string} [label] - Accessible label. Default: "Quantity"
+  @param {string} [form_id] - Id of the form the input belongs to
+  @param {number} [line] - Cart line number, for cart line items
+
+  @example
+  {% render 'quantity-input', id: 'Quantity-main', name: 'quantity', value: 1 %}
+{% enddoc %}
+
+{%- liquid
+  assign min = min | default: 1
+  assign step = step | default: 1
+  if label == blank
+    assign label = 'product.quantity.label' | t
+  endif
+-%}
+
+<quantity-input class="quantity">
+  <button class="quantity__button" type="button" name="minus">
+    {% render 'icon', name: 'minus' %}
+    <span class="visually-hidden">{{ 'product.quantity.decrease' | t }}</span>
+  </button>
+  <label class="visually-hidden" for="{{ id }}">{{ label }}</label>
+  <input
+    class="quantity__input"
+    id="{{ id }}"
+    type="number"
+    name="{{ name }}"
+    inputmode="numeric"
+    value="{{ value }}"
+    min="{{ min }}"
+    step="{{ step }}"
+    {% if max %}
+      max="{{ max }}"
+    {% endif %}
+    {% if form_id %}
+      form="{{ form_id }}"
+    {% endif %}
+    {% if line %}
+      data-line="{{ line }}"
+    {% endif %}
+  >
+  <button class="quantity__button" type="button" name="plus">
+    {% render 'icon', name: 'plus' %}
+    <span class="visually-hidden">{{ 'product.quantity.increase' | t }}</span>
+  </button>
+</quantity-input>
+
+{% stylesheet %}
+  .quantity {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+  }
+
+  .quantity__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 46px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .quantity__button .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .quantity__input {
+    width: 32px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-align: center;
+    font-size: 15px;
+    -moz-appearance: textfield;
+  }
+
+  .quantity__input::-webkit-inner-spin-button,
+  .quantity__input::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+{% endstylesheet %}

@@ -1,0 +1,5 @@
+query DemoCollectionLookup($handle: String!) {
+  collectionByIdentifier(identifier: { handle: $handle }) {
+    id
+  }
+}

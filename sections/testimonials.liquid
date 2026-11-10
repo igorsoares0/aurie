@@ -1,0 +1,204 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+  assign total = section.blocks.size
+  assign carousel_label = 'sections.testimonials.label' | t
+  if section.settings.eyebrow != blank
+    assign carousel_label = section.settings.eyebrow
+  endif
+-%}
+
+<testimonial-carousel class="section testimonials color-{{ scheme }}{% if filled %} section--filled{% endif %}" aria-roledescription="carousel" aria-label="{{ carousel_label | strip_html | escape }}">
+  <div class="testimonials__inner page-width">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="label text-muted">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+
+    <div class="testimonials__slides">
+      {%- for block in section.blocks -%}
+        <figure
+          class="testimonials__slide"
+          id="Testimonial-{{ block.id }}"
+          role="group"
+          aria-roledescription="slide"
+          aria-label="{{ 'sections.testimonials.slide' | t: number: forloop.index, total: total }}"
+          {% unless forloop.first %}
+            hidden
+          {% endunless %}
+          {{ block.shopify_attributes }}
+        >
+          <blockquote class="testimonials__quote">{{ block.settings.quote }}</blockquote>
+          {%- if block.settings.author != blank -%}
+            <figcaption class="testimonials__author text-caption text-muted">{{ block.settings.author }}</figcaption>
+          {%- endif -%}
+        </figure>
+      {%- endfor -%}
+    </div>
+
+    {%- if total > 1 -%}
+      <div class="testimonials__controls text-caption">
+        <button class="testimonials__arrow" type="button" data-direction="-1">
+          {% render 'icon', name: 'arrow-left' %}
+          <span class="visually-hidden">{{ 'sections.testimonials.previous' | t }}</span>
+        </button>
+        <span class="testimonials__position" aria-live="polite"><span data-current>1</span> / {{ total }}</span>
+        <button class="testimonials__arrow" type="button" data-direction="1">
+          {% render 'icon', name: 'arrow' %}
+          <span class="visually-hidden">{{ 'sections.testimonials.next' | t }}</span>
+        </button>
+      </div>
+    {%- endif -%}
+  </div>
+</testimonial-carousel>
+
+{% stylesheet %}
+  testimonial-carousel {
+    display: block;
+  }
+
+  .testimonials__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .testimonials__slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+  }
+
+  .testimonials__quote {
+    max-width: 760px;
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    text-transform: var(--font-heading-case);
+    font-size: calc(1.75rem * var(--font-heading-scale));
+    line-height: 1.25;
+  }
+
+  .testimonials__controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .testimonials__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--touch-target);
+    height: var(--touch-target);
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .testimonials__arrow .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .testimonials__quote {
+      font-size: calc(2.25rem * var(--font-heading-scale));
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('testimonial-carousel')) {
+    customElements.define(
+      'testimonial-carousel',
+      class TestimonialCarousel extends HTMLElement {
+        connectedCallback() {
+          this.slides = [...this.querySelectorAll('.testimonials__slide')];
+          this.index = 0;
+          this.querySelectorAll('[data-direction]').forEach((button) => {
+            button.addEventListener('click', () => this.show(this.index + Number(button.dataset.direction)));
+          });
+          this.addEventListener('shopify:block:select', (event) => {
+            const index = this.slides.findIndex((slide) => slide.contains(event.target));
+            if (index >= 0) this.show(index);
+          });
+        }
+
+        show(index) {
+          const count = this.slides.length;
+          this.index = (index + count) % count;
+          this.slides.forEach((slide, i) => {
+            slide.hidden = i !== this.index;
+          });
+          const current = this.querySelector('[data-current]');
+          if (current) current.textContent = this.index + 1;
+        }
+      }
+    );
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.testimonials.name",
+  "class": "section-testimonials",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.rich_text.caption",
+      "default": "In their words"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "t:sections.testimonials.blocks.testimonial",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "t:sections.testimonials.blocks.quote",
+          "default": "<p>Share what a customer said about your products or service.</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "t:sections.testimonials.blocks.author",
+          "default": "Customer name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.testimonials.name",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

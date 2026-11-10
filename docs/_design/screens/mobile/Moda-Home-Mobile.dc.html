@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arvel — home, mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#f8f5f0}
+a{color:#2a1f18}
+:focus-visible{outline:2px solid #2a1f18;outline-offset:2px}
+input::placeholder{color:#6b5f55}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 100vh; position: relative; background: #f8f5f0; color: #2a1f18; font-family: 'Work Sans', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column">
+
+  <div style="background: #2a1f18; color: #f3ede5; text-align: center; font-size: 12px; line-height: 16px; padding: 8px 16px">Free shipping and returns</div>
+
+  <!-- Header: Menu · logo · Account, Bag -->
+  <header style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 6px 8px">
+    <button type="button" onClick="{{openMenu}}" aria-expanded="{{menuExpanded}}" style="justify-self: start; min-height: 44px; padding: 0 8px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Menu</button>
+    <a href="#" style="font-family: Cormorant, 'Times New Roman', serif; font-size: 26px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none">Arvel</a>
+    <div style="justify-self: end; display: flex">
+      <a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none">Account</a>
+      <a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none">Bag (2)</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section aria-label="The fall edit" style="position: relative; height: 560px; background: #6b5f55; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 40px; box-sizing: border-box">
+    <span style="position: absolute; left: 16px; top: 16px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #f3ede5">Campaign image, portrait crop</span>
+    <p style="margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; color: #f8f5f0; text-align: center">
+      <span style="font-family: Cormorant, 'Times New Roman', serif; font-size: 36px; line-height: 1.1; font-weight: 300">The fall edit</span>
+      <a href="#" style="color: #f8f5f0; font-size: 13px; line-height: 20px; text-underline-offset: 3px">Shop the latest</a>
+    </p>
+  </section>
+
+  <!-- Category index: swipe row -->
+  <section style="padding: 64px 0 0">
+    <nav aria-label="Shop by category" style="display: flex; gap: 4px; overflow-x: auto; padding: 0 16px; scroll-snap-type: x mandatory">
+      <sc-for list="{{categories}}" as="c" hint-placeholder-count="5">
+        <a href="#" style="flex: 0 0 150px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 8px; text-decoration: none">
+          <div style="aspect-ratio: 4 / 5; background: #ece7e0"></div>
+          <p style="margin: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase"><span style="font-weight: 400; color: #6b5f55; margin-right: 6px">{{c.n}}</span>{{c.name}}</p>
+        </a>
+      </sc-for>
+    </nav>
+  </section>
+
+  <!-- New in: 2 columns -->
+  <section style="padding: 64px 16px 0">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px">
+      <h2 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1.1; font-weight: 400">New in</h2>
+      <a href="#" style="font-size: 13px; text-underline-offset: 3px">View all</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 4px">
+      <sc-for list="{{products}}" as="p" hint-placeholder-count="4">
+        <a href="#" style="display: flex; flex-direction: column; gap: 2px; text-decoration: none">
+          <div style="aspect-ratio: 3 / 4; background: #ece7e0; margin-bottom: 6px"></div>
+          <span style="font-size: 13px; line-height: 20px; padding: 0 4px">{{p.name}}</span>
+          <span style="font-size: 13px; line-height: 20px; padding: 0 4px">{{p.price}}</span>
+          <span style="font-size: 12px; line-height: 16px; padding: 0 4px; color: #6b5f55">{{p.sizes}}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Editorial split, stacked -->
+  <section style="margin-top: 64px">
+    <div style="height: 420px; background: #ece7e0"></div>
+    <div style="padding: 48px 16px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+      <h3 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 28px; line-height: 1.2; font-weight: 400">Earthy tones</h3>
+      <a href="#" style="font-size: 13px; line-height: 20px; text-underline-offset: 3px">Explore new washes</a>
+    </div>
+  </section>
+
+  <!-- Shop the look, stacked -->
+  <section style="padding: 16px 16px 0">
+    <div style="aspect-ratio: 4 / 5; background: #ece7e0; position: relative">
+      <sc-for list="{{look}}" as="it" hint-placeholder-count="3">
+        <button type="button" aria-label="{{it.name}}" onClick="{{it.pick}}" style="{{it.hotStyle}}">+</button>
+      </sc-for>
+    </div>
+    <p style="margin: 24px 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Look 03</p>
+    <h2 style="margin: 0 0 16px; font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1.1; font-weight: 400">Camel on camel</h2>
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <sc-for list="{{look}}" as="it" hint-placeholder-count="3">
+        <div style="{{it.lineStyle}}">
+          <div style="aspect-ratio: 3 / 4; background: #ece7e0"></div>
+          <div style="font-size: 13px; line-height: 20px">{{it.name}}<br><span style="color: #6b5f55">{{it.detail}}</span></div>
+          <span style="font-size: 13px">{{it.price}}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin: 16px 0; font-size: 13px; font-weight: 500"><span>Total (3 items)</span><span>$1,250</span></div>
+    <button type="button" style="width: 100%; min-height: 48px; border: 0; background: #2a1f18; color: #f8f5f0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Add the look to bag</button>
+  </section>
+
+  <!-- Captioned pair -->
+  <section style="padding: 64px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px">
+    <figure style="margin: 0"><div style="aspect-ratio: 4 / 5; background: #ece7e0"></div><figcaption style="padding: 8px 8px 0; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Perfect pairings</figcaption></figure>
+    <figure style="margin: 0"><div style="aspect-ratio: 4 / 5; background: #ece7e0"></div><figcaption style="padding: 8px 8px 0; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Outerwear</figcaption></figure>
+  </section>
+
+  <!-- Testimonial -->
+  <section style="padding: 64px 16px 0; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
+    <p style="margin: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">In their words</p>
+    <blockquote style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 24px; line-height: 1.3; font-weight: 300">“The coat fits exactly the way the fit notes said. I ordered my usual size and did not think twice.”</blockquote>
+    <p style="margin: 0; font-size: 12px; color: #6b5f55">Marta, bought the Trinelle wool coat in S</p>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 12px"><button type="button" aria-label="Previous review" style="width: 44px; height: 44px; border: 1px solid #8c7f73; background: transparent; color: #2a1f18">←</button><span>1 / 3</span><button type="button" aria-label="Next review" style="width: 44px; height: 44px; border: 1px solid #8c7f73; background: transparent; color: #2a1f18">→</button></div>
+  </section>
+
+  <!-- Fit guide, stacked -->
+  <section style="margin-top: 64px">
+    <div style="height: 360px; background: #ece7e0"></div>
+    <div style="padding: 32px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+      <h2 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 36px; line-height: 1.05; font-weight: 400">Find your fit</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 24px">Every piece lists the model's height and size, and how it is cut.</p>
+      <div style="display: flex; gap: 8px"><a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border: 1px solid #8c7f73; text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Petite</a><a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border: 1px solid #8c7f73; text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Tall</a><a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border: 1px solid #8c7f73; text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Relaxed</a></div>
+      <a href="#" style="font-size: 13px; text-underline-offset: 3px">Open the size guide</a>
+    </div>
+  </section>
+
+  <!-- Journal: swipe row -->
+  <section style="padding: 32px 0 0">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; margin: 0 16px 16px">
+      <h2 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 32px; line-height: 1.1; font-weight: 400">Journal</h2>
+      <a href="#" style="font-size: 13px; text-underline-offset: 3px">Read all</a>
+    </div>
+    <div style="display: flex; gap: 4px; overflow-x: auto; padding: 0 16px">
+      <sc-for list="{{posts}}" as="post" hint-placeholder-count="3">
+        <article style="flex: 0 0 280px; display: flex; flex-direction: column; gap: 8px">
+          <div style="aspect-ratio: 3 / 2; background: #ece7e0"></div>
+          <p style="margin: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">{{post.tag}}</p>
+          <h3 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 22px; line-height: 1.2; font-weight: 400">{{post.title}}</h3>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 64px 16px 24px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <h2 style="margin: 0 0 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Join our world</h2>
+    <form style="display: flex; border-bottom: 1px solid #8c7f73">
+      <label for="mm-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+      <input id="mm-email" type="email" placeholder="Email" style="flex: 1; min-width: 0; border: 0; background: transparent; padding: 8px 0; font-family: inherit; font-size: 15px; color: #2a1f18">
+      <button type="button" style="min-height: 44px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Sign up</button>
+    </form>
+    <div style="margin-top: 32px; border-top: 1px solid #d9d1c7">
+      <sc-for list="{{footerMenus}}" as="fm" hint-placeholder-count="3">
+        <div style="border-bottom: 1px solid #d9d1c7">
+          <button type="button" aria-expanded="{{fm.expanded}}" onClick="{{fm.toggle}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #2a1f18"><span>{{fm.title}}</span><span aria-hidden="true" style="font-size: 18px; font-weight: 400">{{fm.sign}}</span></button>
+          <sc-if value="{{fm.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0 0 16px; font-size: 14px; line-height: 28px; white-space: pre-line">{{fm.links}}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <p aria-hidden="true" style="margin: auto 0 12px; padding-top: 48px; font-family: Cormorant, 'Times New Roman', serif; font-size: 96px; line-height: 0.85; text-align: center; text-transform: uppercase; letter-spacing: -0.02em">Arvel</p>
+    <p style="margin: 0; text-align: center; font-size: 12px; line-height: 18px; color: #6b5f55">United States (USD $) · English<br>© 2026 Arvel · Powered by Shopify</p>
+  </footer>
+
+  <!-- Menu drawer -->
+  <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+    <div role="dialog" aria-modal="true" aria-label="Menu" style="position: absolute; top: 0; left: 0; width: 390px; height: 844px; background: #f8f5f0; display: flex; flex-direction: column; z-index: 10">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; border-bottom: 1px solid #d9d1c7">
+        <span style="padding: 0 8px; font-family: Cormorant, serif; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase">Arvel</span>
+        <button type="button" onClick="{{closeMenu}}" style="min-height: 44px; padding: 0 8px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Close</button>
+      </div>
+      <nav aria-label="Main menu" style="padding: 16px; display: flex; flex-direction: column; gap: 24px">
+        <div><p style="margin: 0 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Clothing</p><p style="margin: 0; font-family: Cormorant, serif; font-size: 28px; line-height: 1.4">Dresses<br>Knitwear<br>Tailoring<br>Denim</p></div>
+        <div><p style="margin: 0 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Edits</p><p style="margin: 0; font-size: 15px; line-height: 28px">Perfect pairings<br>The fall edit</p></div>
+        <div><p style="margin: 0 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Shop by fit</p><p style="margin: 0; font-size: 15px; line-height: 28px">Petite · Tall · Relaxed · Fit guide</p></div>
+      </nav>
+      <div style="margin-top: auto; padding: 16px; border-top: 1px solid #d9d1c7; display: flex; justify-content: space-between; font-size: 12px; color: #6b5f55"><span>Search</span><span>United States (USD $) · English</span></div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":5510}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { menu: false, picked: 0, foot: -1 }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var spots = [
+      { name: 'Trinelle wool coat', detail: 'Camel · S', price: '$640', top: '22%', left: '46%' },
+      { name: 'Adeline wide trousers', detail: 'Ecru · 36', price: '$320', top: '56%', left: '40%' },
+      { name: 'Maren loafers', detail: 'Espresso · 38', price: '$290', top: '88%', left: '54%' }
+    ];
+    var menus = [
+      { title: 'Help', links: 'Shipping and returns\nSize guide\nContact' },
+      { title: 'Arvel', links: 'Our story\nJournal\nStores' },
+      { title: 'Social media', links: 'Instagram\nPinterest\nTikTok' }
+    ];
+    return {
+      menuOpen: st.menu, menuExpanded: st.menu ? 'true' : 'false',
+      openMenu: function () { self.setState({ menu: true }); },
+      closeMenu: function () { self.setState({ menu: false }); },
+      categories: [{ n: '01', name: 'Dresses' }, { n: '02', name: 'Knitwear' }, { n: '03', name: 'Tailoring' }, { n: '04', name: 'Denim' }, { n: '05', name: 'Fit guide' }],
+      products: [
+        { name: 'Trinelle wool coat', price: '$640', sizes: 'XS  S  M  L  XL' },
+        { name: 'Rowani knit', price: '$280', sizes: 'S  M  L  XL' },
+        { name: 'Adeline trousers', price: '$224', sizes: '34  36  38' },
+        { name: 'Sorrel denim', price: 'From $190', sizes: '24  25  26  28' }
+      ],
+      look: spots.map(function (s, i) {
+        var on = i === st.picked;
+        return Object.assign({}, s, {
+          pick: function () { self.setState({ picked: i }); },
+          hotStyle: 'position: absolute; top: ' + s.top + '; left: ' + s.left + '; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 9999px; border: 0; font: 400 20px/44px Work Sans, sans-serif; box-shadow: 0 0 0 1px #8c7f73; background: ' + (on ? '#2a1f18' : '#f8f5f0') + '; color: ' + (on ? '#f8f5f0' : '#2a1f18'),
+          lineStyle: 'display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 8px; border-bottom: 1px solid #d9d1c7; background: ' + (on ? '#ece7e0' : 'transparent')
+        });
+      }),
+      posts: [
+        { tag: 'Fit notes', title: 'How to read a size guide' },
+        { tag: 'Styling', title: 'One coat, five weeks' },
+        { tag: 'Behind the cut', title: 'Why our denim runs long' }
+      ],
+      footerMenus: menus.map(function (m, i) {
+        var open = st.foot === i;
+        return { title: m.title, links: m.links, open: open, expanded: open ? 'true' : 'false', sign: open ? '−' : '+', toggle: function () { self.setState({ foot: open ? -1 : i }); } };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

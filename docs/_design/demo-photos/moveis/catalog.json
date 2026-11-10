@@ -1,0 +1,1299 @@
+{
+  "preset": "moveis",
+  "notes": "Demo catalog for the Móveis preset (demo brand Sotto). 24 pieces, 6 per room (collection grid is 3 columns on desktop, 1 on mobile). Names, prices, fabrics and dimensions follow the Móveis mockups. Cutouts sit on the card tile color; room shots reuse the cutout as reference so the piece stays identical.",
+  "vendor": "Sotto",
+  "option": "Fabric",
+  "art_direction": {
+    "background": "#e5ddd1",
+    "aspect": "4:3",
+    "style": "Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "packshot_rules": "Only the described piece in the frame, no people, no extra furniture, no props.",
+    "shots": {
+      "front": "Product photograph of {look}, in {color}, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow.",
+      "room": "Interior photograph of {room}, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people.",
+      "detail": "Close-up detail photograph of the piece from the reference image showing {detail}, same material and color, soft daylight.",
+      "color_swap": "Change only the {garment} of the piece to {color}. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow."
+    },
+    "color_prompts": {
+      "Bouclé ivory": "ivory wool bouclé upholstery",
+      "Linen sand": "warm sand beige (#cbb79b) washed linen upholstery in one even, uniform color",
+      "Velvet rust": "rust cotton velvet upholstery",
+      "Wool charcoal": "charcoal felted wool upholstery",
+      "Natural oak": "natural oiled solid oak",
+      "Smoked oak": "dark smoked fumed solid oak"
+    }
+  },
+  "colors": {
+    "Bouclé ivory": {
+      "swatch": "#e9e3d8",
+      "handle": "boucle-ivory",
+      "taxonomy": "gid://shopify/TaxonomyValue/6"
+    },
+    "Linen sand": {
+      "swatch": "#cbb79b",
+      "handle": "linen-sand",
+      "taxonomy": "gid://shopify/TaxonomyValue/6"
+    },
+    "Velvet rust": {
+      "swatch": "#8a4a2c",
+      "handle": "velvet-rust",
+      "taxonomy": "gid://shopify/TaxonomyValue/7"
+    },
+    "Wool charcoal": {
+      "swatch": "#45413c",
+      "handle": "wool-charcoal",
+      "taxonomy": "gid://shopify/TaxonomyValue/8"
+    },
+    "Natural oak": {
+      "swatch": "#c49a6c",
+      "handle": "natural-oak",
+      "taxonomy": "gid://shopify/TaxonomyValue/7"
+    },
+    "Smoked oak": {
+      "swatch": "#5c3d27",
+      "handle": "smoked-oak",
+      "taxonomy": "gid://shopify/TaxonomyValue/7"
+    }
+  },
+  "collections": [
+    {
+      "handle": "living-room",
+      "title": "Living room",
+      "image": "editorial--room-living"
+    },
+    {
+      "handle": "dining-room",
+      "title": "Dining",
+      "image": "editorial--room-dining"
+    },
+    {
+      "handle": "bedroom",
+      "title": "Bedroom",
+      "image": "editorial--room-bedroom"
+    },
+    {
+      "handle": "workspace",
+      "title": "Workspace",
+      "image": "editorial--room-workspace"
+    },
+    {
+      "handle": "sofas",
+      "title": "Sofas",
+      "tag": "sofa"
+    },
+    {
+      "handle": "tables",
+      "title": "Tables",
+      "tag": "table"
+    },
+    {
+      "handle": "storage",
+      "title": "Storage",
+      "tag": "storage"
+    },
+    {
+      "handle": "in-stock",
+      "title": "In stock",
+      "tag": "in-stock"
+    },
+    {
+      "handle": "signature-pieces",
+      "title": "Signature pieces",
+      "products": [
+        "lune-sofa",
+        "ode-armchair",
+        "plank-dining-table",
+        "arc-sideboard",
+        "haven-bed",
+        "plank-desk"
+      ]
+    }
+  ],
+  "metafields": [
+    {
+      "key": "dimensions",
+      "name": "Dimensions",
+      "field": "dimensions"
+    },
+    {
+      "key": "width",
+      "name": "Width",
+      "field": "width"
+    },
+    {
+      "key": "depth",
+      "name": "Depth",
+      "field": "depth"
+    },
+    {
+      "key": "height",
+      "name": "Height",
+      "field": "height"
+    },
+    {
+      "key": "seat_height",
+      "name": "Seat height",
+      "field": "seat_height"
+    },
+    {
+      "key": "materials",
+      "name": "Materials and care",
+      "field": "materials"
+    }
+  ],
+  "products": [
+    {
+      "handle": "lune-sofa",
+      "title": "Lune sofa",
+      "collection": "living-room",
+      "tier": "hero",
+      "option": "Fabric",
+      "garment": "upholstery",
+      "look": "a deep three-seat sofa with soft rounded arms, loose seat and back cushions and slim tapered solid oak legs",
+      "room": "a calm Scandinavian living room with warm linen walls, wide oak floorboards and a jute rug",
+      "detail_hint": "the seams, piping and leg joint",
+      "colors": {
+        "Linen sand": 2890,
+        "Bouclé ivory": 3090,
+        "Velvet rust": 3040,
+        "Wool charcoal": 3040
+      },
+      "dimensions": "W 220 × D 95 × H 78 cm",
+      "width": "220",
+      "depth": "95",
+      "height": "78",
+      "seat_height": "44",
+      "materials": "Frame: kiln-dried solid oak with mortise-and-tenon joints. Seat: pocket springs under high-resilience foam and a feather topper. Removable, dry-clean covers.",
+      "description": "Our deepest sofa, with cushions you sink into and arms low enough to lie across.",
+      "tags": [
+        "sofa",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "detail",
+        "color_swap:Bouclé ivory",
+        "color_swap:Velvet rust",
+        "color_swap:Wool charcoal"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-22"
+    },
+    {
+      "handle": "ridge-modular-sofa",
+      "title": "Ridge modular sofa",
+      "collection": "living-room",
+      "tier": "simple",
+      "option": "Fabric",
+      "garment": "upholstery",
+      "look": "a low modular corner sofa made of square deep-seated modules with a clean boxy silhouette, no visible legs",
+      "room": "a bright open living room with linen curtains and a low oak coffee table",
+      "detail_hint": "the seams, piping and leg joint",
+      "colors": {
+        "Linen sand": 4600,
+        "Wool charcoal": 4750
+      },
+      "dimensions": "W 300 × D 100 × H 72 cm",
+      "width": "300",
+      "depth": "100",
+      "height": "72",
+      "seat_height": "42",
+      "materials": "Frame: solid oak and birch plywood. Seat: high-resilience foam wrapped in fiber. Modules connect with hidden brackets.",
+      "description": "Square modules you can rearrange as a corner, a long sofa or two separate seats.",
+      "tags": [
+        "sofa",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Wool charcoal"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-22"
+    },
+    {
+      "handle": "haven-sofa-bed",
+      "title": "Haven sofa bed",
+      "collection": "living-room",
+      "tier": "simple",
+      "option": "Fabric",
+      "garment": "upholstery",
+      "look": "a compact sofa bed with straight arms, a tight back and a fold-out mattress hidden in the base, on short oak legs",
+      "room": "a small guest room that doubles as a study, with a wool rug and plants",
+      "detail_hint": "the seams, piping and leg joint",
+      "colors": {
+        "Linen sand": 3150,
+        "Wool charcoal": 3300
+      },
+      "dimensions": "W 210 × D 98 × H 82 cm",
+      "width": "210",
+      "depth": "98",
+      "height": "82",
+      "seat_height": "45",
+      "materials": "Frame: solid oak. Mechanism: steel fold-out base with a 14 cm memory foam mattress.",
+      "description": "A sofa by day and a proper double bed at night, opened in one movement.",
+      "tags": [
+        "sofa",
+        "in-stock"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Wool charcoal"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-22"
+    },
+    {
+      "handle": "ode-armchair",
+      "title": "Ode armchair",
+      "collection": "living-room",
+      "tier": "hero",
+      "option": "Fabric",
+      "garment": "upholstery",
+      "look": "a curved lounge armchair with a rounded shell back, a deep seat cushion and solid oak legs",
+      "room": "a reading corner by a window with a linen floor lamp and a stack of books",
+      "detail_hint": "the seams, piping and leg joint",
+      "colors": {
+        "Bouclé ivory": 1240,
+        "Velvet rust": 1240,
+        "Wool charcoal": 1240
+      },
+      "dimensions": "W 84 × D 80 × H 74 cm",
+      "width": "84",
+      "depth": "80",
+      "height": "74",
+      "seat_height": "42",
+      "materials": "Frame: solid oak and molded plywood shell. Seat: high-resilience foam and a feather topper.",
+      "description": "A rounded chair that wraps around you, made for long evenings with a book.",
+      "tags": [
+        "armchair",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "detail",
+        "color_swap:Velvet rust",
+        "color_swap:Wool charcoal"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-7-11"
+    },
+    {
+      "handle": "low-coffee-table",
+      "title": "Low coffee table",
+      "collection": "living-room",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a low rectangular solid oak coffee table with a thick top, rounded corners and four square legs",
+      "room": "a living room with a linen sofa in the background and a ceramic vase on the table",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 890,
+        "Smoked oak": 940
+      },
+      "dimensions": "W 120 × D 60 × H 35 cm",
+      "width": "120",
+      "depth": "60",
+      "height": "35",
+      "seat_height": "",
+      "materials": "Solid oak with an oiled finish. Re-oil once a year with the kit we send.",
+      "description": "A low, heavy table made from four solid oak boards.",
+      "tags": [
+        "table",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-24-1-1"
+    },
+    {
+      "handle": "mira-side-table",
+      "title": "Mira side table",
+      "collection": "living-room",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a round solid oak side table with a thick circular top on a single turned pedestal base",
+      "room": "a calm living room with the table next to a linen armchair, holding a small lamp",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 420,
+        "Smoked oak": 450
+      },
+      "dimensions": "Ø 45 × H 50 cm",
+      "width": "Ø 45",
+      "depth": "",
+      "height": "50",
+      "seat_height": "",
+      "materials": "Solid oak with an oiled finish.",
+      "description": "A small round table on a turned pedestal, the right height beside a sofa arm.",
+      "tags": [
+        "table",
+        "in-stock"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-24-1"
+    },
+    {
+      "handle": "plank-dining-table",
+      "title": "Plank dining table",
+      "collection": "dining-room",
+      "tier": "hero",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a long rectangular solid oak dining table made of wide planks, with a thick top and four sturdy square legs",
+      "room": "a warm dining room with linen walls, a pendant lamp above and oak chairs around the table",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 2350,
+        "Smoked oak": 2490
+      },
+      "dimensions": "W 200 × D 95 × H 75 cm",
+      "width": "200",
+      "depth": "95",
+      "height": "75",
+      "seat_height": "",
+      "materials": "Solid oak planks, hand-picked for grain, with an oiled finish. Seats six to eight.",
+      "description": "A long table that reads as one surface, made from boards chosen side by side.",
+      "tags": [
+        "table",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "detail",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-24-4-2"
+    },
+    {
+      "handle": "orbit-round-table",
+      "title": "Orbit round table",
+      "collection": "dining-room",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a round solid oak dining table with a thick top on a wide cylindrical pedestal",
+      "room": "a bright kitchen corner with a window seat and linen cushions",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 1690,
+        "Smoked oak": 1790
+      },
+      "dimensions": "Ø 120 × H 75 cm",
+      "width": "Ø 120",
+      "depth": "",
+      "height": "75",
+      "seat_height": "",
+      "materials": "Solid oak with an oiled finish. Seats four.",
+      "description": "A round table for four, on a pedestal so no one has a leg in the way.",
+      "tags": [
+        "table",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-24-4-2"
+    },
+    {
+      "handle": "fold-dining-chair",
+      "title": "Fold dining chair",
+      "collection": "dining-room",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a solid oak dining chair with a gently curved backrest, a woven paper-cord seat and slim legs",
+      "room": "a warm dining room with the chairs around an oak dining table",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 390,
+        "Smoked oak": 410
+      },
+      "dimensions": "W 48 × D 52 × H 79 cm",
+      "width": "48",
+      "depth": "52",
+      "height": "79",
+      "seat_height": "46",
+      "materials": "Solid oak frame with a hand-woven paper-cord seat.",
+      "description": "A light, sturdy chair with a woven seat that softens with use.",
+      "tags": [
+        "chair",
+        "in-stock"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-7-9"
+    },
+    {
+      "handle": "plank-bench",
+      "title": "Plank bench",
+      "collection": "dining-room",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a long low solid oak bench made from one thick plank on four square legs",
+      "room": "a warm dining room with the bench along one side of an oak dining table",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 690,
+        "Smoked oak": 730
+      },
+      "dimensions": "W 160 × D 38 × H 45 cm",
+      "width": "160",
+      "depth": "38",
+      "height": "45",
+      "seat_height": "",
+      "materials": "Solid oak with an oiled finish. Seats three.",
+      "description": "A long bench cut from the same planks as our dining table.",
+      "tags": [
+        "bench",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-3"
+    },
+    {
+      "handle": "arc-sideboard",
+      "title": "Arc sideboard",
+      "collection": "dining-room",
+      "tier": "hero",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a long low solid oak sideboard with three doors featuring softly arched fluted fronts and slim legs",
+      "room": "a dining room wall with ceramics and a framed print above the sideboard",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 1980,
+        "Smoked oak": 2090
+      },
+      "dimensions": "W 180 × D 45 × H 75 cm",
+      "width": "180",
+      "depth": "45",
+      "height": "75",
+      "seat_height": "",
+      "materials": "Solid oak with fluted, hand-finished doors. Adjustable shelves inside.",
+      "description": "A long sideboard with arched, fluted doors that catch the light.",
+      "tags": [
+        "storage",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "detail",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-4"
+    },
+    {
+      "handle": "ledge-display-cabinet",
+      "title": "Ledge display cabinet",
+      "collection": "dining-room",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a tall solid oak display cabinet with two glass-paneled doors and open shelves inside",
+      "room": "a dining room corner displaying ceramic bowls and glassware",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 2150,
+        "Smoked oak": 2250
+      },
+      "dimensions": "W 90 × D 42 × H 180 cm",
+      "width": "90",
+      "depth": "42",
+      "height": "180",
+      "seat_height": "",
+      "materials": "Solid oak frame with toughened glass doors.",
+      "description": "A tall cabinet with glass doors for the pieces you want to see every day.",
+      "tags": [
+        "storage",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-4-3"
+    },
+    {
+      "handle": "haven-bed",
+      "title": "Haven bed",
+      "collection": "bedroom",
+      "tier": "hero",
+      "option": "Fabric",
+      "garment": "upholstery",
+      "look": "a double bed with a tall softly padded upholstered headboard and a slim upholstered frame on short oak legs",
+      "room": "a calm bedroom with linen bedding, a wool throw and soft morning light",
+      "detail_hint": "the seams, piping and leg joint",
+      "colors": {
+        "Linen sand": 2650,
+        "Wool charcoal": 2800
+      },
+      "dimensions": "W 170 × D 215 × H 105 cm",
+      "width": "170",
+      "depth": "215",
+      "height": "105",
+      "seat_height": "",
+      "materials": "Frame: solid oak and birch plywood with a sprung slatted base. Removable, dry-clean headboard cover.",
+      "description": "A padded headboard to lean against and a frame that sits low and quiet.",
+      "tags": [
+        "bed",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "detail",
+        "color_swap:Wool charcoal"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-2-2"
+    },
+    {
+      "handle": "nest-bedside-table",
+      "title": "Nest bedside table",
+      "collection": "bedroom",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a small solid oak bedside table with one drawer and an open shelf below",
+      "room": "a calm bedroom with the table beside a linen-dressed bed, holding a ceramic lamp",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 520,
+        "Smoked oak": 550
+      },
+      "dimensions": "W 45 × D 38 × H 55 cm",
+      "width": "45",
+      "depth": "38",
+      "height": "55",
+      "seat_height": "",
+      "materials": "Solid oak with an oiled finish.",
+      "description": "A bedside table with a drawer for the things you reach for at night.",
+      "tags": [
+        "table",
+        "in-stock"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-24-6"
+    },
+    {
+      "handle": "arc-dresser",
+      "title": "Arc dresser",
+      "collection": "bedroom",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a solid oak chest of six drawers with softly arched fluted drawer fronts",
+      "room": "a bedroom wall with a round mirror above the dresser",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 2290,
+        "Smoked oak": 2390
+      },
+      "dimensions": "W 140 × D 48 × H 80 cm",
+      "width": "140",
+      "depth": "48",
+      "height": "80",
+      "seat_height": "",
+      "materials": "Solid oak with soft-close drawers.",
+      "description": "Six deep drawers with the arched fronts of our sideboard.",
+      "tags": [
+        "storage",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-4-5"
+    },
+    {
+      "handle": "sill-storage-bench",
+      "title": "Sill storage bench",
+      "collection": "bedroom",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a low solid oak storage bench with a lift-up lid and a slatted front",
+      "room": "a calm bedroom with the bench at the end of the bed",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 690,
+        "Smoked oak": 730
+      },
+      "dimensions": "W 140 × D 38 × H 45 cm",
+      "width": "140",
+      "depth": "38",
+      "height": "45",
+      "seat_height": "",
+      "materials": "Solid oak with a lift-up lid on soft-close hinges.",
+      "description": "A bench for the end of the bed, with room inside for blankets.",
+      "tags": [
+        "storage",
+        "bench",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-3-2"
+    },
+    {
+      "handle": "wool-throw",
+      "title": "Wool throw",
+      "collection": "bedroom",
+      "tier": "simple",
+      "option": "Fabric",
+      "garment": "upholstery",
+      "look": "a soft folded wool throw blanket with a subtle herringbone weave and fringed edges",
+      "room": "a calm bedroom with the throw draped over the end of a linen-dressed bed",
+      "detail_hint": "the herringbone weave and fringe",
+      "colors": {
+        "Bouclé ivory": 160,
+        "Wool charcoal": 160
+      },
+      "dimensions": "W 130 × D None × H 180 cm",
+      "width": "130",
+      "depth": "",
+      "height": "180",
+      "seat_height": "",
+      "materials": "100% lambswool. Dry clean or hand wash cold.",
+      "description": "A heavy herringbone throw in soft lambswool.",
+      "tags": [
+        "textile",
+        "in-stock"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Wool charcoal"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/hg-15-1-4"
+    },
+    {
+      "handle": "frame-floor-mirror",
+      "title": "Frame floor mirror",
+      "collection": "bedroom",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a tall rectangular floor mirror with a wide solid oak frame and rounded corners, leaning against a wall",
+      "room": "a calm bedroom with the mirror leaning against a linen-colored wall beside a chair",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 790,
+        "Smoked oak": 830
+      },
+      "dimensions": "W 70 × D 4 × H 180 cm",
+      "width": "70",
+      "depth": "4",
+      "height": "180",
+      "seat_height": "",
+      "materials": "Solid oak frame with a beveled mirror.",
+      "description": "A tall mirror in a wide oak frame, made to lean against the wall.",
+      "tags": [
+        "mirror",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/hg-3-47"
+    },
+    {
+      "handle": "plank-desk",
+      "title": "Plank desk",
+      "collection": "workspace",
+      "tier": "hero",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a solid oak writing desk with a thick plank top, a slim drawer and four square legs",
+      "room": "a calm home study with a window, books and a linen desk lamp",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 1450,
+        "Smoked oak": 1540
+      },
+      "dimensions": "W 140 × D 70 × H 75 cm",
+      "width": "140",
+      "depth": "70",
+      "height": "75",
+      "seat_height": "",
+      "materials": "Solid oak with an oiled finish. Cable hole at the back.",
+      "description": "A writing desk from the same planks as our dining table, with one slim drawer.",
+      "tags": [
+        "table",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "detail",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-12-1"
+    },
+    {
+      "handle": "ode-desk-chair",
+      "title": "Ode desk chair",
+      "collection": "workspace",
+      "tier": "simple",
+      "option": "Fabric",
+      "garment": "upholstery",
+      "look": "an upholstered desk chair with a rounded shell back on a solid oak four-leg base",
+      "room": "a calm home study with the chair at an oak desk",
+      "detail_hint": "the seams, piping and leg joint",
+      "colors": {
+        "Bouclé ivory": 690,
+        "Wool charcoal": 690
+      },
+      "dimensions": "W 58 × D 55 × H 80 cm",
+      "width": "58",
+      "depth": "55",
+      "height": "80",
+      "seat_height": "47",
+      "materials": "Molded plywood shell with foam upholstery on a solid oak base.",
+      "description": "The rounded shell of our armchair, sized for a desk.",
+      "tags": [
+        "chair",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Wool charcoal"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-12-2"
+    },
+    {
+      "handle": "ledge-bookcase",
+      "title": "Ledge bookcase",
+      "collection": "workspace",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a tall open solid oak bookcase with five deep shelves and slim side panels",
+      "room": "a home study wall filled with books and ceramics",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 1590,
+        "Smoked oak": 1690
+      },
+      "dimensions": "W 100 × D 35 × H 200 cm",
+      "width": "100",
+      "depth": "35",
+      "height": "200",
+      "seat_height": "",
+      "materials": "Solid oak with adjustable shelves.",
+      "description": "A tall open bookcase with shelves deep enough for art books.",
+      "tags": [
+        "storage",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-19"
+    },
+    {
+      "handle": "arc-pedestal",
+      "title": "Arc pedestal",
+      "collection": "workspace",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a small solid oak three-drawer pedestal on castors with softly arched fluted drawer fronts",
+      "room": "a calm home study with the pedestal under an oak desk",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 690,
+        "Smoked oak": 730
+      },
+      "dimensions": "W 42 × D 50 × H 60 cm",
+      "width": "42",
+      "depth": "50",
+      "height": "60",
+      "seat_height": "",
+      "materials": "Solid oak with soft-close drawers and hidden castors.",
+      "description": "Three drawers on hidden castors, to slide under any desk.",
+      "tags": [
+        "storage",
+        "in-stock"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-4-6"
+    },
+    {
+      "handle": "studio-floor-lamp",
+      "title": "Studio floor lamp",
+      "collection": "workspace",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a slim floor lamp with a solid oak stem and a pleated linen shade",
+      "room": "a home study at dusk with the lamp beside an armchair, softly lit",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 460,
+        "Smoked oak": 480
+      },
+      "dimensions": "Ø 40 × H 160 cm",
+      "width": "Ø 40",
+      "depth": "",
+      "height": "160",
+      "seat_height": "",
+      "materials": "Solid oak stem, pleated linen shade, E26 bulb (not included).",
+      "description": "A slim oak floor lamp with a pleated linen shade.",
+      "tags": [
+        "lighting",
+        "made-to-order"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/hg-13-5-3"
+    },
+    {
+      "handle": "ledge-wall-shelf",
+      "title": "Ledge wall shelf",
+      "collection": "workspace",
+      "tier": "simple",
+      "option": "Finish",
+      "garment": "wood",
+      "look": "a long solid oak wall shelf with a small lip and hidden brackets",
+      "room": "a home study with the shelf on the wall above a desk, holding books and a plant",
+      "detail_hint": "the wood grain and joinery",
+      "colors": {
+        "Natural oak": 240,
+        "Smoked oak": 260
+      },
+      "dimensions": "W 100 × D 22 × H 6 cm",
+      "width": "100",
+      "depth": "22",
+      "height": "6",
+      "seat_height": "",
+      "materials": "Solid oak with hidden steel brackets.",
+      "description": "A floating oak shelf with a small lip so nothing slides off.",
+      "tags": [
+        "made-to-order",
+        "shelf"
+      ],
+      "shots": [
+        "front",
+        "room",
+        "color_swap:Smoked oak"
+      ],
+      "category": "gid://shopify/TaxonomyCategory/fr-19-2"
+    }
+  ],
+  "editorial": [
+    {
+      "id": "hero-banner",
+      "section": "image-banner",
+      "aspect": "16:9",
+      "model": "pro",
+      "prompt": "Editorial interior photograph for a furniture brand website hero banner: a calm, sunlit Scandinavian living room with warm linen walls and wide oak floorboards, featuring the reference sand linen sofa and the reference oak coffee table, a wool rug, ceramics and a large window. The furniture sits in the right half; soft warm daylight across an open, uncluttered left side. Realistic, warm, quiet, editorial. No people, no text.",
+      "references": [
+        "lune-sofa:front",
+        "low-coffee-table:front"
+      ]
+    },
+    {
+      "id": "room-living",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Interior photograph of a warm Scandinavian living room with the reference linen sofa and the reference curved armchair, oak floors, linen walls, soft daylight, no people.",
+      "references": [
+        "lune-sofa:front",
+        "ode-armchair:front"
+      ]
+    },
+    {
+      "id": "room-dining",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Interior photograph of a warm dining room with the reference oak plank dining table, oak chairs with woven seats and a pendant lamp, linen walls, soft daylight, no people.",
+      "references": [
+        "plank-dining-table:front",
+        "fold-dining-chair:front"
+      ]
+    },
+    {
+      "id": "room-bedroom",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Interior photograph of a calm bedroom with the reference upholstered bed fully made with a sand linen duvet, linen pillows and a folded wool throw, the reference oak bedside table holding a ceramic lamp, soft morning light, no people.",
+      "references": [
+        "haven-bed:front",
+        "nest-bedside-table:front"
+      ]
+    },
+    {
+      "id": "room-workspace",
+      "section": "collection-list",
+      "aspect": "3:4",
+      "model": "seedream",
+      "prompt": "Interior photograph of a calm home study with the reference oak desk, the reference upholstered desk chair and a tall oak bookcase, soft window light, no people.",
+      "references": [
+        "plank-desk:front",
+        "ode-desk-chair:front"
+      ]
+    },
+    {
+      "id": "shoppable-room",
+      "section": "shoppable-image",
+      "aspect": "16:9",
+      "model": "seedream",
+      "prompt": "Wide interior photograph of a warm living room featuring the reference curved armchair on the left, the reference round oak side table in the middle and the reference fluted oak sideboard against the wall on the right, linen walls, oak floor, soft daylight, no people, each piece clearly visible.",
+      "references": [
+        "ode-armchair:front",
+        "mira-side-table:front",
+        "arc-sideboard:front"
+      ]
+    },
+    {
+      "id": "fabric-boucle-ivory",
+      "section": "fabric-library",
+      "aspect": "1:1",
+      "model": "seedream",
+      "prompt": "Extreme close-up macro of ivory wool bouclé upholstery fabric texture filling the frame, soft daylight, no objects.",
+      "references": []
+    },
+    {
+      "id": "fabric-linen-sand",
+      "section": "fabric-library",
+      "aspect": "1:1",
+      "model": "seedream",
+      "prompt": "Extreme close-up macro of sand-colored washed linen upholstery fabric texture filling the frame, soft daylight, no objects.",
+      "references": []
+    },
+    {
+      "id": "fabric-velvet-rust",
+      "section": "fabric-library",
+      "aspect": "1:1",
+      "model": "seedream",
+      "prompt": "Extreme close-up macro of rust cotton velvet upholstery fabric: a short, dense, smooth pile with a soft sheen and gentle light and dark shading where the pile changes direction, flat and even, not furry, not shaggy, filling the frame, soft daylight, no objects.",
+      "references": []
+    },
+    {
+      "id": "fabric-wool-charcoal",
+      "section": "fabric-library",
+      "aspect": "1:1",
+      "model": "seedream",
+      "prompt": "Extreme close-up macro of charcoal felted wool upholstery fabric: a dense, flat, matte compressed felt surface with very fine fibers, smooth and even, not furry, not shaggy, filling the frame, soft daylight, no objects.",
+      "references": []
+    },
+    {
+      "id": "finish-natural-oak",
+      "section": "fabric-library",
+      "aspect": "1:1",
+      "model": "seedream",
+      "prompt": "Extreme close-up macro of natural oiled solid oak wood grain filling the frame, soft daylight, no objects.",
+      "references": []
+    },
+    {
+      "id": "finish-smoked-oak",
+      "section": "fabric-library",
+      "aspect": "1:1",
+      "model": "seedream",
+      "prompt": "Extreme close-up macro of dark smoked fumed solid oak wood grain filling the frame, soft daylight, no objects.",
+      "references": []
+    }
+  ],
+  "pages": [
+    {
+      "handle": "delivery-and-assembly",
+      "title": "Delivery and assembly",
+      "body": "<p>Every piece is made to order in our workshop and ships in 6 to 8 weeks. Pieces marked <strong>In stock</strong> ship within 5 business days.</p><h3>How delivery works</h3><p>When your piece is ready, we call to agree a two-hour delivery slot. Two of our team carry it to the room you choose, assemble it and take every bit of packaging away.</p><p>Delivery and assembly is free on orders over $1,500 in the continental United States. Below that, it is a flat $95.</p><h3>Before we arrive</h3><p>Measure doorways, stairs and corners against the dimensions on the product page. Sofas and beds arrive with their legs off, so the depth is the number that matters most.</p>"
+    },
+    {
+      "handle": "warranty-and-returns",
+      "title": "Warranty and returns",
+      "body": "<p>Every sofa, bed and table frame carries a 10-year warranty against defects in materials and workmanship. Fabrics and finishes are covered for 2 years.</p><h3>30 nights at home</h3><p>Live with your piece for 30 nights. If it is not right, tell us and we collect it for free and refund you in full. Custom-sized pieces and textiles that have been used cannot be returned.</p>"
+    },
+    {
+      "handle": "care-guide",
+      "title": "Care guide",
+      "body": "<p><img src=\"{file:editorial--finish-natural-oak}\" alt=\"Close-up of oiled solid oak grain\"></p><h3>Oiled oak</h3><p>Wipe with a damp cloth and dry straight away. Once or twice a year, rub in a thin coat of hardwax oil with a soft cloth to refresh the surface. Use coasters for hot dishes and wet glasses.</p><h3>Upholstery</h3><p>Vacuum cushions weekly with a soft brush and turn them over to keep their shape. Blot spills, never rub. Our covers are removable and can be dry cleaned.</p>"
+    },
+    {
+      "handle": "fabric-samples",
+      "title": "Fabric samples",
+      "template_suffix": "contact",
+      "body": "<p><img src=\"{file:editorial--fabric-linen-sand}\" alt=\"Close-up of sand washed linen upholstery\"></p><p>See and feel our fabrics and finishes at home before you choose. Order up to six free samples with the form below and we post them within two business days.</p><p>Our range: linen sand, bouclé ivory, velvet rust and wool charcoal upholstery, in natural or smoked solid oak.</p>"
+    },
+    {
+      "handle": "contact",
+      "title": "Contact",
+      "template_suffix": "contact",
+      "body": "<p>Questions about a piece, a delivery or your room? Write to us and we reply within one business day.</p>"
+    },
+    {
+      "handle": "our-story",
+      "title": "Our story",
+      "body": "<p><img src=\"{file:editorial--room-dining}\" alt=\"A warm dining room with an oak table and woven-seat chairs\"></p><p>Sotto began in a small joinery workshop with one rule: make furniture that is still in the room in thirty years.</p><p>We build in solid oak, never veneer, and join it the traditional way, with mortise and tenon instead of screws. Each board is picked by hand for its grain, so a tabletop reads as one surface.</p><p>Our upholstery is covered in natural fabrics in a calm palette, and every cover comes off, so a sofa can outlast a decade of family life.</p>"
+    },
+    {
+      "handle": "showroom",
+      "title": "Showroom",
+      "body": "<p><img src=\"{file:editorial--room-living}\" alt=\"A warm living room with a linen sofa and a bouclé armchair\"></p><p>Sit on every sofa, open every drawer and see our fabrics in daylight. Our showroom is open Thursday to Sunday, 10 am to 6 pm.</p><p>Want an hour with one of our designers? Book a visit through the <a href=\"/pages/contact\">contact page</a> and bring your floor plan.</p>"
+    }
+  ],
+  "blog": {
+    "handle": "journal",
+    "title": "Journal",
+    "author": "The Sotto workshop",
+    "articles": [
+      {
+        "handle": "how-to-measure-for-a-sofa",
+        "title": "How to measure for a sofa",
+        "image": "lune-sofa--linen-sand--room",
+        "tags": [
+          "Planning"
+        ],
+        "summary": "<p>Three numbers to check before you fall for a sofa.</p>",
+        "body": "<p>A sofa has to fit the room, but first it has to get there. Before you order, check three numbers.</p><p>The width of the wall, minus at least 45 cm on each side so the room can breathe. The depth, which should leave 75 cm of walkway in front. And the narrowest doorway on the way in, which needs to be wider than the sofa is deep.</p><p>Every product page lists width, depth, height and seat height, and our sofas arrive with their legs off to make the turn into the room easier.</p>"
+      },
+      {
+        "handle": "caring-for-oiled-oak",
+        "title": "Caring for oiled oak",
+        "image": "plank-dining-table--natural-oak--detail",
+        "tags": [
+          "Care"
+        ],
+        "summary": "<p>Why we oil our oak, and the ten minutes a year it asks of you.</p>",
+        "body": "<p>We finish our oak with hardwax oil, not lacquer. Oil soaks into the wood instead of sitting on top, so the grain stays soft to the touch and a scratch can be repaired instead of the whole top being stripped.</p><p>Day to day, a damp cloth is all it needs. Once or twice a year, rub in a thin coat of oil with a soft cloth, leave it for ten minutes and buff off the excess.</p><p>Over time the oak deepens in color. That patina is the point.</p>"
+      },
+      {
+        "handle": "choosing-a-fabric",
+        "title": "Choosing a fabric you can live with",
+        "image": "editorial--fabric-boucle-ivory",
+        "tags": [
+          "Materials"
+        ],
+        "summary": "<p>Linen, bouclé, velvet or wool: how each one wears.</p>",
+        "body": "<p>Washed linen is cool, relaxed and gets softer with every wash. It creases, and that is part of its charm.</p><p>Bouclé is warm and textured and hides everyday marks well. Velvet has a deep color and a gentle sheen, and is surprisingly hard-wearing. Felted wool is the most durable of all and the one we recommend for homes with pets.</p><p>Not sure? <a href=\"/pages/fabric-samples\">Order free samples</a> and look at them in your own light.</p>"
+      }
+    ]
+  },
+  "menus": [
+    {
+      "handle": "sotto-main",
+      "title": "Sotto main",
+      "items": [
+        {
+          "title": "Shop by room",
+          "collection": "living-room",
+          "items": [
+            {
+              "title": "Living room",
+              "collection": "living-room"
+            },
+            {
+              "title": "Dining",
+              "collection": "dining-room"
+            },
+            {
+              "title": "Bedroom",
+              "collection": "bedroom"
+            },
+            {
+              "title": "Workspace",
+              "collection": "workspace"
+            }
+          ]
+        },
+        {
+          "title": "Sofas",
+          "collection": "sofas"
+        },
+        {
+          "title": "Tables",
+          "collection": "tables"
+        },
+        {
+          "title": "Storage",
+          "collection": "storage"
+        },
+        {
+          "title": "In stock",
+          "collection": "in-stock"
+        },
+        {
+          "title": "Showroom",
+          "page": "showroom"
+        }
+      ]
+    },
+    {
+      "handle": "sotto-help",
+      "title": "Help",
+      "items": [
+        {
+          "title": "Delivery and assembly",
+          "page": "delivery-and-assembly"
+        },
+        {
+          "title": "Warranty and returns",
+          "page": "warranty-and-returns"
+        },
+        {
+          "title": "Care guide",
+          "page": "care-guide"
+        },
+        {
+          "title": "Fabric samples",
+          "page": "fabric-samples"
+        },
+        {
+          "title": "Contact",
+          "page": "contact"
+        }
+      ]
+    },
+    {
+      "handle": "sotto-studio",
+      "title": "Sotto",
+      "items": [
+        {
+          "title": "Our story",
+          "page": "our-story"
+        },
+        {
+          "title": "Journal",
+          "blog": "journal"
+        },
+        {
+          "title": "Showroom",
+          "page": "showroom"
+        }
+      ]
+    }
+  ],
+  "theme": {
+    "listing": "moveis",
+    "preset": "Móveis",
+    "name": "Sotto demo",
+    "settings": {
+      "templates/index.json": {
+        "sections.hero.settings.image": "shopify://shop_images/hero-banner.jpg",
+        "sections.hero.settings.button_link": "shopify://collections/living-room",
+        "sections.hero.settings.button_link_2": "shopify://pages/showroom",
+        "sections.rooms.blocks.c1.settings.collection": "living-room",
+        "sections.rooms.blocks.c1.settings.image": "shopify://shop_images/room-living.jpg",
+        "sections.rooms.blocks.c2.settings.collection": "dining-room",
+        "sections.rooms.blocks.c2.settings.image": "shopify://shop_images/room-dining.jpg",
+        "sections.rooms.blocks.c3.settings.collection": "bedroom",
+        "sections.rooms.blocks.c3.settings.image": "shopify://shop_images/room-bedroom.jpg",
+        "sections.rooms.blocks.c4.settings.collection": "workspace",
+        "sections.rooms.blocks.c4.settings.image": "shopify://shop_images/room-workspace.jpg",
+        "sections.signature.blocks.t1.settings.collection": "signature-pieces",
+        "sections.signature.blocks.t2.settings.collection": "sofas",
+        "sections.signature.blocks.t3.settings.collection": "tables",
+        "sections.signature.blocks.t4.settings.collection": "storage",
+        "sections.room.settings.image": "shopify://shop_images/shoppable-room.jpg",
+        "sections.room.blocks.h1.settings.product": "ode-armchair",
+        "sections.room.blocks.h1.settings.position_x": 19,
+        "sections.room.blocks.h1.settings.position_y": 62,
+        "sections.room.blocks.h2.settings.product": "mira-side-table",
+        "sections.room.blocks.h2.settings.position_x": 38,
+        "sections.room.blocks.h2.settings.position_y": 62,
+        "sections.room.blocks.h3.settings.product": "arc-sideboard",
+        "sections.room.blocks.h3.settings.position_x": 64,
+        "sections.room.blocks.h3.settings.position_y": 58,
+        "sections.materials.blocks.f1.settings.name": "Linen sand",
+        "sections.materials.blocks.f1.settings.kind": "Washed linen",
+        "sections.materials.blocks.f1.settings.color": "#cbb79b",
+        "sections.materials.blocks.f1.settings.image": "shopify://shop_images/fabric-linen-sand.jpg",
+        "sections.materials.blocks.f2.settings.name": "Bouclé ivory",
+        "sections.materials.blocks.f2.settings.kind": "Wool bouclé",
+        "sections.materials.blocks.f2.settings.color": "#e9e3d8",
+        "sections.materials.blocks.f2.settings.image": "shopify://shop_images/fabric-boucle-ivory.jpg",
+        "sections.materials.blocks.f3.settings.name": "Velvet rust",
+        "sections.materials.blocks.f3.settings.kind": "Cotton velvet",
+        "sections.materials.blocks.f3.settings.color": "#8a4a2c",
+        "sections.materials.blocks.f3.settings.image": "shopify://shop_images/fabric-velvet-rust.jpg",
+        "sections.materials.blocks.f4.settings.name": "Wool charcoal",
+        "sections.materials.blocks.f4.settings.kind": "Felted wool",
+        "sections.materials.blocks.f4.settings.color": "#45413c",
+        "sections.materials.blocks.f4.settings.image": "shopify://shop_images/fabric-wool-charcoal.jpg",
+        "sections.materials.blocks.f5.settings.name": "Natural oak",
+        "sections.materials.blocks.f5.settings.kind": "Oiled finish",
+        "sections.materials.blocks.f5.settings.color": "#c49a6c",
+        "sections.materials.blocks.f5.settings.image": "shopify://shop_images/finish-natural-oak.jpg",
+        "sections.materials.blocks.f6.settings.name": "Smoked oak",
+        "sections.materials.blocks.f6.settings.kind": "Fumed and oiled",
+        "sections.materials.blocks.f6.settings.color": "#5c3d27",
+        "sections.materials.blocks.f6.settings.image": "shopify://shop_images/finish-smoked-oak.jpg",
+        "sections.materials.settings.link": "shopify://pages/fabric-samples",
+        "sections.testimonial.blocks.t1.settings.author": "Anna, Lune sofa in linen sand",
+        "sections.testimonial.blocks.t2.settings.author": "David, Plank dining table in natural oak"
+      },
+      "templates/product.json": {
+        "sections.main.blocks.dimensions.settings.value_1": "{{ product.metafields.custom.width.value }}",
+        "sections.main.blocks.dimensions.settings.value_2": "{{ product.metafields.custom.depth.value }}",
+        "sections.main.blocks.dimensions.settings.value_3": "{{ product.metafields.custom.height.value }}",
+        "sections.main.blocks.dimensions.settings.value_4": "{{ product.metafields.custom.seat_height.value }}",
+        "sections.main.blocks.tab_materials.settings.content": "<p>{{ product.metafields.custom.materials.value }}</p>",
+        "sections.main.blocks.tab_delivery.settings.content": "",
+        "sections.main.blocks.tab_delivery.settings.page": "delivery-and-assembly",
+        "sections.main.blocks.tab_warranty.settings.content": "",
+        "sections.main.blocks.tab_warranty.settings.page": "warranty-and-returns"
+      },
+      "sections/header-group.json": {
+        "sections.header.settings.menu": "sotto-main"
+      },
+      "sections/footer-group.json": {
+        "sections.footer.blocks.menu.settings.menu": "sotto-help",
+        "sections.footer.blocks.social.settings.menu": "sotto-studio",
+        "sections.footer.blocks.showroom.settings.text": "<p>Open Thursday to Sunday, 10 am to 6 pm. Visits by appointment on other days.</p>",
+        "sections.footer.blocks.showroom.settings.link": "shopify://pages/showroom"
+      },
+      "config/settings_data.json": {
+        "presets.Móveis.social_instagram_link": "https://www.instagram.com/shopify",
+        "presets.Móveis.social_pinterest_link": "https://www.pinterest.com/shopify"
+      }
+    }
+  }
+}

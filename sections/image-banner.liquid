@@ -1,0 +1,472 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign has_content = false
+  if section.settings.heading != blank or section.settings.text != blank or section.settings.button_label != blank
+    assign has_content = true
+  endif
+
+  if section.index <= 2
+    assign loading = 'eager'
+    assign fetchpriority = 'high'
+  else
+    assign loading = 'lazy'
+    assign fetchpriority = 'auto'
+  endif
+-%}
+
+<div class="section image-banner image-banner--{{ section.settings.height }}{% if section.settings.inset %} image-banner--inset{% endif %}">
+  <div class="image-banner__frame color-{{ scheme }}">
+    <div class="image-banner__media">
+      {%- if section.settings.image -%}
+        {%- if section.settings.mobile_image -%}
+          {{
+            section.settings.mobile_image
+            | image_url: width: 1500
+            | image_tag:
+              widths: '750, 1100, 1500',
+              sizes: '100vw',
+              loading: loading,
+              fetchpriority: fetchpriority,
+              alt: section.settings.mobile_image.alt,
+              class: 'image-banner__image image-banner__image--mobile'
+          }}
+        {%- endif -%}
+        {{
+          section.settings.image
+          | image_url: width: 3200
+          | image_tag:
+            widths: '750, 1100, 1500, 2000, 2600, 3200',
+            sizes: '100vw',
+            loading: loading,
+            fetchpriority: fetchpriority,
+            alt: section.settings.image.alt,
+            class: 'image-banner__image'
+        }}
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'image-banner__image placeholder-svg' }}
+      {%- endif -%}
+      {%- if has_content -%}
+        <span class="image-banner__overlay" style="--overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"></span>
+      {%- endif -%}
+    </div>
+
+    {%- if has_content -%}
+      <div class="image-banner__content image-banner__content--{{ section.settings.content_position }} image-banner__content--{{ section.settings.content_layout }}">
+        {%- if section.settings.heading != blank -%}
+          {%- if section.index == 1 -%}
+            <h1 class="image-banner__heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</h1>
+          {%- else -%}
+            <h2 class="image-banner__heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.text != blank or section.settings.button_label != blank -%}
+          <div class="image-banner__footer">
+            {%- if section.settings.text != blank -%}
+              <div class="image-banner__text">{{ section.settings.text }}</div>
+            {%- endif -%}
+            <div class="button-row">
+              {%- if section.settings.button_label != blank -%}
+                <a
+                  {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+                  class="{% if section.settings.button_style == 'link' %}text-link image-banner__link{% else %}button{% endif %}"
+                >
+                  {{- section.settings.button_label -}}
+                </a>
+              {%- endif -%}
+              {%- if section.settings.button_label_2 != blank -%}
+                <a
+                  {% if section.settings.button_link_2 != blank %}href="{{ section.settings.button_link_2 }}"{% else %}role="link" aria-disabled="true"{% endif %}
+                  class="{% if section.settings.button_style == 'link' %}text-link image-banner__link{% else %}button button--secondary image-banner__secondary{% endif %}"
+                >
+                  {{- section.settings.button_label_2 -}}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .image-banner__frame {
+    position: relative;
+    display: flex;
+    min-height: var(--banner-height);
+    overflow: hidden;
+    color: var(--color-text);
+  }
+
+  .image-banner--small {
+    --banner-height: 360px;
+  }
+
+  .image-banner--medium {
+    --banner-height: 520px;
+  }
+
+  .image-banner--large {
+    --banner-height: 640px;
+  }
+
+  .image-banner--screen {
+    --banner-height: 100svh;
+  }
+
+  .image-banner--inset {
+    padding-inline: 16px;
+  }
+
+  .image-banner--inset .image-banner__frame {
+    border-radius: var(--radius-media);
+  }
+
+  .image-banner__media {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-tile);
+  }
+
+  .image-banner__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-banner__image--mobile + .image-banner__image {
+    display: none;
+  }
+
+  .image-banner__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-background);
+    opacity: var(--overlay-opacity);
+  }
+
+  .image-banner__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: clamp(20px, 4vw, 40px) var(--page-margin);
+  }
+
+  .image-banner__content--bottom-left {
+    justify-content: flex-end;
+  }
+
+  .image-banner__content--bottom-center {
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-banner__content--center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-banner__content--top-left {
+    justify-content: flex-start;
+  }
+
+  .image-banner__content--inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    align-items: baseline;
+    column-gap: 24px;
+  }
+
+  .image-banner__content--inline.image-banner__content--center {
+    align-content: center;
+  }
+
+  .image-banner__content--inline.image-banner__content--top-left {
+    align-content: flex-start;
+  }
+
+  .image-banner__content--inline.image-banner__content--bottom-center,
+  .image-banner__content--inline.image-banner__content--center {
+    justify-content: center;
+  }
+
+  .image-banner__heading.display {
+    max-width: 14ch;
+  }
+
+  .image-banner__content--inline .image-banner__heading {
+    max-width: none;
+  }
+
+  .image-banner__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px 32px;
+  }
+
+  .image-banner__content--bottom-center .image-banner__footer,
+  .image-banner__content--center .image-banner__footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-banner__text {
+    max-width: 420px;
+  }
+
+  .image-banner__link {
+    color: inherit;
+  }
+
+  .image-banner__secondary {
+    background-color: var(--color-background);
+    border-color: var(--color-background);
+  }
+
+  @media screen and (min-width: 750px) {
+    .image-banner__image--mobile {
+      display: none;
+    }
+
+    .image-banner__image--mobile + .image-banner__image {
+      display: block;
+    }
+
+    .image-banner--small {
+      --banner-height: 420px;
+    }
+
+    .image-banner--medium {
+      --banner-height: 600px;
+    }
+
+    .image-banner--large {
+      --banner-height: 780px;
+    }
+  }
+
+  /* Phones: an inline heading and link stack, and centered content sits low so it
+     doesn't cover the subject of a portrait image */
+  @media screen and (max-width: 749px) {
+    .image-banner__content--inline {
+      flex-direction: column;
+      row-gap: 8px;
+    }
+
+    .image-banner__content--inline.image-banner__content--bottom-left,
+    .image-banner__content--inline.image-banner__content--top-left {
+      align-items: flex-start;
+    }
+
+    .image-banner__content--center,
+    .image-banner__content--inline.image-banner__content--center,
+    .image-banner__content--inline.image-banner__content--bottom-center {
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    /* Text at the foot of a photo gets a soft fade in the scheme's background color,
+       the same color as the overlay, so it stays readable over light areas */
+    .image-banner__frame:has(.image-banner__content--center > *, .image-banner__content--bottom-center > *, .image-banner__content--bottom-left > *) .image-banner__media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, color-mix(in srgb, var(--color-background) 60%, transparent), transparent 45%);
+      pointer-events: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.image_banner.name",
+  "class": "section-image-banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image_banner.image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "t:sections.image_banner.mobile_image",
+      "info": "t:sections.image_banner.mobile_image_info"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "t:sections.image_banner.height",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.image_banner.height_small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.image_banner.height_medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.image_banner.height_large"
+        },
+        {
+          "value": "screen",
+          "label": "t:sections.image_banner.height_screen"
+        }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "checkbox",
+      "id": "inset",
+      "label": "t:sections.image_banner.inset",
+      "info": "t:sections.image_banner.inset_info",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "info": "t:sections.image_banner.color_scheme_info",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "t:sections.image_banner.overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "t:sections.image_banner.content_header"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "t:sections.image_banner.content_position",
+      "options": [
+        {
+          "value": "bottom-left",
+          "label": "t:sections.image_banner.position_bottom_left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "t:sections.image_banner.position_bottom_center"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image_banner.position_center"
+        },
+        {
+          "value": "top-left",
+          "label": "t:sections.image_banner.position_top_left"
+        }
+      ],
+      "default": "bottom-center"
+    },
+    {
+      "type": "select",
+      "id": "content_layout",
+      "label": "t:sections.image_banner.content_layout",
+      "options": [
+        {
+          "value": "stacked",
+          "label": "t:sections.image_banner.content_layout_stacked"
+        },
+        {
+          "value": "inline",
+          "label": "t:sections.image_banner.content_layout_inline"
+        }
+      ],
+      "default": "stacked"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Image banner"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:labels.heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:options.heading_size.medium"
+        },
+        {
+          "value": "h1",
+          "label": "t:options.heading_size.large"
+        },
+        {
+          "value": "display",
+          "label": "t:options.heading_size.extra_large"
+        }
+      ],
+      "default": "display"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "t:sections.image_banner.button_style",
+      "options": [
+        {
+          "value": "button",
+          "label": "t:options.button_style.button"
+        },
+        {
+          "value": "link",
+          "label": "t:options.button_style.link"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:labels.link"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "t:sections.image_banner.button_label_2"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "t:sections.image_banner.button_link_2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.image_banner.name"
+    }
+  ]
+}
+{% endschema %}

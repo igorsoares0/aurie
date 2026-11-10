@@ -1,0 +1,118 @@
+{% doc %}
+  Renders an article card with image, date, title and excerpt.
+
+  @param {article} article - The article to show
+  @param {boolean} [show_date] - Show the publish date. Default: true
+  @param {boolean} [show_author] - Show the author. Default: false
+  @param {boolean} [show_excerpt] - Show the excerpt. Default: true
+  @param {string} [heading_tag] - Tag for the title. Default: 'h3'
+  @param {string} [sizes] - Image sizes attribute
+
+  @example
+  {% render 'article-card', article: article, show_author: true %}
+{% enddoc %}
+
+{%- liquid
+  assign show_date = show_date | default: true, allow_false: true
+  assign show_excerpt = show_excerpt | default: true, allow_false: true
+  assign heading_tag = heading_tag | default: 'h3'
+  assign image_sizes = sizes | default: '(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw'
+-%}
+
+<article class="article-card">
+  <div class="article-card__media">
+    {%- if article.image -%}
+      {{
+        article.image
+        | image_url: width: 1200
+        | image_tag:
+          widths: '400, 600, 800, 1000, 1200',
+          sizes: image_sizes,
+          loading: 'lazy',
+          alt: article.image.alt,
+          class: 'article-card__image'
+      }}
+    {%- else -%}
+      {{ 'image' | placeholder_svg_tag: 'article-card__image article-card__placeholder' }}
+    {%- endif -%}
+  </div>
+
+  <div class="article-card__info">
+    {%- if show_date or show_author -%}
+      <p class="article-card__meta label text-muted">
+        {%- if show_date -%}
+          {{ article.published_at | time_tag: format: 'date' }}
+        {%- endif -%}
+        {%- if show_date and show_author %} · {% endif -%}
+        {%- if show_author -%}
+          {{ article.author }}
+        {%- endif -%}
+      </p>
+    {%- endif -%}
+
+    <{{ heading_tag }} class="article-card__title h3">
+      <a class="article-card__link" href="{{ article.url }}">{{ article.title }}</a>
+    </{{ heading_tag }}>
+
+    {%- if show_excerpt -%}
+      {%- assign excerpt = article.excerpt_or_content | strip_html | truncatewords: 28 -%}
+      {%- if excerpt != blank -%}
+        <p class="article-card__excerpt text-small">{{ excerpt }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</article>
+
+{% stylesheet %}
+  .article-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .article-card__media {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .article-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-medium) var(--ease);
+  }
+
+  @media (hover: hover) {
+    .article-card:hover .article-card__image {
+      transform: scale(1.03);
+    }
+  }
+
+  .article-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .article-card__link {
+    text-decoration: none;
+  }
+
+  .article-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .article-card:has(.article-card__link:focus-visible) {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+
+  .article-card__link:focus-visible {
+    outline: none;
+  }
+{% endstylesheet %}

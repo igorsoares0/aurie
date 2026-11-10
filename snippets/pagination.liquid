@@ -1,0 +1,87 @@
+{% doc %}
+  Renders numbered pagination with previous and next links.
+
+  @param {object} paginate - The paginate object from the paginate tag
+  @param {string} [anchor] - Optional anchor appended to page links
+
+  @example
+  {% render 'pagination', paginate: paginate %}
+{% enddoc %}
+
+{%- if paginate.pages > 1 -%}
+  <nav class="pagination" aria-label="{{ 'pagination.label' | t }}">
+    <ul class="pagination__list" role="list">
+      {%- if paginate.previous -%}
+        <li>
+          <a class="pagination__item pagination__item--arrow" href="{{ paginate.previous.url }}{{ anchor }}" data-facets-link>
+            {{- 'pagination.previous' | t -}}
+          </a>
+        </li>
+      {%- endif -%}
+
+      {%- for part in paginate.parts -%}
+        <li>
+          {%- if part.is_link -%}
+            <a class="pagination__item" href="{{ part.url }}{{ anchor }}" data-facets-link>
+              <span class="visually-hidden">{{ 'pagination.page' | t }}</span>
+              {{- part.title -}}
+            </a>
+          {%- elsif part.title == paginate.current_page -%}
+            <span class="pagination__item pagination__item--current" aria-current="page">
+              <span class="visually-hidden">{{ 'pagination.page' | t }}</span>
+              {{- part.title -}}
+            </span>
+          {%- else -%}
+            <span class="pagination__item">{{ part.title }}</span>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+
+      {%- if paginate.next -%}
+        <li>
+          <a class="pagination__item pagination__item--arrow" href="{{ paginate.next.url }}{{ anchor }}" data-facets-link>
+            {{- 'pagination.next' | t -}}
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
+  </nav>
+{%- endif -%}
+
+{% stylesheet %}
+  .pagination__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+  }
+
+  .pagination__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--touch-target);
+    height: var(--touch-target);
+    padding: 0 8px;
+    border-radius: var(--radius-button);
+    font-size: var(--font-small-size);
+    text-decoration: none;
+  }
+
+  .pagination__item--current {
+    background-color: var(--color-text);
+    color: var(--color-background);
+  }
+
+  .pagination__item--arrow {
+    padding: 0 12px;
+    font-size: var(--font-label-size);
+    font-weight: var(--font-body-weight-medium);
+    letter-spacing: var(--font-label-spacing);
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+{% endstylesheet %}

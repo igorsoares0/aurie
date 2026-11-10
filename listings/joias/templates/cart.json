@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "note_label": "Gift card message",
+        "note_placeholder": "We handwrite it on our card.",
+        "show_gift_wrap": true,
+        "gift_wrap_label": "Wrap each piece separately in our gift box",
+        "gift_wrap_note": "Free",
+        "gift_wrap_attribute": "Gift wrapping",
+        "empty_heading": "Your bag is empty",
+        "empty_text": "The icons are a good place to start.",
+        "empty_button_label": "Shop the icons"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

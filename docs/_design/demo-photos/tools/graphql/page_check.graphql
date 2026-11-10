@@ -1,0 +1,10 @@
+query DemoPageCheck($query: String!) {
+  pages(first: 1, query: $query) {
+    nodes {
+      handle
+      title
+      templateSuffix
+      isPublished
+    }
+  }
+}

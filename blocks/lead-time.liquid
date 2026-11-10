@@ -1,0 +1,67 @@
+{%- if block.settings.text != blank -%}
+  <div class="lead-time text-small" {{ block.shopify_attributes }}>
+    {%- if block.settings.icon != 'none' -%}
+      {% render 'icon', name: block.settings.icon %}
+    {%- endif -%}
+    <div class="lead-time__text">{{ block.settings.text }}</div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .lead-time {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .lead-time strong {
+    font-weight: var(--font-body-weight-medium);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.lead_time.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "t:blocks.lead_time.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:blocks.lead_time.icon_none"
+        },
+        {
+          "value": "truck",
+          "label": "t:blocks.lead_time.icon_truck"
+        },
+        {
+          "value": "clock",
+          "label": "t:blocks.lead_time.icon_clock"
+        },
+        {
+          "value": "gift",
+          "label": "t:blocks.lead_time.icon_gift"
+        },
+        {
+          "value": "pin",
+          "label": "t:blocks.lead_time.icon_pin"
+        }
+      ],
+      "default": "truck"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "<p><strong>Made to order, ships in 6 to 8 weeks.</strong> Delivery and assembly included.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.lead_time.name"
+    }
+  ]
+}
+{% endschema %}

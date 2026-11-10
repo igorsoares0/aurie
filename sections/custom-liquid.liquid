@@ -1,0 +1,45 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+-%}
+
+<div class="section custom-liquid-section color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="{% if section.settings.page_width %}page-width{% endif %}">
+    {{ section.settings.custom_liquid }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.custom_liquid.name",
+  "class": "section-custom-liquid",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "page_width",
+      "label": "t:sections.custom_liquid.page_width",
+      "default": true
+    },
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:blocks.custom_liquid.label",
+      "info": "t:blocks.custom_liquid.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_liquid.name"
+    }
+  ]
+}
+{% endschema %}

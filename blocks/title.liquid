@@ -1,0 +1,59 @@
+{%- liquid
+  assign product = closest.product
+  case block.settings.eyebrow
+    when 'type'
+      assign eyebrow = product.type
+    when 'vendor'
+      assign eyebrow = product.vendor
+    else
+      assign eyebrow = blank
+  endcase
+-%}
+
+<div class="product-title" {{ block.shopify_attributes }}>
+  {%- if eyebrow != blank -%}
+    <p class="label text-muted">{{ eyebrow }}</p>
+  {%- endif -%}
+  <h1 class="product-title__heading">{{ product.title }}</h1>
+</div>
+
+{% stylesheet %}
+  .product-title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.title.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "eyebrow",
+      "label": "t:blocks.title.eyebrow",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:blocks.title.eyebrow_none"
+        },
+        {
+          "value": "type",
+          "label": "t:blocks.title.eyebrow_type"
+        },
+        {
+          "value": "vendor",
+          "label": "t:blocks.title.eyebrow_vendor"
+        }
+      ],
+      "default": "type"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.title.name"
+    }
+  ]
+}
+{% endschema %}

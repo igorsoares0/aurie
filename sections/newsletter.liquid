@@ -1,0 +1,116 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+  assign newsletter_form_id = 'NewsletterSection-' | append: section.id
+-%}
+
+<div class="section newsletter-section color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="newsletter-section__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2>{% render 'split-heading', text: section.settings.heading %}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="rte">{{ section.settings.text }}</div>
+    {%- endif -%}
+
+    {%- form 'customer', id: newsletter_form_id, class: 'newsletter-section__form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <label class="visually-hidden" for="NewsletterSectionEmail-{{ section.id }}">{{ 'newsletter.email_label' | t }}</label>
+      <div class="newsletter-section__row">
+        <input
+          class="field"
+          id="NewsletterSectionEmail-{{ section.id }}"
+          type="email"
+          name="contact[email]"
+          autocomplete="email"
+          required
+          placeholder="{{ 'newsletter.email_placeholder' | t }}"
+          {% if form.errors %}
+            aria-invalid="true"
+            aria-describedby="NewsletterSectionError-{{ section.id }}"
+          {% endif %}
+        >
+        <button class="button" type="submit">{{ 'newsletter.submit' | t }}</button>
+      </div>
+      {%- if form.errors -%}
+        <div class="newsletter-section__error text-small" id="NewsletterSectionError-{{ section.id }}">{{ form.errors | default_errors }}</div>
+      {%- elsif form.posted_successfully? -%}
+        <p class="newsletter-section__success text-small" role="status">{{ 'newsletter.success' | t }}</p>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .newsletter-section__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .newsletter-section__inner .rte {
+    max-width: 32rem;
+  }
+
+  .newsletter-section__form {
+    width: min(100%, 460px);
+    margin-top: 8px;
+  }
+
+  .newsletter-section__row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .newsletter-section__error {
+    margin-top: 8px;
+    color: var(--color-error);
+  }
+
+  .newsletter-section__success {
+    margin-top: 8px;
+    color: var(--color-success);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.newsletter.name",
+  "class": "section-newsletter",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info",
+      "default": "Join our world"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "<p>New collections and stories, once a month.</p>"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.newsletter.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.newsletter.name"
+    }
+  ]
+}
+{% endschema %}

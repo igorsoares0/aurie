@@ -1,0 +1,78 @@
+{% doc %}
+  Renders a search result card for an article or a page.
+
+  @param {object} result - An article or page from search results
+  @param {string} [heading_tag] - Tag for the title. Default: 'h3'
+
+  @example
+  {% render 'search-result-card', result: result %}
+{% enddoc %}
+
+<article class="result-card">
+  {%- if result.image -%}
+    <div class="result-card__media">
+      {{
+        result.image
+        | image_url: width: 800
+        | image_tag:
+          widths: '300, 450, 600, 800',
+          sizes: '(min-width: 990px) 25vw, 50vw',
+          loading: 'lazy',
+          alt: result.image.alt,
+          class: 'result-card__image'
+      }}
+    </div>
+  {%- endif -%}
+  <p class="label text-muted">
+    {%- if result.object_type == 'article' -%}
+      {{ 'search.types.article' | t }}
+    {%- else -%}
+      {{ 'search.types.page' | t }}
+    {%- endif -%}
+  </p>
+  {%- assign heading_tag = heading_tag | default: 'h3' -%}
+  <{{ heading_tag }} class="result-card__title h3">
+    <a class="result-card__link" href="{{ result.url }}">{{ result.title }}</a>
+  </{{ heading_tag }}>
+  {%- assign excerpt = result.excerpt | default: result.content | strip_html | truncatewords: 20 -%}
+  {%- if excerpt != blank -%}
+    <p class="text-caption text-muted">{{ excerpt }}</p>
+  {%- endif -%}
+</article>
+
+{% stylesheet %}
+  .result-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .result-card__media {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 4px;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .result-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .result-card__title {
+    font-size: var(--font-h3-size);
+  }
+
+  .result-card__link {
+    text-decoration: none;
+  }
+
+  .result-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+{% endstylesheet %}

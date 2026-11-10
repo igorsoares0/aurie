@@ -1,0 +1,57 @@
+{%- if block.settings.text != blank -%}
+  <div class="text-block text-block--{{ block.settings.style }} rte" {{ block.shopify_attributes }}>
+    {{ block.settings.text }}
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .text-block--small {
+    font-size: var(--font-small-size);
+    line-height: 20px;
+  }
+
+  .text-block--caption {
+    font-size: var(--font-caption-size);
+    line-height: 16px;
+    color: var(--color-text-muted);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.text.name",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "<p>Share details about your product.</p>"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:blocks.text.style",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:blocks.text.style_body"
+        },
+        {
+          "value": "small",
+          "label": "t:blocks.text.style_small"
+        },
+        {
+          "value": "caption",
+          "label": "t:blocks.text.style_caption"
+        }
+      ],
+      "default": "body"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.text.name"
+    }
+  ]
+}
+{% endschema %}

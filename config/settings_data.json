@@ -1,0 +1,164 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": "Moda",
+  "presets": {
+    "Moda": {
+      "page_width": "120rem",
+      "card_secondary_image": true,
+      "cart_type": "drawer",
+      "cart_note": true,
+      "heading_font": "cormorant_n4",
+      "body_font": "work_sans_n4",
+      "heading_scale": 100,
+      "heading_case": "none",
+      "heading_split_rule": false,
+      "page_margin": 24,
+      "section_spacing": 96,
+      "grid_gap": "4px",
+      "corner_style": "square",
+      "header_layout": "center_text",
+      "card_style": "portrait",
+      "card_details": "sizes",
+      "media_layout": "grid",
+      "cart_size_reminder": true,
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#f8f5f0",
+            "text": "#2a1f18",
+            "text_muted": "#6b5f55",
+            "tile": "#ece7e0",
+            "divider": "#d9d1c7",
+            "border": "#8c7f73",
+            "accent": "#8a3f22",
+            "accent_label": "#f8f5f0",
+            "button": "#2a1f18",
+            "button_label": "#f8f5f0"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#241a14",
+            "text": "#f3ede5",
+            "text_muted": "#bfb3a6",
+            "tile": "#31261e",
+            "divider": "#4a3d33",
+            "border": "#8f8276",
+            "accent": "#e0a07e",
+            "accent_label": "#241a14",
+            "button": "#f3ede5",
+            "button_label": "#241a14"
+          }
+        }
+      }
+    },
+    "Joias": {
+      "page_width": "120rem",
+      "card_secondary_image": true,
+      "cart_type": "drawer",
+      "cart_note": true,
+      "heading_font": "playfair_display_n4",
+      "body_font": "jost_n4",
+      "heading_scale": 110,
+      "heading_case": "none",
+      "heading_split_rule": false,
+      "page_margin": 64,
+      "section_spacing": 128,
+      "grid_gap": "24px",
+      "corner_style": "pill",
+      "header_layout": "center_icons",
+      "card_style": "square",
+      "card_details": "material",
+      "media_layout": "thumbnails_beside",
+      "cart_size_reminder": false,
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#fcfbf9",
+            "text": "#161514",
+            "text_muted": "#67625c",
+            "tile": "#f1eeea",
+            "divider": "#e4dfd8",
+            "border": "#8d8780",
+            "accent": "#8a6d2f",
+            "accent_label": "#fcfbf9",
+            "button": "#161514",
+            "button_label": "#fcfbf9"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#161514",
+            "text": "#f5f2ed",
+            "text_muted": "#b3ada5",
+            "tile": "#232120",
+            "divider": "#3a3633",
+            "border": "#8a847c",
+            "accent": "#d4b46a",
+            "accent_label": "#161514",
+            "button": "#f5f2ed",
+            "button_label": "#161514"
+          }
+        }
+      }
+    },
+    "Móveis": {
+      "page_width": "120rem",
+      "card_secondary_image": true,
+      "cart_type": "drawer",
+      "cart_note": true,
+      "heading_font": "barlow_condensed_n6",
+      "body_font": "barlow_n4",
+      "heading_scale": 125,
+      "heading_case": "uppercase",
+      "heading_split_rule": true,
+      "page_margin": 32,
+      "section_spacing": 96,
+      "grid_gap": "16px",
+      "corner_style": "rounded",
+      "header_layout": "left",
+      "card_style": "framed",
+      "card_details": "dimensions",
+      "media_layout": "thumbnails_below",
+      "cart_size_reminder": false,
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#efe9e0",
+            "text": "#1f1d1a",
+            "text_muted": "#5f574e",
+            "tile": "#e5ddd1",
+            "divider": "#d6ccbe",
+            "border": "#8a7f72",
+            "accent": "#7a4a24",
+            "accent_label": "#efe9e0",
+            "button": "#1f1d1a",
+            "button_label": "#efe9e0"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#2b2119",
+            "text": "#efe9e0",
+            "text_muted": "#c2b6a7",
+            "tile": "#3a2d23",
+            "divider": "#4d3e32",
+            "border": "#8f8072",
+            "accent": "#d9a46b",
+            "accent_label": "#2b2119",
+            "button": "#efe9e0",
+            "button_label": "#2b2119"
+          }
+        }
+      }
+    }
+  }
+}

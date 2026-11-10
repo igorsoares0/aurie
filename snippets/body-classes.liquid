@@ -1,0 +1,20 @@
+{% doc %}
+  Outputs the signature modifier classes for the <body> element. Each class
+  comes from a global setting, so switching presets restyles the header,
+  product cards, product media and corners without touching section code.
+
+  @example
+  <body class="{% render 'body-classes' %}">
+{% enddoc %}
+
+{%- liquid
+  echo 'header-layout--' | append: settings.header_layout
+  echo ' card--' | append: settings.card_style
+  echo ' card-details--' | append: settings.card_details
+  echo ' media--' | append: settings.media_layout
+  echo ' shape--' | append: settings.corner_style
+  echo ' headings--' | append: settings.heading_case
+  if settings.heading_split_rule
+    echo ' headings--split-rule'
+  endif
+-%}

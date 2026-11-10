@@ -1,0 +1,270 @@
+{
+  "sections": {
+    "hero": {
+      "type": "rich-text",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "split",
+        "caption": "Recycled 18k gold · Sterling silver",
+        "heading": "Made to be",
+        "heading_second": "worn every day",
+        "heading_size": "display",
+        "text": "",
+        "text_style": "body",
+        "button_style": "button",
+        "button_label": "Shop the icons",
+        "button_link": "/collections/all"
+      }
+    },
+    "macro": {
+      "type": "image-banner",
+      "settings": {
+        "height": "large",
+        "inset": false,
+        "color_scheme": "scheme-1",
+        "overlay_opacity": 0,
+        "content_position": "bottom-left",
+        "content_layout": "stacked",
+        "heading": "",
+        "heading_size": "display",
+        "button_style": "button",
+        "button_label": ""
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "center",
+        "heading": "",
+        "heading_size": "h2",
+        "text": "<p>Cast in small runs and polished by hand in our studio, every piece is made to be worn daily, and to be passed on.</p>",
+        "text_style": "large",
+        "button_label": ""
+      }
+    },
+    "icons": {
+      "type": "featured-collection",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "The icons",
+        "show_count": true,
+        "products_to_show": 8,
+        "layout": "scroll",
+        "columns_desktop": 4,
+        "link_label": "View all"
+      }
+    },
+    "editorial": {
+      "type": "image-with-text",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "image_first",
+        "width": "contained",
+        "image_ratio": "landscape",
+        "tag_text": "Sculpted hoops",
+        "content_alignment": "left",
+        "content_style": "stacked"
+      },
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shaped by <em>hand</em>",
+            "size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each hoop starts as a wax model carved at the bench, so no two curves are exactly alike.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "label": "Shop hoops",
+            "style": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ]
+    },
+    "portraits": {
+      "type": "collection-list",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "style": "overlay",
+        "heading": "",
+        "show_count": true
+      },
+      "blocks": {
+        "c1": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c2": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c3": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c4": {
+          "type": "collection",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "metals": {
+      "type": "material-guide",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Know your <em>metals</em>",
+        "text": "<p>What each finish is, how it wears, and how to keep it bright.</p>"
+      },
+      "blocks": {
+        "m1": {
+          "type": "material",
+          "settings": {
+            "name": "Gold vermeil",
+            "swatch_color": "#d4b46a",
+            "description": "<p>A thick layer of 18k gold over sterling silver.</p>",
+            "care": "Care: avoid perfume and chlorine.",
+            "note": "Daily wear"
+          }
+        },
+        "m2": {
+          "type": "material",
+          "settings": {
+            "name": "Sterling silver",
+            "swatch_color": "#c9c9c4",
+            "description": "<p>Recycled 925 silver that darkens gently with time.</p>",
+            "care": "Care: polish with the cloth we send.",
+            "note": "Daily wear"
+          }
+        },
+        "m3": {
+          "type": "material",
+          "settings": {
+            "name": "Solid gold",
+            "swatch_color": "#b8913a",
+            "description": "<p>14k and 18k gold, made to last a lifetime.</p>",
+            "care": "Care: wash with mild soap.",
+            "note": "Wear in water"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3"
+      ]
+    },
+    "gifts": {
+      "type": "gift-guide",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Gifts, <em>by moment</em>"
+      },
+      "blocks": {
+        "g1": {
+          "type": "moment",
+          "settings": {
+            "label": "Birthdays",
+            "title": "Gifts <em>for birthdays</em>"
+          }
+        },
+        "g2": {
+          "type": "moment",
+          "settings": {
+            "label": "Weddings",
+            "title": "Gifts <em>for weddings</em>"
+          }
+        },
+        "g3": {
+          "type": "moment",
+          "settings": {
+            "label": "Just because",
+            "title": "Gifts <em>just because</em>"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "style": "icon_centered",
+        "heading": ""
+      },
+      "blocks": {
+        "s1": {
+          "type": "column",
+          "settings": {
+            "icon": "gift",
+            "title": "Gift wrapping",
+            "text": "<p>Every order leaves in our linen box, with a handwritten card on request.</p>"
+          }
+        },
+        "s2": {
+          "type": "column",
+          "settings": {
+            "icon": "pen",
+            "title": "Engraving",
+            "text": "<p>Up to 12 characters inside rings and on pendants.</p>"
+          }
+        },
+        "s3": {
+          "type": "column",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Lifetime care",
+            "text": "<p>Free cleaning and polishing for as long as you own the piece.</p>"
+          }
+        },
+        "s4": {
+          "type": "column",
+          "settings": {
+            "icon": "pin",
+            "title": "Visit the studio",
+            "text": "<p>Try pieces on and see the bench.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "macro",
+    "intro",
+    "icons",
+    "editorial",
+    "portraits",
+    "metals",
+    "gifts",
+    "services"
+  ]
+}

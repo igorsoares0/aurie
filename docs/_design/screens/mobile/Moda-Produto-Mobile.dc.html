@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arvel — product, mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#f8f5f0}
+a{color:#2a1f18}
+:focus-visible{outline:2px solid #2a1f18;outline-offset:2px}
+input::placeholder{color:#6b5f55}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 100vh; position: relative; background: #f8f5f0; color: #2a1f18; font-family: 'Work Sans', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column">
+
+  <div style="background: #2a1f18; color: #f3ede5; text-align: center; font-size: 12px; line-height: 16px; padding: 8px 16px">Free shipping and returns</div>
+
+  <header style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 6px 8px">
+    <button type="button" style="justify-self: start; min-height: 44px; padding: 0 8px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Menu</button>
+    <a href="#" style="font-family: Cormorant, 'Times New Roman', serif; font-size: 26px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none">Arvel</a>
+    <div style="justify-self: end; display: flex">
+      <a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none">Account</a>
+      <a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none">Bag ({{bagCount}})</a>
+    </div>
+  </header>
+
+  <main style="position: relative">
+    <!-- Gallery: full-width swipe, 3:4 -->
+    <div style="position: relative">
+      <div aria-label="Product media" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory">
+        <sc-for list="{{media}}" as="m" hint-placeholder-count="4">
+          <div style="{{m.style}}">
+            <sc-if value="{{m.isVideo}}" hint-placeholder-val="{{false}}"><span aria-hidden="true" style="width: 56px; height: 56px; border-radius: 9999px; background: rgba(248, 245, 240, 0.9); display: flex; align-items: center; justify-content: center; font-size: 18px">▶</span></sc-if>
+            <span style="position: absolute; left: 16px; bottom: 16px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #f8f5f0">{{m.label}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <span style="position: absolute; right: 16px; bottom: 16px; padding: 4px 10px; background: #f8f5f0; font-size: 12px; line-height: 16px; font-variant-numeric: tabular-nums">1 / 4</span>
+    </div>
+
+    <!-- Buy box -->
+    <form style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <p style="margin: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Outerwear</p>
+        <h1 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 36px; line-height: 1.05; font-weight: 400">Trinelle wool coat</h1>
+        <p style="margin: 4px 0 0; font-size: 15px; line-height: 24px">$640 <span style="font-size: 12px; color: #6b5f55">Taxes included.</span></p>
+        <p style="margin: 0; font-size: 12px; line-height: 18px; color: #6b5f55">Pay in 4 interest-free installments of $160 with Shop Pay. <a href="#" style="color: #6b5f55; text-underline-offset: 3px">Learn more</a></p>
+      </div>
+      <fieldset style="border: 0; margin: 0; padding: 0">
+        <legend style="padding: 0; margin-bottom: 12px; font-size: 13px; line-height: 20px">Color — {{colorName}}</legend>
+        <div style="display: flex; gap: 8px">
+          <sc-for list="{{colors}}" as="c" hint-placeholder-count="3">
+            <button type="button" aria-label="{{c.name}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="width: 44px; height: 44px; border: 0; background: transparent; display: inline-flex; align-items: center; justify-content: center; padding: 0"><span style="{{c.dot}}"></span></button>
+          </sc-for>
+        </div>
+      </fieldset>
+      <fieldset style="border: 0; margin: 0; padding: 0">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px">
+          <legend style="padding: 0; font-size: 13px; line-height: 20px; float: left">Size — {{sizeName}}</legend>
+          <button type="button" onClick="{{openGuide}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 13px; color: #2a1f18; text-decoration: underline; text-underline-offset: 3px">Size guide</button>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px">
+          <sc-for list="{{sizes}}" as="s" hint-placeholder-count="5">
+            <button type="button" aria-pressed="{{s.pressed}}" aria-disabled="{{s.disabled}}" aria-label="{{s.aria}}" onClick="{{s.pick}}" style="{{s.style}}">{{s.label}}</button>
+          </sc-for>
+        </div>
+        <p style="margin: 12px 0 0; padding: 12px 16px; background: #ece7e0; font-size: 13px; line-height: 20px">Model is 177 cm and wears S. Relaxed through the body — size down for a closer cut.</p>
+      </fieldset>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; gap: 8px">
+          <div role="group" aria-label="Quantity" style="display: flex; align-items: center; border: 1px solid #8c7f73">
+            <button type="button" aria-label="Decrease quantity" onClick="{{dec}}" style="width: 44px; height: 46px; border: 0; background: transparent; color: #2a1f18; font-size: 18px">−</button>
+            <span aria-live="polite" style="min-width: 24px; text-align: center; font-size: 14px">{{qty}}</span>
+            <button type="button" aria-label="Increase quantity" onClick="{{inc}}" style="width: 44px; height: 46px; border: 0; background: transparent; color: #2a1f18; font-size: 18px">+</button>
+          </div>
+          <button type="button" onClick="{{add}}" style="{{addStyle}}">{{addLabel}}</button>
+        </div>
+        <div style="height: 48px; background: #ece7e0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #6b5f55">Accelerated checkout — rendered by Shopify</div>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: baseline; font-size: 13px; line-height: 20px">
+        <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 9999px; background: #2f5d3a; flex: none"></span>
+        <span>Pickup available at <strong style="font-weight: 500">Arvel Studio</strong>. Usually ready in 2 hours. <a href="#" style="text-underline-offset: 3px">Check other stores</a></span>
+      </div>
+      <div style="border-top: 1px solid #d9d1c7">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+          <div style="border-bottom: 1px solid #d9d1c7">
+            <button type="button" aria-expanded="{{t.expanded}}" onClick="{{t.toggle}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #2a1f18"><span>{{t.title}}</span><span aria-hidden="true" style="font-size: 18px; font-weight: 400">{{t.sign}}</span></button>
+            <sc-if value="{{t.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0 0 16px; font-size: 14px; line-height: 22px; white-space: pre-line">{{t.body}}</p></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </form>
+
+    <!-- Complete the look: swipe -->
+    <section style="padding: 56px 0 0">
+      <h2 style="margin: 0 16px 20px; font-family: Cormorant, 'Times New Roman', serif; font-size: 30px; line-height: 1.1; font-weight: 400">Complete the look</h2>
+      <div style="display: flex; gap: 12px; overflow-x: auto; padding: 0 16px; scroll-snap-type: x mandatory">
+        <sc-for list="{{pairs}}" as="p" hint-placeholder-count="4">
+          <a href="#" style="flex: 0 0 168px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 4px; text-decoration: none">
+            <span style="display: block; aspect-ratio: 3 / 4; background: #e3d9cc; margin-bottom: 6px"></span>
+            <span style="font-size: 13px; line-height: 18px">{{p.name}}</span>
+            <span style="font-size: 12px; line-height: 16px; color: #6b5f55">{{p.note}}</span>
+            <span style="font-size: 13px; line-height: 18px">{{p.price}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- You may also like: 2 columns -->
+    <section style="padding: 56px 16px 0">
+      <h2 style="margin: 0 0 20px; font-family: Cormorant, 'Times New Roman', serif; font-size: 30px; line-height: 1.1; font-weight: 400">You may also like</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 8px">
+        <sc-for list="{{related}}" as="r" hint-placeholder-count="4">
+          <a href="#" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none">
+            <span style="display: block; aspect-ratio: 3 / 4; background: #e3d9cc; margin-bottom: 6px"></span>
+            <span style="font-size: 13px; line-height: 18px">{{r.name}}</span>
+            <span style="font-size: 13px; line-height: 18px">{{r.price}}</span>
+            <span style="font-size: 11px; line-height: 16px; letter-spacing: 0.04em; color: #6b5f55; white-space: pre">{{r.sizes}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- Sticky add to bar: appears once the buy button scrolls away -->
+    <div style="position: sticky; bottom: 0; margin-top: 40px; background: #f8f5f0; border-top: 1px solid #d9d1c7; padding: 10px 16px; display: flex; align-items: center; gap: 12px; z-index: 5">
+      <span style="width: 40px; height: 52px; background: #c9b59b; flex: none"></span>
+      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; font-size: 13px; line-height: 18px"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Trinelle wool coat</span><span style="color: #6b5f55">{{colorName}} · {{sizeName}} · $640</span></span>
+      <button type="button" onClick="{{add}}" style="min-height: 48px; padding: 0 20px; border: 0; background: #2a1f18; color: #f8f5f0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">{{addLabel}}</button>
+    </div>
+  </main>
+
+  <footer style="padding: 48px 16px 24px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <h2 style="margin: 0 0 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Join our world</h2>
+    <form style="display: flex; border-bottom: 1px solid #8c7f73">
+      <label for="mp-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+      <input id="mp-email" type="email" placeholder="Email" style="flex: 1; min-width: 0; border: 0; background: transparent; padding: 8px 0; font-family: inherit; font-size: 15px; color: #2a1f18">
+      <button type="button" style="min-height: 44px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Sign up</button>
+    </form>
+    <div style="margin-top: 32px; border-top: 1px solid #d9d1c7">
+      <sc-for list="{{footerMenus}}" as="fm" hint-placeholder-count="3">
+        <div style="border-bottom: 1px solid #d9d1c7">
+          <button type="button" aria-expanded="{{fm.expanded}}" onClick="{{fm.toggle}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #2a1f18"><span>{{fm.title}}</span><span aria-hidden="true" style="font-size: 18px; font-weight: 400">{{fm.sign}}</span></button>
+          <sc-if value="{{fm.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0 0 16px; font-size: 14px; line-height: 28px; white-space: pre-line">{{fm.links}}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <p aria-hidden="true" style="margin: auto 0 12px; padding-top: 48px; font-family: Cormorant, 'Times New Roman', serif; font-size: 96px; line-height: 0.85; text-align: center; text-transform: uppercase; letter-spacing: -0.02em">Arvel</p>
+    <p style="margin: 0; text-align: center; font-size: 12px; line-height: 18px; color: #6b5f55">United States (USD $) · English<br>© 2026 Arvel · Powered by Shopify</p>
+  </footer>
+
+  <!-- Size guide: bottom sheet -->
+  <sc-if value="{{guideOpen}}" hint-placeholder-val="{{false}}">
+    <div style="position: absolute; top: 0; left: 0; width: 390px; height: 844px; background: rgba(42, 31, 24, 0.4); display: flex; align-items: flex-end; z-index: 10">
+      <div role="dialog" aria-modal="true" aria-label="Size guide" style="width: 100%; box-sizing: border-box; background: #f8f5f0; padding: 24px 16px 32px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; justify-content: space-between; align-items: center">
+          <h2 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 28px; line-height: 1.1; font-weight: 400">Size guide</h2>
+          <button type="button" aria-label="Close size guide" onClick="{{closeGuide}}" style="width: 44px; height: 44px; border: 0; background: transparent; color: #2a1f18; font-size: 22px">×</button>
+        </div>
+        <p style="margin: 0; font-size: 14px; line-height: 22px">Body measurements in centimeters.</p>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px; line-height: 20px; font-variant-numeric: tabular-nums; text-align: left">
+          <thead><tr style="border-bottom: 1px solid #8c7f73"><th scope="col" style="padding: 8px 0; font-weight: 500">Size</th><th scope="col" style="font-weight: 500">Bust</th><th scope="col" style="font-weight: 500">Waist</th><th scope="col" style="font-weight: 500">Hips</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400">XS</th><td>80–84</td><td>62–66</td><td>88–92</td></tr>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400">S</th><td>85–89</td><td>67–71</td><td>93–97</td></tr>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400">M</th><td>90–94</td><td>72–76</td><td>98–102</td></tr>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400">L</th><td>95–100</td><td>77–82</td><td>103–108</td></tr>
+            <tr style="border-bottom: 1px solid #d9d1c7"><th scope="row" style="padding: 8px 0; font-weight: 400">XL</th><td>101–106</td><td>83–88</td><td>109–114</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":3260}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { color: 0, size: 1, qty: 1, tab: 0, guide: false, added: false, foot: -1 }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var COLORS = [
+      { name: 'Camel', hex: '#a47a52', soldOut: ['XS'] },
+      { name: 'Espresso', hex: '#3a2a20', soldOut: [] },
+      { name: 'Ecru', hex: '#ddd1bf', soldOut: ['XS', 'XL'] }
+    ];
+    var SIZES = ['XS', 'S', 'M', 'L', 'XL'];
+    var color = COLORS[st.color];
+    var TABS = [
+      { title: 'Description', body: 'A long, unlined coat in double-faced wool with dropped shoulders and a tie belt. Patch pockets, no buttons.' },
+      { title: 'Composition and care', body: '80% recycled wool, 20% polyamide.\nDry clean only. Hang on a wide hanger.' },
+      { title: 'Shipping and returns', body: 'Free shipping in 2–4 business days.\nFree returns within 30 days.' }
+    ];
+    var menus = [
+      { title: 'Help', links: 'Shipping and returns\nSize guide\nContact' },
+      { title: 'Arvel', links: 'Our story\nJournal\nStores' },
+      { title: 'Social media', links: 'Instagram\nPinterest\nTikTok' }
+    ];
+    var slide = function (label, video) {
+      return { label: color.name + ' — ' + label, isVideo: video,
+        style: 'flex: 0 0 390px; height: 520px; scroll-snap-align: start; position: relative; background: ' + (st.color === 2 ? '#bfae96' : (st.color === 1 ? '#4a3a2e' : '#a8875f')) + '; display: flex; align-items: center; justify-content: center' };
+    };
+    return {
+      bagCount: st.added ? 2 + st.qty : 2,
+      colorName: color.name,
+      sizeName: SIZES[st.size],
+      media: [slide('front', false), slide('back', false), slide('fit video', true), slide('fabric detail', false)],
+      colors: COLORS.map(function (c, i) {
+        var on = i === st.color;
+        return { name: c.name, pressed: on ? 'true' : 'false',
+          pick: function () { var size = st.size; if (c.soldOut.indexOf(SIZES[size]) !== -1) { size = 2; } self.setState({ color: i, size: size, added: false }); },
+          dot: 'display: block; width: 24px; height: 24px; border-radius: 9999px; background: ' + c.hex + '; box-shadow: 0 0 0 1px #8c7f73' + (on ? ', 0 0 0 3px #f8f5f0, 0 0 0 4px #2a1f18' : '') };
+      }),
+      sizes: SIZES.map(function (s, i) {
+        var gone = color.soldOut.indexOf(s) !== -1;
+        var on = i === st.size && !gone;
+        return { label: s, aria: gone ? s + ', sold out' : s, pressed: on ? 'true' : 'false', disabled: gone ? 'true' : 'false',
+          pick: function () { if (!gone) { self.setState({ size: i, added: false }); } },
+          style: 'min-height: 44px; font-family: inherit; font-size: 13px; border: 1px ' + (gone ? 'dashed #8c7f73' : 'solid ' + (on ? '#2a1f18' : '#8c7f73')) + '; background: ' + (on ? '#2a1f18' : 'transparent') + '; color: ' + (on ? '#f8f5f0' : (gone ? '#6b5f55' : '#2a1f18')) + '; text-decoration: ' + (gone ? 'line-through' : 'none') };
+      }),
+      qty: st.qty,
+      dec: function () { self.setState({ qty: Math.max(1, st.qty - 1) }); },
+      inc: function () { self.setState({ qty: st.qty + 1 }); },
+      add: function () { self.setState({ added: true }); },
+      addLabel: st.added ? 'Added' : 'Add to bag',
+      addStyle: 'flex: 1; min-height: 48px; border: 1px solid #2a1f18; background: #2a1f18; color: #f8f5f0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase',
+      tabs: TABS.map(function (t, i) {
+        var open = st.tab === i;
+        return { title: t.title, body: t.body, open: open, expanded: open ? 'true' : 'false', sign: open ? '−' : '+', toggle: function () { self.setState({ tab: open ? -1 : i }); } };
+      }),
+      guideOpen: st.guide,
+      openGuide: function () { self.setState({ guide: true }); },
+      closeGuide: function () { self.setState({ guide: false }); },
+      pairs: [
+        { name: 'Adeline wide trousers', price: '$320', note: 'Worn here in ecru' },
+        { name: 'Rowani knit', price: '$280', note: 'Worn here in espresso' },
+        { name: 'Maren loafers', price: '$290', note: 'Leather, made in Portugal' },
+        { name: 'Oda wool scarf', price: '$140', note: 'Worn here in camel' }
+      ],
+      related: [
+        { name: 'Rowani shearling jacket', price: '$890', sizes: 'XS  S  M  L  XL' },
+        { name: 'Edda trench coat', price: '$560', sizes: 'XS  S  M  L' },
+        { name: 'Lia belted blazer', price: '$420', sizes: 'S  M  L  XL' },
+        { name: 'Tove wool cape', price: '$480', sizes: 'One size' }
+      ],
+      footerMenus: menus.map(function (m, i) {
+        var open = st.foot === i;
+        return { title: m.title, links: m.links, open: open, expanded: open ? 'true' : 'false', sign: open ? '−' : '+', toggle: function () { self.setState({ foot: open ? -1 : i }); } };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sotto — Lune sofa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&amp;family=Barlow:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#efe9e0}
+a{color:#1f1d1a}a:hover{color:#7a4a24}
+:focus-visible{outline:2px solid #1f1d1a;outline-offset:2px}
+input::placeholder{color:#5f574e}
+</style>
+</helmet>
+<div style="background: #efe9e0; color: #1f1d1a; font-family: Barlow, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; min-width: 0; min-height: 100vh; display: flex; flex-direction: column">
+
+  <!-- Announcement bar -->
+  <div style="background: #1f1d1a; color: #efe9e0; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 32px; font-size: 13px; line-height: 18px; padding: 9px 16px; text-align: center">
+    <span>Free delivery and assembly on orders over $1,500</span>
+    <span>30 nights to try it at home</span>
+  </div>
+
+  <!-- Header -->
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px; padding: 16px 32px">
+    <a href="#" style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 32px; line-height: 1; font-weight: 600; letter-spacing: 0.04em; text-decoration: none; color: #1f1d1a">SOTTO</a>
+    <nav aria-label="Main menu">
+      <ul style="display: flex; flex-wrap: wrap; gap: 4px 28px; list-style: none; margin: 0; padding: 0; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">
+        <li><a href="#" style="text-decoration: underline; text-underline-offset: 4px; padding: 6px 0; display: inline-block">Living room</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 6px 0; display: inline-block">Bedroom</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 6px 0; display: inline-block">Dining</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 6px 0; display: inline-block">Workspace</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 6px 0; display: inline-block">Fabrics</a></li>
+        <li><a href="#" style="text-decoration: none; padding: 6px 0; display: inline-block">Delivery</a></li>
+      </ul>
+    </nav>
+    <div style="display: flex; gap: 4px">
+      <button type="button" aria-label="Search" style="width: 44px; height: 44px; border: 0; background: transparent; color: #1f1d1a; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg></button>
+      <a href="#" aria-label="Account" style="width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"></circle><path d="M4.5 20.5c1.2-3.6 4.1-5.5 7.5-5.5s6.3 1.9 7.5 5.5"></path></svg></a>
+      <a href="#" aria-label="Bag, {{bagCount}} items" style="height: 44px; padding: 0 8px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-size: 13px; font-weight: 600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5.5 8.5h13l-1 12h-11z"></path><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"></path></svg>{{bagCount}}</a>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" style="padding: 16px 32px; font-size: 13px; line-height: 16px; color: #5f574e">
+    <a href="#" style="color: #5f574e; text-decoration: none">Home</a> <span aria-hidden="true">/</span> <a href="#" style="color: #5f574e; text-decoration: none">Living room</a> <span aria-hidden="true">/</span> <a href="#" style="color: #5f574e; text-decoration: none">Sofas</a> <span aria-hidden="true">/</span> <span aria-current="page" style="color: #1f1d1a">Lune sofa</span>
+  </nav>
+
+  <!-- Product -->
+  <section style="padding: 0 32px; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: flex-start">
+
+    <!-- Gallery: wide room image + detail strip -->
+    <div aria-label="Product media" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+      <div style="aspect-ratio: 16 / 10; border-radius: 16px; background: #6e6152; position: relative; overflow: hidden">
+        <span style="position: absolute; left: 20px; bottom: 20px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #efe9e0">{{mainLabel}}</span>
+        <sc-if value="{{is3d}}" hint-placeholder-val="{{false}}"><span style="position: absolute; right: 20px; top: 20px; border-radius: 8px; background: #efe9e0; color: #1f1d1a; padding: 8px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">View in your room</span></sc-if>
+      </div>
+      <div role="group" aria-label="Choose image" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+        <sc-for list="{{thumbs}}" as="t" hint-placeholder-count="4">
+          <button type="button" aria-label="{{t.label}}" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="{{t.style}}"><span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">{{t.short}}</span></button>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- Buy box -->
+    <form style="flex: 1 1 400px; max-width: 460px; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <p style="margin: 0; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">Sofas · Made to order</p>
+        <h1 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 56px; line-height: 0.92; font-weight: 600; text-transform: uppercase">Lune sofa</h1>
+        <p style="margin: 8px 0 0; font-size: 22px; line-height: 28px; font-weight: 600">{{price}} <span style="font-size: 13px; font-weight: 400; color: #5f574e">Taxes included.</span></p>
+        <p style="margin: 0; font-size: 13px; line-height: 18px; color: #5f574e">Or 4 interest-free installments with Shop Pay. <a href="#" style="color: #5f574e; text-underline-offset: 3px">Learn more</a></p>
+      </div>
+
+      <fieldset style="border: 0; margin: 0; padding: 0">
+        <legend style="padding: 0; margin-bottom: 12px; font-size: 14px; line-height: 20px; font-weight: 500">Size — {{configName}}</legend>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+          <sc-for list="{{configs}}" as="c" hint-placeholder-count="3">
+            <button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><span style="font-weight: 600">{{c.label}}</span><span style="font-size: 12px; opacity: 0.8">{{c.width}}</span></button>
+          </sc-for>
+        </div>
+      </fieldset>
+
+      <fieldset style="border: 0; margin: 0; padding: 0">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px">
+          <legend style="padding: 0; font-size: 14px; line-height: 20px; font-weight: 500; float: left">Fabric — {{fabricName}}</legend>
+          <a href="#" style="font-size: 13px; line-height: 20px; text-underline-offset: 3px">Order free samples</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+          <sc-for list="{{fabrics}}" as="f" hint-placeholder-count="4">
+            <button type="button" aria-label="{{f.name}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}" style="border: 0; background: transparent; padding: 0; cursor: pointer; display: flex; flex-direction: column; gap: 6px; align-items: stretch; font-family: inherit; color: #1f1d1a; text-align: left"><span style="{{f.style}}"></span><span style="font-size: 12px; line-height: 16px">{{f.name}}</span></button>
+          </sc-for>
+        </div>
+      </fieldset>
+
+      <fieldset style="border: 0; margin: 0; padding: 0">
+        <legend style="padding: 0; margin-bottom: 12px; font-size: 14px; line-height: 20px; font-weight: 500">Legs — {{legName}}</legend>
+        <div style="display: flex; gap: 8px">
+          <sc-for list="{{legs}}" as="l" hint-placeholder-count="2">
+            <button type="button" aria-pressed="{{l.pressed}}" onClick="{{l.pick}}" style="{{l.style}}"><span style="{{l.dot}}"></span>{{l.label}}</button>
+          </sc-for>
+        </div>
+      </fieldset>
+
+      <!-- Dimensions: will it fit -->
+      <div style="background: #e5ddd1; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline">
+          <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 22px; line-height: 1; font-weight: 600; text-transform: uppercase">Will it fit?</h2>
+          <span style="font-size: 12px; line-height: 16px; color: #5f574e">All sizes in cm</span>
+        </div>
+        <svg role="img" aria-label="Front and side outline of the sofa with its width, depth and height" viewBox="0 0 400 120" style="width: 100%; height: auto; display: block" fill="none" stroke="#1f1d1a" stroke-width="1.4">
+          <rect x="20" y="38" width="210" height="44" rx="8"></rect><rect x="20" y="20" width="210" height="26" rx="6"></rect><path d="M30 82v10M220 82v10"></path>
+          <path d="M20 106h210M20 101v10M230 101v10" stroke="#5f574e" stroke-width="1"></path>
+          <rect x="280" y="38" width="80" height="44" rx="8"></rect><path d="M280 20h22v62"></path><path d="M290 82v10M350 82v10"></path>
+          <path d="M280 106h80M280 101v10M360 101v10M380 20v72M375 20h10M375 92h10" stroke="#5f574e" stroke-width="1"></path>
+        </svg>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; font-variant-numeric: tabular-nums">
+          <div><p style="margin: 0; font-size: 12px; line-height: 16px; color: #5f574e">Width</p><p style="margin: 2px 0 0; font-size: 16px; line-height: 22px; font-weight: 600">{{dimW}}</p></div>
+          <div><p style="margin: 0; font-size: 12px; line-height: 16px; color: #5f574e">Depth</p><p style="margin: 2px 0 0; font-size: 16px; line-height: 22px; font-weight: 600">95</p></div>
+          <div><p style="margin: 0; font-size: 12px; line-height: 16px; color: #5f574e">Height</p><p style="margin: 2px 0 0; font-size: 16px; line-height: 22px; font-weight: 600">78</p></div>
+          <div><p style="margin: 0; font-size: 12px; line-height: 16px; color: #5f574e">Seat height</p><p style="margin: 2px 0 0; font-size: 16px; line-height: 22px; font-weight: 600">44</p></div>
+        </div>
+        <p style="margin: 0; font-size: 13px; line-height: 20px">Fits through a doorway 80 cm wide — the back cushions and legs come off.</p>
+      </div>
+
+      <div style="display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 20px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true" style="flex: none"><path d="M2.5 7h11v9h-11z"></path><path d="M13.5 10h4l3 3v3h-7"></path><circle cx="6.5" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>
+        <span><strong style="font-weight: 600">Made to order, ships in 6–8 weeks.</strong> Delivery to the room and assembly included.</span>
+      </div>
+
+      <div style="display: flex; gap: 8px">
+        <div role="group" aria-label="Quantity" style="display: flex; align-items: center; border: 1px solid #8a7f72; border-radius: 8px">
+          <button type="button" aria-label="Decrease quantity" onClick="{{dec}}" style="width: 44px; height: 46px; border: 0; background: transparent; color: #1f1d1a; font-size: 18px; cursor: pointer">−</button>
+          <span aria-live="polite" style="min-width: 24px; text-align: center; font-size: 15px; font-weight: 600">{{qty}}</span>
+          <button type="button" aria-label="Increase quantity" onClick="{{inc}}" style="width: 44px; height: 46px; border: 0; background: transparent; color: #1f1d1a; font-size: 18px; cursor: pointer">+</button>
+        </div>
+        <button type="button" onClick="{{add}}" style="flex: 1; min-height: 48px; border: 0; border-radius: 8px; background: #1f1d1a; color: #efe9e0; font-family: inherit; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px">{{addLabel}} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+      </div>
+      <div style="height: 48px; border-radius: 8px; background: #e5ddd1; display: flex; align-items: center; justify-content: center; font-size: 12px; line-height: 16px; color: #5f574e; margin-top: -16px">Accelerated checkout — rendered by Shopify</div>
+
+      <div style="display: flex; gap: 10px; align-items: baseline; font-size: 14px; line-height: 20px">
+        <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 9999px; background: #2f5d3a; flex: none; transform: translateY(-1px)"></span>
+        <span>Floor model available to see at <strong style="font-weight: 600">Sotto Showroom</strong>. <a href="#" style="text-underline-offset: 3px">Plan a visit</a></span>
+      </div>
+
+      <div style="border-top: 1px solid #d6ccbe">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+          <div style="border-bottom: 1px solid #d6ccbe">
+            <button type="button" aria-expanded="{{t.expanded}}" onClick="{{t.toggle}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1f1d1a; cursor: pointer"><span>{{t.title}}</span><span aria-hidden="true" style="font-size: 18px; font-weight: 400">{{t.sign}}</span></button>
+            <sc-if value="{{t.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0 0 16px; font-size: 15px; line-height: 24px; white-space: pre-line">{{t.body}}</p></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </form>
+  </section>
+
+  <!-- Complete the room (complementary) -->
+  <section style="padding: 96px 32px 0">
+    <h2 style="margin: 0 0 32px; display: flex; align-items: center; gap: 24px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: clamp(40px, 5vw, 64px); line-height: 0.92; font-weight: 600; text-transform: uppercase">
+      <span>Complete</span><span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: #d6ccbe; min-width: 40px"></span><span>the room</span>
+    </h2>
+    <div style="display: grid; grid-auto-flow: column; grid-auto-columns: minmax(290px, 1fr); gap: 16px; overflow-x: auto">
+      <sc-for list="{{pairs}}" as="p" hint-placeholder-count="4">
+        <article style="background: #e5ddd1; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+            <h3 style="margin: 0; font-size: 15px; line-height: 20px; font-weight: 500"><a href="#" style="text-decoration: none">{{p.name}}</a></h3>
+            <span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">{{p.cat}}</span>
+          </div>
+          <div style="aspect-ratio: 4 / 3; border-radius: 8px; background: #dcd2c4; display: flex; align-items: flex-end; padding: 10px; box-sizing: border-box"><span style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">Product cutout</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid #d6ccbe; padding-top: 12px">
+            <span style="font-size: 12px; line-height: 16px; color: #5f574e; font-variant-numeric: tabular-nums">{{p.dims}}</span>
+            <span style="font-size: 15px; line-height: 20px; font-weight: 600">{{p.price}}</span>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- More sofas (related) -->
+  <section style="padding: 96px 32px 0">
+    <h2 style="margin: 0 0 32px; display: flex; align-items: center; gap: 24px; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: clamp(40px, 5vw, 64px); line-height: 0.92; font-weight: 600; text-transform: uppercase">
+      <span>More</span><span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: #d6ccbe; min-width: 40px"></span><span>sofas</span>
+    </h2>
+    <div style="display: grid; grid-auto-flow: column; grid-auto-columns: minmax(290px, 1fr); gap: 16px; overflow-x: auto">
+      <sc-for list="{{related}}" as="p" hint-placeholder-count="4">
+        <article style="background: #e5ddd1; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+            <h3 style="margin: 0; font-size: 15px; line-height: 20px; font-weight: 500"><a href="#" style="text-decoration: none">{{p.name}}</a></h3>
+            <span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">{{p.cat}}</span>
+          </div>
+          <div style="aspect-ratio: 4 / 3; border-radius: 8px; background: #dcd2c4; display: flex; align-items: flex-end; padding: 10px; box-sizing: border-box"><span style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">Product cutout</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid #d6ccbe; padding-top: 12px">
+            <span style="font-size: 12px; line-height: 16px; color: #5f574e; font-variant-numeric: tabular-nums">{{p.dims}}</span>
+            <span style="font-size: 15px; line-height: 20px; font-weight: 600">{{p.price}}</span>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 96px 16px 16px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <div style="border-radius: 16px; background: #e5ddd1; padding: 56px 48px 28px; flex: 1 0 auto; display: flex; flex-direction: column">
+      <div style="display: flex; flex-wrap: wrap; gap: 48px; margin-bottom: 56px">
+        <div style="flex: 2 1 380px; display: flex; flex-direction: column; gap: 16px">
+          <p style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 56px; line-height: 0.92; font-weight: 600; text-transform: uppercase">Furnish slowly</p>
+          <p style="margin: 0; font-size: 14px; line-height: 22px; color: #5f574e">New pieces, workshop notes and sample sales. One email a month.</p>
+          <form style="display: flex; gap: 8px; max-width: 440px">
+            <label for="m-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+            <input id="m-email" type="email" placeholder="Email address" style="flex: 1; min-width: 0; min-height: 48px; border: 1px solid #8a7f72; border-radius: 8px; background: #efe9e0; padding: 0 16px; font-family: inherit; font-size: 14px; color: #1f1d1a">
+            <button type="button" style="min-height: 48px; padding: 0 22px; border: 0; border-radius: 8px; background: #1f1d1a; color: #efe9e0; font-family: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer">Sign up</button>
+          </form>
+        </div>
+        <div style="flex: 1 1 150px">
+          <h2 style="margin: 0 0 14px; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">Shop by room</h2>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 20px">
+            <li><a href="#" style="text-decoration: none">Living room</a></li><li><a href="#" style="text-decoration: none">Bedroom</a></li><li><a href="#" style="text-decoration: none">Dining</a></li><li><a href="#" style="text-decoration: none">Workspace</a></li>
+          </ul>
+        </div>
+        <div style="flex: 1 1 150px">
+          <h2 style="margin: 0 0 14px; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">Help</h2>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 20px">
+            <li><a href="#" style="text-decoration: none">Delivery and returns</a></li><li><a href="#" style="text-decoration: none">Care guides</a></li><li><a href="#" style="text-decoration: none">Warranty</a></li><li><a href="#" style="text-decoration: none">Contact</a></li>
+          </ul>
+        </div>
+        <div style="flex: 1 1 150px">
+          <h2 style="margin: 0 0 14px; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5f574e">Showroom</h2>
+          <p style="margin: 0; font-size: 14px; line-height: 22px">[SHOWROOM ADDRESS]<br>Open Thursday to Sunday</p>
+          <a href="#" style="display: inline-block; margin-top: 10px; font-size: 14px; line-height: 20px; text-underline-offset: 3px">Plan a visit</a>
+        </div>
+      </div>
+      <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid #d6ccbe; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: 13px; line-height: 18px; color: #5f574e">
+        <span style="font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 24px; font-weight: 600; color: #1f1d1a">SOTTO</span>
+        <span>United States (USD $) · English</span>
+        <span>© 2026 Sotto · Powered by Shopify</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3080}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { config: 1, fabric: 1, leg: 0, media: 0, qty: 1, tab: 2, added: false };
+  }
+  renderVals() {
+    var self = this;
+    var st = this.state;
+    var CONFIGS = [
+      { label: '2-seat', width: 180, price: 2390 },
+      { label: '3-seat', width: 220, price: 2890 },
+      { label: 'Corner', width: 280, price: 3790 }
+    ];
+    var FABRICS = [
+      { name: 'Bouclé ivory', color: '#e9e3d8', extra: 200 },
+      { name: 'Linen sand', color: '#cbb79b', extra: 0 },
+      { name: 'Velvet rust', color: '#8a4a2c', extra: 150 },
+      { name: 'Wool charcoal', color: '#45413c', extra: 150 }
+    ];
+    var LEGS = [
+      { label: 'Natural oak', color: '#c49a6c' },
+      { label: 'Smoked oak', color: '#5c3d27' }
+    ];
+    var cfg = CONFIGS[st.config];
+    var fab = FABRICS[st.fabric];
+    var total = cfg.price + fab.extra;
+    var money = function (n) { return '$' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
+    var chipStyle = function (on) {
+      return 'min-height: 56px; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 14px; line-height: 18px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; border: 1px solid ' + (on ? '#1f1d1a' : '#8a7f72') + '; background: ' + (on ? '#1f1d1a' : 'transparent') + '; color: ' + (on ? '#efe9e0' : '#1f1d1a');
+    };
+    var MEDIA = [
+      { short: 'Room', label: 'Room image — ' + cfg.label + ' in ' + fab.name.toLowerCase() + ', living room' },
+      { short: 'Cutout', label: 'Product cutout — ' + fab.name.toLowerCase() + ', ' + LEGS[st.leg].label.toLowerCase() + ' legs' },
+      { short: 'Detail', label: 'Detail — seam, piping and leg joint' },
+      { short: '3D', label: '3D model — rotate or view in your room' }
+    ];
+    return {
+      bagCount: st.added ? st.qty : 0,
+      price: money(total),
+      configName: cfg.label,
+      configs: CONFIGS.map(function (c, i) {
+        return { label: c.label, width: 'W ' + c.width + ' cm', pressed: i === st.config ? 'true' : 'false', pick: function () { self.setState({ config: i, added: false }); }, style: chipStyle(i === st.config) };
+      }),
+      fabricName: fab.name + (fab.extra ? ' (+' + money(fab.extra) + ')' : ''),
+      fabrics: FABRICS.map(function (f, i) {
+        var on = i === st.fabric;
+        return { name: f.name, pressed: on ? 'true' : 'false', pick: function () { self.setState({ fabric: i, added: false }); }, style: 'display: block; aspect-ratio: 1 / 1; border-radius: 8px; background: ' + f.color + '; box-shadow: ' + (on ? '0 0 0 2px #efe9e0, 0 0 0 4px #1f1d1a' : 'inset 0 0 0 1px rgba(31, 29, 26, 0.15)') };
+      }),
+      legName: LEGS[st.leg].label,
+      legs: LEGS.map(function (l, i) {
+        var on = i === st.leg;
+        return { label: l.label, pressed: on ? 'true' : 'false', pick: function () { self.setState({ leg: i }); }, dot: 'display: inline-block; width: 14px; height: 14px; border-radius: 9999px; background: ' + l.color + '; box-shadow: 0 0 0 1px #8a7f72', style: 'min-height: 44px; padding: 0 16px; border-radius: 8px; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-family: inherit; font-size: 14px; border: 1px solid ' + (on ? '#1f1d1a' : '#8a7f72') + '; background: ' + (on ? '#1f1d1a' : 'transparent') + '; color: ' + (on ? '#efe9e0' : '#1f1d1a') };
+      }),
+      dimW: String(cfg.width),
+      thumbs: MEDIA.map(function (m, i) {
+        var on = i === st.media;
+        return { short: m.short, label: 'Show ' + m.short.toLowerCase(), pressed: on ? 'true' : 'false', pick: function () { self.setState({ media: i }); }, style: 'aspect-ratio: 4 / 3; border-radius: 12px; cursor: pointer; background: ' + (i === 0 ? '#6e6152' : '#dcd2c4') + '; color: ' + (i === 0 ? '#efe9e0' : '#5f574e') + '; display: flex; align-items: flex-end; padding: 10px; box-sizing: border-box; border: 2px solid ' + (on ? '#1f1d1a' : 'transparent') };
+      }),
+      mainLabel: MEDIA[st.media].label,
+      is3d: st.media === 3,
+      qty: st.qty,
+      dec: function () { self.setState({ qty: Math.max(1, st.qty - 1) }); },
+      inc: function () { self.setState({ qty: st.qty + 1 }); },
+      add: function () { self.setState({ added: true }); },
+      addLabel: st.added ? 'Added to bag' : 'Add to bag',
+      tabs: [
+        { title: 'Materials', body: 'Frame: kiln-dried solid oak, mortise-and-tenon joints.\nSeat: pocket springs under high-resilience foam and a feather topper.' },
+        { title: 'Care', body: 'Removable, dry-clean covers. Plump cushions weekly.\nRe-oil the legs once a year with the kit we send.' },
+        { title: 'Delivery and assembly', body: 'Made to order in 6–8 weeks. We call to book a two-hour slot.\nTwo people bring it to the room, assemble it and take every box away.' },
+        { title: 'Warranty', body: '10 years on the frame, 2 years on fabric and cushions.' }
+      ].map(function (t, i) {
+        var open = st.tab === i;
+        return { title: t.title, body: t.body, open: open, expanded: open ? 'true' : 'false', sign: open ? '−' : '+', toggle: function () { self.setState({ tab: open ? -1 : i }); } };
+      }),
+      pairs: [
+        { name: 'Mira side table', cat: 'Tables', dims: 'Ø 45 × H 50 cm', price: '$420' },
+        { name: 'Ode armchair', cat: 'Armchairs', dims: 'W 84 × D 80 × H 74 cm', price: '$1,240' },
+        { name: 'Low coffee table', cat: 'Tables', dims: 'W 120 × D 60 × H 35 cm', price: '$890' },
+        { name: 'Wool throw', cat: 'Textiles', dims: '130 × 180 cm', price: '$160' }
+      ],
+      related: [
+        { name: 'Haven sofa bed', cat: 'Sofas', dims: 'W 210 × D 98 × H 82 cm', price: '$3,150' },
+        { name: 'Ridge modular sofa', cat: 'Sofas', dims: 'W 300 × D 100 × H 72 cm', price: '$4,600' },
+        { name: 'Lune loveseat', cat: 'Sofas', dims: 'W 150 × D 95 × H 78 cm', price: '$1,990' },
+        { name: 'Ode chaise', cat: 'Sofas', dims: 'W 90 × D 160 × H 74 cm', price: '$1,760' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

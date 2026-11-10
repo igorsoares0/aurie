@@ -1,0 +1,181 @@
+{%- liquid
+  assign resources = predictive_search.resources
+  assign has_results = false
+  if resources.queries.size > 0 or resources.products.size > 0
+    assign has_results = true
+  endif
+  if resources.collections.size > 0 or resources.pages.size > 0 or resources.articles.size > 0
+    assign has_results = true
+  endif
+  assign option_index = 0
+-%}
+
+<div class="predictive-search" id="PredictiveSearchResults" data-predictive-results>
+  {%- if predictive_search.performed -%}
+    {%- if has_results -%}
+      <ul class="predictive-search__list" id="PredictiveSearchListbox" role="listbox" aria-label="{{ 'search.suggestions' | t }}">
+        {%- if resources.queries.size > 0 -%}
+          <li class="predictive-search__group" role="presentation">
+            <h2 class="predictive-search__heading label text-muted" id="PredictiveSearchQueries">{{ 'search.suggestions' | t }}</h2>
+            <ul role="group" aria-labelledby="PredictiveSearchQueries">
+              {%- for query in resources.queries -%}
+                {%- assign option_index = option_index | plus: 1 -%}
+                <li role="option" id="PredictiveOption-{{ option_index }}" aria-selected="false">
+                  <a class="predictive-search__query" href="{{ query.url }}" tabindex="-1">{{ query.styled_text }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </li>
+        {%- endif -%}
+
+        {%- if resources.products.size > 0 -%}
+          <li class="predictive-search__group" role="presentation">
+            <h2 class="predictive-search__heading label text-muted" id="PredictiveSearchProducts">{{ 'search.products' | t }}</h2>
+            <ul class="predictive-search__products" role="group" aria-labelledby="PredictiveSearchProducts">
+              {%- for product in resources.products -%}
+                {%- assign option_index = option_index | plus: 1 -%}
+                <li role="option" id="PredictiveOption-{{ option_index }}" aria-selected="false">
+                  <a class="predictive-search__product" href="{{ product.url }}" tabindex="-1">
+                    <span class="predictive-search__thumb">
+                      {%- if product.featured_media -%}
+                        {{ product.featured_media | image_url: width: 160 | image_tag: loading: 'lazy', alt: '', widths: '80, 160', sizes: '64px' }}
+                      {%- endif -%}
+                    </span>
+                    <span class="predictive-search__product-info">
+                      <span class="text-small">{{ product.title }}</span>
+                      {% render 'price', product: product, class: 'text-caption' %}
+                    </span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </li>
+        {%- endif -%}
+
+        {%- assign links_count = resources.collections.size | plus: resources.pages.size | plus: resources.articles.size -%}
+        {%- if links_count > 0 -%}
+          <li class="predictive-search__group" role="presentation">
+            <h2 class="predictive-search__heading label text-muted" id="PredictiveSearchPages">{{ 'search.pages_and_collections' | t }}</h2>
+            <ul role="group" aria-labelledby="PredictiveSearchPages">
+              {%- for item in resources.collections -%}
+                {%- assign option_index = option_index | plus: 1 -%}
+                <li role="option" id="PredictiveOption-{{ option_index }}" aria-selected="false">
+                  <a class="predictive-search__link" href="{{ item.url }}" tabindex="-1">{{ item.title }}</a>
+                </li>
+              {%- endfor -%}
+              {%- for item in resources.pages -%}
+                {%- assign option_index = option_index | plus: 1 -%}
+                <li role="option" id="PredictiveOption-{{ option_index }}" aria-selected="false">
+                  <a class="predictive-search__link" href="{{ item.url }}" tabindex="-1">{{ item.title }}</a>
+                </li>
+              {%- endfor -%}
+              {%- for item in resources.articles -%}
+                {%- assign option_index = option_index | plus: 1 -%}
+                <li role="option" id="PredictiveOption-{{ option_index }}" aria-selected="false">
+                  <a class="predictive-search__link" href="{{ item.url }}" tabindex="-1">{{ item.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </li>
+        {%- endif -%}
+      </ul>
+    {%- else -%}
+      <p class="predictive-search__empty text-small text-muted">{{ 'search.no_results_html' | t: terms: predictive_search.terms }}</p>
+    {%- endif -%}
+
+    <button class="predictive-search__all button button--secondary" type="submit">
+      {{- 'search.search_for' | t: terms: predictive_search.terms -}}
+    </button>
+    <p class="visually-hidden" role="status">{{ 'search.results_count' | t: count: option_index }}</p>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .predictive-search {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .predictive-search:empty {
+    display: none;
+  }
+
+  .predictive-search__list {
+    display: grid;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .predictive-search__group ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .predictive-search__heading {
+    margin-bottom: 8px;
+  }
+
+  .predictive-search__query,
+  .predictive-search__link,
+  .predictive-search__product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: var(--touch-target);
+    padding: 4px 8px;
+    margin-inline: -8px;
+    border-radius: var(--radius-input);
+    text-decoration: none;
+  }
+
+  .predictive-search__query mark {
+    background: none;
+    color: inherit;
+    font-weight: var(--font-body-weight-bold);
+  }
+
+  [role='option'][aria-selected='true'] > a,
+  .predictive-search__list a:hover {
+    background-color: var(--color-tile);
+    color: var(--color-text);
+  }
+
+  .predictive-search__thumb {
+    flex: none;
+    width: 56px;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: var(--radius-input);
+    background-color: var(--color-tile);
+  }
+
+  .shape--pill .predictive-search__thumb {
+    border-radius: 0;
+  }
+
+  .predictive-search__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .predictive-search__product-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .predictive-search__all {
+    align-self: flex-start;
+  }
+
+  @media screen and (min-width: 990px) {
+    .predictive-search__list {
+      grid-template-columns: 1fr 2fr 1fr;
+      align-items: start;
+    }
+  }
+{% endstylesheet %}

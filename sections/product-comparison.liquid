@@ -1,0 +1,259 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+
+  assign row_labels = ''
+  assign row_keys = ''
+  for i in (1..4)
+    assign label_key = 'row_label_' | append: i
+    assign metafield_key = 'row_metafield_' | append: i
+    if section.settings[label_key] != blank and section.settings[metafield_key] != blank
+      assign row_labels = row_labels | append: section.settings[label_key] | append: '|'
+      assign row_keys = row_keys | append: section.settings[metafield_key] | append: '|'
+    endif
+  endfor
+  assign row_labels = row_labels | split: '|'
+  assign row_keys = row_keys | split: '|'
+  assign placeholder_title = 'sections.featured_collection.placeholder' | t
+-%}
+
+<div class="section product-comparison color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="section-heading">
+        <h2 class="section-heading__title">{% render 'split-heading', text: section.settings.heading %}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="product-comparison__scroll" role="region" aria-label="{{ section.settings.heading | strip_html | escape }}" tabindex="0">
+      <table class="product-comparison__table">
+        <thead>
+          <tr>
+            <td></td>
+            {%- for block in section.blocks -%}
+              {%- assign compared = block.settings.product -%}
+              <th scope="col" class="product-comparison__product" {{ block.shopify_attributes }}>
+                <a class="product-comparison__link" href="{{ compared.url | default: '#' }}">
+                  <span class="product-comparison__media">
+                    {%- if compared.featured_media -%}
+                      {{ compared.featured_media | image_url: width: 500 | image_tag: loading: 'lazy', widths: '250, 500', sizes: '240px', alt: '' }}
+                    {%- else -%}
+                      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </span>
+                  <span class="product-comparison__title">{{ compared.title | default: placeholder_title }}</span>
+                </a>
+              </th>
+            {%- endfor -%}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="label text-muted">{{ 'sections.product_comparison.price' | t }}</th>
+            {%- for block in section.blocks -%}
+              <td>
+                {%- if block.settings.product != blank -%}
+                  {% render 'price', product: block.settings.product %}
+                {%- endif -%}
+              </td>
+            {%- endfor -%}
+          </tr>
+          {%- for row_label in row_labels -%}
+            {%- assign key_parts = row_keys[forloop.index0] | split: '.' -%}
+            <tr>
+              <th scope="row" class="label text-muted">{{ row_label }}</th>
+              {%- for block in section.blocks -%}
+                <td>{{ block.settings.product.metafields[key_parts.first][key_parts.last].value | default: '–' }}</td>
+              {%- endfor -%}
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .product-comparison__scroll {
+    overflow-x: auto;
+  }
+
+  .product-comparison__table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: var(--font-small-size);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .product-comparison__table th,
+  .product-comparison__table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--color-divider);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  .product-comparison__table thead td,
+  .product-comparison__table thead th {
+    border-bottom: 0;
+  }
+
+  .product-comparison__table tbody th {
+    width: 160px;
+    font-weight: var(--font-body-weight-medium);
+  }
+
+  .product-comparison__product {
+    font-weight: var(--font-body-weight);
+  }
+
+  .product-comparison__link {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .product-comparison__media {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    border-radius: calc(var(--radius-media) / 2);
+    background-color: var(--color-tile);
+  }
+
+  .product-comparison__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .product-comparison__title {
+    font-size: 15px;
+    font-weight: var(--font-body-weight-medium);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.product_comparison.name",
+  "class": "section-product-comparison",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info",
+      "default": "Compare | side by side"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product_comparison.rows_header"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.product_comparison.rows_info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product_comparison.first_row"
+    },
+    {
+      "type": "text",
+      "id": "row_label_1",
+      "label": "t:sections.product_comparison.row_label",
+      "default": "Dimensions"
+    },
+    {
+      "type": "text",
+      "id": "row_metafield_1",
+      "label": "t:sections.product_comparison.row_metafield",
+      "default": "custom.dimensions"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product_comparison.second_row"
+    },
+    {
+      "type": "text",
+      "id": "row_label_2",
+      "label": "t:sections.product_comparison.row_label",
+      "default": "Material"
+    },
+    {
+      "type": "text",
+      "id": "row_metafield_2",
+      "label": "t:sections.product_comparison.row_metafield",
+      "default": "custom.material"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product_comparison.third_row"
+    },
+    {
+      "type": "text",
+      "id": "row_label_3",
+      "label": "t:sections.product_comparison.row_label"
+    },
+    {
+      "type": "text",
+      "id": "row_metafield_3",
+      "label": "t:sections.product_comparison.row_metafield"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product_comparison.fourth_row"
+    },
+    {
+      "type": "text",
+      "id": "row_label_4",
+      "label": "t:sections.product_comparison.row_label"
+    },
+    {
+      "type": "text",
+      "id": "row_metafield_4",
+      "label": "t:sections.product_comparison.row_metafield"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "t:sections.shoppable_image.blocks.product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "t:sections.shoppable_image.blocks.product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product_comparison.name",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

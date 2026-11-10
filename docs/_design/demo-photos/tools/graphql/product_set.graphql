@@ -1,0 +1,13 @@
+mutation DemoProductSet($identifier: ProductSetIdentifiers, $input: ProductSetInput!) {
+  productSet(synchronous: true, identifier: $identifier, input: $input) {
+    product {
+      id
+      handle
+    }
+    userErrors {
+      field
+      message
+      code
+    }
+  }
+}

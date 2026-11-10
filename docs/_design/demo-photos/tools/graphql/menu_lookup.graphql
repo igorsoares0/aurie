@@ -1,0 +1,8 @@
+query DemoMenuLookup {
+  menus(first: 50) {
+    nodes {
+      id
+      handle
+    }
+  }
+}

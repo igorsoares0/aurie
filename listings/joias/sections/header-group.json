@@ -1,0 +1,41 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "tile_background": true
+      },
+      "blocks": {
+        "a1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Complimentary gift wrapping and engraving on every piece"
+          }
+        }
+      },
+      "block_order": [
+        "a1"
+      ]
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "show_divider": false,
+        "logo_width": 120,
+        "menu": "main-menu",
+        "customer_account_menu": "customer-account-main-menu",
+        "store_link": "",
+        "show_country_selector": true,
+        "show_language_selector": true
+      }
+    }
+  },
+  "order": [
+    "announcement_bar",
+    "header"
+  ]
+}

@@ -1,0 +1,163 @@
+<div class="main-blog color-{{ section.settings.color_scheme }}">
+  <div class="main-blog__inner page-width">
+    <header class="main-blog__head">
+      <h1 class="main-blog__title">{{ blog.title }}</h1>
+
+      {%- if section.settings.show_tags and blog.all_tags.size > 0 -%}
+        <nav class="main-blog__tags" aria-label="{{ 'blog.filter_by_tag' | t }}">
+          <ul class="main-blog__tag-list" role="list">
+            <li>
+              <a
+                class="main-blog__tag"
+                href="{{ blog.url }}"
+                {% if current_tags == blank %}
+                  aria-current="page"
+                {% endif %}
+              >
+                {{- 'blog.all' | t -}}
+              </a>
+            </li>
+            {%- for tag in blog.all_tags -%}
+              <li>
+                <a
+                  class="main-blog__tag"
+                  href="{{ blog.url }}/tagged/{{ tag | handleize }}"
+                  {% if current_tags contains tag %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  {{- tag -}}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+    </header>
+
+    {%- paginate blog.articles by section.settings.articles_per_page -%}
+      {%- if blog.articles.size > 0 -%}
+        <ul class="main-blog__grid" role="list">
+          {%- for article in blog.articles -%}
+            <li>
+              {% render 'article-card',
+                article: article,
+                show_date: section.settings.show_date,
+                show_author: section.settings.show_author,
+                heading_tag: 'h2'
+              %}
+            </li>
+          {%- endfor -%}
+        </ul>
+        {% render 'pagination', paginate: paginate %}
+      {%- else -%}
+        <p class="main-blog__empty">{{ 'blog.empty' | t }}</p>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{%- for block in section.blocks -%}
+  {%- if block.type == '@app' -%}
+    <div class="app-block page-width">{% render block %}</div>
+  {%- endif -%}
+{%- endfor -%}
+
+{% stylesheet %}
+  .main-blog__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-block: 48px var(--section-spacing);
+  }
+
+  .main-blog__head {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .main-blog__tag-list {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .main-blog__tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--touch-target);
+    padding: 0 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    font-size: var(--font-small-size);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .main-blog__tag[aria-current='page'] {
+    border-color: var(--color-text);
+    background-color: var(--color-text);
+    color: var(--color-background);
+  }
+
+  .main-blog__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+    gap: 56px var(--grid-gap);
+    margin: 0;
+  }
+
+  .card--portrait .main-blog__grid {
+    column-gap: 24px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_blog.name",
+  "class": "section-main-blog",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "articles_per_page",
+      "label": "t:sections.main_blog.articles_per_page",
+      "min": 3,
+      "max": 24,
+      "step": 3,
+      "default": 9
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "t:sections.main_blog.show_tags",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "t:sections.main_blog.show_date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "t:sections.main_blog.show_author",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

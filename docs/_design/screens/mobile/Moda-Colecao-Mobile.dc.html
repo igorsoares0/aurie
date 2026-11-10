@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arvel — collection, mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#f8f5f0}
+a{color:#2a1f18}
+:focus-visible{outline:2px solid #2a1f18;outline-offset:2px}
+input::placeholder{color:#6b5f55}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 100vh; position: relative; background: #f8f5f0; color: #2a1f18; font-family: 'Work Sans', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column">
+
+  <div style="background: #2a1f18; color: #f3ede5; text-align: center; font-size: 12px; line-height: 16px; padding: 8px 16px">Free shipping and returns</div>
+
+  <header style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 6px 8px">
+    <button type="button" style="justify-self: start; min-height: 44px; padding: 0 8px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Menu</button>
+    <a href="#" style="font-family: Cormorant, 'Times New Roman', serif; font-size: 26px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none">Arvel</a>
+    <div style="justify-self: end; display: flex">
+      <a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none">Account</a>
+      <a href="#" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none">Bag (2)</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Collection header -->
+    <section style="padding: 24px 16px 0">
+      <p style="margin: 0 0 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55"><a href="#" style="color: #6b5f55; text-decoration: none">Home</a> / Clothing</p>
+      <h1 style="margin: 0; font-family: Cormorant, 'Times New Roman', serif; font-size: 52px; line-height: 1; font-weight: 300">Outerwear</h1>
+      <p style="margin: 12px 0 0; font-size: 14px; line-height: 22px">Coats and jackets cut to layer over knitwear. Every piece lists the model's height and size.</p>
+    </section>
+    <nav aria-label="Outerwear categories" style="margin-top: 20px">
+      <ul style="display: flex; gap: 8px; overflow-x: auto; list-style: none; margin: 0; padding: 0 16px">
+        <sc-for list="{{subs}}" as="s" hint-placeholder-count="5">
+          <li style="flex: none"><a href="#" aria-current="{{s.current}}" style="{{s.style}}">{{s.label}}</a></li>
+        </sc-for>
+      </ul>
+    </nav>
+
+    <!-- Toolbar, sticks to the top while scrolling -->
+    <div style="position: sticky; top: 0; z-index: 4; margin-top: 24px; background: #f8f5f0; border-top: 1px solid #d9d1c7; border-bottom: 1px solid #d9d1c7; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center">
+      <button type="button" aria-haspopup="dialog" onClick="{{openFilter}}" style="justify-self: start; min-height: 48px; padding: 0 16px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">{{filterLabel}}</button>
+      <span style="font-size: 12px; color: #6b5f55">12 products</span>
+      <button type="button" aria-haspopup="dialog" onClick="{{openSort}}" style="justify-self: end; min-height: 48px; padding: 0 16px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Sort</button>
+    </div>
+
+    <!-- Grid: 2 columns, 8 of 12 -->
+    <section aria-label="Products" style="padding: 16px 8px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 8px">
+      <sc-for list="{{products}}" as="p" hint-placeholder-count="8">
+        <a href="#" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none">
+          <span style="{{p.img}}">
+            <sc-if value="{{p.badge}}" hint-placeholder-val="{{false}}"><span style="position: absolute; left: 8px; top: 8px; background: #f8f5f0; padding: 3px 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">{{p.badge}}</span></sc-if>
+          </span>
+          <span style="margin-top: 6px; font-size: 13px; line-height: 18px">{{p.name}}</span>
+          <span style="font-size: 13px; line-height: 18px">{{p.price}}<sc-if value="{{p.was}}" hint-placeholder-val="{{false}}"> <s style="color: #6b5f55">{{p.was}}</s></sc-if></span>
+          <span style="display: flex; gap: 4px; align-items: center; margin-top: 2px"><span style="{{p.dot}}"></span><span style="font-size: 11px; color: #6b5f55">{{p.color}}</span></span>
+        </a>
+      </sc-for>
+    </section>
+
+    <!-- Load more -->
+    <div style="padding: 48px 16px 0; display: flex; flex-direction: column; align-items: center; gap: 12px">
+      <p style="margin: 0; font-size: 12px; color: #6b5f55">Showing 8 of 12</p>
+      <span aria-hidden="true" style="width: 160px; height: 1px; background: #d9d1c7; position: relative"><span style="position: absolute; left: 0; top: 0; width: 107px; height: 1px; background: #2a1f18"></span></span>
+      <a href="#" style="min-height: 48px; display: inline-flex; align-items: center; padding: 0 32px; border: 1px solid #2a1f18; text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Load more</a>
+    </div>
+  </main>
+
+  <footer style="padding: 64px 16px 24px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <h2 style="margin: 0 0 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6b5f55">Join our world</h2>
+    <form style="display: flex; border-bottom: 1px solid #8c7f73">
+      <label for="mc-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+      <input id="mc-email" type="email" placeholder="Email" style="flex: 1; min-width: 0; border: 0; background: transparent; padding: 8px 0; font-family: inherit; font-size: 15px; color: #2a1f18">
+      <button type="button" style="min-height: 44px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Sign up</button>
+    </form>
+    <div style="margin-top: 32px; border-top: 1px solid #d9d1c7">
+      <sc-for list="{{footerMenus}}" as="fm" hint-placeholder-count="3">
+        <div style="border-bottom: 1px solid #d9d1c7">
+          <button type="button" aria-expanded="{{fm.expanded}}" onClick="{{fm.toggle}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #2a1f18"><span>{{fm.title}}</span><span aria-hidden="true" style="font-size: 18px; font-weight: 400">{{fm.sign}}</span></button>
+          <sc-if value="{{fm.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0 0 16px; font-size: 14px; line-height: 28px; white-space: pre-line">{{fm.links}}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <p aria-hidden="true" style="margin: auto 0 12px; padding-top: 48px; font-family: Cormorant, 'Times New Roman', serif; font-size: 96px; line-height: 0.85; text-align: center; text-transform: uppercase; letter-spacing: -0.02em">Arvel</p>
+    <p style="margin: 0; text-align: center; font-size: 12px; line-height: 18px; color: #6b5f55">United States (USD $) · English<br>© 2026 Arvel · Powered by Shopify</p>
+  </footer>
+
+  <!-- Filter drawer: full screen -->
+  <sc-if value="{{filterOpen}}" hint-placeholder-val="{{false}}">
+    <div role="dialog" aria-modal="true" aria-label="Filter" style="position: absolute; top: 0; left: 0; width: 390px; height: 844px; background: #f8f5f0; display: flex; flex-direction: column; z-index: 10">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 8px 6px 16px; border-bottom: 1px solid #d9d1c7">
+        <h2 style="margin: 0; font-family: Cormorant, serif; font-size: 28px; font-weight: 400">Filter</h2>
+        <button type="button" onClick="{{closeSheet}}" style="min-height: 44px; padding: 0 8px; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Close</button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 0 16px">
+        <fieldset style="border: 0; margin: 0; padding: 24px 0; border-bottom: 1px solid #d9d1c7">
+          <legend style="float: left; width: 100%; padding: 0; margin-bottom: 14px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Size</legend>
+          <div style="clear: both; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px">
+            <sc-for list="{{fSizes}}" as="s" hint-placeholder-count="5">
+              <button type="button" aria-pressed="{{s.pressed}}" onClick="{{s.toggle}}" style="{{s.style}}">{{s.label}}</button>
+            </sc-for>
+          </div>
+        </fieldset>
+        <fieldset style="border: 0; margin: 0; padding: 24px 0; border-bottom: 1px solid #d9d1c7">
+          <legend style="float: left; width: 100%; padding: 0; margin-bottom: 14px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Color</legend>
+          <div style="clear: both; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 8px">
+            <sc-for list="{{fColors}}" as="c" hint-placeholder-count="4">
+              <button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.toggle}}" style="min-height: 44px; display: flex; align-items: center; gap: 10px; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 14px; color: #2a1f18; text-align: left"><span style="{{c.dot}}"></span>{{c.name}}</button>
+            </sc-for>
+          </div>
+        </fieldset>
+        <fieldset style="border: 0; margin: 0; padding: 24px 0">
+          <legend style="float: left; width: 100%; padding: 0; margin-bottom: 14px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Price</legend>
+          <div style="clear: both; display: flex; gap: 8px; align-items: center">
+            <label style="flex: 1; display: flex; align-items: center; gap: 6px; min-height: 44px; border: 1px solid #8c7f73; padding: 0 12px; font-size: 14px">$<input type="text" inputmode="numeric" aria-label="Minimum price" placeholder="0" style="width: 100%; border: 0; background: transparent; font-family: inherit; font-size: 15px; color: #2a1f18"></label>
+            <span aria-hidden="true">–</span>
+            <label style="flex: 1; display: flex; align-items: center; gap: 6px; min-height: 44px; border: 1px solid #8c7f73; padding: 0 12px; font-size: 14px">$<input type="text" inputmode="numeric" aria-label="Maximum price" placeholder="940" style="width: 100%; border: 0; background: transparent; font-family: inherit; font-size: 15px; color: #2a1f18"></label>
+          </div>
+        </fieldset>
+      </div>
+      <div style="padding: 12px 16px; border-top: 1px solid #d9d1c7; display: grid; grid-template-columns: 1fr 2fr; gap: 8px">
+        <button type="button" onClick="{{clearFilters}}" style="min-height: 48px; border: 1px solid #2a1f18; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Clear</button>
+        <button type="button" onClick="{{closeSheet}}" style="min-height: 48px; border: 0; background: #2a1f18; color: #f8f5f0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Show results</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- Sort: bottom sheet -->
+  <sc-if value="{{sortOpen}}" hint-placeholder-val="{{false}}">
+    <div style="position: absolute; top: 0; left: 0; width: 390px; height: 844px; background: rgba(42, 31, 24, 0.4); display: flex; align-items: flex-end; z-index: 10">
+      <div role="dialog" aria-modal="true" aria-label="Sort" style="width: 100%; box-sizing: border-box; background: #f8f5f0; padding: 16px 16px 24px">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px">
+          <h2 style="margin: 0; font-family: Cormorant, serif; font-size: 28px; font-weight: 400">Sort by</h2>
+          <button type="button" onClick="{{closeSheet}}" style="min-height: 44px; padding: 0; border: 0; background: transparent; color: #2a1f18; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">Close</button>
+        </div>
+        <sc-for list="{{sorts}}" as="o" hint-placeholder-count="4">
+          <button type="button" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; border-bottom: 1px solid #d9d1c7; background: transparent; padding: 0; font-family: inherit; font-size: 15px; color: #2a1f18"><span>{{o.label}}</span><span aria-hidden="true">{{o.mark}}</span></button>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2420}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sheet: '', sizes: [], colors: [], sort: 0, foot: -1 }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var COLORS = [{ name: 'Camel', hex: '#a47a52' }, { name: 'Black', hex: '#1e1a17' }, { name: 'Ecru', hex: '#ddd1bf' }, { name: 'Grey', hex: '#8e8a85' }];
+    var hex = {}; COLORS.forEach(function (c) { hex[c.name] = c.hex; });
+    var tone = { Camel: '#c9b59b', Black: '#6d625a', Ecru: '#e3d9cc', Grey: '#b9b2aa' };
+    var P = [
+      { name: 'Trinelle wool coat', color: 'Camel', p: 640 },
+      { name: 'Rowani shearling jacket', color: 'Black', p: 890, badge: 'New' },
+      { name: 'Edda trench coat', color: 'Ecru', p: 392, was: 560 },
+      { name: 'Lia belted blazer', color: 'Grey', p: 420 },
+      { name: 'Tove wool cape', color: 'Camel', p: 480 },
+      { name: 'Adeline shearling jacket', color: 'Ecru', p: 940 },
+      { name: 'Mira quilted vest', color: 'Black', p: 210, was: 300 },
+      { name: 'Sol cropped jacket', color: 'Grey', p: 360, badge: 'Sold out' }
+    ];
+    var toggleIn = function (arr, v) { return arr.indexOf(v) === -1 ? arr.concat([v]) : arr.filter(function (x) { return x !== v; }); };
+    var count = st.sizes.length + st.colors.length;
+    var SORTS = ['Featured', 'Newest', 'Price, low to high', 'Price, high to low'];
+    var menus = [
+      { title: 'Help', links: 'Shipping and returns\nSize guide\nContact' },
+      { title: 'Arvel', links: 'Our story\nJournal\nStores' },
+      { title: 'Social media', links: 'Instagram\nPinterest\nTikTok' }
+    ];
+    return {
+      subs: ['All outerwear', 'Coats', 'Jackets', 'Blazers', 'Vests'].map(function (l, i) {
+        return { label: l, current: i === 0 ? 'page' : 'false',
+          style: 'min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; text-decoration: none; font-size: 13px; border: 1px solid ' + (i === 0 ? '#2a1f18' : '#d9d1c7') + '; background: ' + (i === 0 ? '#2a1f18' : 'transparent') + '; color: ' + (i === 0 ? '#f8f5f0' : '#2a1f18') };
+      }),
+      filterLabel: count ? 'Filter (' + count + ')' : 'Filter',
+      products: P.map(function (x) {
+        return { name: x.name, color: x.color, price: '$' + x.p, was: x.was ? '$' + x.was : false, badge: x.badge || false,
+          img: 'display: block; position: relative; aspect-ratio: 3 / 4; background: ' + tone[x.color],
+          dot: 'display: block; width: 10px; height: 10px; border-radius: 9999px; background: ' + hex[x.color] + '; box-shadow: 0 0 0 1px #8c7f73' };
+      }),
+      filterOpen: st.sheet === 'filter',
+      sortOpen: st.sheet === 'sort',
+      openFilter: function () { self.setState({ sheet: 'filter' }); },
+      openSort: function () { self.setState({ sheet: 'sort' }); },
+      closeSheet: function () { self.setState({ sheet: '' }); },
+      clearFilters: function () { self.setState({ sizes: [], colors: [] }); },
+      fSizes: ['XS', 'S', 'M', 'L', 'XL'].map(function (s) {
+        var on = st.sizes.indexOf(s) !== -1;
+        return { label: s, pressed: on ? 'true' : 'false', toggle: function () { self.setState({ sizes: toggleIn(st.sizes, s) }); },
+          style: 'min-height: 44px; font-family: inherit; font-size: 13px; border: 1px solid ' + (on ? '#2a1f18' : '#8c7f73') + '; background: ' + (on ? '#2a1f18' : 'transparent') + '; color: ' + (on ? '#f8f5f0' : '#2a1f18') };
+      }),
+      fColors: COLORS.map(function (c) {
+        var on = st.colors.indexOf(c.name) !== -1;
+        return { name: c.name, pressed: on ? 'true' : 'false', toggle: function () { self.setState({ colors: toggleIn(st.colors, c.name) }); },
+          dot: 'display: block; width: 22px; height: 22px; border-radius: 9999px; background: ' + c.hex + '; box-shadow: 0 0 0 1px #8c7f73' + (on ? ', 0 0 0 3px #f8f5f0, 0 0 0 4px #2a1f18' : '') };
+      }),
+      sorts: SORTS.map(function (l, i) {
+        var on = i === st.sort;
+        return { label: l, pressed: on ? 'true' : 'false', mark: on ? '✓' : '', pick: function () { self.setState({ sort: i, sheet: '' }); } };
+      }),
+      footerMenus: menus.map(function (m, i) {
+        var open = st.foot === i;
+        return { title: m.title, links: m.links, open: open, expanded: open ? 'true' : 'false', sign: open ? '−' : '+', toggle: function () { self.setState({ foot: open ? -1 : i }); } };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

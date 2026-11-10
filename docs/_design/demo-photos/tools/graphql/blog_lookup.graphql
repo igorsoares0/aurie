@@ -1,0 +1,8 @@
+query DemoBlogLookup($query: String!) {
+  blogs(first: 1, query: $query) {
+    nodes {
+      id
+      handle
+    }
+  }
+}

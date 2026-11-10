@@ -1,0 +1,206 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+  assign featured = section.settings.product
+  assign variant = featured.selected_or_first_available_variant
+  assign form_id = 'FeaturedProductForm-' | append: section.id
+-%}
+
+<featured-product class="section featured-product color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="featured-product__grid page-width">
+    <div class="featured-product__media">
+      {%- if featured.featured_media -%}
+        {{
+          featured.featured_media
+          | image_url: width: 1600
+          | image_tag:
+            widths: '500, 800, 1100, 1600',
+            sizes: '(min-width: 990px) 55vw, 100vw',
+            loading: 'lazy',
+            alt: featured.featured_media.alt,
+            class: 'featured-product__image'
+        }}
+      {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag: 'featured-product__image placeholder-svg' }}
+      {%- endif -%}
+    </div>
+
+    <div class="featured-product__info">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="label text-muted">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- assign placeholder_title = 'sections.featured_collection.placeholder' | t -%}
+      <h2 class="h1">{{ featured.title | default: placeholder_title }}</h2>
+
+      {%- if featured != blank -%}
+        <div data-featured-price>{% render 'price', product: featured, variant: variant, show_badge: true %}</div>
+
+        {%- if section.settings.show_description and featured.description != blank -%}
+          <div class="featured-product__description rte">{{ featured.description | strip_html | truncatewords: 40 }}</div>
+        {%- endif -%}
+
+        {%- form 'product', featured, id: form_id, class: 'featured-product__form', data-ajax-add: 'true' -%}
+          {%- if featured.has_only_default_variant -%}
+            <input type="hidden" name="id" value="{{ variant.id }}">
+          {%- else -%}
+            <label class="label" for="FeaturedVariant-{{ section.id }}">{{ featured.options | join: ' / ' }}</label>
+            <select class="field" id="FeaturedVariant-{{ section.id }}" name="id" data-featured-variant>
+              {%- for item in featured.variants -%}
+                <option
+                  value="{{ item.id }}"
+                  data-price="{{ item.price | money }}"
+                  data-compare="{% if item.compare_at_price > item.price %}{{ item.compare_at_price | money }}{% endif %}"
+                  data-available="{{ item.available }}"
+                  {% if item == variant %}
+                    selected
+                  {% endif %}
+                >
+                  {{- item.title -}}
+                  {%- unless item.available %} – {{ 'product.price.sold_out' | t }}{% endunless -%}
+                </option>
+              {%- endfor -%}
+            </select>
+          {%- endif -%}
+
+          <button class="button featured-product__add" type="submit" name="add" {% unless variant.available %}disabled{% endunless %} data-add-label="{{ 'product.add_to_cart' | t }}" data-sold-out-label="{{ 'product.price.sold_out' | t }}">
+            {%- if variant.available -%}
+              {{ 'product.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'product.price.sold_out' | t }}
+            {%- endif -%}
+          </button>
+          {%- if section.settings.show_dynamic_checkout -%}
+            {{ form | payment_button }}
+          {%- endif -%}
+          <p class="featured-product__error text-small" role="alert" data-add-error hidden></p>
+        {%- endform -%}
+
+        <a class="text-link" href="{{ featured.url }}">{{ 'sections.featured_product.view_details' | t }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</featured-product>
+
+{%- for block in section.blocks -%}
+  {%- if block.type == '@app' -%}
+    <div class="app-block page-width">{% render block %}</div>
+  {%- endif -%}
+{%- endfor -%}
+
+{% stylesheet %}
+  featured-product {
+    display: block;
+  }
+
+  .featured-product__grid {
+    display: grid;
+    gap: 32px;
+  }
+
+  .featured-product__media {
+    overflow: hidden;
+    aspect-ratio: var(--card-ratio, 4 / 5);
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .featured-product__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .featured-product__info,
+  .featured-product__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .featured-product__form {
+    max-width: 440px;
+  }
+
+  .featured-product__error {
+    color: var(--color-error);
+  }
+
+  @media screen and (min-width: 990px) {
+    .featured-product__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 440px);
+      gap: 64px;
+      align-items: center;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('featured-product')) {
+    customElements.define(
+      'featured-product',
+      class FeaturedProduct extends HTMLElement {
+        connectedCallback() {
+          this.querySelector('[data-featured-variant]')?.addEventListener('change', (event) => {
+            const option = event.target.selectedOptions[0];
+            const price = this.querySelector('[data-featured-price] .price__current');
+            if (price) price.textContent = option.dataset.price;
+            const button = this.querySelector('[name="add"]');
+            const available = option.dataset.available === 'true';
+            button.disabled = !available;
+            button.textContent = available ? button.dataset.addLabel : button.dataset.soldOutLabel;
+          });
+        }
+      }
+    );
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.featured_product.name",
+  "class": "section-featured-product",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:sections.shoppable_image.blocks.product"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.rich_text.caption"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "t:sections.featured_product.show_description",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "label": "t:blocks.buy_buttons.show_dynamic_checkout",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured_product.name"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,203 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+-%}
+
+<div class="section material-guide color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="page-width">
+    <div class="material-guide__head">
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="material-guide__intro rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+
+    <ul class="material-guide__list" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign swatch_style = ''
+          if block.settings.swatch_image
+            assign swatch_image_url = block.settings.swatch_image | image_url: width: 80
+            assign swatch_style = 'background-image: url(' | append: swatch_image_url | append: ');'
+          elsif block.settings.swatch_color != blank
+            assign swatch_style = 'background-color: ' | append: block.settings.swatch_color | append: ';'
+          endif
+        -%}
+        <li class="material-guide__item" {{ block.shopify_attributes }}>
+          <div class="material-guide__name">
+            <span class="swatch material-guide__swatch" style="{{ swatch_style }}"></span>
+            <h3 class="h3">{{ block.settings.name }}</h3>
+          </div>
+          {%- if block.settings.description != blank -%}
+            <div class="material-guide__description rte">{{ block.settings.description }}</div>
+          {%- endif -%}
+          {%- if block.settings.care != blank -%}
+            <p class="text-caption text-muted">{{ block.settings.care }}</p>
+          {%- endif -%}
+          {%- if block.settings.note != blank -%}
+            <p class="label">{{ block.settings.note }}</p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .material-guide__head {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .material-guide__intro {
+    max-width: 520px;
+  }
+
+  .material-guide__list {
+    display: grid;
+    gap: 40px 24px;
+    margin: 0;
+  }
+
+  .material-guide__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .material-guide__name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .material-guide__swatch {
+    width: 24px;
+    height: 24px;
+  }
+
+  .material-guide__description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .material-guide__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .material-guide__list {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.material_guide.name",
+  "class": "section-material-guide",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Know your <em>metals</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "<p>What each finish is, how it wears, and how to keep it bright.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "material",
+      "name": "t:sections.material_guide.blocks.material",
+      "settings": [
+        {
+          "type": "color",
+          "id": "swatch_color",
+          "label": "t:sections.material_guide.blocks.swatch_color",
+          "default": "#d4b46a"
+        },
+        {
+          "type": "image_picker",
+          "id": "swatch_image",
+          "label": "t:sections.material_guide.blocks.swatch_image",
+          "info": "t:sections.material_guide.blocks.swatch_image_info"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "t:sections.material_guide.blocks.name",
+          "default": "Material"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "t:sections.material_guide.blocks.description",
+          "default": "<p>Describe the material and how it wears.</p>"
+        },
+        {
+          "type": "text",
+          "id": "care",
+          "label": "t:sections.material_guide.blocks.care",
+          "default": "Care: polish with a soft cloth."
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "t:sections.material_guide.blocks.note"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.material_guide.name",
+      "blocks": [
+        {
+          "type": "material",
+          "settings": {
+            "name": "Gold vermeil",
+            "swatch_color": "#d4b46a"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "name": "Sterling silver",
+            "swatch_color": "#c9c9c4"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "name": "Solid gold",
+            "swatch_color": "#b8913a"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

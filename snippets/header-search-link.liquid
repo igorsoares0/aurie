@@ -1,0 +1,17 @@
+{% doc %}
+  Renders the header link to the search page, as a word or as an icon.
+
+  @param {boolean} use_words - Show "Search" as text instead of an icon
+
+  @example
+  {% render 'header-search-link', use_words: true %}
+{% enddoc %}
+
+<a class="header__tool header__search-link" href="{{ routes.search_url }}" data-dialog-open="SearchModal" aria-haspopup="dialog">
+  {%- if use_words -%}
+    {{- 'header.search' | t -}}
+  {%- else -%}
+    {% render 'icon', name: 'search' %}
+    <span class="visually-hidden">{{ 'header.search' | t }}</span>
+  {%- endif -%}
+</a>

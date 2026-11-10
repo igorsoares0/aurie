@@ -1,0 +1,56 @@
+{%- liquid
+  assign product = closest.product
+  assign variant = product.selected_or_first_available_variant
+-%}
+
+<div class="product-price" data-product-part="price-{{ block.id }}" {{ block.shopify_attributes }}>
+  {% render 'price', product: product, variant: variant, show_badge: true, class: 'product-price__amount' %}
+
+  {%- if block.settings.show_tax_note -%}
+    <p class="product-price__note text-caption text-muted">
+      {%- if cart.duties_included and cart.taxes_included -%}
+        {{ 'product.price.duties_and_taxes_included' | t }}
+      {%- elsif cart.taxes_included -%}
+        {{ 'product.price.taxes_included' | t }}
+      {%- elsif cart.duties_included -%}
+        {{ 'product.price.duties_included' | t }}
+      {%- endif -%}
+      {%- if shop.shipping_policy.body != blank %}
+        {{ 'product.price.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+      {%- else %}
+        {{ 'product.price.shipping_at_checkout' | t }}
+      {%- endif -%}
+    </p>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .product-price {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .product-price__amount {
+    font-size: calc(var(--font-body-size) * 1.1);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.price.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_tax_note",
+      "label": "t:blocks.price.show_tax_note",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.price.name"
+    }
+  ]
+}
+{% endschema %}

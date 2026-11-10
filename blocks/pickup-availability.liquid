@@ -1,0 +1,134 @@
+{%- liquid
+  assign product = closest.product
+  assign variant = product.selected_or_first_available_variant
+  assign availabilities = variant.store_availabilities | where: 'pick_up_enabled', true
+  assign dialog_id = 'PickupStores-' | append: block.id
+-%}
+
+<div class="pickup" data-product-part="pickup-{{ block.id }}" {{ block.shopify_attributes }}>
+  {%- if availabilities.size > 0 -%}
+    {%- assign closest_location = availabilities.first -%}
+    <div class="pickup__summary text-small">
+      <span class="pickup__dot{% if closest_location.available %} pickup__dot--available{% endif %}" aria-hidden="true"></span>
+      <div>
+        {%- if closest_location.available -%}
+          <p>{{ 'product.pickup.available_html' | t: location: closest_location.location.name, time: closest_location.pick_up_time }}</p>
+        {%- else -%}
+          <p>{{ 'product.pickup.unavailable_html' | t: location: closest_location.location.name }}</p>
+        {%- endif -%}
+        <button class="pickup__more" type="button" data-dialog-open="{{ dialog_id }}" aria-haspopup="dialog">
+          {%- if availabilities.size > 1 -%}
+            {{ 'product.pickup.check_other_stores' | t }}
+          {%- else -%}
+            {{ 'product.pickup.view_store' | t }}
+          {%- endif -%}
+        </button>
+      </div>
+    </div>
+
+    <dialog class="drawer color-{{ section.settings.color_scheme }}" id="{{ dialog_id }}" aria-labelledby="{{ dialog_id }}-title" scroll-lock>
+      <div class="drawer__header">
+        <h2 class="drawer__title" id="{{ dialog_id }}-title">{{ product.title }}</h2>
+        <button class="button-unstyled" type="button" data-dialog-close>
+          {% render 'icon', name: 'close' %}
+          <span class="visually-hidden">{{ 'accessibility.close' | t }}</span>
+        </button>
+      </div>
+      <div class="drawer__body">
+        {%- unless product.has_only_default_variant -%}
+          <p class="text-small text-muted">{{ variant.title }}</p>
+        {%- endunless -%}
+        <ul class="pickup__list" role="list">
+          {%- for availability in availabilities -%}
+            <li class="pickup__store">
+              <h3 class="pickup__store-name label">{{ availability.location.name }}</h3>
+              <p class="text-small">
+                {%- if availability.available -%}
+                  {{ 'product.pickup.ready_in' | t: time: availability.pick_up_time }}
+                {%- else -%}
+                  {{ 'product.pickup.not_available' | t }}
+                {%- endif -%}
+              </p>
+              <address class="text-small text-muted">{{ availability.location.address | format_address }}</address>
+              {%- if availability.location.address.phone != blank -%}
+                <p class="text-small text-muted">{{ availability.location.address.phone }}</p>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </dialog>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .pickup__summary {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+
+  .pickup__dot {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background-color: var(--color-error);
+    transform: translateY(-1px);
+  }
+
+  .pickup__dot--available {
+    background-color: var(--color-success);
+  }
+
+  .pickup__summary strong {
+    font-weight: var(--font-body-weight-medium);
+  }
+
+  .pickup__more {
+    min-height: 24px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: var(--font-small-size);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  .pickup__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 16px 0 0;
+  }
+
+  .pickup__store {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .pickup__store address {
+    font-style: normal;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.pickup_availability.name",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:blocks.pickup_availability.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.pickup_availability.name"
+    }
+  ]
+}
+{% endschema %}

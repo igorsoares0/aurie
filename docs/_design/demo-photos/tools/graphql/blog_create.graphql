@@ -1,0 +1,13 @@
+mutation DemoBlogCreate($blog: BlogCreateInput!) {
+  blogCreate(blog: $blog) {
+    blog {
+      id
+      handle
+    }
+    userErrors {
+      field
+      message
+      code
+    }
+  }
+}

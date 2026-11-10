@@ -1,0 +1,65 @@
+<div class="main-page color-{{ section.settings.color_scheme }}">
+  <div class="main-page__inner page-width main-page__inner--{{ section.settings.width }}">
+    <h1 class="main-page__title">{{ page.title }}</h1>
+    <div class="main-page__content rte">{{ page.content }}</div>
+  </div>
+</div>
+
+{%- for block in section.blocks -%}
+  {%- if block.type == '@app' -%}
+    <div class="app-block page-width">{% render block %}</div>
+  {%- endif -%}
+{%- endfor -%}
+
+{% stylesheet %}
+  .main-page__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-block: 48px var(--section-spacing);
+  }
+
+  .main-page__inner--narrow {
+    max-width: calc(44rem + var(--page-margin) * 2);
+  }
+
+  .main-page__inner--wide {
+    max-width: calc(64rem + var(--page-margin) * 2);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_page.name",
+  "class": "section-main-page",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.main_page.width",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "t:settings.layout.page_width_narrow"
+        },
+        {
+          "value": "wide",
+          "label": "t:settings.layout.page_width_wide"
+        }
+      ],
+      "default": "narrow"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

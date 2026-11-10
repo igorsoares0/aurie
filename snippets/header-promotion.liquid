@@ -1,0 +1,47 @@
+{% doc %}
+  Renders an image with a caption inside an open header menu panel.
+
+  @param {block} block - A header promotion block with image, caption and link
+
+  @example
+  {% render 'header-promotion', block: block %}
+{% enddoc %}
+
+<a class="header-promotion" href="{{ block.settings.link | default: routes.root_url }}" {{ block.shopify_attributes }}>
+  <span class="header-promotion__media">
+    {%- if block.settings.image -%}
+      {{
+        block.settings.image
+        | image_url: width: 480
+        | image_tag: widths: '240, 360, 480', sizes: '200px', loading: 'lazy', alt: '', class: 'header-promotion__image'
+      }}
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'header-promotion__image placeholder-svg' }}
+    {%- endif -%}
+  </span>
+  <span class="header-promotion__caption label">{{ block.settings.caption }}</span>
+</a>
+
+{% stylesheet %}
+  .header-promotion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 200px;
+    text-decoration: none;
+  }
+
+  .header-promotion__media {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .header-promotion__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+{% endstylesheet %}

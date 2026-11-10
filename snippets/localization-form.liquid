@@ -1,0 +1,120 @@
+{% doc %}
+  Renders the country/region and language selectors in one localization
+  form. Each selector only appears when the store has more than one option.
+  The form submits as soon as a selection changes.
+
+  @param {string} id - Unique suffix for the form and field ids
+  @param {boolean} [show_country] - Show the country/region selector. Default: true
+  @param {boolean} [show_language] - Show the language selector. Default: true
+
+  @example
+  {% render 'localization-form', id: 'footer', show_country: true, show_language: true %}
+{% enddoc %}
+
+{%- liquid
+  assign show_country = show_country | default: true, allow_false: true
+  assign show_language = show_language | default: true, allow_false: true
+
+  assign has_countries = false
+  if show_country and localization.available_countries.size > 1
+    assign has_countries = true
+  endif
+
+  assign has_languages = false
+  if show_language and localization.available_languages.size > 1
+    assign has_languages = true
+  endif
+
+  assign form_id = 'LocalizationForm-' | append: id
+-%}
+
+{%- if has_countries or has_languages -%}
+  <localization-form class="localization">
+    {%- form 'localization', id: form_id, class: 'localization__form' -%}
+      {%- if has_countries -%}
+        <div class="localization__field">
+          <label class="label text-muted" for="Country-{{ id }}">
+            {{- 'localization.country_label' | t -}}
+          </label>
+          <select class="field localization__select" id="Country-{{ id }}" name="country_code">
+            {%- for country in localization.available_countries -%}
+              <option
+                value="{{ country.iso_code }}"
+                {% if country.iso_code == localization.country.iso_code %}
+                  selected
+                {% endif %}
+              >
+                {{- country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol -}})
+              </option>
+            {%- endfor -%}
+          </select>
+        </div>
+      {%- endif -%}
+
+      {%- if has_languages -%}
+        <div class="localization__field">
+          <label class="label text-muted" for="Language-{{ id }}">
+            {{- 'localization.language_label' | t -}}
+          </label>
+          <select class="field localization__select" id="Language-{{ id }}" name="language_code">
+            {%- for language in localization.available_languages -%}
+              <option
+                value="{{ language.iso_code }}"
+                lang="{{ language.iso_code }}"
+                {% if language.iso_code == localization.language.iso_code %}
+                  selected
+                {% endif %}
+              >
+                {{- language.endonym_name | capitalize -}}
+              </option>
+            {%- endfor -%}
+          </select>
+        </div>
+      {%- endif -%}
+
+      <button class="button button--secondary localization__submit" type="submit">
+        {{- 'localization.update' | t -}}
+      </button>
+    {%- endform -%}
+  </localization-form>
+{%- endif -%}
+
+{% stylesheet %}
+  .localization__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px 24px;
+  }
+
+  .localization__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .localization__select {
+    width: auto;
+    max-width: 100%;
+  }
+
+  localization-form:defined .localization__submit {
+    display: none;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('localization-form')) {
+    customElements.define(
+      'localization-form',
+      class LocalizationForm extends HTMLElement {
+        connectedCallback() {
+          this.addEventListener('change', (event) => {
+            if (event.target.matches('select')) this.querySelector('form')?.requestSubmit();
+          });
+        }
+      }
+    );
+  }
+{% endjavascript %}

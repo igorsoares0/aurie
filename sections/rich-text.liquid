@@ -1,0 +1,278 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+-%}
+
+{%- liquid
+  if section.index == 1
+    assign heading_tag = 'h1'
+  else
+    assign heading_tag = 'h2'
+  endif
+-%}
+
+<div class="section rich-text rich-text--{{ section.settings.layout }} color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="rich-text__inner rich-text__inner--{{ section.settings.layout }} page-width">
+    {%- if section.settings.layout == 'split' -%}
+      {%- if section.settings.heading != blank or section.settings.heading_second != blank -%}
+        <{{ heading_tag }} class="rich-text__split-heading {{ section.settings.heading_size }}">
+          <span class="rich-text__split-first">{{ section.settings.heading }}</span>
+          <span class="rich-text__split-second">{{ section.settings.heading_second }}</span>
+        </{{ heading_tag }}>
+      {%- endif -%}
+    {%- else -%}
+      {%- if section.settings.caption != blank -%}
+        <p class="label text-muted">{{ section.settings.caption }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <{{ heading_tag }} class="rich-text__heading {{ section.settings.heading_size }}">{% render 'split-heading', text: section.settings.heading %}</{{ heading_tag }}>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <div class="rich-text__text rich-text__text--{{ section.settings.text_style }} rte">{{ section.settings.text }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.layout == 'split' -%}
+      <div class="rich-text__footer">
+        {%- if section.settings.caption != blank -%}
+          <p class="label text-muted">{{ section.settings.caption }}</p>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <a class="button{% if section.settings.button_style == 'outline' %} button--secondary{% endif %}" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+      </div>
+    {%- elsif section.settings.button_label != blank -%}
+      {%- if section.settings.button_style == 'link' -%}
+        <a class="text-link" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+      {%- else -%}
+        <a class="button{% if section.settings.button_style == 'outline' %} button--secondary{% endif %}" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .rich-text__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .rich-text__inner--center {
+    align-items: center;
+    text-align: center;
+  }
+
+  .rich-text__inner--center .rich-text__text {
+    max-width: 44rem;
+  }
+
+  .rich-text__inner--left .rich-text__text {
+    max-width: 40rem;
+  }
+
+  .rich-text__text--large {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(1.375rem * var(--font-heading-scale));
+    line-height: 1.35;
+  }
+
+  .rich-text__split-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+    letter-spacing: -0.02em;
+  }
+
+  .rich-text__split-second {
+    align-self: flex-end;
+    font-style: italic;
+    text-align: right;
+  }
+
+  .rich-text__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 24px;
+  }
+
+  /* As the first section, a split headline and the full-bleed image after it read as one hero */
+  #MainContent > .shopify-section:first-child .rich-text--split {
+    padding-block: 2.5rem 1.5rem;
+  }
+
+  #MainContent > .shopify-section:first-child:has(.rich-text--split) + .section-image-banner .section {
+    margin-top: 0;
+  }
+
+  @media screen and (min-width: 990px) {
+    #MainContent > .shopify-section:first-child .rich-text--split {
+      padding-block: 4.5rem 3rem;
+    }
+
+    .rich-text__split-heading {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 0.25em 0.6em;
+    }
+
+    .rich-text__split-heading.display {
+      font-size: calc(clamp(3rem, 6.5vw, 6rem) * var(--font-heading-scale));
+    }
+
+    .rich-text__split-heading + .rich-text__footer {
+      margin-top: 0.5rem;
+    }
+
+    .rich-text__split-second {
+      padding-top: 0.6em;
+    }
+
+    .rich-text__text--large {
+      font-size: calc(1.75rem * var(--font-heading-scale));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.rich_text.name",
+  "class": "section-rich-text",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:sections.rich_text.layout",
+      "options": [
+        {
+          "value": "center",
+          "label": "t:sections.rich_text.layout_center"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.rich_text.layout_left"
+        },
+        {
+          "value": "split",
+          "label": "t:sections.rich_text.layout_split"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "t:sections.rich_text.caption"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info",
+      "default": "Talk about your brand"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_second",
+      "label": "t:sections.rich_text.heading_second",
+      "info": "t:sections.rich_text.heading_second_info",
+      "visible_if": "{{ section.settings.layout == 'split' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:labels.heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:options.heading_size.medium"
+        },
+        {
+          "value": "h1",
+          "label": "t:options.heading_size.large"
+        },
+        {
+          "value": "display",
+          "label": "t:options.heading_size.extra_large"
+        }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "t:sections.rich_text.text_style",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:sections.rich_text.text_style_body"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.rich_text.text_style_large"
+        }
+      ],
+      "default": "body"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "t:sections.image_banner.button_style",
+      "options": [
+        {
+          "value": "button",
+          "label": "t:options.button_style.button"
+        },
+        {
+          "value": "outline",
+          "label": "t:options.button_style.outline"
+        },
+        {
+          "value": "link",
+          "label": "t:options.button_style.link"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label",
+      "default": "Shop all"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:labels.link",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.rich_text.name"
+    }
+  ]
+}
+{% endschema %}

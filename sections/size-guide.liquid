@@ -1,0 +1,168 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+-%}
+
+<div class="section size-guide color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="size-guide__inner page-width">
+    <div class="size-guide__intro">
+      {%- if section.settings.heading != blank -%}
+        <h2>{% render 'split-heading', text: section.settings.heading %}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ol class="size-guide__tips" role="list">
+          {%- for block in section.blocks -%}
+            <li class="size-guide__tip" {{ block.shopify_attributes }}>
+              <span class="size-guide__tip-number" aria-hidden="true">{{ forloop.index }}</span>
+              <div>
+                <h3 class="size-guide__tip-title">{{ block.settings.title }}</h3>
+                <div class="text-small">{{ block.settings.text }}</div>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+      {%- endif -%}
+    </div>
+
+    <div class="size-guide__table rte">
+      {%- if section.settings.page != blank -%}
+        {{ section.settings.page.content }}
+      {%- else -%}
+        <p class="text-muted">{{ 'sections.size_guide.empty' | t }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .size-guide__inner {
+    display: grid;
+    gap: 40px;
+  }
+
+  .size-guide__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .size-guide__tips {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 8px 0 0;
+  }
+
+  .size-guide__tip {
+    display: flex;
+    gap: 14px;
+  }
+
+  .size-guide__tip-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    font-size: var(--font-caption-size);
+  }
+
+  .size-guide__tip-title {
+    font-family: var(--font-body-family);
+    font-style: normal;
+    font-weight: var(--font-body-weight-medium);
+    text-transform: none;
+    font-size: var(--font-body-size);
+  }
+
+  .size-guide__table {
+    overflow-x: auto;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .size-guide__table table {
+    min-width: 480px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .size-guide__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      gap: 64px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.size_guide.name",
+  "class": "section-size-guide",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info",
+      "default": "Size guide"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "<p>Measurements are in centimeters. Between sizes? Choose the larger one for a relaxed fit.</p>"
+    },
+    {
+      "type": "page",
+      "id": "page",
+      "label": "t:sections.size_guide.page",
+      "info": "t:sections.size_guide.page_info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tip",
+      "name": "t:sections.size_guide.blocks.tip",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.heading",
+          "default": "Chest"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "<p>Measure around the fullest part, keeping the tape level.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.size_guide.name",
+      "blocks": [
+        { "type": "tip", "settings": { "title": "Chest" } },
+        { "type": "tip", "settings": { "title": "Waist" } },
+        { "type": "tip", "settings": { "title": "Hips" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

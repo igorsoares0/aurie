@@ -1,0 +1,149 @@
+{%- liquid
+  assign product = closest.product
+  assign has_content = false
+  if block.settings.content != blank or block.settings.page != blank
+    assign has_content = true
+  endif
+  if block.settings.show_description and product.description != blank
+    assign has_content = true
+  endif
+-%}
+
+{%- if has_content -%}
+  <details class="collapsible-tab collapsible-tab--{{ block.settings.heading_style }}" {% if block.settings.open %}open{% endif %} {{ block.shopify_attributes }}>
+    <summary class="collapsible-tab__summary">
+      <span>{{ block.settings.heading }}</span>
+      <span class="collapsible-tab__icon" aria-hidden="true">
+        {%- render 'icon', name: 'plus', class: 'collapsible-tab__plus' -%}
+        {%- render 'icon', name: 'minus', class: 'collapsible-tab__minus' -%}
+      </span>
+    </summary>
+    <div class="collapsible-tab__content rte">
+      {%- if block.settings.show_description -%}
+        {{ product.description }}
+      {%- endif -%}
+      {{ block.settings.content }}
+      {{ block.settings.page.content }}
+    </div>
+  </details>
+{%- endif -%}
+
+{% stylesheet %}
+  .collapsible-tab {
+    border-top: 1px solid var(--color-divider);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .collapsible-tab + .collapsible-tab {
+    margin-top: -24px;
+    border-top: 0;
+  }
+
+  .collapsible-tab__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 52px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .collapsible-tab__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .collapsible-tab--label .collapsible-tab__summary {
+    font-size: var(--font-label-size);
+    line-height: 16px;
+    font-weight: var(--font-body-weight-medium);
+    letter-spacing: var(--font-label-spacing);
+    text-transform: uppercase;
+  }
+
+  .collapsible-tab--heading .collapsible-tab__summary {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    text-transform: var(--font-heading-case);
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .collapsible-tab__icon .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .collapsible-tab__minus,
+  .collapsible-tab[open] .collapsible-tab__plus {
+    display: none;
+  }
+
+  .collapsible-tab[open] .collapsible-tab__minus {
+    display: block;
+  }
+
+  .collapsible-tab__content {
+    padding-bottom: 16px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.collapsible_tab.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Details"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "t:blocks.collapsible_tab.heading_style",
+      "options": [
+        {
+          "value": "label",
+          "label": "t:blocks.collapsible_tab.heading_style_label"
+        },
+        {
+          "value": "heading",
+          "label": "t:blocks.collapsible_tab.heading_style_heading"
+        }
+      ],
+      "default": "label"
+    },
+    {
+      "type": "checkbox",
+      "id": "open",
+      "label": "t:blocks.collapsible_tab.open",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "t:blocks.collapsible_tab.show_description",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:blocks.collapsible_tab.content"
+    },
+    {
+      "type": "page",
+      "id": "page",
+      "label": "t:blocks.collapsible_tab.page"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.collapsible_tab.name"
+    }
+  ]
+}
+{% endschema %}

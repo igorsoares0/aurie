@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "show_breadcrumb": true,
+        "banner_layout": "overlay",
+        "show_image": true,
+        "show_description": true,
+        "show_count": true,
+        "products_per_page": 24,
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "pagination_style": "numbers",
+        "enable_filtering": true,
+        "filter_layout": "drawer",
+        "enable_sorting": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

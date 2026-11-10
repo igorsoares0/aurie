@@ -1,0 +1,24 @@
+query DemoTaxonomy($search: String!) {
+  taxonomy {
+    categories(first: 5, search: $search) {
+      nodes {
+        id
+        fullName
+        attributes(first: 30) {
+          nodes {
+            ... on TaxonomyChoiceListAttribute {
+              id
+              name
+              values(first: 80) {
+                nodes {
+                  id
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "style": "card",
+        "show_wordmark": false,
+        "show_country_selector": true,
+        "show_language_selector": true,
+        "show_follow_on_shop": true,
+        "show_payment_icons": false
+      },
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Furnish slowly",
+            "heading_size": "large",
+            "text": "<p>New pieces, workshop notes and sample sales. One email a month.</p>"
+          }
+        },
+        "menu": {
+          "type": "menu",
+          "settings": {
+            "heading": "Help",
+            "menu": "footer"
+          }
+        },
+        "social": {
+          "type": "social",
+          "settings": {
+            "heading": "Follow"
+          }
+        },
+        "showroom": {
+          "type": "text",
+          "settings": {
+            "heading": "Showroom",
+            "text": "<p>Add your showroom address and opening hours.</p>",
+            "link_label": "Plan a visit"
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "menu",
+        "social",
+        "showroom"
+      ]
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

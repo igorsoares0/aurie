@@ -1,0 +1,12 @@
+mutation DemoCollectionCreate($collection: CollectionCreateInput!) {
+  collectionCreate(collection: $collection) {
+    collection {
+      id
+      handle
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}

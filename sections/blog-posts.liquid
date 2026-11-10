@@ -1,0 +1,115 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+  assign featured_blog = section.settings.blog
+-%}
+
+<div class="section blog-posts color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="page-width">
+    <div class="section-heading">
+      <h2 class="section-heading__title">{% render 'split-heading', text: section.settings.heading %}</h2>
+      {%- if section.settings.link_label != blank and featured_blog != blank -%}
+        <a class="text-link" href="{{ featured_blog.url }}">{{ section.settings.link_label }}</a>
+      {%- endif -%}
+    </div>
+
+    <ul class="blog-posts__list scroll-row" role="list">
+      {%- if featured_blog != blank and featured_blog.articles_count > 0 -%}
+        {%- for article in featured_blog.articles limit: section.settings.posts_to_show -%}
+          <li>
+            {% render 'article-card',
+              article: article,
+              show_date: section.settings.show_date,
+              show_author: section.settings.show_author,
+              sizes: '(min-width: 990px) 33vw, 80vw'
+            %}
+          </li>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..3) -%}
+          <li>
+            <div class="blog-posts__placeholder">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            <p class="h3">{{ 'sections.blog_posts.placeholder' | t }}</p>
+          </li>
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .blog-posts__list {
+    --scroll-item-mobile: 80%;
+    --scroll-item-min: 280px;
+    column-gap: max(var(--grid-gap), 16px);
+  }
+
+  .blog-posts__placeholder {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 16px;
+    border-radius: var(--radius-media);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.blog_posts.name",
+  "class": "section-blog-posts",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info",
+      "default": "Journal"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.blog_posts.blog"
+    },
+    {
+      "type": "range",
+      "id": "posts_to_show",
+      "label": "t:sections.blog_posts.posts_to_show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "t:sections.main_blog.show_date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "t:sections.main_blog.show_author",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:labels.link_label",
+      "default": "Read all stories"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.blog_posts.name"
+    }
+  ]
+}
+{% endschema %}

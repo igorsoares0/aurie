@@ -1,0 +1,12 @@
+mutation DemoGiftCardProductSet($identifier: ProductSetIdentifiers, $input: GiftCardProductSetInput!) {
+  giftCardProductSet(synchronous: true, identifier: $identifier, input: $input) {
+    product {
+      id
+      handle
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}

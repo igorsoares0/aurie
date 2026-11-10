@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Oriel — product, mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&amp;family=Jost:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#fcfbf9}
+a{color:#161514}
+:focus-visible{outline:2px solid #161514;outline-offset:2px}
+input::placeholder{color:#8d8780}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 100vh; position: relative; background: #fcfbf9; color: #161514; font-family: Jost, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column">
+
+  <div style="background: #f1eeea; text-align: center; font-size: 12px; line-height: 16px; letter-spacing: 0.04em; padding: 10px 16px">Free gift wrapping and engraving</div>
+
+  <header style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 8px; border-bottom: 1px solid #e4dfd8">
+    <div style="display: flex">
+      <button type="button" aria-label="Menu" style="width: 44px; height: 44px; border: 0; background: transparent; color: #161514; display: inline-flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg></button>
+      <button type="button" aria-label="Search" style="width: 44px; height: 44px; border: 0; background: transparent; color: #161514; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg></button>
+    </div>
+    <a href="#" style="font-family: 'Playfair Display', Georgia, serif; font-size: 28px; line-height: 1; text-decoration: none">Oriel</a>
+    <div style="display: flex; justify-content: flex-end">
+      <a href="#" aria-label="Account" style="width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"></circle><path d="M4.5 20.5c1.2-3.6 4.1-5.5 7.5-5.5s6.3 1.9 7.5 5.5"></path></svg></a>
+      <a href="#" aria-label="Bag, {{bagCount}} items" style="width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 2px; font-size: 12px; text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5.5 8.5h13l-1 12h-11z"></path><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"></path></svg>{{bagCount}}</a>
+    </div>
+  </header>
+
+  <main style="position: relative">
+    <!-- Gallery: one large square + thumbnail strip -->
+    <div aria-label="Product media">
+      <div style="height: 390px; background: #f1eeea; position: relative">
+        <span style="position: absolute; left: 16px; bottom: 16px; right: 16px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #67625c">{{mainLabel}}</span>
+        <sc-if value="{{is3d}}" hint-placeholder-val="{{false}}"><span style="position: absolute; right: 16px; top: 16px; border-radius: 9999px; border: 1px solid #8d8780; padding: 6px 14px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase">Drag to rotate</span></sc-if>
+      </div>
+      <div role="group" aria-label="Choose image" style="display: flex; gap: 8px; overflow-x: auto; padding: 8px 16px 0">
+        <sc-for list="{{thumbs}}" as="t" hint-placeholder-count="5">
+          <button type="button" aria-label="{{t.label}}" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="{{t.style}}"><span style="font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: #67625c">{{t.short}}</span></button>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- Buy box -->
+    <form style="padding: 28px 16px 0; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px; text-align: center; align-items: center">
+        <p style="margin: 0; font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #67625c">The icons</p>
+        <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 38px; line-height: 1.1; font-weight: 400">Pebble signet</h1>
+        <p style="margin: 0; font-size: 13px; line-height: 20px; color: #67625c">{{spec}}</p>
+        <p style="margin: 6px 0 0; font-size: 18px; line-height: 26px">{{price}} <span style="font-size: 12px; color: #67625c">Taxes included.</span></p>
+        <p style="margin: 0; font-size: 12px; line-height: 18px; color: #67625c">Or 4 interest-free installments with Shop Pay. <a href="#" style="color: #67625c; text-underline-offset: 3px">Learn more</a></p>
+      </div>
+      <fieldset style="border: 0; margin: 0; padding: 0">
+        <legend style="padding: 0; margin-bottom: 12px; font-size: 13px; line-height: 20px">Metal — {{metalName}}</legend>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+          <sc-for list="{{metals}}" as="m" hint-placeholder-count="2">
+            <button type="button" aria-pressed="{{m.pressed}}" onClick="{{m.pick}}" style="{{m.style}}"><span style="{{m.dot}}"></span>{{m.label}}</button>
+          </sc-for>
+        </div>
+      </fieldset>
+      <fieldset style="border: 0; margin: 0; padding: 0">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px">
+          <legend style="padding: 0; font-size: 13px; line-height: 20px; float: left">Ring size — {{sizeName}}</legend>
+          <button type="button" onClick="{{openGuide}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 13px; color: #161514; text-decoration: underline; text-underline-offset: 3px">Find your size</button>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+          <sc-for list="{{sizes}}" as="s" hint-placeholder-count="5">
+            <button type="button" aria-pressed="{{s.pressed}}" aria-disabled="{{s.disabled}}" aria-label="{{s.aria}}" onClick="{{s.pick}}" style="{{s.style}}">{{s.label}}</button>
+          </sc-for>
+        </div>
+      </fieldset>
+      <div style="background: #f1eeea; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+        <label style="display: flex; align-items: center; gap: 12px; min-height: 24px; font-size: 14px; line-height: 20px">
+          <input type="checkbox" checked="{{engrave}}" onChange="{{toggleEngrave}}" style="width: 18px; height: 18px; margin: 0; accent-color: #161514">
+          <span>Add engraving <span style="color: #67625c">· Free, inside the band</span></span>
+        </label>
+        <sc-if value="{{engrave}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="jp-engr" style="font-size: 12px; line-height: 16px; color: #67625c">Your text</label>
+            <input id="jp-engr" type="text" maxlength="12" value="{{engraveText}}" onInput="{{typeEngrave}}" placeholder="e.g. A · 2026" style="min-height: 44px; border: 1px solid #8d8780; border-radius: 9999px; background: #fcfbf9; padding: 0 18px; font-family: inherit; font-size: 15px; color: #161514">
+            <span aria-live="polite" style="font-size: 12px; line-height: 16px; color: #67625c">{{engraveCount}} of 12 characters. Engraved pieces ship in 5 days.</span>
+          </div>
+        </sc-if>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; gap: 8px">
+          <div role="group" aria-label="Quantity" style="display: flex; align-items: center; border: 1px solid #8d8780; border-radius: 9999px; padding: 0 4px">
+            <button type="button" aria-label="Decrease quantity" onClick="{{dec}}" style="width: 40px; height: 46px; border: 0; background: transparent; color: #161514; font-size: 18px">−</button>
+            <span aria-live="polite" style="min-width: 20px; text-align: center; font-size: 14px">{{qty}}</span>
+            <button type="button" aria-label="Increase quantity" onClick="{{inc}}" style="width: 40px; height: 46px; border: 0; background: transparent; color: #161514; font-size: 18px">+</button>
+          </div>
+          <button type="button" onClick="{{add}}" style="flex: 1; min-height: 48px; border: 0; border-radius: 9999px; background: #161514; color: #fcfbf9; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">{{addLabel}}</button>
+        </div>
+        <div style="height: 48px; border-radius: 9999px; background: #f1eeea; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #67625c">Accelerated checkout — rendered by Shopify</div>
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; font-size: 13px; line-height: 18px; text-align: center">
+        <li style="border: 1px solid #e4dfd8; padding: 12px 8px">Gift wrapped in our linen box</li>
+        <li style="border: 1px solid #e4dfd8; padding: 12px 8px">First resize free</li>
+      </ul>
+      <div style="border-top: 1px solid #e4dfd8">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+          <div style="border-bottom: 1px solid #e4dfd8">
+            <button type="button" aria-expanded="{{t.expanded}}" onClick="{{t.toggle}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; background: transparent; padding: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; color: #161514"><span>{{t.title}}</span><span aria-hidden="true" style="font-family: Jost, sans-serif; font-size: 18px">{{t.sign}}</span></button>
+            <sc-if value="{{t.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0 0 16px; font-size: 14px; line-height: 22px; white-space: pre-line">{{t.body}}</p></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </form>
+
+    <!-- Pairs well with: swipe -->
+    <section style="padding: 56px 0 0">
+      <h2 style="margin: 0 16px 20px; font-family: 'Playfair Display', Georgia, serif; font-size: 28px; line-height: 1.15; font-weight: 400">Pairs <span style="font-style: italic">well with</span></h2>
+      <div style="display: flex; gap: 12px; overflow-x: auto; padding: 0 16px; scroll-snap-type: x mandatory">
+        <sc-for list="{{pairs}}" as="p" hint-placeholder-count="3">
+          <a href="#" style="flex: 0 0 200px; scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; text-decoration: none">
+            <span style="display: block; width: 100%; aspect-ratio: 1 / 1; background: #f1eeea; margin-bottom: 6px"></span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px; line-height: 1.3">{{p.name}}</span>
+            <span style="font-size: 12px; line-height: 18px; color: #67625c">{{p.spec}}</span>
+            <span style="font-size: 14px; line-height: 20px">{{p.price}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- You may also like: swipe -->
+    <section style="padding: 56px 0 0">
+      <h2 style="margin: 0 16px 20px; font-family: 'Playfair Display', Georgia, serif; font-size: 28px; line-height: 1.15; font-weight: 400">You may <span style="font-style: italic">also like</span></h2>
+      <div style="display: flex; gap: 12px; overflow-x: auto; padding: 0 16px; scroll-snap-type: x mandatory">
+        <sc-for list="{{related}}" as="p" hint-placeholder-count="3">
+          <a href="#" style="flex: 0 0 200px; scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; text-decoration: none">
+            <span style="display: block; width: 100%; aspect-ratio: 1 / 1; background: #f1eeea; margin-bottom: 6px"></span>
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 17px; line-height: 1.3">{{p.name}}</span>
+            <span style="font-size: 12px; line-height: 18px; color: #67625c">{{p.spec}}</span>
+            <span style="font-size: 14px; line-height: 20px">{{p.price}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- Sticky bar -->
+    <div style="position: sticky; bottom: 0; margin-top: 40px; background: #fcfbf9; border-top: 1px solid #e4dfd8; padding: 10px 16px; display: flex; align-items: center; gap: 12px; z-index: 5">
+      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; font-size: 13px; line-height: 18px"><span style="font-family: 'Playfair Display', Georgia, serif; font-size: 16px; line-height: 22px">Pebble signet</span><span style="color: #67625c">Size {{sizeName}} · {{price}}</span></span>
+      <button type="button" onClick="{{add}}" style="min-height: 48px; padding: 0 24px; border: 0; border-radius: 9999px; background: #161514; color: #fcfbf9; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">{{addLabel}}</button>
+    </div>
+  </main>
+
+  <!-- Footer, Onyx -->
+  <footer style="background: #161514; color: #f5f2ed; padding: 56px 16px 24px; flex: 1 0 auto; display: flex; flex-direction: column">
+    <p style="margin: 0 0 16px; font-family: 'Playfair Display', Georgia, serif; font-size: 26px; line-height: 1.2">Letters from <span style="font-style: italic">the bench</span></p>
+    <form style="display: flex; gap: 8px">
+      <label for="jp-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</label>
+      <input id="jp-email" type="email" placeholder="Email address" style="flex: 1; min-width: 0; min-height: 44px; border: 1px solid #8a847c; border-radius: 9999px; background: transparent; padding: 0 18px; font-family: inherit; font-size: 15px; color: #f5f2ed">
+      <button type="button" style="min-height: 44px; padding: 0 20px; border: 0; border-radius: 9999px; background: #f5f2ed; color: #161514; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">Sign up</button>
+    </form>
+    <div style="margin-top: 32px; border-top: 1px solid #3a3633">
+      <sc-for list="{{footerMenus}}" as="fm" hint-placeholder-count="2">
+        <div style="border-bottom: 1px solid #3a3633">
+          <button type="button" aria-expanded="{{fm.expanded}}" onClick="{{fm.toggle}}" style="width: 100%; min-height: 52px; display: flex; justify-content: space-between; align-items: center; border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #f5f2ed"><span>{{fm.title}}</span><span aria-hidden="true" style="font-size: 18px; font-weight: 400">{{fm.sign}}</span></button>
+          <sc-if value="{{fm.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0 0 16px; font-size: 14px; line-height: 28px; white-space: pre-line">{{fm.links}}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top: auto; padding-top: 48px; display: flex; flex-direction: column; gap: 8px; font-size: 12px; line-height: 18px; color: #b3ada5">
+      <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: #f5f2ed">Oriel</span>
+      <span>United States (USD $) · English</span>
+      <span>© 2026 Oriel · Powered by Shopify</span>
+    </div>
+  </footer>
+
+  <!-- Ring size guide: bottom sheet -->
+  <sc-if value="{{guideOpen}}" hint-placeholder-val="{{false}}">
+    <div style="position: absolute; top: 0; left: 0; width: 390px; height: 844px; background: rgba(22, 21, 20, 0.4); display: flex; align-items: flex-end; z-index: 10">
+      <div role="dialog" aria-modal="true" aria-label="Ring size guide" style="width: 100%; box-sizing: border-box; background: #fcfbf9; border-radius: 16px 16px 0 0; padding: 24px 16px 32px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; justify-content: space-between; align-items: center">
+          <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 26px; line-height: 1.15; font-weight: 400">Ring size <span style="font-style: italic">guide</span></h2>
+          <button type="button" aria-label="Close ring size guide" onClick="{{closeGuide}}" style="width: 44px; height: 44px; border: 0; background: transparent; color: #161514; font-size: 22px">×</button>
+        </div>
+        <p style="margin: 0; font-size: 14px; line-height: 22px">Measure the inside diameter of a ring that already fits, then match it below.</p>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px; line-height: 20px; font-variant-numeric: tabular-nums; text-align: left">
+          <thead><tr style="border-bottom: 1px solid #8d8780"><th scope="col" style="padding: 8px 0; font-weight: 500">US size</th><th scope="col" style="font-weight: 500">Diameter</th><th scope="col" style="font-weight: 500">Circumference</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e4dfd8"><th scope="row" style="padding: 8px 0; font-weight: 400">5</th><td>15.7 mm</td><td>49.3 mm</td></tr>
+            <tr style="border-bottom: 1px solid #e4dfd8"><th scope="row" style="padding: 8px 0; font-weight: 400">6</th><td>16.5 mm</td><td>51.9 mm</td></tr>
+            <tr style="border-bottom: 1px solid #e4dfd8"><th scope="row" style="padding: 8px 0; font-weight: 400">7</th><td>17.3 mm</td><td>54.4 mm</td></tr>
+            <tr style="border-bottom: 1px solid #e4dfd8"><th scope="row" style="padding: 8px 0; font-weight: 400">8</th><td>18.1 mm</td><td>57.0 mm</td></tr>
+            <tr style="border-bottom: 1px solid #e4dfd8"><th scope="row" style="padding: 8px 0; font-weight: 400">9</th><td>19.0 mm</td><td>59.5 mm</td></tr>
+          </tbody>
+        </table>
+        <p style="margin: 0; padding: 12px 16px; background: #f1eeea; font-size: 13px; line-height: 20px">Not sure? Choose your usual size — the first resize is free.</p>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2940}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { metal: 0, size: 2, qty: 1, tab: 0, guide: false, added: false, media: 0, engrave: false, text: '', foot: -1 }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var METALS = [
+      { label: '18k gold vermeil', color: '#c9a45c', price: '$320', soldOut: [] },
+      { label: 'Sterling silver', color: '#c4c6c8', price: '$210', soldOut: ['9'] }
+    ];
+    var SIZES = ['5', '6', '7', '8', '9'];
+    var metal = METALS[st.metal];
+    var MEDIA = [
+      { short: 'Front', label: metal.label + ', front' },
+      { short: 'Side', label: metal.label + ', side profile' },
+      { short: 'On hand', label: 'Worn on the index finger' },
+      { short: 'Video', label: 'Video — light moving across the face' },
+      { short: '3D', label: '3D model — ' + metal.label }
+    ];
+    var TABS = [
+      { title: 'Materials and care', body: 'A thick layer of 18k gold over recycled sterling silver, or solid recycled sterling silver.\nRemove before swimming.' },
+      { title: 'Dimensions', body: 'Face 11 × 9 mm. Band 2.4 mm at the back.\nWeight about 6 g.' },
+      { title: 'Shipping and returns', body: 'Free shipping in 2–4 business days.\nFree returns within 30 days. Engraved pieces are final sale.' }
+    ];
+    var menus = [{ title: 'Client care', links: 'Shipping and returns\nRing size guide\nMaterial guide\nContact' }, { title: 'The studio', links: 'Our story\nJournal\nInstagram\nPinterest' }];
+    return {
+      bagCount: st.added ? st.qty : 0,
+      spec: metal.label + ' · Face 11 × 9 mm',
+      price: metal.price,
+      metalName: metal.label,
+      metals: METALS.map(function (m, i) {
+        var on = i === st.metal;
+        return { label: m.label, pressed: on ? 'true' : 'false',
+          pick: function () { self.setState({ metal: i, size: m.soldOut.indexOf(SIZES[st.size]) !== -1 ? 2 : st.size, added: false }); },
+          dot: 'display: inline-block; width: 14px; height: 14px; border-radius: 9999px; background: ' + m.color + '; box-shadow: 0 0 0 1px #8d8780',
+          style: 'min-height: 44px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 9999px; font-family: inherit; font-size: 13px; border: 1px solid ' + (on ? '#161514' : '#8d8780') + '; background: ' + (on ? '#161514' : 'transparent') + '; color: ' + (on ? '#fcfbf9' : '#161514') };
+      }),
+      sizeName: SIZES[st.size],
+      sizes: SIZES.map(function (s, i) {
+        var gone = metal.soldOut.indexOf(s) !== -1;
+        var on = i === st.size && !gone;
+        return { label: s, aria: gone ? 'Size ' + s + ', sold out' : 'Size ' + s, pressed: on ? 'true' : 'false', disabled: gone ? 'true' : 'false',
+          pick: function () { if (!gone) { self.setState({ size: i, added: false }); } },
+          style: 'width: 56px; height: 56px; border-radius: 9999px; font-family: inherit; font-size: 15px; border: 1px ' + (gone ? 'dashed #8d8780' : 'solid ' + (on ? '#161514' : '#8d8780')) + '; background: ' + (on ? '#161514' : 'transparent') + '; color: ' + (on ? '#fcfbf9' : (gone ? '#67625c' : '#161514')) + '; text-decoration: ' + (gone ? 'line-through' : 'none') };
+      }),
+      thumbs: MEDIA.map(function (m, i) {
+        var on = i === st.media;
+        return { short: m.short, label: 'Show ' + m.short.toLowerCase(), pressed: on ? 'true' : 'false',
+          pick: function () { self.setState({ media: i }); },
+          style: 'flex: 0 0 64px; height: 64px; background: #f1eeea; display: flex; align-items: flex-end; padding: 4px; box-sizing: border-box; border: 1px solid ' + (on ? '#161514' : 'transparent') };
+      }),
+      mainLabel: MEDIA[st.media].label,
+      is3d: st.media === 4,
+      engrave: st.engrave,
+      toggleEngrave: function () { self.setState({ engrave: !st.engrave }); },
+      engraveText: st.text,
+      engraveCount: st.text.length,
+      typeEngrave: function (e) { self.setState({ text: String(e.target.value || '').slice(0, 12) }); },
+      qty: st.qty,
+      dec: function () { self.setState({ qty: Math.max(1, st.qty - 1) }); },
+      inc: function () { self.setState({ qty: st.qty + 1 }); },
+      add: function () { self.setState({ added: true }); },
+      addLabel: st.added ? 'Added' : 'Add to bag',
+      tabs: TABS.map(function (t, i) {
+        var open = st.tab === i;
+        return { title: t.title, body: t.body, open: open, expanded: open ? 'true' : 'false', sign: open ? '−' : '+', toggle: function () { self.setState({ tab: open ? -1 : i }); } };
+      }),
+      guideOpen: st.guide,
+      openGuide: function () { self.setState({ guide: true }); },
+      closeGuide: function () { self.setState({ guide: false }); },
+      pairs: [
+        { name: 'Thread ring', spec: '18k gold vermeil', price: '$120' },
+        { name: 'Sculpted hoop', spec: '18k gold vermeil · 22 mm', price: '$240' },
+        { name: 'Wave cuff', spec: 'Sterling silver · 15 mm', price: '$260' }
+      ],
+      related: [
+        { name: 'Oval signet', spec: '18k solid gold', price: '$890' },
+        { name: 'Stacking band', spec: '18k gold vermeil · 2 mm', price: '$95' },
+        { name: 'Seal ring', spec: 'Sterling silver · 12 mm', price: '$190' }
+      ],
+      footerMenus: menus.map(function (m, i) {
+        var open = st.foot === i;
+        return { title: m.title, links: m.links, open: open, expanded: open ? 'true' : 'false', sign: open ? '−' : '+', toggle: function () { self.setState({ foot: open ? -1 : i }); } };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

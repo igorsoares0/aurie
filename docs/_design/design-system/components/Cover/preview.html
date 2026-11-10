@@ -1,0 +1,46 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tema multi-nicho</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--surface); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; width:960px; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; }
+  .deep { fill:var(--ink); }
+  .sand { fill:var(--sand); }
+  .rust { fill:var(--accent); }
+  .sq { rx:var(--radius-none); }
+  .glyph { fill:var(--surface); font-family:var(--font-serif); font-weight:300; font-size:360px; }
+  .words { position:absolute; left:var(--space-8); bottom:var(--space-8); max-width:440px; }
+  .name { margin:0; font-family:var(--font-serif); font-weight:400; font-size:72px; line-height:.95; letter-spacing:-.01em; color:var(--ink); }
+  .tag { margin:var(--space-3) 0 0 2px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="art" aria-hidden="true">
+    <svg viewBox="0 0 480 288" width="480" height="288">
+      <!--
+        blocks      ink 192×290 slab bled off top and bottom (the espresso the preset is known by) · sand 128×160 · accent 64×96 (rust, used sparingly) — about 30% of 960×288
+        arrangement one tall slab with two satellites, space-4 gutters, sand's foot space-8 above the edge, accent hung from space-8 at the top
+        pattern     one oversized serif glyph cut out of the slab in surface, from "títulos serifados de alto contraste" and the giant footer wordmark that signs this preset
+        scales      sides in space-4/space-8 multiples; gutters space-4; corners radius-none (the preset is square)
+      -->
+      <defs><clipPath id="slab"><rect x="0" y="-1" width="192" height="290"/></clipPath></defs>
+      <rect class="deep sq" x="0" y="-1" width="192" height="290"/>
+      <text class="glyph" x="-28" y="300" clip-path="url(#slab)">M</text>
+      <rect class="sand sq" x="208" y="96" width="128" height="160"/>
+      <rect class="rust sq" x="352" y="32" width="64" height="96"/>
+    </svg>
+  </div>
+  <div class="words">
+    <h1 class="name">Tema<br>multi-nicho</h1>
+    <p class="tag">Um tema, três presets. Moda: calma, editorial, caimento em primeiro lugar.</p>
+  </div>
+</div>
+</body>
+</html>

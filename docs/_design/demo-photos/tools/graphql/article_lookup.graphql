@@ -1,0 +1,8 @@
+query DemoArticleLookup($query: String!) {
+  articles(first: 1, query: $query) {
+    nodes {
+      id
+      handle
+    }
+  }
+}

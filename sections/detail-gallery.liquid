@@ -1,0 +1,175 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme.id
+  assign filled = false
+  if scheme != 'scheme-1'
+    assign filled = true
+  endif
+-%}
+
+<div class="section detail-gallery color-{{ scheme }}{% if filled %} section--filled{% endif %}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank or section.settings.text != blank -%}
+      <div class="detail-gallery__head">
+        {%- if section.settings.heading != blank -%}
+          <h2>{% render 'split-heading', text: section.settings.heading %}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ul class="detail-gallery__grid" role="list">
+      {%- for block in section.blocks -%}
+        <li class="detail-gallery__item" {{ block.shopify_attributes }}>
+          <figure class="detail-gallery__figure">
+            <div class="detail-gallery__media">
+              {%- if block.settings.image -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 1600
+                  | image_tag:
+                    widths: '400, 600, 800, 1200, 1600',
+                    sizes: '(min-width: 990px) 50vw, 100vw',
+                    loading: 'lazy',
+                    alt: block.settings.image.alt,
+                    class: 'detail-gallery__image'
+                }}
+              {%- else -%}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'detail-gallery__image placeholder-svg' }}
+              {%- endif -%}
+            </div>
+            {%- if block.settings.caption != blank -%}
+              <figcaption class="detail-gallery__caption text-caption text-muted">{{ block.settings.caption }}</figcaption>
+            {%- endif -%}
+          </figure>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .detail-gallery__head {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 36rem;
+    margin-bottom: 32px;
+  }
+
+  .detail-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--grid-gap);
+    margin: 0;
+  }
+
+  .detail-gallery__item:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .detail-gallery__figure {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+    margin: 0;
+  }
+
+  .detail-gallery__media {
+    flex: 1;
+    overflow: hidden;
+    aspect-ratio: 1;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+  }
+
+  .detail-gallery__item:first-child .detail-gallery__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .detail-gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .detail-gallery__caption {
+    padding-inline: 4px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .detail-gallery__grid {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .detail-gallery__item:first-child {
+      grid-column: 1;
+      grid-row: span 2;
+    }
+
+    .detail-gallery__item:first-child .detail-gallery__media {
+      aspect-ratio: auto;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.detail_gallery.name",
+  "class": "section-detail-gallery",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info",
+      "default": "In the details"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "detail",
+      "name": "t:sections.detail_gallery.blocks.detail",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.image_banner.image"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "t:sections.detail_gallery.blocks.caption",
+          "default": "Describe the detail"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.detail_gallery.name",
+      "blocks": [
+        { "type": "detail" },
+        { "type": "detail" },
+        { "type": "detail" },
+        { "type": "detail" },
+        { "type": "detail" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,167 @@
+{%- assign scheme = section.settings.color_scheme.id -%}
+
+<div class="section craft-process{% if section.settings.panel %} craft-process--panel{% endif %}">
+  <div class="craft-process__frame color-{{ scheme }}">
+    <div class="craft-process__inner{% unless section.settings.panel %} page-width{% endunless %}">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="craft-process__heading">{% render 'split-heading', text: section.settings.heading %}</h2>
+      {%- endif -%}
+
+      <ol class="craft-process__steps" role="list" style="--steps: {{ section.blocks.size | at_least: 1 }};">
+        {%- for block in section.blocks -%}
+          <li class="craft-process__step" {{ block.shopify_attributes }}>
+            <span class="craft-process__number" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <h3 class="craft-process__title">{{ block.settings.title }}</h3>
+            {%- if block.settings.text != blank -%}
+              <div class="craft-process__text">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .craft-process__frame {
+    padding-block: var(--section-spacing);
+  }
+
+  .craft-process--panel {
+    padding-inline: 16px;
+  }
+
+  .craft-process--panel .craft-process__frame {
+    padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 64px);
+    border-radius: var(--radius-media);
+  }
+
+  .craft-process__heading {
+    margin-bottom: 56px;
+  }
+
+  .craft-process__steps {
+    display: grid;
+    gap: 40px 32px;
+    margin: 0;
+  }
+
+  .craft-process__step {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .craft-process__number {
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(2.25rem * var(--font-heading-scale));
+    line-height: 1;
+    color: var(--color-accent);
+  }
+
+  .craft-process__title {
+    font-family: var(--font-body-family);
+    font-style: normal;
+    font-weight: var(--font-body-weight-medium);
+    text-transform: none;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .craft-process__text {
+    color: var(--color-text-muted);
+  }
+
+  @media screen and (min-width: 750px) {
+    .craft-process__steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .craft-process__steps {
+      grid-template-columns: repeat(min(4, var(--steps, 4)), minmax(0, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.craft_process.name",
+  "class": "section-craft-process",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "checkbox",
+      "id": "panel",
+      "label": "t:sections.craft_process.panel",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "info": "t:labels.split_heading_info",
+      "default": "Made with | intention"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "t:sections.craft_process.blocks.step",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "t:labels.heading",
+          "default": "Step"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "<p>Describe one step of how your products are made.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.craft_process.name",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Drawn to last"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Chosen by hand"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Joined, not screwed"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Checked twice"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

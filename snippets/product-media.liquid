@@ -1,0 +1,335 @@
+{% doc %}
+  Renders the product media gallery. The layout comes from the global
+  "Gallery layout" setting: a two-column grid, a large view with thumbnails
+  beside it, or a large view with thumbnails below. On mobile every layout
+  becomes a horizontal, snapping list.
+
+  Listens for the `product:variant-change` event to show the selected
+  variant's featured media.
+
+  @param {product} product - The product whose media is shown
+  @param {string} [ratio] - CSS aspect ratio for the media, such as '3 / 4'
+  @param {string} [section_id] - Section id, used for unique element ids
+
+  @example
+  {% render 'product-media', product: product, ratio: '3 / 4', section_id: section.id %}
+{% enddoc %}
+
+{%- liquid
+  assign layout = settings.media_layout
+  assign featured_media_id = product.selected_or_first_available_variant.featured_media.id | default: product.featured_media.id
+
+  if layout == 'grid'
+    assign media_sizes = '(min-width: 990px) calc((100vw - 520px) / 2), (min-width: 750px) 50vw, 85vw'
+  else
+    assign media_sizes = '(min-width: 990px) calc(100vw - 560px), 100vw'
+  endif
+-%}
+
+<product-gallery
+  class="product-media product-media--{{ layout }}"
+  data-layout="{{ layout }}"
+  style="--media-ratio: {{ ratio | default: '1 / 1' }};"
+  aria-label="{{ 'product.media.gallery' | t }}"
+  role="region"
+>
+  {%- if product.media.size > 0 -%}
+    <ul class="product-media__list" role="list" tabindex="0">
+      {%- for media in product.media -%}
+        <li
+          class="product-media__item product-media__item--{{ media.media_type }}"
+          id="Media-{{ section_id }}-{{ media.id }}"
+          data-media-id="{{ media.id }}"
+          {% if media.id == featured_media_id %}
+            data-selected
+          {% endif %}
+        >
+          {%- case media.media_type -%}
+            {%- when 'image' -%}
+              {%- liquid
+                if forloop.first
+                  assign loading = 'eager'
+                  assign fetchpriority = 'high'
+                else
+                  assign loading = 'lazy'
+                  assign fetchpriority = 'auto'
+                endif
+              -%}
+              {{
+                media
+                | image_url: width: 1800
+                | image_tag:
+                  widths: '400, 600, 800, 1000, 1200, 1500, 1800',
+                  sizes: media_sizes,
+                  loading: loading,
+                  fetchpriority: fetchpriority,
+                  alt: media.alt,
+                  class: 'product-media__asset'
+              }}
+            {%- when 'video' -%}
+              {{
+                media
+                | video_tag:
+                  image_size: '1200x',
+                  autoplay: true,
+                  loop: true,
+                  muted: true,
+                  controls: true,
+                  playsinline: true,
+                  class: 'product-media__asset'
+              }}
+            {%- when 'external_video' -%}
+              <div class="product-media__asset product-media__asset--embed">
+                {{ media | external_video_tag: loading: 'lazy' }}
+              </div>
+            {%- when 'model' -%}
+              <div class="product-media__asset product-media__asset--model">
+                {{ media | media_tag: image_size: '1200x', toggleable: true }}
+              </div>
+          {%- endcase -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if layout != 'grid' and product.media.size > 1 -%}
+      <div class="product-media__thumbs" role="group" aria-label="{{ 'product.media.choose' | t }}">
+        {%- for media in product.media -%}
+          <button
+            class="product-media__thumb"
+            type="button"
+            data-media-id="{{ media.id }}"
+            aria-controls="Media-{{ section_id }}-{{ media.id }}"
+            {% if media.id == featured_media_id %}
+              aria-current="true"
+            {% endif %}
+          >
+            {{
+              media.preview_image
+              | image_url: width: 240
+              | image_tag: loading: 'lazy', widths: '120, 240', sizes: '120px', alt: '', class: 'product-media__thumb-image'
+            }}
+            <span class="visually-hidden">
+              {{- 'product.media.show_item' | t: number: forloop.index, total: forloop.length -}}
+            </span>
+          </button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  {%- else -%}
+    <div class="product-media__placeholder">
+      {{ 'product-1' | placeholder_svg_tag: 'product-media__asset' }}
+    </div>
+  {%- endif -%}
+</product-gallery>
+
+{% stylesheet %}
+  .product-media {
+    display: grid;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .product-media__list {
+    display: flex;
+    gap: var(--grid-gap);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .product-media__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-media__item {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  .product-media__asset,
+  .product-media__placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--media-ratio);
+    object-fit: cover;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+    overflow: hidden;
+  }
+
+  .product-media__item--video .product-media__asset {
+    height: auto;
+  }
+
+  .product-media__asset--embed iframe,
+  .product-media__asset--model model-viewer {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .product-media__thumbs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+  }
+
+  .product-media__thumb {
+    flex: 0 0 72px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .product-media__thumb[aria-current='true'] {
+    border-color: var(--color-text);
+  }
+
+  .product-media__thumb-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .product-media--grid .product-media__item {
+    flex-basis: 85%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-media--grid .product-media__list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      overflow: visible;
+    }
+
+    .product-media--grid .product-media__item:only-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .product-media--thumbnails_beside {
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .product-media--thumbnails_beside .product-media__list {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .product-media--thumbnails_beside .product-media__thumbs {
+      grid-column: 1;
+      grid-row: 1;
+      flex-direction: column;
+      max-height: 100%;
+      overflow-y: auto;
+    }
+
+    .product-media--thumbnails_beside .product-media__thumb {
+      flex-basis: auto;
+    }
+
+    .product-media--thumbnails_below .product-media__thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .product-media--thumbnails_below .product-media__thumb-image {
+      aspect-ratio: 4 / 3;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('product-gallery')) {
+    customElements.define(
+      'product-gallery',
+      class ProductGallery extends HTMLElement {
+        connectedCallback() {
+          this.list = this.querySelector('.product-media__list');
+          this.thumbs = [...this.querySelectorAll('.product-media__thumb')];
+
+          this.thumbs.forEach((thumb) => {
+            thumb.addEventListener('click', () => this.select(thumb.dataset.mediaId));
+          });
+
+          if (this.list && this.thumbs.length) {
+            this.observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) this.markThumb(entry.target.dataset.mediaId);
+                });
+              },
+              { root: this.list, threshold: 0.6 }
+            );
+            this.list.querySelectorAll('.product-media__item').forEach((item) => this.observer.observe(item));
+          }
+
+          if (this.querySelector('model-viewer') && window.Shopify?.loadFeatures) {
+            window.Shopify.loadFeatures([
+              {
+                name: 'model-viewer-ui',
+                version: '1.0',
+                onLoad: (errors) => {
+                  if (errors) return;
+                  this.querySelectorAll('model-viewer').forEach((viewer) => new window.Shopify.ModelViewerUI(viewer));
+                },
+              },
+            ]);
+          }
+
+          const selected = this.list?.querySelector('[data-selected]');
+          if (selected && this.dataset.layout !== 'grid') {
+            this.list.scrollLeft = selected.offsetLeft - this.list.offsetLeft;
+          }
+
+          this.onVariantChange = (event) => {
+            if (event.detail.sectionId && !this.closest(`[data-section="${event.detail.sectionId}"]`)) return;
+            if (event.detail.mediaId) this.select(String(event.detail.mediaId), { fromVariant: true });
+          };
+          document.addEventListener('product:variant-change', this.onVariantChange);
+        }
+
+        disconnectedCallback() {
+          this.observer?.disconnect();
+          document.removeEventListener('product:variant-change', this.onVariantChange);
+        }
+
+        select(mediaId, { fromVariant = false } = {}) {
+          const item = this.list?.querySelector(`[data-media-id="${mediaId}"]`);
+          if (!item) return;
+
+          const isGridDesktop = this.dataset.layout === 'grid' && window.matchMedia('(min-width: 750px)').matches;
+          if (isGridDesktop && fromVariant) {
+            this.list.prepend(item);
+          } else {
+            this.list.scrollTo({ left: item.offsetLeft - this.list.offsetLeft, behavior: 'smooth' });
+          }
+
+          this.markThumb(mediaId);
+        }
+
+        markThumb(mediaId) {
+          this.thumbs.forEach((thumb) => {
+            if (thumb.dataset.mediaId === mediaId) {
+              thumb.setAttribute('aria-current', 'true');
+            } else {
+              thumb.removeAttribute('aria-current');
+            }
+          });
+        }
+      }
+    );
+  }
+{% endjavascript %}

@@ -1,0 +1,123 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "eyebrow": "type"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_note": true
+          }
+        },
+        "installments": {
+          "type": "installments",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant-picker",
+          "settings": {
+            "style": "buttons",
+            "show_swatches": true,
+            "swatch_style": "circle",
+            "size_guide_options": "Size",
+            "size_guide_label": "Size guide"
+          }
+        },
+        "fit_notes": {
+          "type": "fit-notes",
+          "settings": {
+            "text": "<p>Model is 177 cm and wears S. Relaxed through the body, size down for a closer cut.</p>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_quantity": true,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "pickup": {
+          "type": "pickup-availability",
+          "settings": {}
+        },
+        "tab_details": {
+          "type": "collapsible-tab",
+          "settings": {
+            "heading": "Details",
+            "heading_style": "label",
+            "open": false,
+            "show_description": true
+          }
+        },
+        "tab_care": {
+          "type": "collapsible-tab",
+          "settings": {
+            "heading": "Materials and care",
+            "heading_style": "label",
+            "open": false,
+            "show_description": false,
+            "content": "<p>Share fabric composition and care instructions.</p>"
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible-tab",
+          "settings": {
+            "heading": "Shipping and returns",
+            "heading_style": "label",
+            "open": false,
+            "show_description": false,
+            "content": "<p>Share delivery times and your return policy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "installments",
+        "variant_picker",
+        "fit_notes",
+        "buy_buttons",
+        "pickup",
+        "tab_details",
+        "tab_care",
+        "tab_shipping"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "media_ratio": "auto",
+        "show_breadcrumb": true,
+        "sticky_info": true
+      }
+    },
+    "complementary": {
+      "type": "product-recommendations",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Complete the look",
+        "intent": "complementary",
+        "products_to_show": 4
+      }
+    },
+    "related": {
+      "type": "product-recommendations",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "You may also like",
+        "intent": "related",
+        "products_to_show": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "complementary",
+    "related"
+  ]
+}

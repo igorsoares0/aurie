@@ -1,0 +1,112 @@
+{% doc %}
+  Renders a price with its compare-at price, unit price and an optional
+  sale or sold-out badge. Without a variant it shows the product's lowest
+  price, prefixed with "From" when variant prices differ.
+
+  @param {product} product - The product to price
+  @param {variant} [variant] - Show this variant's price instead of the product's
+  @param {boolean} [show_badge] - Show a "Sale" or "Sold out" badge. Default: false
+  @param {string} [class] - Extra classes for the wrapper
+
+  @example
+  {% render 'price', product: product, variant: product.selected_or_first_available_variant, show_badge: true %}
+{% enddoc %}
+
+{%- liquid
+  if variant
+    assign price = variant.price
+    assign compare_at_price = variant.compare_at_price
+    assign available = variant.available
+    assign unit_variant = variant
+    assign show_from = false
+  else
+    assign price = product.price
+    assign compare_at_price = product.compare_at_price
+    assign available = product.available
+    assign unit_variant = product.selected_or_first_available_variant
+    assign show_from = product.price_varies
+  endif
+
+  assign on_sale = false
+  if compare_at_price > price
+    assign on_sale = true
+  endif
+
+  assign price_money = price | money
+-%}
+
+<div class="price{% if on_sale %} price--on-sale{% endif %}{% unless available %} price--sold-out{% endunless %} {{ class }}">
+  {%- if on_sale -%}
+    <span class="visually-hidden">{{ 'product.price.sale_price' | t }}</span>
+  {%- else -%}
+    <span class="visually-hidden">{{ 'product.price.regular_price' | t }}</span>
+  {%- endif -%}
+
+  <span class="price__current">
+    {%- if show_from -%}
+      {{- 'product.price.from' | t: price: price_money -}}
+    {%- else -%}
+      {{- price_money -}}
+    {%- endif -%}
+  </span>
+
+  {%- if on_sale -%}
+    <span class="visually-hidden">{{ 'product.price.regular_price' | t }}</span>
+    <s class="price__compare">{{ compare_at_price | money }}</s>
+  {%- endif -%}
+
+  {%- if show_badge -%}
+    {%- if available == false -%}
+      <span class="price__badge label">{{ 'product.price.sold_out' | t }}</span>
+    {%- elsif on_sale -%}
+      <span class="price__badge price__badge--sale label">{{ 'product.price.sale' | t }}</span>
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if unit_variant.unit_price_measurement -%}
+    <span class="price__unit">
+      <span class="visually-hidden">{{ 'product.price.unit_price' | t }}</span>
+      {{- unit_variant.unit_price | money -}}
+      <span aria-hidden="true">/</span>
+      <span class="visually-hidden">&nbsp;{{ 'product.price.per' | t }}&nbsp;</span>
+      {%- if unit_variant.unit_price_measurement.reference_value != 1 -%}
+        {{- unit_variant.unit_price_measurement.reference_value -}}
+      {%- endif -%}
+      {{- unit_variant.unit_price_measurement.reference_unit -}}
+    </span>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 8px;
+  }
+
+  .price--on-sale .price__current {
+    color: var(--color-accent);
+  }
+
+  .price__compare {
+    color: var(--color-text-muted);
+  }
+
+  .price__badge {
+    padding: 2px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+  }
+
+  .price__badge--sale {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .price__unit {
+    flex-basis: 100%;
+    font-size: var(--font-caption-size);
+    color: var(--color-text-muted);
+  }
+{% endstylesheet %}

@@ -1,0 +1,12 @@
+mutation DemoProductArchive($product: ProductUpdateInput!) {
+  productUpdate(product: $product) {
+    product {
+      id
+      status
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}

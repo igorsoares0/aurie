@@ -1,0 +1,1998 @@
+{
+  "low-coffee-table--natural-oak--front": {
+    "file": "low-coffee-table/low-coffee-table-natural-oak-front.jpg",
+    "alt": "Low coffee table in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "b3fnfrxh39rmw0d1g3486qef24",
+    "prompt": "Product photograph of a low rectangular solid oak coffee table with a thick top, rounded corners and four square legs, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        245.0,
+        232.3,
+        216.4
+      ],
+      "gains": [
+        0.935,
+        0.952,
+        0.966
+      ]
+    },
+    "created_at": "2026-10-28T04:34:52+00:00"
+  },
+  "plank-dining-table--natural-oak--front": {
+    "file": "plank-dining-table/plank-dining-table-natural-oak-front.jpg",
+    "alt": "Plank dining table in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "ap5m6tj3jsrmw0d1g34vyvaczc",
+    "prompt": "Product photograph of a long rectangular solid oak dining table made of wide planks, with a thick top and four sturdy square legs, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        233.7,
+        213.7,
+        194.5
+      ],
+      "gains": [
+        0.98,
+        1.034,
+        1.075
+      ]
+    },
+    "created_at": "2026-10-28T04:34:53+00:00"
+  },
+  "plank-dining-table--natural-oak--room": {
+    "file": "plank-dining-table/plank-dining-table-natural-oak-room.jpg",
+    "alt": "Plank dining table in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "wbd40x3arxrmt0d1g358txz1gc",
+    "prompt": "Interior photograph of a warm dining room with linen walls, a pendant lamp above and oak chairs around the table, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "plank-dining-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T04:37:04+00:00"
+  },
+  "plank-dining-table--natural-oak--detail": {
+    "file": "plank-dining-table/plank-dining-table-natural-oak-detail.jpg",
+    "alt": "Plank dining table in natural oak, detail",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "v1nvbwqrd9rmr0d1g35ayzzkxr",
+    "prompt": "Close-up detail photograph of the piece from the reference image showing the wood grain and joinery, same material and color, soft daylight. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "plank-dining-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T04:37:05+00:00"
+  },
+  "plank-dining-table--smoked-oak--front": {
+    "file": "plank-dining-table/plank-dining-table-smoked-oak-front.jpg",
+    "alt": "Plank dining table in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "jnz5wjwdwdrmy0d1g35s1c2zmg",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "plank-dining-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        235.5,
+        217.7,
+        201.7
+      ],
+      "gains": [
+        0.973,
+        1.015,
+        1.036
+      ]
+    },
+    "created_at": "2026-10-28T04:37:05+00:00"
+  },
+  "lune-sofa--boucle-ivory--front": {
+    "file": "lune-sofa/lune-sofa-boucle-ivory-front.jpg",
+    "alt": "Lune sofa in bouclé ivory, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "zyzyz3abxhrmw0d1g37v4drn1g",
+    "prompt": "Change only the upholstery of the piece to ivory wool bouclé upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "lune-sofa--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        242.5,
+        229.9,
+        214.1
+      ],
+      "gains": [
+        0.944,
+        0.961,
+        0.976
+      ]
+    },
+    "created_at": "2026-10-28T04:42:52+00:00"
+  },
+  "lune-sofa--velvet-rust--front": {
+    "file": "lune-sofa/lune-sofa-velvet-rust-front.jpg",
+    "alt": "Lune sofa in velvet rust, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "khwq0xdqdnrmy0d1g37trpvaqc",
+    "prompt": "Change only the upholstery of the piece to rust cotton velvet upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "lune-sofa--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        242.4,
+        228.1,
+        212.7
+      ],
+      "gains": [
+        0.945,
+        0.969,
+        0.982
+      ]
+    },
+    "created_at": "2026-10-28T04:42:52+00:00"
+  },
+  "lune-sofa--wool-charcoal--front": {
+    "file": "lune-sofa/lune-sofa-wool-charcoal-front.jpg",
+    "alt": "Lune sofa in wool charcoal, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "01mk080vr5rmr0d1g388n76z84",
+    "prompt": "Change only the upholstery of the piece to charcoal felted wool upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "lune-sofa--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        240.9,
+        228.1,
+        213.5
+      ],
+      "gains": [
+        0.95,
+        0.969,
+        0.979
+      ]
+    },
+    "created_at": "2026-10-28T04:42:53+00:00"
+  },
+  "editorial--hero-banner": {
+    "file": "editorial/hero-banner.jpg",
+    "alt": "",
+    "model": "google/nano-banana-pro",
+    "prediction": "swnnr6y8zsrmw0d1g38bt8m2g8",
+    "prompt": "Editorial interior photograph for a furniture brand website hero banner: a calm, sunlit Scandinavian living room with warm linen walls and wide oak floorboards, featuring the reference sand linen sofa and the reference oak coffee table, a wool rug, ceramics and a large window. The furniture sits in the right half; soft warm daylight across an open, uncluttered left side. Realistic, warm, quiet, editorial. No people, no text. No text, no logo, no watermark.",
+    "refs": [
+      "lune-sofa--linen-sand--front",
+      "low-coffee-table--natural-oak--front"
+    ],
+    "size": [
+      2752,
+      1536
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T04:42:54+00:00"
+  },
+  "lune-sofa--linen-sand--front": {
+    "file": "lune-sofa/lune-sofa-linen-sand-front.jpg",
+    "alt": "Lune sofa in linen sand, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "q28xm87ne5rmr0d1g39rzqbn4c",
+    "prompt": "Product photograph of a deep three-seat sofa with soft rounded arms, loose seat and back cushions and slim tapered solid oak legs, in sand-colored washed linen upholstery, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        244.3,
+        232.2,
+        217.0
+      ],
+      "gains": [
+        0.937,
+        0.952,
+        0.963
+      ]
+    },
+    "created_at": "2026-10-28T04:46:13+00:00"
+  },
+  "lune-sofa--linen-sand--room": {
+    "file": "lune-sofa/lune-sofa-linen-sand-room.jpg",
+    "alt": "Lune sofa in linen sand, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "34zaq0paxsrmw0d1g3a8n8v01c",
+    "prompt": "Interior photograph of a calm Scandinavian living room with warm linen walls, wide oak floorboards and a jute rug, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "lune-sofa--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T04:47:46+00:00"
+  },
+  "lune-sofa--linen-sand--detail": {
+    "file": "lune-sofa/lune-sofa-linen-sand-detail.jpg",
+    "alt": "Lune sofa in linen sand, detail",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "qj1exf28g1rmw0d1g3asfgf9gw",
+    "prompt": "Close-up detail photograph of the piece from the reference image showing the seams, piping and leg joint, same material and color, soft daylight. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "lune-sofa--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T04:47:47+00:00"
+  },
+  "ridge-modular-sofa--linen-sand--front": {
+    "file": "ridge-modular-sofa/ridge-modular-sofa-linen-sand-front.jpg",
+    "alt": "Ridge modular sofa in linen sand, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "20jtq35fhhrmy0d1g3bbha3kvc",
+    "prompt": "Product photograph of a low modular corner sofa made of square deep-seated modules with a clean boxy silhouette, no visible legs, in warm sand beige (#cbb79b) washed linen upholstery in one even, uniform color, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        234.0,
+        218.4,
+        201.8
+      ],
+      "gains": [
+        0.979,
+        1.012,
+        1.036
+      ]
+    },
+    "created_at": "2026-10-28T04:52:19+00:00"
+  },
+  "haven-sofa-bed--linen-sand--front": {
+    "file": "haven-sofa-bed/haven-sofa-bed-linen-sand-front.jpg",
+    "alt": "Haven sofa bed in linen sand, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "chmbww16fnrmw0d1g3bt1zsgmr",
+    "prompt": "Product photograph of a compact sofa bed with straight arms, a tight back and a fold-out mattress hidden in the base, on short oak legs, in warm sand beige (#cbb79b) washed linen upholstery in one even, uniform color, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        244.5,
+        229.6,
+        210.9
+      ],
+      "gains": [
+        0.937,
+        0.963,
+        0.991
+      ]
+    },
+    "created_at": "2026-10-28T04:52:20+00:00"
+  },
+  "ode-armchair--boucle-ivory--front": {
+    "file": "ode-armchair/ode-armchair-boucle-ivory-front.jpg",
+    "alt": "Ode armchair in bouclé ivory, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "dhyd37mqfhrmy0d1g3btgv9m3c",
+    "prompt": "Product photograph of a curved lounge armchair with a rounded shell back, a deep seat cushion and solid oak legs, in ivory wool bouclé upholstery, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        237.2,
+        222.0,
+        204.1
+      ],
+      "gains": [
+        0.965,
+        0.995,
+        1.024
+      ]
+    },
+    "created_at": "2026-10-28T04:52:21+00:00"
+  },
+  "mira-side-table--natural-oak--front": {
+    "file": "mira-side-table/mira-side-table-natural-oak-front.jpg",
+    "alt": "Mira side table in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "k57zwmzsfsrmw0d1g3bt84gbs8",
+    "prompt": "Product photograph of a round solid oak side table with a thick circular top on a single turned pedestal base, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        239.9,
+        224.7,
+        206.9
+      ],
+      "gains": [
+        0.954,
+        0.984,
+        1.01
+      ]
+    },
+    "created_at": "2026-10-28T04:52:22+00:00"
+  },
+  "orbit-round-table--natural-oak--front": {
+    "file": "orbit-round-table/orbit-round-table-natural-oak-front.jpg",
+    "alt": "Orbit round table in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "gc5wzb4911rmy0d1g3capnnj40",
+    "prompt": "Product photograph of a round solid oak dining table with a thick top on a wide cylindrical pedestal, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        240.5,
+        226.7,
+        210.8
+      ],
+      "gains": [
+        0.952,
+        0.975,
+        0.992
+      ]
+    },
+    "created_at": "2026-10-28T04:52:23+00:00"
+  },
+  "fold-dining-chair--natural-oak--front": {
+    "file": "fold-dining-chair/fold-dining-chair-natural-oak-front.jpg",
+    "alt": "Fold dining chair in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "phxcg0z249rmt0d1g3ca5c40dr",
+    "prompt": "Product photograph of a solid oak dining chair with a gently curved backrest, a woven paper-cord seat and slim legs, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        234.1,
+        216.3,
+        196.9
+      ],
+      "gains": [
+        0.978,
+        1.022,
+        1.062
+      ]
+    },
+    "created_at": "2026-10-28T04:52:24+00:00"
+  },
+  "plank-bench--natural-oak--front": {
+    "file": "plank-bench/plank-bench-natural-oak-front.jpg",
+    "alt": "Plank bench in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "mnkp0b3t41rmt0d1g3crr7z55w",
+    "prompt": "Product photograph of a long low solid oak bench made from one thick plank on four square legs, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        242.2,
+        226.9,
+        210.6
+      ],
+      "gains": [
+        0.946,
+        0.974,
+        0.992
+      ]
+    },
+    "created_at": "2026-10-28T04:52:24+00:00"
+  },
+  "arc-sideboard--natural-oak--front": {
+    "file": "arc-sideboard/arc-sideboard-natural-oak-front.jpg",
+    "alt": "Arc sideboard in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "tej2cgvvtsrmw0d1g3dbypy1z0",
+    "prompt": "Product photograph of a long low solid oak sideboard with three doors featuring softly arched fluted fronts and slim legs, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        234.3,
+        216.9,
+        199.2
+      ],
+      "gains": [
+        0.977,
+        1.019,
+        1.049
+      ]
+    },
+    "created_at": "2026-10-28T04:56:15+00:00"
+  },
+  "ledge-display-cabinet--natural-oak--front": {
+    "file": "ledge-display-cabinet/ledge-display-cabinet-natural-oak-front.jpg",
+    "alt": "Ledge display cabinet in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "q7w7e778ksrmt0d1g3da2nyee4",
+    "prompt": "Product photograph of a tall solid oak display cabinet with two glass-paneled doors and open shelves inside, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        234.5,
+        216.8,
+        195.0
+      ],
+      "gains": [
+        0.977,
+        1.02,
+        1.072
+      ]
+    },
+    "created_at": "2026-10-28T04:56:15+00:00"
+  },
+  "haven-bed--linen-sand--front": {
+    "file": "haven-bed/haven-bed-linen-sand-front.jpg",
+    "alt": "Haven bed in linen sand, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "xnkf79an41rmy0d1g3ds4srbxw",
+    "prompt": "Product photograph of a double bed with a tall softly padded upholstered headboard and a slim upholstered frame on short oak legs, in warm sand beige (#cbb79b) washed linen upholstery in one even, uniform color, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        239.3,
+        221.4,
+        201.5
+      ],
+      "gains": [
+        0.957,
+        0.998,
+        1.037
+      ]
+    },
+    "created_at": "2026-10-28T04:56:16+00:00"
+  },
+  "nest-bedside-table--natural-oak--front": {
+    "file": "nest-bedside-table/nest-bedside-table-natural-oak-front.jpg",
+    "alt": "Nest bedside table in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "7q3snve149rmt0d1g3dt5vhcjc",
+    "prompt": "Product photograph of a small solid oak bedside table with one drawer and an open shelf below, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        245.2,
+        230.3,
+        212.5
+      ],
+      "gains": [
+        0.934,
+        0.96,
+        0.984
+      ]
+    },
+    "created_at": "2026-10-28T04:56:16+00:00"
+  },
+  "arc-dresser--natural-oak--front": {
+    "file": "arc-dresser/arc-dresser-natural-oak-front.jpg",
+    "alt": "Arc dresser in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "xtsfszsfrdrmt0d1g3e8nye4v0",
+    "prompt": "Product photograph of a solid oak chest of six drawers with softly arched fluted drawer fronts, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        233.6,
+        218.5,
+        201.0
+      ],
+      "gains": [
+        0.98,
+        1.012,
+        1.04
+      ]
+    },
+    "created_at": "2026-10-28T04:56:17+00:00"
+  },
+  "sill-storage-bench--natural-oak--front": {
+    "file": "sill-storage-bench/sill-storage-bench-natural-oak-front.jpg",
+    "alt": "Sill storage bench in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "fsqj2wx3mxrmy0d1g3ebsxfbcm",
+    "prompt": "Product photograph of a low solid oak storage bench with a lift-up lid and a slatted front, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        237.0,
+        221.7,
+        205.4
+      ],
+      "gains": [
+        0.966,
+        0.997,
+        1.017
+      ]
+    },
+    "created_at": "2026-10-28T04:56:18+00:00"
+  },
+  "wool-throw--boucle-ivory--front": {
+    "file": "wool-throw/wool-throw-boucle-ivory-front.jpg",
+    "alt": "Wool throw in bouclé ivory, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "tvffd2999nrmr0d1g3etk9mj9c",
+    "prompt": "Product photograph of a soft folded wool throw blanket with a subtle herringbone weave and fringed edges, in ivory wool bouclé upholstery, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        217.8,
+        199.9,
+        183.4
+      ],
+      "gains": [
+        1.051,
+        1.106,
+        1.12
+      ]
+    },
+    "created_at": "2026-10-28T04:56:19+00:00"
+  },
+  "frame-floor-mirror--natural-oak--front": {
+    "file": "frame-floor-mirror/frame-floor-mirror-natural-oak-front.jpg",
+    "alt": "Frame floor mirror in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "1nczzvgf9drmy0d1g3f8p2kwj8",
+    "prompt": "Product photograph of a tall rectangular floor mirror with a wide solid oak frame and rounded corners, leaning against a wall, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        235.5,
+        217.0,
+        197.8
+      ],
+      "gains": [
+        0.972,
+        1.018,
+        1.057
+      ]
+    },
+    "created_at": "2026-10-28T05:00:21+00:00"
+  },
+  "plank-desk--natural-oak--front": {
+    "file": "plank-desk/plank-desk-natural-oak-front.jpg",
+    "alt": "Plank desk in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "fb6630cdanrmw0d1g3fbzttxsr",
+    "prompt": "Product photograph of a solid oak writing desk with a thick plank top, a slim drawer and four square legs, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        232.3,
+        216.3,
+        199.5
+      ],
+      "gains": [
+        0.986,
+        1.022,
+        1.048
+      ]
+    },
+    "created_at": "2026-10-28T05:00:22+00:00"
+  },
+  "ode-desk-chair--boucle-ivory--front": {
+    "file": "ode-desk-chair/ode-desk-chair-boucle-ivory-front.jpg",
+    "alt": "Ode desk chair in bouclé ivory, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "s3ms657jrsrmy0d1g3f85kwhc4",
+    "prompt": "Product photograph of an upholstered desk chair with a rounded shell back on a solid oak four-leg base, in ivory wool bouclé upholstery, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        239.3,
+        225.3,
+        208.8
+      ],
+      "gains": [
+        0.957,
+        0.981,
+        1.001
+      ]
+    },
+    "created_at": "2026-10-28T05:00:23+00:00"
+  },
+  "ledge-bookcase--natural-oak--front": {
+    "file": "ledge-bookcase/ledge-bookcase-natural-oak-front.jpg",
+    "alt": "Ledge bookcase in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "vp7jzktwxdrmy0d1g3fty9knh4",
+    "prompt": "Product photograph of a tall open solid oak bookcase with five deep shelves and slim side panels, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        243.7,
+        228.7,
+        210.3
+      ],
+      "gains": [
+        0.94,
+        0.966,
+        0.994
+      ]
+    },
+    "created_at": "2026-10-28T05:00:24+00:00"
+  },
+  "arc-pedestal--natural-oak--front": {
+    "file": "arc-pedestal/arc-pedestal-natural-oak-front.jpg",
+    "alt": "Arc pedestal in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "vwq3ct7mdsrmr0d1g3fvbf4tqg",
+    "prompt": "Product photograph of a small solid oak three-drawer pedestal on castors with softly arched fluted drawer fronts, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        236.7,
+        219.2,
+        200.6
+      ],
+      "gains": [
+        0.967,
+        1.008,
+        1.042
+      ]
+    },
+    "created_at": "2026-10-28T05:00:25+00:00"
+  },
+  "studio-floor-lamp--natural-oak--front": {
+    "file": "studio-floor-lamp/studio-floor-lamp-natural-oak-front.jpg",
+    "alt": "Studio floor lamp in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "75tvcpv18drmw0d1g3g88ee0h8",
+    "prompt": "Product photograph of a slim floor lamp with a solid oak stem and a pleated linen shade, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        225.9,
+        210.1,
+        192.7
+      ],
+      "gains": [
+        1.014,
+        1.052,
+        1.085
+      ]
+    },
+    "created_at": "2026-10-28T05:00:26+00:00"
+  },
+  "ledge-wall-shelf--natural-oak--front": {
+    "file": "ledge-wall-shelf/ledge-wall-shelf-natural-oak-front.jpg",
+    "alt": "Ledge wall shelf in natural oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "enyyp4yy3srmr0d1g3g89s8heg",
+    "prompt": "Product photograph of a long solid oak wall shelf with a small lip and hidden brackets, in natural oiled solid oak, three-quarter view, centered with generous space around it. Seamless warm linen-colored studio background (#e5ddd1), soft diffused daylight, gentle natural floor shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        221.0,
+        204.3,
+        187.6
+      ],
+      "gains": [
+        1.036,
+        1.082,
+        1.114
+      ]
+    },
+    "created_at": "2026-10-28T05:00:26+00:00"
+  },
+  "ridge-modular-sofa--linen-sand--room": {
+    "file": "ridge-modular-sofa/ridge-modular-sofa-linen-sand-room.jpg",
+    "alt": "Ridge modular sofa in linen sand, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "605a55m3xhrmr0d1g3ja2ex1s8",
+    "prompt": "Interior photograph of a bright open living room with linen curtains and a low oak coffee table, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "ridge-modular-sofa--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:08:51+00:00"
+  },
+  "ridge-modular-sofa--wool-charcoal--front": {
+    "file": "ridge-modular-sofa/ridge-modular-sofa-wool-charcoal-front.jpg",
+    "alt": "Ridge modular sofa in wool charcoal, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "nc4eg9grhsrmy0d1g3jr4rsp00",
+    "prompt": "Change only the upholstery of the piece to charcoal felted wool upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "ridge-modular-sofa--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        234.4,
+        220.9,
+        207.9
+      ],
+      "gains": [
+        0.977,
+        1.001,
+        1.005
+      ]
+    },
+    "created_at": "2026-10-28T05:08:52+00:00"
+  },
+  "haven-sofa-bed--linen-sand--room": {
+    "file": "haven-sofa-bed/haven-sofa-bed-linen-sand-room.jpg",
+    "alt": "Haven sofa bed in linen sand, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "hg54ejcf9srmw0d1g3jr7p2xmm",
+    "prompt": "Interior photograph of a small guest room that doubles as a study, with a wool rug and plants, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "haven-sofa-bed--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:08:53+00:00"
+  },
+  "haven-sofa-bed--wool-charcoal--front": {
+    "file": "haven-sofa-bed/haven-sofa-bed-wool-charcoal-front.jpg",
+    "alt": "Haven sofa bed in wool charcoal, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "a0hze81xrdrmr0d1g3k85cxhyg",
+    "prompt": "Change only the upholstery of the piece to charcoal felted wool upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "haven-sofa-bed--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        245.1,
+        230.6,
+        214.0
+      ],
+      "gains": [
+        0.934,
+        0.958,
+        0.977
+      ]
+    },
+    "created_at": "2026-10-28T05:08:54+00:00"
+  },
+  "ode-armchair--boucle-ivory--room": {
+    "file": "ode-armchair/ode-armchair-boucle-ivory-room.jpg",
+    "alt": "Ode armchair in bouclé ivory, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "77g69vpaxsrmy0d1g3k9x4j9m4",
+    "prompt": "Interior photograph of a reading corner by a window with a linen floor lamp and a stack of books, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "ode-armchair--boucle-ivory--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:08:55+00:00"
+  },
+  "ode-armchair--boucle-ivory--detail": {
+    "file": "ode-armchair/ode-armchair-boucle-ivory-detail.jpg",
+    "alt": "Ode armchair in bouclé ivory, detail",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "gqm4qj3cnxrmy0d1g3kr69yqnr",
+    "prompt": "Close-up detail photograph of the piece from the reference image showing the seams, piping and leg joint, same material and color, soft daylight. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "ode-armchair--boucle-ivory--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:08:56+00:00"
+  },
+  "ode-armchair--velvet-rust--front": {
+    "file": "ode-armchair/ode-armchair-velvet-rust-front.jpg",
+    "alt": "Ode armchair in velvet rust, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "nf0d8g8h01rmr0d1g3m8jf2pjw",
+    "prompt": "Change only the upholstery of the piece to rust cotton velvet upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "ode-armchair--boucle-ivory--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        239.5,
+        224.7,
+        208.8
+      ],
+      "gains": [
+        0.956,
+        0.984,
+        1.001
+      ]
+    },
+    "created_at": "2026-10-28T05:08:57+00:00"
+  },
+  "ode-armchair--wool-charcoal--front": {
+    "file": "ode-armchair/ode-armchair-wool-charcoal-front.jpg",
+    "alt": "Ode armchair in wool charcoal, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "rgm0m9m939rmt0d1g3m8f683k8",
+    "prompt": "Change only the upholstery of the piece to charcoal felted wool upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "ode-armchair--boucle-ivory--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        235.6,
+        222.0,
+        208.4
+      ],
+      "gains": [
+        0.972,
+        0.995,
+        1.003
+      ]
+    },
+    "created_at": "2026-10-28T05:08:58+00:00"
+  },
+  "low-coffee-table--natural-oak--room": {
+    "file": "low-coffee-table/low-coffee-table-natural-oak-room.jpg",
+    "alt": "Low coffee table in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "jpxkymj72nrmr0d1g3n857mxk4",
+    "prompt": "Interior photograph of a living room with a linen sofa in the background and a ceramic vase on the table, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "low-coffee-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:15:35+00:00"
+  },
+  "low-coffee-table--smoked-oak--front": {
+    "file": "low-coffee-table/low-coffee-table-smoked-oak-front.jpg",
+    "alt": "Low coffee table in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "xkd1ncycexrmr0d1g3n9s180g8",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "low-coffee-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        245.5,
+        233.6,
+        219.9
+      ],
+      "gains": [
+        0.933,
+        0.946,
+        0.951
+      ]
+    },
+    "created_at": "2026-10-28T05:15:36+00:00"
+  },
+  "mira-side-table--natural-oak--room": {
+    "file": "mira-side-table/mira-side-table-natural-oak-room.jpg",
+    "alt": "Mira side table in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "byx39z2f1hrmw0d1g3ntj5gm5c",
+    "prompt": "Interior photograph of a calm living room with the table next to a linen armchair, holding a small lamp, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "mira-side-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:15:38+00:00"
+  },
+  "mira-side-table--smoked-oak--front": {
+    "file": "mira-side-table/mira-side-table-smoked-oak-front.jpg",
+    "alt": "Mira side table in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "a1affypb7drmy0d1g3nrq8x07g",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "mira-side-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        239.1,
+        225.6,
+        211.1
+      ],
+      "gains": [
+        0.958,
+        0.98,
+        0.99
+      ]
+    },
+    "created_at": "2026-10-28T05:15:40+00:00"
+  },
+  "orbit-round-table--natural-oak--room": {
+    "file": "orbit-round-table/orbit-round-table-natural-oak-room.jpg",
+    "alt": "Orbit round table in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "6btzak1jwdrmy0d1g3pazmdde4",
+    "prompt": "Interior photograph of a bright kitchen corner with a window seat and linen cushions, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "orbit-round-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:15:41+00:00"
+  },
+  "orbit-round-table--smoked-oak--front": {
+    "file": "orbit-round-table/orbit-round-table-smoked-oak-front.jpg",
+    "alt": "Orbit round table in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "7ggg03ycesrmr0d1g3p9eet54g",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "orbit-round-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        240.0,
+        228.3,
+        215.9
+      ],
+      "gains": [
+        0.954,
+        0.968,
+        0.968
+      ]
+    },
+    "created_at": "2026-10-28T05:15:42+00:00"
+  },
+  "fold-dining-chair--natural-oak--room": {
+    "file": "fold-dining-chair/fold-dining-chair-natural-oak-room.jpg",
+    "alt": "Fold dining chair in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "82mhers735rmy0d1g3ptjtye20",
+    "prompt": "Interior photograph of a warm dining room with the chairs around an oak dining table, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "fold-dining-chair--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:15:43+00:00"
+  },
+  "fold-dining-chair--smoked-oak--front": {
+    "file": "fold-dining-chair/fold-dining-chair-smoked-oak-front.jpg",
+    "alt": "Fold dining chair in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "aqsm2ndp8nrmy0d1g3pvpq51x4",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "fold-dining-chair--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        233.1,
+        217.6,
+        200.5
+      ],
+      "gains": [
+        0.982,
+        1.015,
+        1.042
+      ]
+    },
+    "created_at": "2026-10-28T05:15:44+00:00"
+  },
+  "plank-bench--natural-oak--room": {
+    "file": "plank-bench/plank-bench-natural-oak-room.jpg",
+    "alt": "Plank bench in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "2dt1ty959hrmw0d1g3q8ay056m",
+    "prompt": "Interior photograph of a warm dining room with the bench along one side of an oak dining table, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "plank-bench--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:15:45+00:00"
+  },
+  "plank-bench--smoked-oak--front": {
+    "file": "plank-bench/plank-bench-smoked-oak-front.jpg",
+    "alt": "Plank bench in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "twgs21xbc5rmr0d1g3q9tegn68",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "plank-bench--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        242.8,
+        229.0,
+        215.6
+      ],
+      "gains": [
+        0.943,
+        0.965,
+        0.969
+      ]
+    },
+    "created_at": "2026-10-28T05:15:45+00:00"
+  },
+  "arc-sideboard--natural-oak--room": {
+    "file": "arc-sideboard/arc-sideboard-natural-oak-room.jpg",
+    "alt": "Arc sideboard in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "jvv6nc0gknrmy0d1g3ra5kjgmr",
+    "prompt": "Interior photograph of a dining room wall with ceramics and a framed print above the sideboard, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "arc-sideboard--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:21:54+00:00"
+  },
+  "arc-sideboard--natural-oak--detail": {
+    "file": "arc-sideboard/arc-sideboard-natural-oak-detail.jpg",
+    "alt": "Arc sideboard in natural oak, detail",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "6krakhdd1xrmr0d1g3r8ba6zy0",
+    "prompt": "Close-up detail photograph of the piece from the reference image showing the wood grain and joinery, same material and color, soft daylight. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "arc-sideboard--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:21:55+00:00"
+  },
+  "arc-sideboard--smoked-oak--front": {
+    "file": "arc-sideboard/arc-sideboard-smoked-oak-front.jpg",
+    "alt": "Arc sideboard in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "enrgch8njnrmt0d1g3rt3b846g",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "arc-sideboard--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        236.7,
+        219.5,
+        204.0
+      ],
+      "gains": [
+        0.967,
+        1.007,
+        1.024
+      ]
+    },
+    "created_at": "2026-10-28T05:21:56+00:00"
+  },
+  "ledge-display-cabinet--natural-oak--room": {
+    "file": "ledge-display-cabinet/ledge-display-cabinet-natural-oak-room.jpg",
+    "alt": "Ledge display cabinet in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "cw8ry2cfj5rmr0d1g3rtzvjty8",
+    "prompt": "Interior photograph of a dining room corner displaying ceramic bowls and glassware, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "ledge-display-cabinet--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:21:57+00:00"
+  },
+  "ledge-display-cabinet--smoked-oak--front": {
+    "file": "ledge-display-cabinet/ledge-display-cabinet-smoked-oak-front.jpg",
+    "alt": "Ledge display cabinet in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "qm4d6r92w1rmy0d1g3sbrd1rd4",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "ledge-display-cabinet--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        235.4,
+        219.4,
+        201.2
+      ],
+      "gains": [
+        0.973,
+        1.007,
+        1.039
+      ]
+    },
+    "created_at": "2026-10-28T05:21:58+00:00"
+  },
+  "haven-bed--linen-sand--room": {
+    "file": "haven-bed/haven-bed-linen-sand-room.jpg",
+    "alt": "Haven bed in linen sand, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "r0xy1vcfh1rmr0d1g3sa91nyrc",
+    "prompt": "Interior photograph of a calm bedroom with linen bedding, a wool throw and soft morning light, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "haven-bed--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:21:59+00:00"
+  },
+  "haven-bed--linen-sand--detail": {
+    "file": "haven-bed/haven-bed-linen-sand-detail.jpg",
+    "alt": "Haven bed in linen sand, detail",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "wedkv8g3z1rmw0d1g3sv8ztgk4",
+    "prompt": "Close-up detail photograph of the piece from the reference image showing the seams, piping and leg joint, same material and color, soft daylight. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "haven-bed--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:22:00+00:00"
+  },
+  "haven-bed--wool-charcoal--front": {
+    "file": "haven-bed/haven-bed-wool-charcoal-front.jpg",
+    "alt": "Haven bed in wool charcoal, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "a10hzr3ygdrmt0d1g3st6hmceg",
+    "prompt": "Change only the upholstery of the piece to charcoal felted wool upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "haven-bed--linen-sand--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        240.3,
+        223.9,
+        207.1
+      ],
+      "gains": [
+        0.953,
+        0.987,
+        1.009
+      ]
+    },
+    "created_at": "2026-10-28T05:22:01+00:00"
+  },
+  "nest-bedside-table--natural-oak--room": {
+    "file": "nest-bedside-table/nest-bedside-table-natural-oak-room.jpg",
+    "alt": "Nest bedside table in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "310q0g7r4srmy0d1g3sr8w2hjr",
+    "prompt": "Interior photograph of a calm bedroom with the table beside a linen-dressed bed, holding a ceramic lamp, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "nest-bedside-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:22:02+00:00"
+  },
+  "nest-bedside-table--smoked-oak--front": {
+    "file": "nest-bedside-table/nest-bedside-table-smoked-oak-front.jpg",
+    "alt": "Nest bedside table in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "e9zq1fkqbxrmw0d1g3tbvktw7g",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "nest-bedside-table--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        245.2,
+        231.1,
+        215.9
+      ],
+      "gains": [
+        0.934,
+        0.956,
+        0.968
+      ]
+    },
+    "created_at": "2026-10-28T05:22:03+00:00"
+  },
+  "arc-dresser--natural-oak--room": {
+    "file": "arc-dresser/arc-dresser-natural-oak-room.jpg",
+    "alt": "Arc dresser in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "817d1r8w05rmr0d1g3v86xxeag",
+    "prompt": "Interior photograph of a bedroom wall with a round mirror above the dresser, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "arc-dresser--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:30:17+00:00"
+  },
+  "arc-dresser--smoked-oak--front": {
+    "file": "arc-dresser/arc-dresser-smoked-oak-front.jpg",
+    "alt": "Arc dresser in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "yf372f6edxrmw0d1g3v9mgqen4",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "arc-dresser--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        232.4,
+        218.3,
+        203.2
+      ],
+      "gains": [
+        0.985,
+        1.013,
+        1.029
+      ]
+    },
+    "created_at": "2026-10-28T05:30:19+00:00"
+  },
+  "sill-storage-bench--natural-oak--room": {
+    "file": "sill-storage-bench/sill-storage-bench-natural-oak-room.jpg",
+    "alt": "Sill storage bench in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "nctky22p4xrmr0d1g3vtn2sf4c",
+    "prompt": "Interior photograph of a calm bedroom with the bench at the end of the bed, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "sill-storage-bench--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:30:19+00:00"
+  },
+  "sill-storage-bench--smoked-oak--front": {
+    "file": "sill-storage-bench/sill-storage-bench-smoked-oak-front.jpg",
+    "alt": "Sill storage bench in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "vr1h376nqxrmy0d1g3vv8qembr",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "sill-storage-bench--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        235.5,
+        221.3,
+        207.3
+      ],
+      "gains": [
+        0.972,
+        0.999,
+        1.008
+      ]
+    },
+    "created_at": "2026-10-28T05:30:20+00:00"
+  },
+  "wool-throw--boucle-ivory--room": {
+    "file": "wool-throw/wool-throw-boucle-ivory-room.jpg",
+    "alt": "Wool throw in bouclé ivory, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "bf4gxya5k9rmw0d1g3w8rw4r3g",
+    "prompt": "Interior photograph of a calm bedroom with the throw draped over the end of a linen-dressed bed, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "wool-throw--boucle-ivory--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:30:21+00:00"
+  },
+  "wool-throw--wool-charcoal--front": {
+    "file": "wool-throw/wool-throw-wool-charcoal-front.jpg",
+    "alt": "Wool throw in wool charcoal, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "8bd6p2erysrmy0d1g3wakdba8m",
+    "prompt": "Change only the upholstery of the piece to charcoal felted wool upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "wool-throw--boucle-ivory--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        219.2,
+        202.2,
+        189.0
+      ],
+      "gains": [
+        1.045,
+        1.093,
+        1.106
+      ]
+    },
+    "created_at": "2026-10-28T05:30:22+00:00"
+  },
+  "frame-floor-mirror--natural-oak--room": {
+    "file": "frame-floor-mirror/frame-floor-mirror-natural-oak-room.jpg",
+    "alt": "Frame floor mirror in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "q2d90mttsdrmt0d1g3wtf5exvm",
+    "prompt": "Interior photograph of a calm bedroom with the mirror leaning against a linen-colored wall beside a chair, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "frame-floor-mirror--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:30:23+00:00"
+  },
+  "frame-floor-mirror--smoked-oak--front": {
+    "file": "frame-floor-mirror/frame-floor-mirror-smoked-oak-front.jpg",
+    "alt": "Frame floor mirror in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "vq062y6aasrmw0d1g3wvaset5c",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "frame-floor-mirror--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        236.2,
+        218.9,
+        201.7
+      ],
+      "gains": [
+        0.97,
+        1.01,
+        1.036
+      ]
+    },
+    "created_at": "2026-10-28T05:30:24+00:00"
+  },
+  "plank-desk--natural-oak--room": {
+    "file": "plank-desk/plank-desk-natural-oak-room.jpg",
+    "alt": "Plank desk in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "07abnnkk2drmr0d1g3x832047m",
+    "prompt": "Interior photograph of a calm home study with a window, books and a linen desk lamp, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "plank-desk--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:30:24+00:00"
+  },
+  "plank-desk--natural-oak--detail": {
+    "file": "plank-desk/plank-desk-natural-oak-detail.jpg",
+    "alt": "Plank desk in natural oak, detail",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "d9cfp1r621rmw0d1g3xscak898",
+    "prompt": "Close-up detail photograph of the piece from the reference image showing the wood grain and joinery, same material and color, soft daylight. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "plank-desk--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:30:25+00:00"
+  },
+  "plank-desk--smoked-oak--front": {
+    "file": "plank-desk/plank-desk-smoked-oak-front.jpg",
+    "alt": "Plank desk in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "8hhrcpwje1rmr0d1g3xtzw4mvc",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "plank-desk--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        232.1,
+        218.0,
+        204.0
+      ],
+      "gains": [
+        0.987,
+        1.014,
+        1.024
+      ]
+    },
+    "created_at": "2026-10-28T05:30:26+00:00"
+  },
+  "ode-desk-chair--boucle-ivory--room": {
+    "file": "ode-desk-chair/ode-desk-chair-boucle-ivory-room.jpg",
+    "alt": "Ode desk chair in bouclé ivory, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "wwcgqr043xrmt0d1g3y82c4dj0",
+    "prompt": "Interior photograph of a calm home study with the chair at an oak desk, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "ode-desk-chair--boucle-ivory--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:30:27+00:00"
+  },
+  "ode-desk-chair--wool-charcoal--front": {
+    "file": "ode-desk-chair/ode-desk-chair-wool-charcoal-front.jpg",
+    "alt": "Ode desk chair in wool charcoal, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "nnyy4vpccxrmy0d1g3yv5945m8",
+    "prompt": "Change only the upholstery of the piece to charcoal felted wool upholstery. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "ode-desk-chair--boucle-ivory--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        242.6,
+        230.0,
+        216.7
+      ],
+      "gains": [
+        0.944,
+        0.961,
+        0.965
+      ]
+    },
+    "created_at": "2026-10-28T05:39:56+00:00"
+  },
+  "ledge-bookcase--natural-oak--room": {
+    "file": "ledge-bookcase/ledge-bookcase-natural-oak-room.jpg",
+    "alt": "Ledge bookcase in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "p8wnxrsde9rmt0d1g3z84wznyg",
+    "prompt": "Interior photograph of a home study wall filled with books and ceramics, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "ledge-bookcase--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:39:57+00:00"
+  },
+  "ledge-bookcase--smoked-oak--front": {
+    "file": "ledge-bookcase/ledge-bookcase-smoked-oak-front.jpg",
+    "alt": "Ledge bookcase in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "kfswag58adrmt0d1g3z8sgqb6m",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "ledge-bookcase--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        241.8,
+        228.6,
+        212.5
+      ],
+      "gains": [
+        0.947,
+        0.967,
+        0.983
+      ]
+    },
+    "created_at": "2026-10-28T05:39:58+00:00"
+  },
+  "arc-pedestal--natural-oak--room": {
+    "file": "arc-pedestal/arc-pedestal-natural-oak-room.jpg",
+    "alt": "Arc pedestal in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "nm6eqd9jahrmt0d1g3zvhds6tw",
+    "prompt": "Interior photograph of a calm home study with the pedestal under an oak desk, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "arc-pedestal--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:39:58+00:00"
+  },
+  "arc-pedestal--smoked-oak--front": {
+    "file": "arc-pedestal/arc-pedestal-smoked-oak-front.jpg",
+    "alt": "Arc pedestal in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "h0k52hykrdrmy0d1g3zrkbfst8",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "arc-pedestal--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        235.8,
+        219.1,
+        202.1
+      ],
+      "gains": [
+        0.971,
+        1.009,
+        1.034
+      ]
+    },
+    "created_at": "2026-10-28T05:39:59+00:00"
+  },
+  "studio-floor-lamp--natural-oak--room": {
+    "file": "studio-floor-lamp/studio-floor-lamp-natural-oak-room.jpg",
+    "alt": "Studio floor lamp in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "rn3edw1wm5rmw0d1g408yj8hb4",
+    "prompt": "Interior photograph of a home study at dusk with the lamp beside an armchair, softly lit, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "studio-floor-lamp--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:40:00+00:00"
+  },
+  "studio-floor-lamp--smoked-oak--front": {
+    "file": "studio-floor-lamp/studio-floor-lamp-smoked-oak-front.jpg",
+    "alt": "Studio floor lamp in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "76h7em6jy5rmt0d1g408vj1dd4",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "studio-floor-lamp--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        223.5,
+        208.9,
+        194.0
+      ],
+      "gains": [
+        1.025,
+        1.058,
+        1.077
+      ]
+    },
+    "created_at": "2026-10-28T05:40:01+00:00"
+  },
+  "ledge-wall-shelf--natural-oak--room": {
+    "file": "ledge-wall-shelf/ledge-wall-shelf-natural-oak-room.jpg",
+    "alt": "Ledge wall shelf in natural oak, in a room",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "was03229y1rmt0d1g40rgh904r",
+    "prompt": "Interior photograph of a home study with the shelf on the wall above a desk, holding books and a plant, featuring exactly the piece from the reference image with the same shape, proportions and material. Warm, calm, lived-in Scandinavian interior, soft natural daylight, realistic scale, no people. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark.",
+    "refs": [
+      "ledge-wall-shelf--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:40:01+00:00"
+  },
+  "ledge-wall-shelf--smoked-oak--front": {
+    "file": "ledge-wall-shelf/ledge-wall-shelf-smoked-oak-front.jpg",
+    "alt": "Ledge wall shelf in smoked oak, front view",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "nx9v5gexb5rmy0d1g40r2931em",
+    "prompt": "Change only the wood of the piece to dark smoked fumed solid oak. Keep exactly the same piece, shape, angle, camera position, background, lighting and shadow. Premium solid wood furniture e-commerce photography, warm and calm, realistic materials, natural light, sharp focus. No text, no logo, no watermark. Only the described piece in the frame, no people, no extra furniture, no props.",
+    "refs": [
+      "ledge-wall-shelf--natural-oak--front"
+    ],
+    "size": [
+      2304,
+      1728
+    ],
+    "color_correction": {
+      "measured_border": [
+        220.9,
+        205.7,
+        191.8
+      ],
+      "gains": [
+        1.037,
+        1.074,
+        1.089
+      ]
+    },
+    "created_at": "2026-10-28T05:40:02+00:00"
+  },
+  "editorial--room-living": {
+    "file": "editorial/room-living.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "t1qs6q3jndrmw0d1g4192fjtm4",
+    "prompt": "Interior photograph of a warm Scandinavian living room with the reference linen sofa and the reference curved armchair, oak floors, linen walls, soft daylight, no people. No text, no logo, no watermark.",
+    "refs": [
+      "lune-sofa--linen-sand--front",
+      "ode-armchair--boucle-ivory--front"
+    ],
+    "size": [
+      1728,
+      2304
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:40:03+00:00"
+  },
+  "editorial--room-dining": {
+    "file": "editorial/room-dining.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "zkkxp37tznrmt0d1g41bvt4bdr",
+    "prompt": "Interior photograph of a warm dining room with the reference oak plank dining table, oak chairs with woven seats and a pendant lamp, linen walls, soft daylight, no people. No text, no logo, no watermark.",
+    "refs": [
+      "plank-dining-table--natural-oak--front",
+      "fold-dining-chair--natural-oak--front"
+    ],
+    "size": [
+      1728,
+      2304
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:40:04+00:00"
+  },
+  "editorial--room-workspace": {
+    "file": "editorial/room-workspace.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "jmnm1nszjsrmt0d1g428p0mz6r",
+    "prompt": "Interior photograph of a calm home study with the reference oak desk, the reference upholstered desk chair and a tall oak bookcase, soft window light, no people. No text, no logo, no watermark.",
+    "refs": [
+      "plank-desk--natural-oak--front",
+      "ode-desk-chair--boucle-ivory--front"
+    ],
+    "size": [
+      1728,
+      2304
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:40:05+00:00"
+  },
+  "editorial--shoppable-room": {
+    "file": "editorial/shoppable-room.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "cz3s7fpvqhrmt0d1g42b29grv0",
+    "prompt": "Wide interior photograph of a warm living room featuring the reference curved armchair on the left, the reference round oak side table in the middle and the reference fluted oak sideboard against the wall on the right, linen walls, oak floor, soft daylight, no people, each piece clearly visible. No text, no logo, no watermark.",
+    "refs": [
+      "ode-armchair--boucle-ivory--front",
+      "mira-side-table--natural-oak--front",
+      "arc-sideboard--natural-oak--front"
+    ],
+    "size": [
+      2848,
+      1600
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:40:06+00:00"
+  },
+  "editorial--fabric-boucle-ivory": {
+    "file": "editorial/fabric-boucle-ivory.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "403a5h0eynrmr0d1g4392mzxn0",
+    "prompt": "Extreme close-up macro of ivory wool bouclé upholstery fabric texture filling the frame, soft daylight, no objects. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:42:52+00:00"
+  },
+  "editorial--fabric-linen-sand": {
+    "file": "editorial/fabric-linen-sand.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "2nc7y2c7asrmr0d1g43agnfa8r",
+    "prompt": "Extreme close-up macro of sand-colored washed linen upholstery fabric texture filling the frame, soft daylight, no objects. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:42:53+00:00"
+  },
+  "editorial--finish-natural-oak": {
+    "file": "editorial/finish-natural-oak.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "ra2pemkyssrmt0d1g43vnthgdw",
+    "prompt": "Extreme close-up macro of natural oiled solid oak wood grain filling the frame, soft daylight, no objects. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:42:57+00:00"
+  },
+  "editorial--finish-smoked-oak": {
+    "file": "editorial/finish-smoked-oak.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "gf6v0jyyr9rmy0d1g43vd7x8pm",
+    "prompt": "Extreme close-up macro of dark smoked fumed solid oak wood grain filling the frame, soft daylight, no objects. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:42:58+00:00"
+  },
+  "editorial--fabric-velvet-rust": {
+    "file": "editorial/fabric-velvet-rust.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "qhhvwegaqsrmt0d1g44r0994ec",
+    "prompt": "Extreme close-up macro of rust cotton velvet upholstery fabric: a short, dense, smooth pile with a soft sheen and gentle light and dark shading where the pile changes direction, flat and even, not furry, not shaggy, filling the frame, soft daylight, no objects. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:45:09+00:00"
+  },
+  "editorial--fabric-wool-charcoal": {
+    "file": "editorial/fabric-wool-charcoal.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "dnx8zzkbg1rmr0d1g44sjevx9w",
+    "prompt": "Extreme close-up macro of charcoal felted wool upholstery fabric: a dense, flat, matte compressed felt surface with very fine fibers, smooth and even, not furry, not shaggy, filling the frame, soft daylight, no objects. No text, no logo, no watermark.",
+    "refs": [],
+    "size": [
+      2048,
+      2048
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:45:10+00:00"
+  },
+  "editorial--room-bedroom": {
+    "file": "editorial/room-bedroom.jpg",
+    "alt": "",
+    "model": "bytedance/seedream-5-lite",
+    "prediction": "8h6enznxndrmy0d1g44ttd53h0",
+    "prompt": "Interior photograph of a calm bedroom with the reference upholstered bed fully made with a sand linen duvet, linen pillows and a folded wool throw, the reference oak bedside table holding a ceramic lamp, soft morning light, no people. No text, no logo, no watermark.",
+    "refs": [
+      "haven-bed--linen-sand--front",
+      "nest-bedside-table--natural-oak--front"
+    ],
+    "size": [
+      1728,
+      2304
+    ],
+    "color_correction": null,
+    "created_at": "2026-10-28T05:45:10+00:00"
+  }
+}

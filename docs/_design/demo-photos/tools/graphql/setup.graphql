@@ -1,0 +1,16 @@
+query DemoSetup {
+  locations(first: 5) {
+    nodes {
+      id
+      name
+    }
+  }
+  publications(first: 10) {
+    nodes {
+      id
+      catalog {
+        title
+      }
+    }
+  }
+}

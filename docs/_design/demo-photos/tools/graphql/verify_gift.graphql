@@ -1,0 +1,18 @@
+query DemoVerifyGift {
+  products(first: 5, query: "gift_card:true") {
+    nodes {
+      handle
+      title
+      status
+      mediaCount {
+        count
+      }
+      variants(first: 10) {
+        nodes {
+          title
+          price
+        }
+      }
+    }
+  }
+}
