@@ -16,6 +16,11 @@
     font-size: var(--font-caption-size);
     color: var(--color-text-muted);
   }
+
+  /* Without Shop Pay Installments the form is empty, so its block leaves the layout */
+  .shopify-block:has(> .installments):not(:has(shopify-payment-terms)) {
+    display: none;
+  }
 {% endstylesheet %}
 
 {% schema %}

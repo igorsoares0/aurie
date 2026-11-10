@@ -93,10 +93,16 @@
   }
 
   .main-product__info {
+    --block-gap: 24px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--block-gap);
     min-width: 0;
+  }
+
+  /* A block that renders nothing must not take a gap of its own */
+  .main-product__info > .shopify-block:not(:has(*)) {
+    display: none;
   }
 
   @media screen and (min-width: 750px) {

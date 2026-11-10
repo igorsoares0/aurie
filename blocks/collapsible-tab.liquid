@@ -34,8 +34,13 @@
     border-bottom: 1px solid var(--color-divider);
   }
 
-  .collapsible-tab + .collapsible-tab {
-    margin-top: -24px;
+  /* Neighboring tabs share one divider. Shopify wraps every block in .shopify-block,
+     so the tabs are matched through their wrappers; --block-gap is the parent's gap. */
+  .shopify-block:has(> .collapsible-tab) + .shopify-block:has(> .collapsible-tab) {
+    margin-top: calc(-1 * var(--block-gap, 0px));
+  }
+
+  .shopify-block:has(> .collapsible-tab) + .shopify-block:has(> .collapsible-tab) > .collapsible-tab {
     border-top: 0;
   }
 
