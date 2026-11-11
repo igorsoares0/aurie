@@ -484,6 +484,20 @@ class Importer:
             self.save()
             print(f"page {handle}")
 
+    def update_pages(self, handles=None):
+        """Re-send the body of pages that already exist (after editing them in the catalog)."""
+        pages = self.state.get("pages", {})
+        for page in self.catalog.get("pages", []):
+            handle = page["handle"]
+            if handle not in pages or (handles and handle not in handles):
+                continue
+            data = self.store.run("page_update", {"id": pages[handle], "page": {
+                "body": self.fill_files(page["body"]),
+            }}, mutation=True)["pageUpdate"]
+            if data["userErrors"]:
+                sys.exit(f"pageUpdate {handle}: {data['userErrors']}")
+            print(f"page {handle} updated")
+
     def menu_items(self, items):
         resolved = []
         for item in items:
@@ -568,8 +582,16 @@ def main():
     parser.add_argument("--update", action="store_true", help="also re-send products that were already created")
     parser.add_argument("--replace", help="comma-separated image job ids that were regenerated: "
                         "deletes the old store files, uploads the new ones and re-sends their products")
+    parser.add_argument("--update-pages", nargs="?", const="all", help="re-send the body of existing pages: "
+                        "all of them, or a comma-separated list of handles")
     args = parser.parse_args()
     importer = Importer(args.preset, args.store)
+    if args.update_pages:
+        handles = None if args.update_pages == "all" else [h.strip() for h in args.update_pages.split(",")]
+        print(f"Update page bodies on {args.store}: {', '.join(handles) if handles else 'all pages in the catalog'}")
+        if args.yes:
+            importer.update_pages(handles)
+        return
     if args.replace:
         job_ids = [k.strip() for k in args.replace.split(",") if k.strip()]
         print(f"Replace {len(job_ids)} images on {args.store}: {', '.join(job_ids)}")

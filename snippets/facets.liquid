@@ -203,7 +203,8 @@
         <a class="button button--secondary" href="{{ results.url }}{% if results.terms %}?q={{ results.terms | url_encode }}{% endif %}" data-facets-clear>
           {{- 'facets.clear_all' | t -}}
         </a>
-        <button class="button" type="button" data-dialog-close>
+        {%- comment -%} A real submit, so filters also apply without JavaScript; <facet-filters> intercepts it otherwise {%- endcomment -%}
+        <button class="button" type="submit" data-dialog-close>
           {{- 'facets.show_results' | t -}}
         </button>
       </div>
@@ -217,7 +218,7 @@
           {%- if filter.type == 'price_range' -%}
             {%- if filter.min_value.value != null or filter.max_value.value != null -%}
               <li>
-                <a class="facets__pill" href="{{ filter.url_to_remove }}" data-facets-link>
+                <a class="facets__pill touch-area" href="{{ filter.url_to_remove }}" data-facets-link>
                   {{- filter.min_value.value | default: 0 | money }} – {{ filter.max_value.value | default: filter.range_max | money -}}
                   {% render 'icon', name: 'close' %}
                   <span class="visually-hidden">{{ 'facets.remove' | t }}</span>
@@ -227,7 +228,7 @@
           {%- else -%}
             {%- for value in filter.active_values -%}
               <li>
-                <a class="facets__pill" href="{{ value.url_to_remove }}" data-facets-link>
+                <a class="facets__pill touch-area" href="{{ value.url_to_remove }}" data-facets-link>
                   {{- value.label | escape -}}
                   {% render 'icon', name: 'close' %}
                   <span class="visually-hidden">{{ 'facets.remove' | t }}</span>
@@ -237,7 +238,7 @@
           {%- endif -%}
         {%- endfor -%}
         <li>
-          <a class="facets__clear" href="{{ results.url }}{% if results.terms %}?q={{ results.terms | url_encode }}{% endif %}" data-facets-link>
+          <a class="facets__clear touch-area" href="{{ results.url }}{% if results.terms %}?q={{ results.terms | url_encode }}{% endif %}" data-facets-link>
             {{- 'facets.clear_all' | t -}}
           </a>
         </li>

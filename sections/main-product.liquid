@@ -32,9 +32,9 @@
   {%- if section.settings.show_breadcrumb -%}
     <nav class="main-product__breadcrumb page-width text-caption text-muted" aria-label="{{ 'product.breadcrumb' | t }}">
       <ol class="main-product__breadcrumb-list" role="list">
-        <li><a href="{{ routes.root_url }}">{{ 'product.home' | t }}</a></li>
+        <li><a class="touch-area" href="{{ routes.root_url }}">{{ 'product.home' | t }}</a></li>
         {%- if collection -%}
-          <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+          <li><a class="touch-area" href="{{ collection.url }}">{{ collection.title }}</a></li>
         {%- endif -%}
         <li aria-current="page">{{ product.title }}</li>
       </ol>

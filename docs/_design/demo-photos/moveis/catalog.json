@@ -1045,17 +1045,17 @@
     {
       "handle": "delivery-and-assembly",
       "title": "Delivery and assembly",
-      "body": "<p>Every piece is made to order in our workshop and ships in 6 to 8 weeks. Pieces marked <strong>In stock</strong> ship within 5 business days.</p><h3>How delivery works</h3><p>When your piece is ready, we call to agree a two-hour delivery slot. Two of our team carry it to the room you choose, assemble it and take every bit of packaging away.</p><p>Delivery and assembly is free on orders over $1,500 in the continental United States. Below that, it is a flat $95.</p><h3>Before we arrive</h3><p>Measure doorways, stairs and corners against the dimensions on the product page. Sofas and beds arrive with their legs off, so the depth is the number that matters most.</p>"
+      "body": "<p>Every piece is made to order in our workshop and ships in 6 to 8 weeks. Pieces marked <strong>In stock</strong> ship within 5 business days.</p><h2>How delivery works</h2><p>When your piece is ready, we call to agree a two-hour delivery slot. Two of our team carry it to the room you choose, assemble it and take every bit of packaging away.</p><p>Delivery and assembly is free on orders over $1,500 in the continental United States. Below that, it is a flat $95.</p><h2>Before we arrive</h2><p>Measure doorways, stairs and corners against the dimensions on the product page. Sofas and beds arrive with their legs off, so the depth is the number that matters most.</p>"
     },
     {
       "handle": "warranty-and-returns",
       "title": "Warranty and returns",
-      "body": "<p>Every sofa, bed and table frame carries a 10-year warranty against defects in materials and workmanship. Fabrics and finishes are covered for 2 years.</p><h3>30 nights at home</h3><p>Live with your piece for 30 nights. If it is not right, tell us and we collect it for free and refund you in full. Custom-sized pieces and textiles that have been used cannot be returned.</p>"
+      "body": "<p>Every sofa, bed and table frame carries a 10-year warranty against defects in materials and workmanship. Fabrics and finishes are covered for 2 years.</p><h2>30 nights at home</h2><p>Live with your piece for 30 nights. If it is not right, tell us and we collect it for free and refund you in full. Custom-sized pieces and textiles that have been used cannot be returned.</p>"
     },
     {
       "handle": "care-guide",
       "title": "Care guide",
-      "body": "<p><img src=\"{file:editorial--finish-natural-oak}\" alt=\"Close-up of oiled solid oak grain\"></p><h3>Oiled oak</h3><p>Wipe with a damp cloth and dry straight away. Once or twice a year, rub in a thin coat of hardwax oil with a soft cloth to refresh the surface. Use coasters for hot dishes and wet glasses.</p><h3>Upholstery</h3><p>Vacuum cushions weekly with a soft brush and turn them over to keep their shape. Blot spills, never rub. Our covers are removable and can be dry cleaned.</p>"
+      "body": "<p><img src=\"{file:editorial--finish-natural-oak}\" alt=\"Close-up of oiled solid oak grain\"></p><h2>Oiled oak</h2><p>Wipe with a damp cloth and dry straight away. Once or twice a year, rub in a thin coat of hardwax oil with a soft cloth to refresh the surface. Use coasters for hot dishes and wet glasses.</p><h2>Upholstery</h2><p>Vacuum cushions weekly with a soft brush and turn them over to keep their shape. Blot spills, never rub. Our covers are removable and can be dry cleaned.</p>"
     },
     {
       "handle": "fabric-samples",
@@ -1212,8 +1212,8 @@
     }
   ],
   "theme": {
-    "listing": "moveis",
-    "preset": "Móveis",
+    "listing": "sotto",
+    "preset": "Sotto",
     "name": "Sotto demo",
     "settings": {
       "templates/index.json": {
@@ -1291,8 +1291,8 @@
         "sections.footer.blocks.showroom.settings.link": "shopify://pages/showroom"
       },
       "config/settings_data.json": {
-        "presets.Móveis.social_instagram_link": "https://www.instagram.com/shopify",
-        "presets.Móveis.social_pinterest_link": "https://www.pinterest.com/shopify"
+        "presets.Sotto.social_instagram_link": "https://www.instagram.com/shopify",
+        "presets.Sotto.social_pinterest_link": "https://www.pinterest.com/shopify"
       }
     }
   }

@@ -11,7 +11,7 @@
     {
       "handle": "materials-and-care",
       "title": "Materials and care",
-      "body": "<h3>18k gold vermeil</h3><p>A thick layer of 18k gold over recycled sterling silver: the look of gold at a lighter price. Take it off before swimming or the gym, and store it in its pouch.</p><h3>18k solid gold</h3><p>Recycled gold through and through. It never wears away, can be resized and is safe in water. Polish with a soft cloth.</p><h3>Sterling silver</h3><p>92.5% recycled silver with a soft, cool shine that deepens over time. Silver darkens with air; the cloth in your box brings it back.</p>"
+      "body": "<h2>18k gold vermeil</h2><p>A thick layer of 18k gold over recycled sterling silver: the look of gold at a lighter price. Take it off before swimming or the gym, and store it in its pouch.</p><h2>18k solid gold</h2><p>Recycled gold through and through. It never wears away, can be resized and is safe in water. Polish with a soft cloth.</p><h2>Sterling silver</h2><p>92.5% recycled silver with a soft, cool shine that deepens over time. Silver darkens with air; the cloth in your box brings it back.</p>"
     },
     {
       "handle": "shipping-and-returns",
@@ -867,8 +867,8 @@
     }
   ],
   "theme": {
-    "listing": "joias",
-    "preset": "Joias",
+    "listing": "facet",
+    "preset": "Facet",
     "name": "Oriel demo",
     "settings": {
       "templates/index.json": {
@@ -912,8 +912,8 @@
         "sections.footer.blocks.social.settings.menu": "oriel-studio"
       },
       "config/settings_data.json": {
-        "presets.Joias.social_instagram_link": "https://www.instagram.com/shopify",
-        "presets.Joias.social_pinterest_link": "https://www.pinterest.com/shopify"
+        "presets.Facet.social_instagram_link": "https://www.instagram.com/shopify",
+        "presets.Facet.social_pinterest_link": "https://www.pinterest.com/shopify"
       }
     }
   },

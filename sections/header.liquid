@@ -192,7 +192,7 @@
     </div>
 
     {%- if menu.links.size > 0 -%}
-      <nav class="menu-drawer__nav" aria-label="{{ 'header.main_menu' | t }}">
+      <nav class="menu-drawer__nav" aria-label="{{ 'header.mobile_menu' | t }}">
         <ul class="menu-drawer__list" role="list">
           {%- for link in menu.links -%}
             <li>
@@ -306,8 +306,10 @@
 
   .header__logo {
     grid-area: logo;
-    display: block;
+    display: flex;
+    align-items: center;
     min-width: 0;
+    min-height: var(--touch-target);
     text-decoration: none;
     color: inherit;
   }

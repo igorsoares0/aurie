@@ -39,7 +39,7 @@
               {%- if block.settings.title != blank -%}
                 <figcaption class="multicolumn__caption label">
                   {%- if block.settings.link != blank -%}
-                    <a href="{{ block.settings.link }}">{{ block.settings.title }}</a>
+                    <a class="touch-area" href="{{ block.settings.link }}">{{ block.settings.title }}</a>
                   {%- else -%}
                     {{ block.settings.title }}
                   {%- endif -%}
@@ -52,7 +52,12 @@
             {%- endif -%}
             <div class="multicolumn__body">
               {%- if block.settings.title != blank -%}
-                <h3 class="multicolumn__title">{{ block.settings.title }}</h3>
+                {%- comment -%} Without a section heading the column titles are the top level of the section {%- endcomment -%}
+                {%- if section.settings.heading != blank -%}
+                  <h3 class="multicolumn__title">{{ block.settings.title }}</h3>
+                {%- else -%}
+                  <h2 class="multicolumn__title">{{ block.settings.title }}</h2>
+                {%- endif -%}
               {%- endif -%}
               {%- if block.settings.text != blank -%}
                 <div class="multicolumn__text rte">{{ block.settings.text }}</div>
@@ -121,6 +126,11 @@
     align-items: center;
     gap: 16px;
     text-align: center;
+  }
+
+  /* The title is an h2 or an h3 depending on the section heading; it looks the same either way */
+  .multicolumn__title {
+    line-height: 1.2;
   }
 
   .multicolumn--icon_centered .multicolumn__title {

@@ -19,7 +19,7 @@
 
     <div class="testimonials__slides">
       {%- for block in section.blocks -%}
-        <figure
+        <div
           class="testimonials__slide"
           id="Testimonial-{{ block.id }}"
           role="group"
@@ -30,11 +30,13 @@
           {% endunless %}
           {{ block.shopify_attributes }}
         >
-          <blockquote class="testimonials__quote">{{ block.settings.quote }}</blockquote>
-          {%- if block.settings.author != blank -%}
-            <figcaption class="testimonials__author text-caption text-muted">{{ block.settings.author }}</figcaption>
-          {%- endif -%}
-        </figure>
+          <figure class="testimonials__figure">
+            <blockquote class="testimonials__quote">{{ block.settings.quote }}</blockquote>
+            {%- if block.settings.author != blank -%}
+              <figcaption class="testimonials__author text-caption text-muted">{{ block.settings.author }}</figcaption>
+            {%- endif -%}
+          </figure>
+        </div>
       {%- endfor -%}
     </div>
 
@@ -67,12 +69,15 @@
     text-align: center;
   }
 
-  .testimonials__slide {
+  .testimonials__figure {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
     margin: 0;
+  }
+
+  .testimonials__slide {
     transition:
       opacity var(--duration-long) var(--ease),
       transform var(--duration-long) var(--ease-out);

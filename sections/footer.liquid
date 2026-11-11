@@ -485,8 +485,20 @@
   const syncFooterDetails = () => {
     document.querySelectorAll('.footer__details').forEach((details) => {
       details.open = !footerDetailsQuery.matches;
+      // Above the phone layout the menus are always open, so their headings
+      // are plain headings: not a tab stop, and not a toggle.
+      const summary = details.querySelector('summary');
+      if (footerDetailsQuery.matches) {
+        summary?.removeAttribute('tabindex');
+      } else {
+        summary?.setAttribute('tabindex', '-1');
+      }
     });
   };
+
+  document.addEventListener('click', (event) => {
+    if (!footerDetailsQuery.matches && event.target.closest?.('.footer__details > summary')) event.preventDefault();
+  });
 
   syncFooterDetails();
   footerDetailsQuery.addEventListener('change', syncFooterDetails);

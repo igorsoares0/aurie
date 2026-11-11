@@ -8,9 +8,9 @@
  * ------------------------------------------------------------
  */
 {
-  "current": "Moda",
+  "current": "Arvel",
   "presets": {
-    "Moda": {
+    "Arvel": {
       "page_width": "120rem",
       "card_secondary_image": true,
       "cart_type": "drawer",
@@ -62,7 +62,7 @@
         }
       }
     },
-    "Joias": {
+    "Facet": {
       "page_width": "120rem",
       "card_secondary_image": true,
       "cart_type": "drawer",
@@ -114,7 +114,7 @@
         }
       }
     },
-    "Móveis": {
+    "Sotto": {
       "page_width": "120rem",
       "card_secondary_image": true,
       "cart_type": "drawer",

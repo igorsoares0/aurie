@@ -1,7 +1,7 @@
 <article class="main-article color-{{ section.settings.color_scheme }}">
   <header class="main-article__head page-width">
     <nav class="main-article__breadcrumb text-caption text-muted" aria-label="{{ 'product.breadcrumb' | t }}">
-      <a href="{{ blog.url }}">{{ blog.title }}</a>
+      <a class="touch-area" href="{{ blog.url }}">{{ blog.title }}</a>
     </nav>
     <h1 class="main-article__title">{{ article.title }}</h1>
     <p class="main-article__meta label text-muted">
@@ -32,12 +32,12 @@
     {%- if article.tags.size > 0 -%}
       <ul class="main-article__tags" role="list" aria-label="{{ 'blog.tags' | t }}">
         {%- for tag in article.tags -%}
-          <li><a class="main-article__tag text-small" href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a></li>
+          <li><a class="main-article__tag text-small touch-area" href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a></li>
         {%- endfor -%}
       </ul>
     {%- endif -%}
 
-    <a class="main-article__back text-small" href="{{ blog.url }}">{{ 'blog.back_to' | t: title: blog.title }}</a>
+    <a class="main-article__back text-small touch-area" href="{{ blog.url }}">{{ 'blog.back_to' | t: title: blog.title }}</a>
 
     {%- if blog.comments_enabled? -%}
       <section class="main-article__comments" id="comments" aria-labelledby="CommentsTitle">

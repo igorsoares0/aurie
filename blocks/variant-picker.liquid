@@ -37,7 +37,7 @@
 
       {%- capture size_guide_link -%}
         {%- if show_size_guide -%}
-          <button class="variant-picker__guide" type="button" data-dialog-open="{{ size_guide_dialog_id }}" aria-haspopup="dialog">
+          <button class="variant-picker__guide touch-area" type="button" data-dialog-open="{{ size_guide_dialog_id }}" aria-haspopup="dialog">
             {{- block.settings.size_guide_label | default: size_guide_page.title -}}
           </button>
         {%- endif -%}

@@ -1073,7 +1073,7 @@
     {
       "handle": "size-guide",
       "title": "Size guide",
-      "body": "<p>Our pieces are cut on a true-to-size block. Each product lists the model's height and the size she wears, plus how the piece is cut.</p><h3>Tops, dresses and outerwear</h3><table><thead><tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hip</th></tr></thead><tbody><tr><td>XS</td><td>80 cm</td><td>62 cm</td><td>88 cm</td></tr><tr><td>S</td><td>84 cm</td><td>66 cm</td><td>92 cm</td></tr><tr><td>M</td><td>88 cm</td><td>70 cm</td><td>96 cm</td></tr><tr><td>L</td><td>94 cm</td><td>76 cm</td><td>102 cm</td></tr><tr><td>XL</td><td>100 cm</td><td>82 cm</td><td>108 cm</td></tr></tbody></table><h3>Trousers (EU sizes)</h3><table><thead><tr><th>Size</th><th>Waist</th><th>Hip</th></tr></thead><tbody><tr><td>32</td><td>62 cm</td><td>88 cm</td></tr><tr><td>34</td><td>66 cm</td><td>92 cm</td></tr><tr><td>36</td><td>70 cm</td><td>96 cm</td></tr><tr><td>38</td><td>74 cm</td><td>100 cm</td></tr><tr><td>40</td><td>78 cm</td><td>104 cm</td></tr><tr><td>42</td><td>84 cm</td><td>110 cm</td></tr></tbody></table><h3>Denim (waist in inches)</h3><table><thead><tr><th>Size</th><th>Waist</th><th>Inseam</th></tr></thead><tbody><tr><td>24</td><td>61 cm</td><td>84 cm</td></tr><tr><td>25</td><td>64 cm</td><td>84 cm</td></tr><tr><td>26</td><td>66 cm</td><td>84 cm</td></tr><tr><td>27</td><td>69 cm</td><td>84 cm</td></tr><tr><td>28</td><td>71 cm</td><td>84 cm</td></tr><tr><td>29</td><td>74 cm</td><td>84 cm</td></tr></tbody></table><p>Between sizes? Take the larger one for outerwear and the smaller one for knitwear.</p>"
+      "body": "<p>Our pieces are cut on a true-to-size block. Each product lists the model's height and the size she wears, plus how the piece is cut.</p><h2>Tops, dresses and outerwear</h2><table><thead><tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hip</th></tr></thead><tbody><tr><td>XS</td><td>80 cm</td><td>62 cm</td><td>88 cm</td></tr><tr><td>S</td><td>84 cm</td><td>66 cm</td><td>92 cm</td></tr><tr><td>M</td><td>88 cm</td><td>70 cm</td><td>96 cm</td></tr><tr><td>L</td><td>94 cm</td><td>76 cm</td><td>102 cm</td></tr><tr><td>XL</td><td>100 cm</td><td>82 cm</td><td>108 cm</td></tr></tbody></table><h2>Trousers (EU sizes)</h2><table><thead><tr><th>Size</th><th>Waist</th><th>Hip</th></tr></thead><tbody><tr><td>32</td><td>62 cm</td><td>88 cm</td></tr><tr><td>34</td><td>66 cm</td><td>92 cm</td></tr><tr><td>36</td><td>70 cm</td><td>96 cm</td></tr><tr><td>38</td><td>74 cm</td><td>100 cm</td></tr><tr><td>40</td><td>78 cm</td><td>104 cm</td></tr><tr><td>42</td><td>84 cm</td><td>110 cm</td></tr></tbody></table><h2>Denim (waist in inches)</h2><table><thead><tr><th>Size</th><th>Waist</th><th>Inseam</th></tr></thead><tbody><tr><td>24</td><td>61 cm</td><td>84 cm</td></tr><tr><td>25</td><td>64 cm</td><td>84 cm</td></tr><tr><td>26</td><td>66 cm</td><td>84 cm</td></tr><tr><td>27</td><td>69 cm</td><td>84 cm</td></tr><tr><td>28</td><td>71 cm</td><td>84 cm</td></tr><tr><td>29</td><td>74 cm</td><td>84 cm</td></tr></tbody></table><p>Between sizes? Take the larger one for outerwear and the smaller one for knitwear.</p>"
     },
     {
       "handle": "shipping-and-returns",
@@ -1240,7 +1240,7 @@
   ],
   "theme": {
     "listing": null,
-    "preset": "Moda",
+    "preset": "Arvel",
     "name": "Arvel demo",
     "settings": {
       "templates/index.json": {
@@ -1305,9 +1305,9 @@
         ]
       },
       "config/settings_data.json": {
-        "presets.Moda.social_instagram_link": "https://www.instagram.com/shopify",
-        "presets.Moda.social_pinterest_link": "https://www.pinterest.com/shopify",
-        "presets.Moda.social_tiktok_link": "https://www.tiktok.com/@shopify"
+        "presets.Arvel.social_instagram_link": "https://www.instagram.com/shopify",
+        "presets.Arvel.social_pinterest_link": "https://www.pinterest.com/shopify",
+        "presets.Arvel.social_tiktok_link": "https://www.tiktok.com/@shopify"
       }
     }
   }

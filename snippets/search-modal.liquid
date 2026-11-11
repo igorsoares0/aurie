@@ -32,6 +32,8 @@
           autofocus
         >
         <input type="hidden" name="options[prefix]" value="last">
+        {%- comment -%} Enter submits the form; the button gives it a real submit control for assistive tech {%- endcomment -%}
+        <button class="visually-hidden" type="submit" tabindex="-1">{{ 'search.submit' | t }}</button>
         <button class="button-unstyled" type="button" data-dialog-close>
           {% render 'icon', name: 'close' %}
           <span class="visually-hidden">{{ 'accessibility.close' | t }}</span>
@@ -85,8 +87,10 @@
     outline: none;
   }
 
+  /* The focused field is marked on the bar: a darker and thicker underline */
   .search-modal__bar:has(.search-modal__input:focus-visible) {
     border-bottom-color: var(--color-text);
+    box-shadow: 0 1px 0 0 var(--color-text);
   }
 
   .search-modal__input::-webkit-search-cancel-button {

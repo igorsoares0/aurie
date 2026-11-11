@@ -176,7 +176,7 @@
             {%- assign swatch_media = swatch_variant.featured_media -%}
             <li>
               <button
-                class="product-card__swatch-button"
+                class="product-card__swatch-button touch-area"
                 type="button"
                 aria-label="{{ swatch_option.name | escape }}: {{ value | escape }}"
                 aria-pressed="{% if value.selected %}true{% else %}false{% endif %}"

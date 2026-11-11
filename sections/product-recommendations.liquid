@@ -77,9 +77,12 @@
               this.observer.disconnect();
               this.load();
             },
-            { rootMargin: '0px 0px 400px 0px' }
+            // Two screens ahead, so the products are in place before the shopper scrolls down to
+            // them or to the footer; loading late would push the content below them down.
+            { rootMargin: '0px 0px 200% 0px' }
           );
-          this.observer.observe(this);
+          // While empty this element is display: none and would never intersect, so watch its section wrapper.
+          this.observer.observe(this.closest('.shopify-section') || this);
         }
 
         disconnectedCallback() {

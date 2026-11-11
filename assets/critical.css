@@ -702,6 +702,19 @@ facet-filters[aria-busy='true'] .results {
   margin-top: 1em;
 }
 
+/* Rich text always sits under a page, section or drawer title, so its headings
+   step down one size: an h2 written in the editor reads as a sub-heading */
+.rte h2 {
+  font-size: var(--font-h3-size);
+  line-height: 1.2;
+}
+
+.rte h3,
+.rte h4 {
+  font-size: calc(var(--font-body-size) * 1.125);
+  line-height: 1.3;
+}
+
 .rte ul,
 .rte ol {
   padding-inline-start: 1.25em;
@@ -805,6 +818,25 @@ body:has(.footer--filled) #MainContent > .shopify-section:last-child .section:no
   text-underline-offset: 3px;
 }
 
+/**
+ * Touch areas. A compact link or control keeps its size on screen but responds
+ * in an area at least --touch-target wide and tall, centered on it and drawn by
+ * a transparent pseudo-element, so the layout around it doesn't change.
+ */
+:where(.touch-area, .text-link) {
+  position: relative;
+}
+
+:is(.touch-area, .text-link)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, var(--touch-target));
+  height: max(100%, var(--touch-target));
+  transform: translate(-50%, -50%);
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -875,6 +907,13 @@ body:has(.footer--filled) #MainContent > .shopify-section:last-child .section:no
     scrollbar-width: thin;
     scrollbar-color: var(--color-text) var(--color-divider);
   }
+}
+
+/* Inside a horizontal scroller the focus ring is drawn inward: an outer ring
+   would be cut off at the scroller's edges. Cards draw their ring on the card. */
+:is(.scroll-row, .lookbook__list, .product-recommendations__list, .product-media__thumbs, .chip-tabs, .main-blog__tag-list) :focus-visible,
+:is(.scroll-row, .lookbook__list, .product-recommendations__list) :is(.product-card, .article-card):has(a:focus-visible) {
+  outline-offset: -2px;
 }
 
 /* Drag to scroll with a mouse (theme.js); touch scrolls natively */
