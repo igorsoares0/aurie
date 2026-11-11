@@ -20,6 +20,13 @@
             "menu": "footer"
           }
         },
+        "studio": {
+          "type": "menu",
+          "settings": {
+            "heading": "",
+            "menu": "main-menu"
+          }
+        },
         "social": {
           "type": "social",
           "settings": {
@@ -27,7 +34,12 @@
           }
         }
       },
-      "block_order": ["newsletter", "menu", "social"],
+      "block_order": [
+        "newsletter",
+        "menu",
+        "studio",
+        "social"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "style": "plain",
@@ -39,5 +51,7 @@
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }

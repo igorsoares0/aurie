@@ -65,6 +65,7 @@
                 </div>
 
               {%- when 'menu' -%}
+                {%- if block.settings.menu.links.size > 0 -%}
                 <div class="footer__block footer__block--menu" {{ block.shopify_attributes }}>
                   <details class="footer__details" open>
                     <summary class="footer__heading label text-muted">
@@ -87,6 +88,7 @@
                     </ul>
                   </details>
                 </div>
+                {%- endif -%}
 
               {%- when 'social' -%}
                 {%- capture social_links -%}

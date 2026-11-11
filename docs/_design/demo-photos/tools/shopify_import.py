@@ -507,6 +507,10 @@ class Importer:
             elif "page" in item:
                 entry.update(type="PAGE", resourceId=self.state["pages"][item["page"]])
             elif "product" in item:
+                if item["product"] not in self.state["products"]:
+                    # The gift card exists only once gift cards are activated in the store; a rerun adds the link.
+                    print(f"menu link skipped, product not in the store yet: {item['product']}")
+                    continue
                 entry.update(type="PRODUCT", resourceId=self.state["products"][item["product"]])
             elif "blog" in item:
                 entry.update(type="BLOG", resourceId=self.state["blogs"][item["blog"]])

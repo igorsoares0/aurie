@@ -1290,19 +1290,7 @@
       },
       "sections/footer-group.json": {
         "sections.footer.blocks.menu.settings.menu": "arvel-help",
-        "sections.footer.blocks.studio": {
-          "type": "menu",
-          "settings": {
-            "heading": "",
-            "menu": "arvel-studio"
-          }
-        },
-        "sections.footer.block_order": [
-          "newsletter",
-          "menu",
-          "studio",
-          "social"
-        ]
+        "sections.footer.blocks.studio.settings.menu": "arvel-studio"
       },
       "config/settings_data.json": {
         "presets.Arvel.social_instagram_link": "https://www.instagram.com/shopify",

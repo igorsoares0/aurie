@@ -6,6 +6,7 @@
   @param {product} product - The product to show
   @param {string} [sizes] - The image sizes attribute. Default: a 4-column grid
   @param {boolean} [eager] - Load the image eagerly, for cards above the fold
+  @param {boolean} [priority] - Also fetch the image first, for the card that is likely the largest paint
   @param {string} [heading_tag] - Tag for the product name. Default: 'h3'
 
   @example
@@ -40,6 +41,11 @@
     assign loading = 'eager'
   else
     assign loading = 'lazy'
+  endif
+
+  assign fetch_priority = 'auto'
+  if priority
+    assign fetch_priority = 'high'
   endif
 
   assign on_sale = false
@@ -99,6 +105,7 @@
           widths: '300, 450, 600, 800, 1000, 1200',
           sizes: image_sizes,
           loading: loading,
+          fetchpriority: fetch_priority,
           alt: product.featured_media.alt,
           class: 'product-card__image'
       }}

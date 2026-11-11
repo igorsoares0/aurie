@@ -128,7 +128,7 @@
                     assign eager = true
                   endif
                 -%}
-                {% render 'product-card', product: product, sizes: card_sizes, eager: eager, heading_tag: 'h2' %}
+                {% render 'product-card', product: product, sizes: card_sizes, eager: eager, priority: forloop.first, heading_tag: 'h2' %}
               </li>
             {%- endfor -%}
           </ul>

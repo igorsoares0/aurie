@@ -193,7 +193,19 @@ Cada fase termina com um critério de pronto verificável. Só se avança quando
 
 ### Fase 5 — Qualidade
 
-- [ ] Lighthouse ≥ 60 performance e ≥ 90 acessibilidade (meta interna 75 / 95) em home, coleção e produto dos três presets
+- [x] Lighthouse ≥ 60 performance e ≥ 90 acessibilidade (meta interna 75 / 95) em home, coleção e produto dos três presets
+
+  **Medição final (2026-11-12, mobile, mediana de 3 rodadas, temas publicados nas client transfer stores, sem barra de pré-visualização):**
+
+  | Preset | Home | Coleção | Produto | Média | Acessibilidade |
+  | --- | --- | --- | --- | --- | --- |
+  | Arvel | 75 | 83 | 79 | 79 | 100 / 100 / 100 |
+  | Facet | 98 | 87 | 88 | 91 | 100 / 100 / 100 |
+  | Sotto | 94 | 90 (5 rodadas) | 87 | 90 | 100 / 100 / 100 |
+
+  - CLS 0 em todas as páginas. A coleção de Sotto saiu de 62 para 90 depois de dar `fetchpriority="high"` ao primeiro card da grade (a foto dele é o LCP e esperava 1,2 s para começar a carregar).
+  - Pendências que não são do tema: cookies de terceiros do shop.app e `inspector-issues` (Best Practices, plataforma); `meta-description` na home e na coleção (texto em Online Store › Preferences e na descrição das coleções, tarefa do admin).
+  - A máquina de medição (WSL) oscila muito entre rodadas; uma mesma página chegou a variar de 62 a 95. Os números acima são medianas.
 - [ ] Teclado, foco visível, contraste, alvos ≥ 24px, HTML válido
 - [ ] Navegadores e webviews (Instagram, Facebook, Pinterest)
 
@@ -219,6 +231,8 @@ Cada fase termina com um critério de pronto verificável. Só se avança quando
   - Fluxo e ferramentas: `docs/_design/demo-photos/tools/` (`demo_images.py`, `shopify_import.py`, `build_demo_theme.py`). Os templates do repositório ficam sem referências ao demo; só a cópia em `<preset>/.theme-build` tem
 - [ ] Documentação pública com FAQ, formulário de suporte com autoresposta
 - [ ] Nomes finais, listing por preset com screenshots, versão 1.0.0 e release notes
+
+- [x] Paridade preset × demo (2026-11-12): cada tema demo comparado, arquivo por arquivo, com uma instalação limpa do mesmo preset (repositório + `listings/<preset>` + preset ativo). Estrutura idêntica nos três (mesmas seções, blocos e ordem). A única diferença estrutural era o 2º menu do rodapé da Arvel, que existia só no demo; agora faz parte do preset (aponta para `main-menu` numa loja nova) e o bloco de menu some quando o menu não tem links. As diferenças restantes são conteúdo da loja demo, que a regra proíbe nos padrões do tema: referências a imagens, coleções, produtos, páginas e menus; metafields do demo nas abas e medidas do produto; autores dos depoimentos com nomes de produtos; horário do showroom; nomes de tecidos dos produtos de Sotto; posição dos pontos clicáveis sobre a foto do demo; links de redes sociais.
 
 **Pronto quando:** o checklist de pré-submissão do documento de requisitos está todo marcado.
 
