@@ -396,9 +396,12 @@ document.addEventListener('click', (event) => {
     image.style.objectPosition = swatch.dataset.focalPoint || '';
   }
 
-  card.querySelectorAll('[data-card-swatch]').forEach((button) => {
+  const swatches = [...card.querySelectorAll('[data-card-swatch]')];
+  swatches.forEach((button) => {
     button.setAttribute('aria-pressed', String(button === swatch));
   });
+  // The hover image shows the first color; hide it while another color is picked.
+  card.toggleAttribute('data-swatch-picked', swatch !== swatches[0]);
   card.querySelectorAll('.product-card__link').forEach((link) => {
     link.href = swatch.dataset.variantUrl;
   });

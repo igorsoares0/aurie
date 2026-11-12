@@ -248,8 +248,10 @@
     opacity: 0;
   }
 
+  /* The hover image belongs to the first color: it stays hidden while the pointer is
+     on the swatches, so a new color shows at once, and once another color is picked */
   @media (hover: hover) {
-    .product-card:hover .product-card__image--secondary {
+    .product-card:hover:not(:has(.product-card__swatches:hover), [data-swatch-picked]) .product-card__image--secondary {
       opacity: 1;
     }
   }
