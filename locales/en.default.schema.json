@@ -172,7 +172,9 @@
       "card_size_option_info": "Option names separated by commas, such as Size, Waist",
       "card_material_metafield": "Material metafield",
       "card_dimensions_metafield": "Dimensions metafield",
-      "metafield_info": "Product metafield as namespace.key, such as custom.material"
+      "metafield_info": "Product metafield as namespace.key, such as custom.material",
+      "dimensions_metafield_info": "Product metafield as namespace.key, such as custom.dimensions",
+      "lead_time_metafield_info": "Product metafield as namespace.key, such as custom.lead_time"
     },
     "product_media": {
       "name": "Product media",

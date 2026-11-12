@@ -1,0 +1,15 @@
+# Summary
+
+* [Introduction](README.md)
+* [Getting started](getting-started.md)
+* [Presets](presets.md)
+* [Theme settings](theme-settings.md)
+* [Header and footer](header-and-footer.md)
+* [Sections](sections.md)
+* [Product pages](product-pages.md)
+* [Collections and search](collections-and-search.md)
+* [Cart](cart.md)
+* [Metafields and swatches](metafields-and-swatches.md)
+* [FAQ](faq.md)
+* [Support](support.md)
+* [Release notes](release-notes.md)
