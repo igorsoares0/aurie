@@ -420,11 +420,19 @@
     font-size: 14px;
   }
 
+  /* Framed cards fill the height of their row, so cards with and without swatches
+     line up; the price row sits at the bottom of each card */
   .product-card--framed {
+    container: framed-card / inline-size;
+    height: 100%;
     gap: 14px;
     padding: 20px;
     border-radius: var(--radius-media);
     background-color: var(--color-tile);
+  }
+
+  .product-card--framed .product-card__info {
+    flex: 1;
   }
 
   .product-card--framed .product-card__top,
@@ -454,12 +462,28 @@
   }
 
   .product-card--framed .product-card__bottom {
+    margin-top: auto;
     padding-top: 12px;
     border-top: 1px solid var(--color-divider);
   }
 
   .product-card--framed .product-card__spec {
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  /* Too narrow for dimensions and price side by side: stack them. It depends on the
+     card's width, not on the price, so every card in a row takes the same layout. */
+  @container framed-card (max-width: 400px) {
+    .product-card--framed .product-card__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .product-card--framed .product-card__bottom .product-card__price {
+      margin-inline-start: 0;
+    }
   }
 
   .product-card--framed .product-card__bottom .product-card__price {
