@@ -407,6 +407,67 @@ select.field {
   background-repeat: no-repeat;
 }
 
+/**
+ * Open option lists in the theme's colors, type and corners, where the browser
+ * supports customizable selects. Elsewhere the system list opens, unchanged.
+ * The <select> stays native, so keyboard, touch and screen readers work as before.
+ */
+@supports (appearance: base-select) {
+  select.field,
+  select.field::picker(select) {
+    appearance: base-select;
+  }
+
+  select.field {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* The theme draws its own caret */
+  select.field::picker-icon {
+    display: none;
+  }
+
+  select.field::picker(select) {
+    margin-block: 4px;
+    padding: 4px;
+    border: 1px solid var(--color-border);
+    border-radius: min(var(--radius-input), 12px);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    box-shadow: 0 12px 32px rgb(0 0 0 / 0.12);
+  }
+
+  select.field option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 40px;
+    padding: 0 12px;
+    border-radius: min(var(--radius-input), 8px);
+    font-size: max(15px, var(--font-small-size));
+  }
+
+  select.field option:hover,
+  select.field option:focus-visible {
+    background-color: var(--color-tile);
+    outline: none;
+  }
+
+  select.field option:checked {
+    font-weight: var(--font-body-weight-medium);
+  }
+
+  select.field option:disabled {
+    color: var(--color-text-muted);
+  }
+
+  select.field option::checkmark {
+    order: 1;
+    margin-inline-start: auto;
+  }
+}
+
 .icon {
   width: 20px;
   height: 20px;
