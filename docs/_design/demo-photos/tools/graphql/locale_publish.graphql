@@ -1,0 +1,6 @@
+mutation DemoLocalePublish($locale: String!, $presences: [ID!]) {
+  shopLocaleUpdate(locale: $locale, shopLocale: { published: true, marketWebPresenceIds: $presences }) {
+    shopLocale { locale published marketWebPresences { id } }
+    userErrors { field message }
+  }
+}

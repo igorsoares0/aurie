@@ -1,0 +1,5 @@
+query DemoAdminState {
+  shop { name shopPolicies { type body } }
+  markets(first: 20) { nodes { handle status } }
+  shopLocales { locale primary published marketWebPresences { id } }
+}

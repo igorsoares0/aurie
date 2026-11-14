@@ -32,3 +32,9 @@ __pycache__/
 ## Early image model tests, kept on disk only
 docs/_design/demo-photos/joias-test/
 docs/_design/demo-photos/model-compare/
+
+## Documentation export for GitBook, rebuilt from docs/theme-docs
+docs/submission/arvel-docs.zip
+
+## Theme package for upload, rebuilt with `shopify theme package`
+docs/submission/Arvel-*.zip

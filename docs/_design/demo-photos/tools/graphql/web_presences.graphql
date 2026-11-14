@@ -1,0 +1,4 @@
+query DemoWebPresences {
+  markets(first: 20) { nodes { handle webPresence { id defaultLocale { locale } alternateLocales { locale } } } }
+  shopLocales { locale published marketWebPresences { id } }
+}

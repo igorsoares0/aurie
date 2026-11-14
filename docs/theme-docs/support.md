@@ -2,13 +2,13 @@
 
 ## Contact us
 
-Send your question through the [support form]([SUPPORT_FORM_URL]). Include:
+Send your question through the [support form](https://tally.so/r/Ge9EpZ). Include:
 
 - your store's address, such as `yourstore.myshopify.com`;
 - the page and the section or setting your question is about;
 - a screenshot, if it helps show the issue.
 
-You'll get an automatic confirmation right away, and an answer within **two business days**.
+A confirmation appears as soon as you send it, and we answer by email within **two business days**.
 
 ## What support covers
 

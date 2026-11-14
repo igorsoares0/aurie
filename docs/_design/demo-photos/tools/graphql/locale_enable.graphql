@@ -1,0 +1,6 @@
+mutation DemoLocaleEnable($locale: String!) {
+  shopLocaleEnable(locale: $locale) {
+    shopLocale { locale published }
+    userErrors { field message }
+  }
+}

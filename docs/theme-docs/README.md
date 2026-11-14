@@ -27,4 +27,4 @@ All three presets share the same sections and blocks, so you can switch presets 
 
 ## Need help?
 
-Read the [FAQ](faq.md) first. If your question isn't answered there, contact us through the [support form]([SUPPORT_FORM_URL]). We reply within two business days.
+Read the [FAQ](faq.md) first. If your question isn't answered there, contact us through the [support form](https://tally.so/r/Ge9EpZ). We reply within two business days.

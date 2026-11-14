@@ -7,8 +7,8 @@ Draft copy for the Partner Dashboard listing. American English, sentence case, n
 - **Theme name:** Arvel
 - **Presets:** Arvel, Facet, Sotto
 - **Version:** 1.0.0
-- **Documentation:** [DOCS_URL]
-- **Support form:** [SUPPORT_FORM_URL]
+- **Documentation:** https://arvel-theme-documentation.gitbook.io/arvel-theme-documentation-docs
+- **Support form:** https://tally.so/r/Ge9EpZ
 
 ### One-line summary
 
@@ -113,3 +113,16 @@ Take them from each demo store, logged in with the storefront password, at 1440 
 6. Mobile product page
 
 Use the published demo themes, not a preview, so the preview bar doesn't appear.
+
+Taken on 2026-11-14 from the published demo stores, at 2× resolution (2880 × 1800 desktop, 780 × 1688 mobile), in `docs/submission/screenshots/<preset>/`:
+
+| File | Page |
+| --- | --- |
+| `<preset>-desktop-home.jpg` | Home page, first screen |
+| `<preset>-desktop-collection.jpg` | A collection with its banner image and filters (Coats and jackets, Rings, Living room) |
+| `<preset>-desktop-product.jpg` | Product page (Trinelle wool coat, Oval signet, Lune sofa) |
+| `<preset>-desktop-cart.jpg` | Cart drawer open after adding the product |
+| `<preset>-mobile-home.jpg` | Mobile home page |
+| `<preset>-mobile-product.jpg` | Mobile product page |
+
+Prices show in Brazilian reais because the demo stores were created in Brazil.
