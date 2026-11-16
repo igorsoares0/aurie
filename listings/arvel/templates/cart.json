@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "note_label": "Order note",
+        "note_placeholder": "Gift message, delivery instructions",
+        "show_gift_wrap": false,
+        "empty_heading": "Your bag is empty",
+        "empty_text": "The new season is a good place to start.",
+        "empty_button_label": "Continue shopping"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

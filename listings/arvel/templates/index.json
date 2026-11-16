@@ -1,0 +1,288 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "height": "large",
+        "inset": false,
+        "color_scheme": "scheme-2",
+        "overlay_opacity": 20,
+        "content_position": "center",
+        "content_layout": "inline",
+        "heading": "The fall edit",
+        "heading_size": "h1",
+        "button_style": "link",
+        "button_label": "Shop the latest",
+        "button_link": "/collections/all"
+      }
+    },
+    "category_index": {
+      "type": "collection-list",
+      "blocks": {
+        "c1": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c2": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c3": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c4": {
+          "type": "collection",
+          "settings": {}
+        },
+        "c5": {
+          "type": "link",
+          "settings": {
+            "title": "Fit guide"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "style": "numbered",
+        "heading": "",
+        "show_count": false
+      }
+    },
+    "new_in": {
+      "type": "featured-collection",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "New in",
+        "show_count": false,
+        "products_to_show": 8,
+        "layout": "scroll",
+        "columns_desktop": 4,
+        "link_label": "View all"
+      }
+    },
+    "editorial_split": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Earthy tones",
+            "size": "h3"
+          }
+        },
+        "link": {
+          "type": "button",
+          "settings": {
+            "label": "Explore new washes",
+            "style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "link"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "image_second",
+        "width": "full",
+        "content_alignment": "center",
+        "content_style": "inline"
+      }
+    },
+    "shop_the_look": {
+      "type": "shoppable-image",
+      "blocks": {
+        "h1": {
+          "type": "hotspot",
+          "settings": {
+            "position_x": 42,
+            "position_y": 28
+          }
+        },
+        "h2": {
+          "type": "hotspot",
+          "settings": {
+            "position_x": 55,
+            "position_y": 55
+          }
+        },
+        "h3": {
+          "type": "hotspot",
+          "settings": {
+            "position_x": 48,
+            "position_y": 84
+          }
+        }
+      },
+      "block_order": [
+        "h1",
+        "h2",
+        "h3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "list",
+        "eyebrow": "Look 01",
+        "heading": "Shop the look",
+        "button_label": "Add the look to bag"
+      }
+    },
+    "captioned_pair": {
+      "type": "multicolumn",
+      "blocks": {
+        "a": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "title": "Perfect pairings",
+            "text": ""
+          }
+        },
+        "b": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "title": "Outerwear",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "style": "captioned",
+        "heading": ""
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>The coat fits exactly as the notes said. I sized down and it's perfect.</p>",
+            "author": "Customer name"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>Beautiful fabrics, and the fit guide made choosing easy.</p>",
+            "author": "Customer name"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>Pieces I reach for every week.</p>",
+            "author": "Customer name"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "eyebrow": "In their words"
+      }
+    },
+    "fit_guide": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Find your fit",
+            "size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every piece lists the model's height and size, and how it is cut. Shop by Petite, Tall or Relaxed.</p>"
+          }
+        },
+        "petite": {
+          "type": "button",
+          "settings": {
+            "label": "Petite",
+            "style": "outline"
+          }
+        },
+        "tall": {
+          "type": "button",
+          "settings": {
+            "label": "Tall",
+            "style": "outline"
+          }
+        },
+        "relaxed": {
+          "type": "button",
+          "settings": {
+            "label": "Relaxed",
+            "style": "outline"
+          }
+        },
+        "guide": {
+          "type": "button",
+          "settings": {
+            "label": "Open the size guide",
+            "style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "petite",
+        "tall",
+        "relaxed",
+        "guide"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "image_first",
+        "width": "full",
+        "content_alignment": "center",
+        "content_style": "stacked"
+      }
+    },
+    "journal": {
+      "type": "blog-posts",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Journal",
+        "posts_to_show": 3,
+        "show_date": true,
+        "show_author": false,
+        "link_label": "Read all stories"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "category_index",
+    "new_in",
+    "editorial_split",
+    "shop_the_look",
+    "captioned_pair",
+    "testimonials",
+    "fit_guide",
+    "journal"
+  ]
+}

@@ -4,7 +4,7 @@ Checked on 2026-11-14 and audited against every section of the Theme Store requi
 
 ## Theme package
 
-- ✅ `docs/submission/Arvel-1.0.0.zip`, built with `shopify theme package`: 130 files, with `listings/facet` and `listings/sotto`.
+- ✅ `docs/submission/Arvel-1.0.0.zip`, built with `shopify theme package`: 139 files, with `listings/arvel`, `listings/facet` and `listings/sotto`. The submission form requires a listings folder for every preset, including the default one: `listings/arvel` is a copy of the root `templates/` (cart, collection, index, product) and section groups, so keep both in sync when either changes.
 - ✅ `AGENTS.md` removed from the zip. `shopify theme package` adds it from the repository root and ignores `.shopifyignore`, so remove it again after every rebuild.
 - ✅ Theme Check: 121 files, no offenses.
 - ✅ No `shopify://` references or demo metafields in templates, listings or section groups.
