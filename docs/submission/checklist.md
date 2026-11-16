@@ -1,11 +1,12 @@
 # Arvel 1.0.0: pre-submission checklist
 
-Checked on 2026-11-14. Items marked ✅ were verified; items marked ⬜ are still to do.
+Checked on 2026-11-14 and audited against every section of the Theme Store requirements page on 2026-11-15. Items marked ✅ were verified; items marked ⬜ are still to do.
 
 ## Theme package
 
-- ✅ `docs/submission/Arvel-1.0.0.zip`, built with `shopify theme package`: 128 files, 590 KB, with `listings/facet` and `listings/sotto`.
-- ✅ Theme Check: 119 files, no offenses.
+- ✅ `docs/submission/Arvel-1.0.0.zip`, built with `shopify theme package`: 130 files, with `listings/facet` and `listings/sotto`.
+- ✅ `AGENTS.md` removed from the zip. `shopify theme package` adds it from the repository root and ignores `.shopifyignore`, so remove it again after every rebuild.
+- ✅ Theme Check: 121 files, no offenses.
 - ✅ No `shopify://` references or demo metafields in templates, listings or section groups.
 - ✅ No `config/markets.json`, Sass or minified CSS/JS.
 - ✅ `theme_info`: version 1.0.0, author Aurie Studio, documentation and support links.
@@ -14,7 +15,10 @@ Checked on 2026-11-14. Items marked ✅ were verified; items marked ⬜ are stil
 
 ## Quality
 
-- ✅ Lighthouse on the published demo stores (mobile, median of 3): Arvel 79, Facet 91, Sotto 90; accessibility 100.
+- ✅ Lighthouse on the published demo stores, median of 3, average of home, collection and product:
+  - mobile: Arvel 79, Facet 91, Sotto 90;
+  - desktop: Arvel 98, Facet 99, Sotto 98;
+  - accessibility 100 on every page.
 - ✅ Keyboard: skip link, tab order, visible focus, drawers trap focus and close with Escape.
 - ✅ Automated sweep: no horizontal scroll, broken images, Liquid or JavaScript errors; touch targets at least 44 × 44 px on mobile; no axe violations.
 - ✅ HTML validation: the remaining messages come from Shopify's injected scripts.
@@ -40,7 +44,21 @@ Checked on 2026-11-14. Items marked ✅ were verified; items marked ⬜ are stil
 - ✅ Documentation: https://arvel-theme-documentation.gitbook.io/arvel-theme-documentation-docs (public).
 - ✅ Support form: https://tally.so/r/Ge9EpZ (public).
 - ⬜ Optional: in GitBook, delete the SUMMARY page and rename the pages in the sidebar (Introduction, Getting started, …).
-- ⬜ Republish the Tally form so the "Store URL (for example, …)" label goes live.
+- ✅ Tally form republished: first and last name, email, store URL with an example, theme, problem description and screenshots. No autoresponder on the free plan; a confirmation page shows instead.
+
+## Fixed in the 2026-11-15 audit
+
+- Footer social media block: icons for each network, with a **Style** setting (names, icons, or icons and names).
+- Footer social media menu now defaults to `footer`, as required for `link_list` settings in the header and footer. The repository section groups set it to empty, so installs look the same.
+- **Custom Liquid** block added next to app blocks in the cart, collection, collection list, search, blog, article, page, featured product, contact form and footer sections.
+- Featured product section shows a video, YouTube or Vimeo video or 3D model when that is the product's main media.
+- Headings h1 to h6 are visually distinct, in rich text too.
+- Spanish storefront translation (`locales/es.json`), so the demo stores' Spanish language shows the theme text in Spanish.
+- Documentation updated for the above (`header-and-footer.md`, `sections.md`). Re-import it in GitBook.
+
+## Still to check in the admin
+
+- ✅ In each demo store, **Settings › Payments**: only the test gateway is active, with every other payment method and manual method turned off (requirement 20). Checked on 2026-11-16.
 
 ## Submit
 

@@ -13,16 +13,40 @@
   <div class="featured-product__grid page-width">
     <div class="featured-product__media">
       {%- if featured.featured_media -%}
-        {{
-          featured.featured_media
-          | image_url: width: 1600
-          | image_tag:
-            widths: '500, 800, 1100, 1600',
-            sizes: '(min-width: 990px) 55vw, 100vw',
-            loading: 'lazy',
-            alt: featured.featured_media.alt,
-            class: 'featured-product__image'
-        }}
+        {%- assign media = featured.featured_media -%}
+        {%- case media.media_type -%}
+          {%- when 'video' -%}
+            {{
+              media
+              | video_tag:
+                image_size: '1600x',
+                autoplay: true,
+                loop: true,
+                muted: true,
+                controls: true,
+                playsinline: true,
+                class: 'featured-product__image'
+            }}
+          {%- when 'external_video' -%}
+            <div class="featured-product__embed">
+              {{ media | external_video_tag: loading: 'lazy' }}
+            </div>
+          {%- when 'model' -%}
+            <div class="featured-product__embed">
+              {{ media | media_tag: image_size: '1600x', toggleable: true }}
+            </div>
+          {%- else -%}
+            {{
+              media
+              | image_url: width: 1600
+              | image_tag:
+                widths: '500, 800, 1100, 1600',
+                sizes: '(min-width: 990px) 55vw, 100vw',
+                loading: 'lazy',
+                alt: media.alt,
+                class: 'featured-product__image'
+            }}
+        {%- endcase -%}
       {%- else -%}
         {{ 'product-apparel-1' | placeholder_svg_tag: 'featured-product__image placeholder-svg' }}
       {%- endif -%}
@@ -87,6 +111,8 @@
 {%- for block in section.blocks -%}
   {%- if block.type == '@app' -%}
     <div class="app-block page-width">{% render block %}</div>
+  {%- elsif block.type == 'custom_liquid' -%}
+    <div class="app-block page-width" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
   {%- endif -%}
 {%- endfor -%}
 
@@ -111,6 +137,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .featured-product__embed,
+  .featured-product__embed iframe,
+  .featured-product__embed model-viewer {
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
   .featured-product__info,
@@ -143,6 +177,19 @@
       'featured-product',
       class FeaturedProduct extends HTMLElement {
         connectedCallback() {
+          if (this.querySelector('model-viewer') && window.Shopify?.loadFeatures) {
+            window.Shopify.loadFeatures([
+              {
+                name: 'model-viewer-ui',
+                version: '1.0',
+                onLoad: (errors) => {
+                  if (errors) return;
+                  this.querySelectorAll('model-viewer').forEach((viewer) => new window.Shopify.ModelViewerUI(viewer));
+                },
+              },
+            ]);
+          }
+
           this.querySelector('[data-featured-variant]')?.addEventListener('change', (event) => {
             const option = event.target.selectedOptions[0];
             const price = this.querySelector('[data-featured-price] .price__current');
@@ -200,6 +247,18 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "custom_liquid",
+      "name": "t:blocks.custom_liquid.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "t:blocks.custom_liquid.label",
+          "info": "t:blocks.custom_liquid.info"
+        }
+      ]
     }
   ]
 }

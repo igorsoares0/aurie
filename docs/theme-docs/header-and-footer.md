@@ -36,7 +36,7 @@ Footer blocks:
 | --- | --- |
 | Email signup | A heading, a short text and the signup form. Signups are saved as customers who accept marketing. |
 | Menu | The links of a menu. A menu block with no links is hidden. |
-| Social media | An optional menu followed by the social links from **Theme settings › Social media**. |
+| Social media | An optional menu followed by the social links from **Theme settings › Social media**. **Style** shows the accounts as **Names**, **Icons** or **Icons and names**. |
 | Text | A heading, text and an optional link, such as your showroom address or opening hours. |
 
 On mobile the footer menus collapse into rows that open on tap.

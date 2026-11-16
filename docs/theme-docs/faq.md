@@ -52,6 +52,9 @@ Yes. Set **Theme settings › Cart › Cart type** to **Page**.
 **How do I show a country or language selector?**
 Add markets and languages in **Settings › Markets** and **Settings › Languages**. Then turn on **Show country/region selector** and **Show language selector** in the **Footer** section, and in the **Header** section for the mobile menu.
 
+**Which languages does the theme include?**
+The theme's own text, such as buttons, labels and messages, comes in English and Spanish. For other languages, or to change any of the theme's text, go to **Online Store › Themes › … › Edit default theme content**. Product, collection and page content is translated separately, for example with the Translate & Adapt app.
+
 ## Accessibility and performance
 
 **Is the theme accessible?**

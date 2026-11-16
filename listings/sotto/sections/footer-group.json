@@ -32,7 +32,8 @@
         "social": {
           "type": "social",
           "settings": {
-            "heading": "Follow"
+            "heading": "Follow",
+            "menu": ""
           }
         },
         "showroom": {

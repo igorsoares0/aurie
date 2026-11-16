@@ -105,22 +105,22 @@
                     </li>
                   {%- endfor -%}
                   {%- if settings.social_instagram_link != blank -%}
-                    <li><a href="{{ settings.social_instagram_link }}" rel="noopener" target="_blank">{{ 'social.instagram' | t }}</a></li>
+                    <li>{% render 'social-link', url: settings.social_instagram_link, network: 'instagram', style: block.settings.style %}</li>
                   {%- endif -%}
                   {%- if settings.social_pinterest_link != blank -%}
-                    <li><a href="{{ settings.social_pinterest_link }}" rel="noopener" target="_blank">{{ 'social.pinterest' | t }}</a></li>
+                    <li>{% render 'social-link', url: settings.social_pinterest_link, network: 'pinterest', style: block.settings.style %}</li>
                   {%- endif -%}
                   {%- if settings.social_tiktok_link != blank -%}
-                    <li><a href="{{ settings.social_tiktok_link }}" rel="noopener" target="_blank">{{ 'social.tiktok' | t }}</a></li>
+                    <li>{% render 'social-link', url: settings.social_tiktok_link, network: 'tiktok', style: block.settings.style %}</li>
                   {%- endif -%}
                   {%- if settings.social_facebook_link != blank -%}
-                    <li><a href="{{ settings.social_facebook_link }}" rel="noopener" target="_blank">{{ 'social.facebook' | t }}</a></li>
+                    <li>{% render 'social-link', url: settings.social_facebook_link, network: 'facebook', style: block.settings.style %}</li>
                   {%- endif -%}
                   {%- if settings.social_youtube_link != blank -%}
-                    <li><a href="{{ settings.social_youtube_link }}" rel="noopener" target="_blank">{{ 'social.youtube' | t }}</a></li>
+                    <li>{% render 'social-link', url: settings.social_youtube_link, network: 'youtube', style: block.settings.style %}</li>
                   {%- endif -%}
                   {%- if settings.social_x_link != blank -%}
-                    <li><a href="{{ settings.social_x_link }}" rel="noopener" target="_blank">{{ 'social.x' | t }}</a></li>
+                    <li>{% render 'social-link', url: settings.social_x_link, network: 'x', style: block.settings.style %}</li>
                   {%- endif -%}
                 {%- endcapture -%}
                 {%- if social_links != blank -%}
@@ -130,7 +130,7 @@
                         {{- block.settings.heading -}}
                         {% render 'icon', name: 'caret' %}
                       </summary>
-                      <ul class="footer__links" role="list">
+                      <ul class="footer__links{% if block.settings.style == 'icons' %} footer__links--icons{% endif %}" role="list">
                         {{ social_links }}
                       </ul>
                     </details>
@@ -150,6 +150,8 @@
 
               {%- when '@app' -%}
                 <div class="footer__block">{% render block %}</div>
+              {%- when 'custom_liquid' -%}
+                <div class="footer__block" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
             {%- endcase -%}
           {%- endfor -%}
         </div>
@@ -349,6 +351,12 @@
     margin: 0;
     font-size: var(--font-small-size);
     line-height: 20px;
+  }
+
+  .footer__links--icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   .footer__links a,
@@ -583,6 +591,18 @@
       "type": "@app"
     },
     {
+      "type": "custom_liquid",
+      "name": "t:blocks.custom_liquid.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "t:blocks.custom_liquid.label",
+          "info": "t:blocks.custom_liquid.info"
+        }
+      ]
+    },
+    {
       "type": "newsletter",
       "name": "t:sections.footer.blocks.newsletter",
       "limit": 1,
@@ -654,7 +674,19 @@
           "type": "link_list",
           "id": "menu",
           "label": "t:labels.menu",
-          "info": "t:sections.footer.blocks.social_menu_info"
+          "info": "t:sections.footer.blocks.social_menu_info",
+          "default": "footer"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "t:sections.footer.blocks.social_style",
+          "options": [
+            { "value": "names", "label": "t:sections.footer.blocks.social_style_names" },
+            { "value": "icons", "label": "t:sections.footer.blocks.social_style_icons" },
+            { "value": "icons_and_names", "label": "t:sections.footer.blocks.social_style_icons_and_names" }
+          ],
+          "default": "names"
         },
         {
           "type": "paragraph",

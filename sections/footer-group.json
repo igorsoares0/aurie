@@ -30,7 +30,8 @@
         "social": {
           "type": "social",
           "settings": {
-            "heading": "Social media"
+            "heading": "Social media",
+            "menu": ""
           }
         }
       },

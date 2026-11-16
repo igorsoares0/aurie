@@ -32,7 +32,8 @@
         "social": {
           "type": "social",
           "settings": {
-            "heading": "The studio"
+            "heading": "The studio",
+            "menu": ""
           }
         }
       },

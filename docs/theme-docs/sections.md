@@ -22,7 +22,7 @@ Most sections that hold text accept a split heading: type `|` with a space on ea
 | **Featured collection** | Products from one collection. **Layout** is **Scrolling row** or **Grid**; **Show product count** adds the number next to the heading. |
 | **Collection tabs** | Several collections behind tabs. Add one **Tab** block per collection. |
 | **Collection list** | Collection tiles. **Style** is **Numbered index**, **Portraits with caption** or **Mosaic**. Add **Collection** blocks, or **Link** blocks for pages such as a fit guide. |
-| **Featured product** | One product with its gallery, price, variant selector and add to cart button. |
+| **Featured product** | One product with its main image, video or 3D model, price, variant selector and add to cart button. |
 | **Shoppable image** | An image with hotspots. Each **Product hotspot** block points to a product, with its **Horizontal position** and **Vertical position** on the image. **Layout** is **Image with product list** (shoppers pick a variant for each piece and add the whole look at once) or **Image with floating card**. |
 | **Shop by room** | **Room** tiles, each with an image, heading, subtitle and link. |
 | **Product comparison** | Up to four rows compared across products. Each **Row metafield** reads a product metafield, such as `custom.width`. |
@@ -56,5 +56,5 @@ Most sections that hold text accept a split heading: type `|` with a space on ea
 | Section | What it does |
 | --- | --- |
 | **Custom Liquid** | Your own Liquid, HTML or embed code. |
-| **Apps** | Blocks from apps you install, anywhere on a page. App blocks can also be added inside the product, collection, search results, cart, blog, article, page, featured product, contact form and footer sections. |
+| **Apps** | Blocks from apps you install, anywhere on a page. App blocks and **Custom Liquid** blocks can also be added inside the product, collection, collection list, search results, cart, blog, article, page, featured product, contact form and footer sections. |
 | **Contact form** | A contact form, used on the contact page. |

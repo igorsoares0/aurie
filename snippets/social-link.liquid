@@ -1,0 +1,36 @@
+{% doc %}
+  Renders a link to a social media account, as its name, its icon or both.
+  With the icon alone, the name stays available to screen readers.
+
+  @param {string} url - The account's address
+  @param {string} network - One of: instagram, pinterest, tiktok, facebook, youtube, x
+  @param {string} [style] - names, icons or icons_and_names. Default: names
+
+  @example
+  {% render 'social-link', url: settings.social_instagram_link, network: 'instagram', style: 'icons' %}
+{% enddoc %}
+
+{%- liquid
+  assign style = style | default: 'names'
+  assign label_key = 'social.' | append: network
+-%}
+
+<a class="social-link social-link--{{ style }}{% if style == 'icons' %} touch-area{% endif %}" href="{{ url }}" rel="noopener" target="_blank">
+  {%- unless style == 'names' -%}
+    {% render 'icon', name: network, class: 'social-link__icon' %}
+  {%- endunless -%}
+  <span{% if style == 'icons' %} class="visually-hidden"{% endif %}>{{ label_key | t }}</span>
+</a>
+
+{% stylesheet %}
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .social-link__icon {
+    width: 18px;
+    height: 18px;
+  }
+{% endstylesheet %}

@@ -169,6 +169,8 @@
 {%- for block in section.blocks -%}
   {%- if block.type == '@app' -%}
     <div class="app-block page-width">{% render block %}</div>
+  {%- elsif block.type == 'custom_liquid' -%}
+    <div class="app-block page-width" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
   {%- endif -%}
 {%- endfor -%}
 
@@ -472,6 +474,18 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "custom_liquid",
+      "name": "t:blocks.custom_liquid.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "t:blocks.custom_liquid.label",
+          "info": "t:blocks.custom_liquid.info"
+        }
+      ]
     }
   ]
 }

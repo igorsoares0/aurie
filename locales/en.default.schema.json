@@ -259,7 +259,11 @@
         "heading_size_large": "Large",
         "menu_heading_info": "Uses the menu name when empty",
         "social_info": "Add your accounts in Theme settings, Social media",
-        "social_menu_info": "Optional links shown above your social media accounts"
+        "social_menu_info": "Optional links shown above your social media accounts",
+        "social_style": "Style",
+        "social_style_names": "Names",
+        "social_style_icons": "Icons",
+        "social_style_icons_and_names": "Icons and names"
       }
     },
     "main_404": {
