@@ -107,8 +107,9 @@
     --banner-height: 520px;
   }
 
+  /* On short phones the banner stops above the fold, so its text shows on the first screen */
   .image-banner--large {
-    --banner-height: 640px;
+    --banner-height: min(640px, calc(100svh - 108px));
   }
 
   .image-banner--screen {

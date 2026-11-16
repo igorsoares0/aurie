@@ -60,7 +60,12 @@ Checked on 2026-11-14 and audited against every section of the Theme Store requi
 
 - ✅ In each demo store, **Settings › Payments**: only the test gateway is active, with every other payment method and manual method turned off (requirement 20). Checked on 2026-11-16.
 
-## Submit
+## Submitted
+
+- ✅ Submitted in the Partner Dashboard on 2026-11-17 (theme 7442). Listing content, features, notes and the other-notes answers are recorded in `listing.md`; `form-fill.md` has the form in field order.
+- During review: keep the demo stores and their password unchanged, and answer Shopify emails from themes@shopify.com quickly.
+
+## Submit (how it was done)
 
 1. In the Partner Dashboard, open **Themes** and start a new theme submission.
 2. Upload `docs/submission/Arvel-1.0.0.zip`.
