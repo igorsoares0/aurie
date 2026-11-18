@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Arvel",
+    "theme_name": "Caliper",
     "theme_version": "1.0.0",
     "theme_author": "Aurie Studio",
     "theme_documentation_url": "https://arvel-theme-documentation.gitbook.io/arvel-theme-documentation-docs",
@@ -106,13 +106,20 @@
         "type": "font_picker",
         "id": "heading_font",
         "label": "t:settings.typography.heading_font",
-        "default": "cormorant_n4"
+        "default": "archivo_n6"
       },
       {
         "type": "font_picker",
         "id": "body_font",
         "label": "t:settings.typography.body_font",
-        "default": "work_sans_n4"
+        "default": "inter_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "label_font",
+        "label": "t:settings.typography.label_font",
+        "info": "t:settings.typography.label_font_info",
+        "default": "ibm_plex_mono_n4"
       },
       {
         "type": "range",
@@ -139,6 +146,13 @@
           }
         ],
         "default": "none"
+      },
+      {
+        "type": "checkbox",
+        "id": "heading_italic_accent",
+        "label": "t:settings.typography.heading_italic_accent",
+        "info": "t:settings.typography.heading_italic_accent_info",
+        "default": false
       },
       {
         "type": "checkbox",
@@ -283,10 +297,6 @@
         "label": "t:settings.header.layout",
         "options": [
           {
-            "value": "center_text",
-            "label": "t:settings.header.layout_center_text"
-          },
-          {
             "value": "center_icons",
             "label": "t:settings.header.layout_center_icons"
           },
@@ -295,7 +305,7 @@
             "label": "t:settings.header.layout_left"
           }
         ],
-        "default": "center_text"
+        "default": "left"
       }
     ]
   },
@@ -396,6 +406,13 @@
         "id": "card_secondary_image",
         "label": "t:settings.product_cards.card_secondary_image",
         "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "card_dimension_lines",
+        "label": "t:settings.product_cards.card_dimension_lines",
+        "info": "t:settings.product_cards.card_dimension_lines_info",
+        "default": false
       }
     ]
   },
@@ -421,6 +438,51 @@
           }
         ],
         "default": "grid"
+      }
+    ]
+  },
+  {
+    "name": "t:settings.spec_sheet.name",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:settings.spec_sheet.intro"
+      },
+      {
+        "type": "text",
+        "id": "catalog_number_metafield",
+        "label": "t:settings.spec_sheet.catalog_number_metafield",
+        "info": "t:settings.spec_sheet.catalog_number_metafield_info",
+        "default": "custom.catalog_number"
+      },
+      {
+        "type": "text",
+        "id": "option_codes",
+        "label": "t:settings.spec_sheet.option_codes",
+        "info": "t:settings.spec_sheet.option_codes_info",
+        "default": "Fabric: F, Finish: W, Color: C, Metal: M"
+      },
+      {
+        "type": "header",
+        "content": "t:settings.spec_sheet.dimensions_header"
+      },
+      {
+        "type": "text",
+        "id": "dimension_width_metafield",
+        "label": "t:settings.spec_sheet.dimension_width_metafield",
+        "default": "custom.width"
+      },
+      {
+        "type": "text",
+        "id": "dimension_height_metafield",
+        "label": "t:settings.spec_sheet.dimension_height_metafield",
+        "default": "custom.height"
+      },
+      {
+        "type": "text",
+        "id": "dimension_unit",
+        "label": "t:settings.spec_sheet.dimension_unit",
+        "default": "cm"
       }
     ]
   },

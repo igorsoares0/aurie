@@ -85,6 +85,15 @@
     gap: 4px 8px;
   }
 
+  /* Prices read as figures: the label font, with numbers of equal width */
+  .price__current,
+  .price__compare {
+    font-family: var(--font-label-family);
+    font-style: var(--font-label-style);
+    font-weight: var(--font-label-weight);
+    font-variant-numeric: tabular-nums;
+  }
+
   .price--on-sale .price__current {
     color: var(--color-accent);
   }

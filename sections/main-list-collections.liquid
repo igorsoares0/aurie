@@ -25,8 +25,15 @@
                   {{ 'collection-1' | placeholder_svg_tag: 'collection-card__image' }}
                 {%- endif -%}
               </span>
-              <span class="collection-card__title h3">{{ collection.title }}</span>
-              <span class="text-caption text-muted">{{ 'facets.product_count' | t: count: collection.all_products_count }}</span>
+              <span class="collection-card__row">
+                <span class="index-no">
+                  {%- assign collection_number = paginate.current_offset | plus: forloop.index -%}
+                  {%- if collection_number < 10 -%}0{%- endif -%}
+                  {{- collection_number -}}
+                </span>
+                <span class="collection-card__title h3">{{ collection.title }}</span>
+              </span>
+              <span class="figure-caption">{{ 'facets.product_count' | t: count: collection.all_products_count }}</span>
             </a>
           </li>
         {%- endfor -%}
@@ -45,6 +52,16 @@
 {%- endfor -%}
 
 {% stylesheet %}
+  .collection-card__row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .main-list-collections .collection-card__media {
+    border: 1px solid var(--color-divider);
+  }
+
   .main-list-collections__inner {
     display: flex;
     flex-direction: column;
@@ -52,27 +69,48 @@
     padding-block: 48px var(--section-spacing);
   }
 
+  /* Collections as rows of the index, so any number of them lines up */
   .main-list-collections__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-    gap: 40px var(--grid-gap);
+    display: flex;
+    flex-direction: column;
     margin: 0;
+    border-top: var(--rule-strong);
+  }
+
+  .main-list-collections__grid > li {
+    border-bottom: var(--rule-thin);
   }
 
   .collection-card {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    gap: 4px 16px;
+    padding-block: 14px;
     text-decoration: none;
   }
 
   .collection-card__media {
+    grid-row: 1 / span 2;
     display: block;
     overflow: hidden;
-    aspect-ratio: 4 / 5;
-    margin-bottom: 4px;
+    aspect-ratio: 4 / 3;
     border-radius: var(--radius-media);
     background-color: var(--color-tile);
+  }
+
+  @media screen and (min-width: 750px) {
+    .collection-card {
+      grid-template-columns: 200px minmax(0, 1fr) auto;
+      grid-template-rows: auto;
+      align-items: center;
+      gap: 0 32px;
+    }
+
+    .collection-card__media {
+      grid-row: auto;
+    }
   }
 
   .collection-card__image {

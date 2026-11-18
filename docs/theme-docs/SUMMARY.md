@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Getting started](getting-started.md)
+* [Spec sheet](spec-sheet.md)
 * [Presets](presets.md)
 * [Theme settings](theme-settings.md)
 * [Header and footer](header-and-footer.md)

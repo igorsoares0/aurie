@@ -207,6 +207,13 @@
     padding-block: var(--section-spacing) 24px;
   }
 
+  /* On the page's own background the footer opens on a strong rule, like a colophon */
+  .footer:not(.footer--filled, .footer--card) {
+    margin-top: var(--section-spacing);
+    padding-top: 48px;
+    border-top: var(--rule-strong);
+  }
+
   .footer--card {
     background-color: transparent;
     padding-block-end: var(--page-margin);
@@ -241,11 +248,11 @@
   }
 
   .footer__newsletter-heading--label {
-    font-family: var(--font-body-family);
+    font-family: var(--font-label-family);
     font-style: normal;
     font-size: var(--font-label-size);
     line-height: 16px;
-    font-weight: var(--font-body-weight-medium);
+    font-weight: var(--font-label-weight);
     letter-spacing: var(--font-label-spacing);
     text-transform: uppercase;
     color: var(--color-text-muted);
@@ -406,8 +413,9 @@
     justify-content: space-between;
     gap: 12px 24px;
     margin-top: 56px;
-    padding-top: 24px;
+    padding-top: 20px;
     border-top: 1px solid var(--color-divider);
+    font-family: var(--font-label-family);
   }
 
   .footer__wordmark + .footer__bottom {

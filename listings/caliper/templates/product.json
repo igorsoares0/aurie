@@ -28,7 +28,7 @@
         "variant_picker": {
           "type": "variant-picker",
           "settings": {
-            "style": "buttons",
+            "style": "rows",
             "show_swatches": true,
             "swatch_style": "labeled",
             "size_guide_options": "Size",
@@ -74,16 +74,6 @@
             "show_description": true
           }
         },
-        "tab_materials": {
-          "type": "collapsible-tab",
-          "settings": {
-            "heading": "Materials and care",
-            "heading_style": "label",
-            "open": false,
-            "show_description": false,
-            "content": "<p>Share the wood, fabric and finish, and how to care for them.</p>"
-          }
-        },
         "tab_delivery": {
           "type": "collapsible-tab",
           "settings": {
@@ -103,6 +93,21 @@
             "show_description": false,
             "content": "<p>Share your warranty and return policy.</p>"
           }
+        },
+        "specification": {
+          "type": "specification",
+          "settings": {
+            "heading": "Specification",
+            "mono_values": false,
+            "label_1": "Dimensions",
+            "label_2": "Seat height, cm",
+            "label_3": "Materials and care",
+            "label_4": "",
+            "label_5": "",
+            "label_6": "",
+            "label_7": "",
+            "label_8": ""
+          }
         }
       },
       "block_order": [
@@ -110,12 +115,12 @@
         "price",
         "installments",
         "variant_picker",
+        "buy_buttons",
         "dimensions",
         "lead_time",
-        "buy_buttons",
         "pickup",
+        "specification",
         "tab_details",
-        "tab_materials",
         "tab_delivery",
         "tab_warranty"
       ]

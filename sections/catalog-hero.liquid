@@ -1,0 +1,276 @@
+{%- liquid
+  assign product = section.settings.product
+  assign image = section.settings.image | default: product.featured_media.preview_image
+
+  assign dimension_width = blank
+  assign dimension_height = blank
+  if product != blank and section.settings.show_dimension_lines
+    if settings.dimension_width_metafield != blank
+      assign width_key = settings.dimension_width_metafield | split: '.'
+      assign dimension_width = product.metafields[width_key.first][width_key.last].value
+    endif
+    if settings.dimension_height_metafield != blank
+      assign height_key = settings.dimension_height_metafield | split: '.'
+      assign dimension_height = product.metafields[height_key.first][height_key.last].value
+    endif
+  endif
+
+  comment
+    The plate is the largest paint only when the hero opens the page
+  endcomment
+  assign loading = 'lazy'
+  assign fetchpriority = 'auto'
+  assign preload = false
+  if section.index == 1
+    assign loading = 'eager'
+    assign fetchpriority = 'high'
+    assign preload = true
+  endif
+
+  assign catalog_number = blank
+  if product != blank and settings.catalog_number_metafield != blank
+    assign catalog_key = settings.catalog_number_metafield | split: '.'
+    assign catalog_number = product.metafields[catalog_key.first][catalog_key.last].value
+  endif
+-%}
+
+<div class="catalog-hero color-{{ section.settings.color_scheme }}">
+  <div class="catalog-hero__inner page-width">
+    <div class="catalog-hero__text">
+      <div class="catalog-hero__intro">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="label text-muted">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          {%- if section.index == 1 -%}
+            <h1 class="catalog-hero__heading display">{% render 'split-heading', text: section.settings.heading %}</h1>
+          {%- else -%}
+            <h2 class="catalog-hero__heading display">{% render 'split-heading', text: section.settings.heading %}</h2>
+          {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="catalog-hero__body rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <dl class="catalog-hero__stats">
+          {%- for block in section.blocks -%}
+            <div class="catalog-hero__stat" {{ block.shopify_attributes }}>
+              <dt class="label text-muted">{{ block.settings.label }}</dt>
+              <dd class="catalog-hero__stat-value">{{ block.settings.value }}</dd>
+            </div>
+          {%- endfor -%}
+        </dl>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank or section.settings.button_label_2 != blank -%}
+        <div class="button-row">
+          {%- if section.settings.button_label != blank -%}
+            <a class="button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.button_label_2 != blank -%}
+            <a class="button button--secondary" href="{{ section.settings.button_link_2 | default: routes.all_products_collection_url }}">{{ section.settings.button_label_2 }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <figure class="catalog-hero__figure">
+      <div class="catalog-hero__frame{% if section.settings.show_crop_marks %} crop-marks{% endif %}">
+        {%- if image != blank -%}
+          {{
+            image
+            | image_url: width: 2000
+            | image_tag:
+              widths: '600, 900, 1200, 1600, 2000',
+              sizes: '(min-width: 990px) 58vw, 100vw',
+              loading: loading,
+              fetchpriority: fetchpriority,
+              preload: preload,
+              class: 'catalog-hero__image'
+          }}
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'catalog-hero__image placeholder-svg' }}
+        {%- endif -%}
+
+        {%- if dimension_width != blank -%}
+          <span class="dim dim--width" aria-hidden="true">
+            <span class="dim__label">
+              {%- unless dimension_width contains 'Ø' -%}
+                {{ 'product.media.width_short' | t }}
+              {% endunless -%}
+              {{ dimension_width }}
+              {{ settings.dimension_unit -}}
+            </span>
+          </span>
+        {%- endif -%}
+        {%- if dimension_height != blank -%}
+          <span class="dim dim--height" aria-hidden="true">
+            <span class="dim__label">{{ 'product.media.height_short' | t }} {{ dimension_height }}</span>
+          </span>
+        {%- endif -%}
+      </div>
+
+      {%- if product != blank or section.settings.caption != blank -%}
+        <figcaption class="catalog-hero__caption figure-caption">
+          <span>{{ section.settings.caption }}</span>
+          {%- if product != blank -%}
+            <a class="catalog-hero__product-link" href="{{ product.url }}">
+              {{- product.title -}}
+              {%- if catalog_number != blank %}, {{ 'product.catalog_number' | t: number: catalog_number }}{% endif %} →
+            </a>
+          {%- endif -%}
+        </figcaption>
+      {%- endif -%}
+    </figure>
+  </div>
+</div>
+
+{% stylesheet %}
+  .catalog-hero {
+    padding-block: 40px var(--section-spacing);
+  }
+
+  .catalog-hero__inner {
+    display: grid;
+    gap: 32px;
+  }
+
+  .catalog-hero__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .catalog-hero__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .catalog-hero__body {
+    max-width: 30rem;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .catalog-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0;
+    border-top: var(--rule-strong);
+  }
+
+  .catalog-hero__stat {
+    padding: 12px 16px 12px 0;
+    border-bottom: var(--rule-thin);
+  }
+
+  .catalog-hero__stat:nth-child(even) {
+    padding-inline: 16px 0;
+    border-inline-start: var(--rule-thin);
+  }
+
+  .catalog-hero__stat-value {
+    margin: 4px 0 0;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .catalog-hero__figure {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .catalog-hero__frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-media);
+    background-color: var(--color-tile);
+    color: var(--color-text);
+  }
+
+  .catalog-hero__frame .dim {
+    --dim-label-background: var(--color-tile);
+  }
+
+  .catalog-hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .catalog-hero__caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px 16px;
+  }
+
+  .catalog-hero__product-link {
+    color: var(--color-text);
+  }
+
+  @media screen and (min-width: 990px) {
+    .catalog-hero__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+      gap: 48px;
+      align-items: stretch;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.catalog_hero.name",
+  "class": "section-catalog-hero",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:labels.color_scheme", "default": "scheme-1" },
+    { "type": "text", "id": "eyebrow", "label": "t:sections.catalog_hero.eyebrow", "default": "Catalog Nº 01" },
+    { "type": "text", "id": "heading", "label": "t:labels.heading", "info": "t:labels.split_heading_info", "default": "Show what you make, specified" },
+    { "type": "richtext", "id": "text", "label": "t:labels.text", "default": "<p>Introduce your collection: what it is made of and how it reaches your customers.</p>" },
+    { "type": "header", "content": "t:sections.catalog_hero.plate_header" },
+    { "type": "product", "id": "product", "label": "t:sections.catalog_hero.product", "info": "t:sections.catalog_hero.product_info" },
+    { "type": "image_picker", "id": "image", "label": "t:sections.catalog_hero.image", "info": "t:sections.catalog_hero.image_info" },
+    { "type": "text", "id": "caption", "label": "t:sections.catalog_hero.caption", "default": "Plate 01" },
+    { "type": "checkbox", "id": "show_crop_marks", "label": "t:sections.catalog_hero.show_crop_marks", "default": true },
+    { "type": "checkbox", "id": "show_dimension_lines", "label": "t:sections.catalog_hero.show_dimension_lines", "default": true },
+    { "type": "header", "content": "t:sections.catalog_hero.buttons_header" },
+    { "type": "text", "id": "button_label", "label": "t:sections.catalog_hero.button_label", "default": "Browse the index" },
+    { "type": "url", "id": "button_link", "label": "t:sections.catalog_hero.button_link" },
+    { "type": "text", "id": "button_label_2", "label": "t:sections.catalog_hero.button_label_2" },
+    { "type": "url", "id": "button_link_2", "label": "t:sections.catalog_hero.button_link_2" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "t:sections.catalog_hero.blocks.stat",
+      "settings": [
+        { "type": "text", "id": "label", "label": "t:sections.catalog_hero.blocks.stat_label", "default": "Lead time" },
+        { "type": "text", "id": "value", "label": "t:sections.catalog_hero.blocks.stat_value", "default": "2 weeks" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.catalog_hero.name",
+      "blocks": [
+        { "type": "stat", "settings": { "label": "Lead time", "value": "2 weeks" } },
+        { "type": "stat", "settings": { "label": "Returns", "value": "30 days" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -145,12 +145,27 @@ class Importer:
         print(f"location {self.location}, publication {self.publication}")
 
     def metafield_specs(self):
-        """Product metafields to write: catalog["metafields"], or the Joias defaults."""
-        return self.catalog.get("metafields") or [
+        """Product metafields to write: catalog["metafields"], or the Joias defaults, plus
+        the catalog number of every product and, when the catalog maps tags to lead
+        times, the lead time."""
+        specs = list(self.catalog.get("metafields") or [
             {"key": "material", "name": "Material", "template": "{value} · {spec}"},
             {"key": "dimensions", "name": "Dimensions", "field": "dimensions"},
             {"key": "style", "name": "Style", "field": "style"},
-        ]
+        ])
+        specs.append({"key": "catalog_number", "name": "Catalog number", "computed": "catalog_number"})
+        if self.catalog.get("lead_times"):
+            specs.append({"key": "lead_time", "name": "Lead time", "computed": "lead_time"})
+        return specs
+
+    def computed_value(self, kind, product, index):
+        if kind == "catalog_number":
+            return f"{index:03d}"
+        if kind == "lead_time":
+            for tag, text in self.catalog["lead_times"].items():
+                if tag in product.get("tags", []):
+                    return text
+        return None
 
     def definitions(self):
         for spec in self.metafield_specs():
@@ -339,11 +354,13 @@ class Importer:
 
     def metafields(self):
         entries = []
-        for product in self.catalog["products"]:
+        for index, product in enumerate(self.catalog["products"], start=1):
             owner = self.state["products"][product["handle"]]
             first_value = next(iter(variant_values(product)))
             for spec in self.metafield_specs():
-                if "template" in spec:
+                if "computed" in spec:
+                    value = self.computed_value(spec["computed"], product, index)
+                elif "template" in spec:
                     value = spec["template"].format(value=first_value, **product)
                 else:
                     value = product.get(spec["field"])
@@ -588,8 +605,16 @@ def main():
                         "deletes the old store files, uploads the new ones and re-sends their products")
     parser.add_argument("--update-pages", nargs="?", const="all", help="re-send the body of existing pages: "
                         "all of them, or a comma-separated list of handles")
+    parser.add_argument("--metafields", action="store_true", help="only create the metafield definitions "
+                        "and write the product metafields (catalog number, lead time and the catalog's own)")
     args = parser.parse_args()
     importer = Importer(args.preset, args.store)
+    if args.metafields:
+        print(f"Write product metafields on {args.store}: {', '.join(s['key'] for s in importer.metafield_specs())}")
+        if args.yes:
+            importer.definitions()
+            importer.metafields()
+        return
     if args.update_pages:
         handles = None if args.update_pages == "all" else [h.strip() for h in args.update_pages.split(",")]
         print(f"Update page bodies on {args.store}: {', '.join(handles) if handles else 'all pages in the catalog'}")

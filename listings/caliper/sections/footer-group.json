@@ -5,8 +5,8 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "color_scheme": "scheme-1",
-        "style": "card",
+        "color_scheme": "scheme-2",
+        "style": "plain",
         "show_wordmark": false,
         "show_country_selector": true,
         "show_language_selector": true,

@@ -15,13 +15,6 @@
             "eyebrow": "type"
           }
         },
-        "spec": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Add the material and size, or connect a product metafield.</p>",
-            "style": "caption"
-          }
-        },
         "price": {
           "type": "price",
           "settings": {
@@ -35,7 +28,7 @@
         "variant_picker": {
           "type": "variant-picker",
           "settings": {
-            "style": "buttons",
+            "style": "rows",
             "show_swatches": true,
             "swatch_style": "labeled",
             "size_guide_options": "Ring size, Size",
@@ -73,15 +66,6 @@
             "text": "<p>Arrives in our gift box with a card.</p>"
           }
         },
-        "tab_details": {
-          "type": "collapsible-tab",
-          "settings": {
-            "heading": "Details",
-            "heading_style": "heading",
-            "open": false,
-            "show_description": true
-          }
-        },
         "tab_materials": {
           "type": "collapsible-tab",
           "settings": {
@@ -101,11 +85,25 @@
             "show_description": false,
             "content": "<p>Share delivery times and your return policy.</p>"
           }
+        },
+        "specification": {
+          "type": "specification",
+          "settings": {
+            "heading": "Specification",
+            "mono_values": false,
+            "label_1": "Material",
+            "label_2": "Measurements",
+            "label_3": "Style",
+            "label_4": "",
+            "label_5": "",
+            "label_6": "",
+            "label_7": "",
+            "label_8": ""
+          }
         }
       },
       "block_order": [
         "title",
-        "spec",
         "price",
         "installments",
         "variant_picker",
@@ -113,7 +111,7 @@
         "buy_buttons",
         "pickup",
         "gift_box",
-        "tab_details",
+        "specification",
         "tab_materials",
         "tab_shipping"
       ]

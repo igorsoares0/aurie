@@ -1,103 +1,54 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
+      "type": "catalog-hero",
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "label": "Lead time",
+            "value": "6–8 weeks"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "label": "Delivery",
+            "value": "To the room"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "label": "Trial",
+            "value": "30 nights"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "label": "Frame warranty",
+            "value": "10 years"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
       "settings": {
-        "height": "large",
-        "inset": true,
-        "color_scheme": "scheme-2",
-        "overlay_opacity": 25,
-        "content_position": "bottom-left",
-        "content_layout": "stacked",
-        "heading": "Made to be lived in",
-        "heading_size": "display",
-        "text": "<p>Solid oak and natural fabrics, built in our workshop and delivered to the room you choose.</p>",
-        "button_style": "button",
-        "button_label": "Shop by room",
-        "button_link": "/collections/all",
-        "button_label_2": "Visit the showroom"
+        "color_scheme": "scheme-1",
+        "eyebrow": "Plate 01 / Living room",
+        "heading": "Furniture, specified.",
+        "text": "<p>Every piece is drawn, measured and made to order in solid oak. Read the spec sheet before you buy; we carry it to the room you choose.</p>",
+        "caption": "Plate 01 / Living room",
+        "show_crop_marks": true,
+        "show_dimension_lines": true,
+        "button_label": "Browse the index",
+        "button_label_2": "Order fabric samples"
       }
-    },
-    "promise": {
-      "type": "multicolumn",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "style": "icon_inline",
-        "heading": ""
-      },
-      "blocks": {
-        "p1": {
-          "type": "column",
-          "settings": {
-            "icon": "leaf",
-            "title": "Solid oak, no veneers",
-            "text": "<p>Kiln-dried, responsibly sourced timber.</p>"
-          }
-        },
-        "p2": {
-          "type": "column",
-          "settings": {
-            "icon": "shield",
-            "title": "10-year frame warranty",
-            "text": "<p>On every sofa, bed and table.</p>"
-          }
-        },
-        "p3": {
-          "type": "column",
-          "settings": {
-            "icon": "truck",
-            "title": "Delivered and assembled",
-            "text": "<p>We take the packaging away.</p>"
-          }
-        },
-        "p4": {
-          "type": "column",
-          "settings": {
-            "icon": "return",
-            "title": "30 nights at home",
-            "text": "<p>Not right? We collect it for free.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4"
-      ]
-    },
-    "rooms": {
-      "type": "collection-list",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "style": "mosaic",
-        "heading": "Shop | by room",
-        "show_count": true
-      },
-      "blocks": {
-        "c1": {
-          "type": "collection",
-          "settings": {}
-        },
-        "c2": {
-          "type": "collection",
-          "settings": {}
-        },
-        "c3": {
-          "type": "collection",
-          "settings": {}
-        },
-        "c4": {
-          "type": "collection",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "c4"
-      ]
     },
     "signature": {
       "type": "collection-tabs",
@@ -140,43 +91,6 @@
         "t4"
       ]
     },
-    "room": {
-      "type": "shoppable-image",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "layout": "floating",
-        "heading": "Everything in this room is ours",
-        "text": "<p>Tap a piece to see its size and price, then add it straight to your bag.</p>"
-      },
-      "blocks": {
-        "h1": {
-          "type": "hotspot",
-          "settings": {
-            "position_x": 30,
-            "position_y": 60
-          }
-        },
-        "h2": {
-          "type": "hotspot",
-          "settings": {
-            "position_x": 55,
-            "position_y": 70
-          }
-        },
-        "h3": {
-          "type": "hotspot",
-          "settings": {
-            "position_x": 78,
-            "position_y": 45
-          }
-        }
-      },
-      "block_order": [
-        "h1",
-        "h2",
-        "h3"
-      ]
-    },
     "materials": {
       "type": "fabric-library",
       "settings": {
@@ -194,7 +108,8 @@
           "settings": {
             "name": "Oat",
             "kind": "Linen blend",
-            "color": "#d8cbb5"
+            "color": "#d8cbb5",
+            "code": "F-01"
           }
         },
         "f2": {
@@ -202,7 +117,8 @@
           "settings": {
             "name": "Moss",
             "kind": "Wool bouclé",
-            "color": "#7d7a5c"
+            "color": "#7d7a5c",
+            "code": "F-02"
           }
         },
         "f3": {
@@ -210,7 +126,8 @@
           "settings": {
             "name": "Clay",
             "kind": "Cotton canvas",
-            "color": "#b07a5a"
+            "color": "#b07a5a",
+            "code": "F-03"
           }
         },
         "f4": {
@@ -218,7 +135,8 @@
           "settings": {
             "name": "Ink",
             "kind": "Velvet",
-            "color": "#2f3440"
+            "color": "#2f3440",
+            "code": "F-04"
           }
         },
         "f5": {
@@ -226,7 +144,8 @@
           "settings": {
             "name": "Natural oak",
             "kind": "Oiled finish",
-            "color": "#c49a6c"
+            "color": "#c49a6c",
+            "code": "W-01"
           }
         },
         "f6": {
@@ -234,7 +153,8 @@
           "settings": {
             "name": "Smoked oak",
             "kind": "Oiled finish",
-            "color": "#6b4a33"
+            "color": "#6b4a33",
+            "code": "W-02"
           }
         }
       },
@@ -245,50 +165,6 @@
         "f4",
         "f5",
         "f6"
-      ]
-    },
-    "craft": {
-      "type": "craft-process",
-      "settings": {
-        "color_scheme": "scheme-2",
-        "panel": true,
-        "heading": "Made with | intention"
-      },
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "title": "Drawn to last",
-            "text": "<p>Proportions tested at full scale before a single board is cut.</p>"
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "title": "Chosen by hand",
-            "text": "<p>Each board picked for grain, so a tabletop reads as one surface.</p>"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "title": "Joined, not screwed",
-            "text": "<p>Traditional joinery that tightens with use.</p>"
-          }
-        },
-        "s4": {
-          "type": "step",
-          "settings": {
-            "title": "Checked twice",
-            "text": "<p>Inspected in the workshop and again in your room.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
       ]
     },
     "delivery": {
@@ -355,16 +231,23 @@
         "t1",
         "t2"
       ]
+    },
+    "index": {
+      "type": "product-index",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Index",
+        "products_to_show": 8,
+        "index_columns": "W: custom.width, D: custom.depth, H: custom.height, Seat: custom.seat_height",
+        "link_label": "View all"
+      }
     }
   },
   "order": [
     "hero",
-    "promise",
-    "rooms",
+    "index",
     "signature",
-    "room",
     "materials",
-    "craft",
     "delivery",
     "testimonial"
   ]

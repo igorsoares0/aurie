@@ -4,52 +4,53 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "style": "plain",
+        "show_wordmark": false,
+        "show_country_selector": true,
+        "show_language_selector": true,
+        "show_follow_on_shop": true,
+        "show_payment_icons": false
+      },
       "blocks": {
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "heading": "Join our world",
-            "heading_size": "label",
-            "text": "<p>New collections and edits, once a month.</p>"
+            "heading": "Furnish slowly",
+            "heading_size": "large",
+            "text": "<p>New pieces, workshop notes and sample sales. One email a month.</p>"
           }
         },
         "menu": {
           "type": "menu",
           "settings": {
-            "heading": "",
+            "heading": "Help",
             "menu": "footer"
-          }
-        },
-        "studio": {
-          "type": "menu",
-          "settings": {
-            "heading": "",
-            "menu": "main-menu"
           }
         },
         "social": {
           "type": "social",
           "settings": {
-            "heading": "Social media",
+            "heading": "Follow",
             "menu": ""
+          }
+        },
+        "showroom": {
+          "type": "text",
+          "settings": {
+            "heading": "Showroom",
+            "text": "<p>Add your showroom address and opening hours.</p>",
+            "link_label": "Plan a visit"
           }
         }
       },
       "block_order": [
         "newsletter",
         "menu",
-        "studio",
-        "social"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "style": "plain",
-        "show_wordmark": true,
-        "show_country_selector": true,
-        "show_language_selector": true,
-        "show_follow_on_shop": true,
-        "show_payment_icons": false
-      }
+        "social",
+        "showroom"
+      ]
     }
   },
   "order": [

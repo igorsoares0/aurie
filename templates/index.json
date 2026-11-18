@@ -1,288 +1,254 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
-      "settings": {
-        "height": "large",
-        "inset": false,
-        "color_scheme": "scheme-2",
-        "overlay_opacity": 20,
-        "content_position": "center",
-        "content_layout": "inline",
-        "heading": "The fall edit",
-        "heading_size": "h1",
-        "button_style": "link",
-        "button_label": "Shop the latest",
-        "button_link": "/collections/all"
-      }
-    },
-    "category_index": {
-      "type": "collection-list",
+      "type": "catalog-hero",
       "blocks": {
-        "c1": {
-          "type": "collection",
-          "settings": {}
-        },
-        "c2": {
-          "type": "collection",
-          "settings": {}
-        },
-        "c3": {
-          "type": "collection",
-          "settings": {}
-        },
-        "c4": {
-          "type": "collection",
-          "settings": {}
-        },
-        "c5": {
-          "type": "link",
+        "s1": {
+          "type": "stat",
           "settings": {
-            "title": "Fit guide"
+            "label": "Lead time",
+            "value": "6–8 weeks"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "label": "Delivery",
+            "value": "To the room"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "label": "Trial",
+            "value": "30 nights"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "label": "Frame warranty",
+            "value": "10 years"
           }
         }
       },
       "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "c4",
-        "c5"
+        "s1",
+        "s2",
+        "s3",
+        "s4"
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "style": "numbered",
-        "heading": "",
-        "show_count": false
+        "eyebrow": "Plate 01 / Living room",
+        "heading": "Furniture, specified.",
+        "text": "<p>Every piece is drawn, measured and made to order in solid oak. Read the spec sheet before you buy; we carry it to the room you choose.</p>",
+        "caption": "Plate 01 / Living room",
+        "show_crop_marks": true,
+        "show_dimension_lines": true,
+        "button_label": "Browse the index",
+        "button_label_2": "Order fabric samples"
       }
     },
-    "new_in": {
-      "type": "featured-collection",
+    "signature": {
+      "type": "collection-tabs",
       "settings": {
         "color_scheme": "scheme-1",
-        "heading": "New in",
-        "show_count": false,
-        "products_to_show": 8,
-        "layout": "scroll",
-        "columns_desktop": 4,
+        "heading": "Signature | pieces",
+        "products_to_show": 6,
         "link_label": "View all"
-      }
-    },
-    "editorial_split": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Earthy tones",
-            "size": "h3"
-          }
-        },
-        "link": {
-          "type": "button",
-          "settings": {
-            "label": "Explore new washes",
-            "style": "link"
-          }
-        }
       },
-      "block_order": [
-        "heading",
-        "link"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "layout": "image_second",
-        "width": "full",
-        "content_alignment": "center",
-        "content_style": "inline"
-      }
-    },
-    "shop_the_look": {
-      "type": "shoppable-image",
-      "blocks": {
-        "h1": {
-          "type": "hotspot",
-          "settings": {
-            "position_x": 42,
-            "position_y": 28
-          }
-        },
-        "h2": {
-          "type": "hotspot",
-          "settings": {
-            "position_x": 55,
-            "position_y": 55
-          }
-        },
-        "h3": {
-          "type": "hotspot",
-          "settings": {
-            "position_x": 48,
-            "position_y": 84
-          }
-        }
-      },
-      "block_order": [
-        "h1",
-        "h2",
-        "h3"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "layout": "list",
-        "eyebrow": "Look 01",
-        "heading": "Shop the look",
-        "button_label": "Add the look to bag"
-      }
-    },
-    "captioned_pair": {
-      "type": "multicolumn",
-      "blocks": {
-        "a": {
-          "type": "column",
-          "settings": {
-            "icon": "none",
-            "title": "Perfect pairings",
-            "text": ""
-          }
-        },
-        "b": {
-          "type": "column",
-          "settings": {
-            "icon": "none",
-            "title": "Outerwear",
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "a",
-        "b"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "style": "captioned",
-        "heading": ""
-      }
-    },
-    "testimonials": {
-      "type": "testimonials",
       "blocks": {
         "t1": {
-          "type": "testimonial",
+          "type": "tab",
           "settings": {
-            "quote": "<p>The coat fits exactly as the notes said. I sized down and it's perfect.</p>",
-            "author": "Customer name"
+            "label": "All"
           }
         },
         "t2": {
-          "type": "testimonial",
+          "type": "tab",
           "settings": {
-            "quote": "<p>Beautiful fabrics, and the fit guide made choosing easy.</p>",
-            "author": "Customer name"
+            "label": "Sofas"
           }
         },
         "t3": {
-          "type": "testimonial",
+          "type": "tab",
           "settings": {
-            "quote": "<p>Pieces I reach for every week.</p>",
-            "author": "Customer name"
+            "label": "Tables"
+          }
+        },
+        "t4": {
+          "type": "tab",
+          "settings": {
+            "label": "Storage"
           }
         }
       },
       "block_order": [
         "t1",
         "t2",
-        "t3"
-      ],
+        "t3",
+        "t4"
+      ]
+    },
+    "materials": {
+      "type": "fabric-library",
       "settings": {
         "color_scheme": "scheme-1",
-        "eyebrow": "In their words"
-      }
-    },
-    "fit_guide": {
-      "type": "image-with-text",
+        "show_panel": true,
+        "panel_eyebrow": "Materials",
+        "panel_heading": "Built from solid oak",
+        "panel_text": "<p>Every frame is kiln-dried European oak, joined by hand and finished with plant oils.</p>",
+        "heading": "Fabrics and finishes",
+        "link_label": "Order free samples"
+      },
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "f1": {
+          "type": "fabric",
           "settings": {
-            "heading": "Find your fit",
-            "size": "h2"
+            "name": "Oat",
+            "kind": "Linen blend",
+            "color": "#d8cbb5",
+            "code": "F-01"
           }
         },
-        "text": {
-          "type": "text",
+        "f2": {
+          "type": "fabric",
           "settings": {
-            "text": "<p>Every piece lists the model's height and size, and how it is cut. Shop by Petite, Tall or Relaxed.</p>"
+            "name": "Moss",
+            "kind": "Wool bouclé",
+            "color": "#7d7a5c",
+            "code": "F-02"
           }
         },
-        "petite": {
-          "type": "button",
+        "f3": {
+          "type": "fabric",
           "settings": {
-            "label": "Petite",
-            "style": "outline"
+            "name": "Clay",
+            "kind": "Cotton canvas",
+            "color": "#b07a5a",
+            "code": "F-03"
           }
         },
-        "tall": {
-          "type": "button",
+        "f4": {
+          "type": "fabric",
           "settings": {
-            "label": "Tall",
-            "style": "outline"
+            "name": "Ink",
+            "kind": "Velvet",
+            "color": "#2f3440",
+            "code": "F-04"
           }
         },
-        "relaxed": {
-          "type": "button",
+        "f5": {
+          "type": "fabric",
           "settings": {
-            "label": "Relaxed",
-            "style": "outline"
+            "name": "Natural oak",
+            "kind": "Oiled finish",
+            "color": "#c49a6c",
+            "code": "W-01"
           }
         },
-        "guide": {
-          "type": "button",
+        "f6": {
+          "type": "fabric",
           "settings": {
-            "label": "Open the size guide",
-            "style": "link"
+            "name": "Smoked oak",
+            "kind": "Oiled finish",
+            "color": "#6b4a33",
+            "code": "W-02"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "petite",
-        "tall",
-        "relaxed",
-        "guide"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "layout": "image_first",
-        "width": "full",
-        "content_alignment": "center",
-        "content_style": "stacked"
-      }
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6"
+      ]
     },
-    "journal": {
-      "type": "blog-posts",
+    "delivery": {
+      "type": "delivery-and-assembly",
       "settings": {
         "color_scheme": "scheme-1",
-        "heading": "Journal",
-        "posts_to_show": 3,
-        "show_date": true,
-        "show_author": false,
-        "link_label": "Read all stories"
+        "heading": "From our workshop | to your room"
+      },
+      "blocks": {
+        "d1": {
+          "type": "stage",
+          "settings": {
+            "timing": "Weeks 1 to 6",
+            "title": "Made to order",
+            "text": "<p>Your piece is built once you order, in the fabric and finish you chose.</p>"
+          }
+        },
+        "d2": {
+          "type": "stage",
+          "settings": {
+            "timing": "Week 7",
+            "title": "We call to book",
+            "text": "<p>We agree a delivery slot that suits you.</p>"
+          }
+        },
+        "d3": {
+          "type": "stage",
+          "settings": {
+            "timing": "Delivery day",
+            "title": "Placed and assembled",
+            "text": "<p>Two people bring it to the room and take the packaging away.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2",
+        "d3"
+      ]
+    },
+    "testimonial": {
+      "type": "testimonials",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "eyebrow": "In their words"
+      },
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>The sofa arrived exactly when they said, and it fits the room perfectly.</p>",
+            "author": "Customer name"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>Solid, beautiful and easy to live with.</p>",
+            "author": "Customer name"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2"
+      ]
+    },
+    "index": {
+      "type": "product-index",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Index",
+        "products_to_show": 8,
+        "index_columns": "W: custom.width, D: custom.depth, H: custom.height, Seat: custom.seat_height",
+        "link_label": "View all"
       }
     }
   },
   "order": [
     "hero",
-    "category_index",
-    "new_in",
-    "editorial_split",
-    "shop_the_look",
-    "captioned_pair",
-    "testimonials",
-    "fit_guide",
-    "journal"
+    "index",
+    "signature",
+    "materials",
+    "delivery",
+    "testimonial"
   ]
 }

@@ -1,6 +1,25 @@
 {%- liquid
   assign selected_variant = product.selected_or_first_available_variant
 
+  assign catalog_number = blank
+  if settings.catalog_number_metafield != blank
+    assign catalog_key = settings.catalog_number_metafield | split: '.'
+    assign catalog_number = product.metafields[catalog_key.first][catalog_key.last].value
+  endif
+
+  assign dimension_width = blank
+  assign dimension_height = blank
+  if section.settings.show_dimension_lines
+    if settings.dimension_width_metafield != blank
+      assign width_key = settings.dimension_width_metafield | split: '.'
+      assign dimension_width = product.metafields[width_key.first][width_key.last].value
+    endif
+    if settings.dimension_height_metafield != blank
+      assign height_key = settings.dimension_height_metafield | split: '.'
+      assign dimension_height = product.metafields[height_key.first][height_key.last].value
+    endif
+  endif
+
   case section.settings.media_ratio
     when 'portrait'
       assign media_ratio = '3 / 4'
@@ -30,20 +49,33 @@
   data-media-id="{{ selected_variant.featured_media.id }}"
 >
   {%- if section.settings.show_breadcrumb -%}
-    <nav class="main-product__breadcrumb page-width text-caption text-muted" aria-label="{{ 'product.breadcrumb' | t }}">
+    <nav class="main-product__breadcrumb page-width figure-caption" aria-label="{{ 'product.breadcrumb' | t }}">
       <ol class="main-product__breadcrumb-list" role="list">
         <li><a class="touch-area" href="{{ routes.root_url }}">{{ 'product.home' | t }}</a></li>
         {%- if collection -%}
           <li><a class="touch-area" href="{{ collection.url }}">{{ collection.title }}</a></li>
         {%- endif -%}
-        <li aria-current="page">{{ product.title }}</li>
+        <li aria-current="page">
+          {%- if catalog_number != blank -%}
+            {{ 'product.catalog_number' | t: number: catalog_number }}
+          {% endif -%}
+          {{- product.title -}}
+        </li>
       </ol>
     </nav>
   {%- endif -%}
 
   <div class="main-product__grid page-width">
     <div class="main-product__media">
-      {% render 'product-media', product: product, ratio: media_ratio, section_id: section.id %}
+      {% render 'product-media',
+        product: product,
+        ratio: media_ratio,
+        section_id: section.id,
+        show_figures: section.settings.show_figure_numbers,
+        dimension_width: dimension_width,
+        dimension_height: dimension_height,
+        dimension_unit: settings.dimension_unit
+      %}
     </div>
 
     <div class="main-product__info{% if section.settings.sticky_info %} main-product__info--sticky{% endif %}">
@@ -59,7 +91,7 @@
   }
 
   .main-product__breadcrumb {
-    padding-block: 0 16px;
+    padding-block: 2px 18px;
   }
 
   .main-product__breadcrumb-list {
@@ -113,8 +145,8 @@
 
   @media screen and (min-width: 990px) {
     .main-product__grid {
-      grid-template-columns: minmax(0, 1fr) minmax(360px, 440px);
-      gap: 64px;
+      grid-template-columns: minmax(0, 1.45fr) minmax(380px, 1fr);
+      gap: 56px;
       align-items: start;
     }
 
@@ -249,6 +281,23 @@
       "type": "checkbox",
       "id": "sticky_info",
       "label": "t:sections.main_product.sticky_info",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_product.spec_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_figure_numbers",
+      "label": "t:sections.main_product.show_figure_numbers",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dimension_lines",
+      "label": "t:sections.main_product.show_dimension_lines",
+      "info": "t:sections.main_product.show_dimension_lines_info",
       "default": true
     }
   ]

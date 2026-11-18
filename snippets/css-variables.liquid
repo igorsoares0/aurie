@@ -1,6 +1,7 @@
 {% doc %}
   Outputs the font faces and the CSS custom properties that every component
-  reads: one class per color scheme, type, spacing and shape tokens.
+  reads: one class per color scheme, type (heading, body and label fonts),
+  spacing and shape tokens.
 
   @example
   {% render 'css-variables' %}
@@ -16,6 +17,10 @@
   assign heading_font_bold = heading_font | font_modify: 'weight', 'bold'
   assign heading_font_italic = heading_font | font_modify: 'style', 'italic'
   assign heading_font_bold_italic = heading_font_bold | font_modify: 'style', 'italic'
+  assign label_font = settings.label_font
+  assign label_font_bold = label_font | font_modify: 'weight', 'bold'
+  assign label_font_italic = label_font | font_modify: 'style', 'italic'
+  assign label_font_bold_italic = label_font_bold | font_modify: 'style', 'italic'
 
   case settings.animation_speed
     when 'none'
@@ -68,6 +73,10 @@
   {{ body_font_bold | font_face: font_display: 'swap' }}
   {{ body_font_italic | font_face: font_display: 'swap' }}
   {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+  {{ label_font | font_face: font_display: 'swap' }}
+  {{ label_font_bold | font_face: font_display: 'swap' }}
+  {{ label_font_italic | font_face: font_display: 'swap' }}
+  {{ label_font_bold_italic | font_face: font_display: 'swap' }}
 
   :root {
     --font-heading-family: {{ heading_font.family }}, {{ heading_font.fallback_families }};
@@ -80,6 +89,10 @@
     --font-body-weight: {{ body_font.weight }};
     --font-body-weight-medium: {{ body_font_medium.weight | default: body_font_bold.weight | default: 700 }};
     --font-body-weight-bold: {{ body_font_bold.weight | default: 700 }};
+    --font-label-family: {{ label_font.family }}, {{ label_font.fallback_families }};
+    --font-label-style: {{ label_font.style }};
+    --font-label-weight: {{ label_font.weight }};
+    --font-label-weight-bold: {{ label_font_bold.weight | default: 700 }};
 
     --page-width: {{ settings.page_width }};
     --page-margin-desktop: {{ settings.page_margin }}px;

@@ -13,10 +13,10 @@
       .gift-card { display: flex; justify-content: center; padding: 48px var(--page-margin); }
       .gift-card__inner { display: flex; flex-direction: column; align-items: center; gap: 24px; width: min(100%, 520px); text-align: center; }
       .gift-card__logo { width: 160px; height: auto; }
-      .gift-card__card { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 100%; padding: 32px 24px; border-radius: var(--radius-media); background-color: var(--color-tile); }
-      .gift-card__balance { font-size: var(--font-display-size); line-height: 1; }
+      .gift-card__card { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 100%; padding: 40px 24px; border: 1px solid var(--color-divider); border-radius: var(--radius-media); background-color: var(--color-tile); }
+      .gift-card__balance { font-family: var(--font-label-family); font-size: var(--font-h1-size); line-height: 1; font-variant-numeric: tabular-nums; }
       .gift-card__code-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
-      .gift-card__code { padding: 8px 16px; border: 1px dashed var(--color-border); border-radius: var(--radius-input); font-size: 18px; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }
+      .gift-card__code { padding: 8px 16px; border: 1px dashed var(--color-accent); border-radius: var(--radius-input); font-family: var(--font-label-family); font-size: 18px; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }
       .gift-card__qr { display: flex; justify-content: center; min-width: 120px; min-height: 120px; padding: 8px; background-color: #fff; }
       .gift-card__qr img, .gift-card__qr canvas { width: 120px; height: 120px; }
       .gift-card__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
@@ -37,7 +37,7 @@
         {%- assign initial_value = gift_card.initial_value | money -%}
         <h1 class="h3">{{ 'gift_card.title' | t: value: initial_value }}</h1>
 
-        <div class="gift-card__card">
+        <div class="gift-card__card crop-marks">
           <p class="label text-muted">{{ 'gift_card.balance' | t }}</p>
           <p class="gift-card__balance">{{ gift_card.balance | money }}</p>
 

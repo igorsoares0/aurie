@@ -1212,36 +1212,17 @@
     }
   ],
   "theme": {
-    "listing": "sotto",
-    "preset": "Sotto",
+    "listing": "caliper",
+    "preset": "Caliper",
     "name": "Sotto demo",
     "settings": {
       "templates/index.json": {
-        "sections.hero.settings.image": "shopify://shop_images/hero-banner.jpg",
         "sections.hero.settings.button_link": "shopify://collections/living-room",
-        "sections.hero.settings.button_link_2": "shopify://pages/showroom",
-        "sections.rooms.blocks.c1.settings.collection": "living-room",
-        "sections.rooms.blocks.c1.settings.image": "shopify://shop_images/room-living.jpg",
-        "sections.rooms.blocks.c2.settings.collection": "dining-room",
-        "sections.rooms.blocks.c2.settings.image": "shopify://shop_images/room-dining.jpg",
-        "sections.rooms.blocks.c3.settings.collection": "bedroom",
-        "sections.rooms.blocks.c3.settings.image": "shopify://shop_images/room-bedroom.jpg",
-        "sections.rooms.blocks.c4.settings.collection": "workspace",
-        "sections.rooms.blocks.c4.settings.image": "shopify://shop_images/room-workspace.jpg",
+        "sections.hero.settings.button_link_2": "shopify://pages/fabric-samples",
         "sections.signature.blocks.t1.settings.collection": "signature-pieces",
         "sections.signature.blocks.t2.settings.collection": "sofas",
         "sections.signature.blocks.t3.settings.collection": "tables",
         "sections.signature.blocks.t4.settings.collection": "storage",
-        "sections.room.settings.image": "shopify://shop_images/shoppable-room.jpg",
-        "sections.room.blocks.h1.settings.product": "ode-armchair",
-        "sections.room.blocks.h1.settings.position_x": 19,
-        "sections.room.blocks.h1.settings.position_y": 62,
-        "sections.room.blocks.h2.settings.product": "mira-side-table",
-        "sections.room.blocks.h2.settings.position_x": 38,
-        "sections.room.blocks.h2.settings.position_y": 62,
-        "sections.room.blocks.h3.settings.product": "arc-sideboard",
-        "sections.room.blocks.h3.settings.position_x": 64,
-        "sections.room.blocks.h3.settings.position_y": 58,
         "sections.materials.blocks.f1.settings.name": "Linen sand",
         "sections.materials.blocks.f1.settings.kind": "Washed linen",
         "sections.materials.blocks.f1.settings.color": "#cbb79b",
@@ -1268,18 +1249,23 @@
         "sections.materials.blocks.f6.settings.image": "shopify://shop_images/finish-smoked-oak.jpg",
         "sections.materials.settings.link": "shopify://pages/fabric-samples",
         "sections.testimonial.blocks.t1.settings.author": "Anna, Lune sofa in linen sand",
-        "sections.testimonial.blocks.t2.settings.author": "David, Plank dining table in natural oak"
+        "sections.testimonial.blocks.t2.settings.author": "David, Plank dining table in natural oak",
+        "sections.hero.settings.product": "lune-sofa",
+        "sections.index.settings.collection": "signature-pieces"
       },
       "templates/product.json": {
         "sections.main.blocks.dimensions.settings.value_1": "{{ product.metafields.custom.width.value }}",
         "sections.main.blocks.dimensions.settings.value_2": "{{ product.metafields.custom.depth.value }}",
         "sections.main.blocks.dimensions.settings.value_3": "{{ product.metafields.custom.height.value }}",
         "sections.main.blocks.dimensions.settings.value_4": "{{ product.metafields.custom.seat_height.value }}",
-        "sections.main.blocks.tab_materials.settings.content": "<p>{{ product.metafields.custom.materials.value }}</p>",
         "sections.main.blocks.tab_delivery.settings.content": "",
         "sections.main.blocks.tab_delivery.settings.page": "delivery-and-assembly",
         "sections.main.blocks.tab_warranty.settings.content": "",
-        "sections.main.blocks.tab_warranty.settings.page": "warranty-and-returns"
+        "sections.main.blocks.tab_warranty.settings.page": "warranty-and-returns",
+        "sections.main.blocks.specification.settings.value_1": "{{ product.metafields.custom.dimensions.value }}",
+        "sections.main.blocks.specification.settings.value_2": "{{ product.metafields.custom.seat_height.value }}",
+        "sections.main.blocks.specification.settings.value_3": "{{ product.metafields.custom.materials.value }}",
+        "sections.main.blocks.lead_time.settings.text": "<p><strong>{{ product.metafields.custom.lead_time.value }}.</strong> Delivery to the room and assembly included.</p>"
       },
       "sections/header-group.json": {
         "sections.header.settings.menu": "sotto-main"
@@ -1291,9 +1277,13 @@
         "sections.footer.blocks.showroom.settings.link": "shopify://pages/showroom"
       },
       "config/settings_data.json": {
-        "presets.Sotto.social_instagram_link": "https://www.instagram.com/shopify",
-        "presets.Sotto.social_pinterest_link": "https://www.pinterest.com/shopify"
+        "presets.Caliper.social_instagram_link": "https://www.instagram.com/shopify",
+        "presets.Caliper.social_pinterest_link": "https://www.pinterest.com/shopify"
       }
     }
+  },
+  "lead_times": {
+    "in-stock": "Ships in 5 days",
+    "made-to-order": "Made to order, 6–8 weeks"
   }
 }

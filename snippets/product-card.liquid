@@ -1,16 +1,24 @@
 {% doc %}
-  Renders a product card. Its look follows the global "Card style" setting
-  (portrait, square or framed) and the details line follows "Card details"
-  (sizes, material or dimensions).
+  Renders a product card as a plate of the catalog: the image in a frame, the
+  catalog number in its corner, optional dimension lines along its edges, then
+  the name, price and a details line. Its proportions follow the global "Card
+  style" setting and the details line follows "Card details".
+
+  In a grid marked as an index (.product-grid--index), the same card reads as a
+  row of a table: number, image, name, the columns passed in index_columns, the
+  option codes and the price.
 
   @param {product} product - The product to show
   @param {string} [sizes] - The image sizes attribute. Default: a 4-column grid
   @param {boolean} [eager] - Load the image eagerly, for cards above the fold
   @param {boolean} [priority] - Also fetch the image first, for the card that is likely the largest paint
   @param {string} [heading_tag] - Tag for the product name. Default: 'h3'
+  @param {string} [index_columns] - Columns for the index view, as "Label: namespace.key" pairs separated by commas, such as "W: custom.width, D: custom.depth"
+  @param {boolean} [show_index] - Render the index data (type, metafield columns, option codes and price) for the index view. Default: true when index_columns is set
 
   @example
   {% render 'product-card', product: product, sizes: '(min-width: 990px) 25vw, 50vw' %}
+  {% render 'product-card', product: product, index_columns: 'W: custom.width, D: custom.depth, H: custom.height' %}
 {% enddoc %}
 
 {%- liquid
@@ -82,20 +90,49 @@
     assign dimensions_key = settings.card_dimensions_metafield | split: '.'
     assign spec_text = product.metafields[dimensions_key.first][dimensions_key.last].value
   endif
+
+  assign catalog_number = blank
+  if settings.catalog_number_metafield != blank
+    assign catalog_key = settings.catalog_number_metafield | split: '.'
+    assign catalog_number = product.metafields[catalog_key.first][catalog_key.last].value
+  endif
+
+  assign dimension_width = blank
+  assign dimension_height = blank
+  if settings.card_dimension_lines
+    if settings.dimension_width_metafield != blank
+      assign width_key = settings.dimension_width_metafield | split: '.'
+      assign dimension_width = product.metafields[width_key.first][width_key.last].value
+    endif
+    if settings.dimension_height_metafield != blank
+      assign height_key = settings.dimension_height_metafield | split: '.'
+      assign dimension_height = product.metafields[height_key.first][height_key.last].value
+    endif
+  endif
+
+  assign index_pairs = index_columns | default: '' | split: ','
+  assign code_option = blank
+  assign show_index_data = show_index | default: false, allow_false: true
+  if index_columns != blank
+    assign show_index_data = true
+  endif
+  if show_index_data
+    comment
+      The index lists the codes of the first option that has a code letter, such as Fabric or Finish
+    endcomment
+    for option in product.options_with_values
+      capture first_code
+        render 'option-code', option_name: option.name, position: 1
+      endcapture
+      if first_code != blank
+        assign code_option = option
+        break
+      endif
+    endfor
+  endif
 -%}
 
 <article class="product-card product-card--{{ card_style }}" style="--card-ratio: {{ ratio }};">
-  {%- if card_style == 'framed' -%}
-    <div class="product-card__top">
-      <{{ heading_tag }} class="product-card__name">
-        <a class="product-card__link" href="{{ product.url }}">{{ product.title }}</a>
-      </{{ heading_tag }}>
-      {%- if product.type != blank -%}
-        <span class="product-card__tag label text-muted">{{ product.type }}</span>
-      {%- endif -%}
-    </div>
-  {%- endif -%}
-
   <div class="product-card__media">
     {%- if product.featured_media -%}
       {{
@@ -125,6 +162,22 @@
       {{ 'product-apparel-1' | placeholder_svg_tag: 'product-card__image product-card__placeholder' }}
     {%- endif -%}
 
+    {%- if dimension_width != blank -%}
+      <span class="dim dim--width" aria-hidden="true">
+        <span class="dim__label">
+          {%- unless dimension_width contains 'Ø' -%}
+            {{ 'product.media.width_short' | t }}
+          {% endunless -%}
+          {{- dimension_width -}}
+        </span>
+      </span>
+    {%- endif -%}
+    {%- if dimension_height != blank -%}
+      <span class="dim dim--height" aria-hidden="true">
+        <span class="dim__label">{{ 'product.media.height_short' | t }} {{ dimension_height }}</span>
+      </span>
+    {%- endif -%}
+
     {%- if product.available == false -%}
       <span class="product-card__badge label">{{ 'product.price.sold_out' | t }}</span>
     {%- elsif on_sale -%}
@@ -132,19 +185,23 @@
     {%- endif -%}
   </div>
 
+  {%- if catalog_number != blank -%}
+    <span class="product-card__no figure-caption">{{ 'product.catalog_number' | t: number: catalog_number }}</span>
+  {%- endif -%}
+
   <div class="product-card__info">
-    {%- if card_style != 'framed' -%}
-      <div class="product-card__row">
-        <{{ heading_tag }} class="product-card__name">
-          <a class="product-card__link" href="{{ product.url }}">{{ product.title }}</a>
-        </{{ heading_tag }}>
-        {%- if card_style == 'portrait' -%}
-          {% render 'price', product: product, class: 'product-card__price' %}
-        {%- endif -%}
-      </div>
+    <div class="product-card__row">
+      <{{ heading_tag }} class="product-card__name">
+        <a class="product-card__link" href="{{ product.url }}">{{ product.title }}</a>
+      </{{ heading_tag }}>
+      {% render 'price', product: product, class: 'product-card__price' %}
+    </div>
+
+    {%- if show_index_data and product.type != blank -%}
+      <span class="product-card__type text-small text-muted">{{ product.type }}</span>
     {%- endif -%}
 
-    {%- if spec_text != blank and card_style != 'framed' -%}
+    {%- if spec_text != blank -%}
       <p class="product-card__spec">{{ spec_text }}</p>
     {%- endif -%}
 
@@ -201,36 +258,83 @@
             </li>
           {%- endfor -%}
         </ul>
-        {%- if card_style == 'square' and swatch_option.values.size == 1 -%}
+        {%- if swatch_option.values.size == 1 -%}
           <span class="product-card__swatch-label">{{ swatch_option.values.first }}</span>
         {%- endif -%}
       </div>
     {%- endif -%}
-
-    {%- if card_style != 'portrait' -%}
-      <div class="product-card__bottom">
-        {%- if card_style == 'framed' and spec_text != blank -%}
-          <p class="product-card__spec">{{ spec_text }}</p>
-        {%- endif -%}
-        {% render 'price', product: product, class: 'product-card__price' %}
-      </div>
-    {%- endif -%}
   </div>
+
+  {%- if show_index_data -%}
+    {%- comment -%} The columns of the index view. Hidden in the plate view. {%- endcomment -%}
+    <dl class="product-card__columns">
+      {%- for pair in index_pairs -%}
+        {%- liquid
+          assign pair_parts = pair | split: ':'
+          assign column_label = pair_parts.first | strip
+          assign column_key = pair_parts.last | strip | split: '.'
+          assign column_value = product.metafields[column_key.first][column_key.last].value
+        -%}
+        <div class="product-card__column">
+          <dt class="product-card__column-label label">{{ column_label }}</dt>
+          <dd class="mono">{{ column_value | default: '—' }}</dd>
+        </div>
+      {%- endfor -%}
+      <div class="product-card__column product-card__column--options">
+        <dt class="product-card__column-label label">{{ 'product.card.options' | t }}</dt>
+        <dd class="mono">
+          {%- if code_option != blank -%}
+            {%- for value in code_option.values -%}
+              <span class="product-card__code">
+                {%- render 'option-code', option_name: code_option.name, position: forloop.index -%}
+              </span>
+              {%- unless forloop.last %} · {% endunless -%}
+            {%- endfor -%}
+          {%- elsif swatch_option != blank -%}
+            {{ swatch_option.values.size }} × {{ swatch_option.name }}
+          {%- elsif size_option != blank -%}
+            {{ size_option.values | join: ' ' }}
+          {%- else -%}
+            —
+          {%- endif -%}
+        </dd>
+      </div>
+      <div class="product-card__column product-card__column--price">
+        <dt class="visually-hidden">{{ 'product.price.regular_price' | t }}</dt>
+        <dd>{% render 'price', product: product, class: 'product-card__price' %}</dd>
+      </div>
+    </dl>
+  {%- endif -%}
 </article>
 
 {% stylesheet %}
+  /** The plate: image in a hairline frame, number in the corner, details below */
   .product-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     min-width: 0;
+    container: product-card / inline-size;
+  }
+
+  /* A narrow plate stacks the price under the name */
+  @container product-card (max-width: 280px) {
+    .product-card__row {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .product-card__price {
+      white-space: normal;
+    }
   }
 
   .product-card__media {
     position: relative;
     overflow: hidden;
     aspect-ratio: var(--card-ratio);
+    border: 1px solid var(--color-divider);
     border-radius: var(--radius-media);
     background-color: var(--color-tile);
   }
@@ -256,12 +360,32 @@
     }
   }
 
+  /* Framed plates show the whole object on the frame's color, as in a catalog */
+  .product-card--framed .product-card__image {
+    inset: 7% 13% 13% 7%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+
+  .product-card__media .dim {
+    --dim-label-background: var(--color-tile);
+  }
+
+  .product-card__no {
+    position: absolute;
+    top: 9px;
+    left: 11px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
   .product-card__badge {
     position: absolute;
     top: 8px;
-    left: 8px;
-    padding: 2px 8px;
-    border-radius: var(--radius-button);
+    right: 8px;
+    padding: 2px 6px;
     background-color: var(--color-background);
     color: var(--color-text-muted);
   }
@@ -273,7 +397,7 @@
   .product-card__info {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
   }
 
   .product-card__row {
@@ -284,11 +408,13 @@
   }
 
   .product-card__name {
-    font: inherit;
-    font-size: var(--font-small-size);
-    line-height: 20px;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: 17px;
+    line-height: 1.25;
+    letter-spacing: 0;
     text-transform: none;
-    letter-spacing: normal;
   }
 
   .product-card__link {
@@ -324,19 +450,21 @@
   }
 
   .product-card__spec,
-  .product-card__swatch-label {
+  .product-card__swatch-label,
+  .product-card__sizes {
+    font-family: var(--font-label-family);
     font-size: var(--font-caption-size);
     line-height: 16px;
     color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
   }
 
   .product-card__sizes {
     display: flex;
     flex-wrap: wrap;
-    gap: 2px 8px;
+    gap: 2px 10px;
     margin: 0;
-    font-size: var(--font-caption-size);
-    line-height: 16px;
+    color: var(--color-text);
   }
 
   .product-card__size--unavailable {
@@ -374,127 +502,159 @@
     box-shadow: 0 0 0 2px var(--color-background), 0 0 0 3px var(--color-text);
   }
 
-  .product-card--square .product-card__swatch-list {
-    margin-inline: 0;
-  }
-
   .product-card__swatch {
     width: 14px;
     height: 14px;
   }
 
-  .product-card--portrait .product-card__info {
-    padding-inline: 8px;
+  /* Index data shows only in an index grid */
+  .product-card__columns,
+  .product-card__type {
+    display: none;
   }
 
-  .product-card--square {
-    align-items: center;
-    gap: 6px;
-    text-align: center;
+  .product-card__columns {
+    margin: 0;
   }
 
-  .product-card--square .product-card__media {
-    width: 100%;
-    margin-bottom: 8px;
+  .product-card__column dd {
+    margin: 0;
   }
 
-  .product-card--square .product-card__info {
-    align-items: center;
-    gap: 6px;
+  /** The index: the same card as a row of the catalog's table */
+  .product-grid--index .product-card {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-areas:
+      'media no'
+      'media info'
+      'media columns';
+    grid-template-rows: auto auto 1fr;
+    align-content: start;
+    gap: 2px 12px;
+    padding-block: 12px;
+    border-bottom: var(--rule-thin);
   }
 
-  .product-card--square .product-card__row {
-    justify-content: center;
+  .product-grid--index .product-card__media {
+    grid-area: media;
+    align-self: start;
+    aspect-ratio: 1;
   }
 
-  .product-card--square .product-card__name {
-    font-family: var(--font-heading-family);
-    font-style: var(--font-heading-style);
-    font-weight: var(--font-heading-weight);
-    font-size: 17px;
-    line-height: 1.3;
+  .product-grid--index .product-card__media .dim,
+  .product-grid--index .product-card__badge,
+  .product-grid--index .product-card__image--secondary,
+  .product-grid--index .product-card__swatches,
+  .product-grid--index .product-card__sizes,
+  .product-grid--index .product-card__spec {
+    display: none;
   }
 
-  .product-card--square .product-card__price {
-    justify-content: center;
-    font-size: 14px;
+  .product-grid--index .product-card__no {
+    position: static;
+    grid-area: no;
+    color: var(--color-accent);
   }
 
-  /* Framed cards fill the height of their row, so cards with and without swatches
-     line up; the price row sits at the bottom of each card */
-  .product-card--framed {
-    container: framed-card / inline-size;
-    height: 100%;
-    gap: 14px;
-    padding: 20px;
-    border-radius: var(--radius-media);
-    background-color: var(--color-tile);
+  .product-grid--index .product-card__info {
+    grid-area: info;
   }
 
-  .product-card--framed .product-card__info {
-    flex: 1;
-  }
-
-  .product-card--framed .product-card__top,
-  .product-card--framed .product-card__bottom {
+  .product-grid--index .product-card__columns {
+    grid-area: columns;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    font-size: var(--font-caption-size);
   }
 
-  .product-card--framed .product-card__name {
-    font-size: 15px;
-    font-weight: var(--font-body-weight-medium);
+  .product-grid--index .product-card__column {
+    display: flex;
+    flex-direction: column;
   }
 
-  .product-card--framed .product-card__media {
-    border-radius: calc(var(--radius-media) / 2);
-    background-color: transparent;
+  .product-grid--index .product-card__column-label {
+    color: var(--color-text-muted);
   }
 
-  .product-card--framed .product-card__image {
-    object-fit: contain;
-  }
-
-  .product-card--framed .product-card__info {
-    gap: 14px;
-  }
-
-  .product-card--framed .product-card__bottom {
-    margin-top: auto;
-    padding-top: 12px;
-    border-top: 1px solid var(--color-divider);
-  }
-
-  .product-card--framed .product-card__spec {
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-
-  /* Too narrow for dimensions and price side by side: stack them. It depends on the
-     card's width, not on the price, so every card in a row takes the same layout. */
-  @container framed-card (max-width: 400px) {
-    .product-card--framed .product-card__bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 4px;
-    }
-
-    .product-card--framed .product-card__bottom .product-card__price {
-      margin-inline-start: 0;
-    }
-  }
-
-  .product-card--framed .product-card__bottom .product-card__price {
-    margin-inline-start: auto;
-    font-size: 15px;
-    font-weight: var(--font-body-weight-medium);
+  .product-grid--index .product-card__column--options,
+  .product-grid--index .product-card__column--price {
+    display: none;
   }
 
   @media screen and (min-width: 990px) {
-    .product-card--square .product-card__name {
-      font-size: 20px;
+    .product-grid--index .product-card {
+      grid-template-columns: var(--index-template);
+      grid-template-areas: none;
+      align-items: center;
+      gap: 0 12px;
+      padding-block: 10px;
+    }
+
+    .product-grid--index .product-card__no {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .product-grid--index .product-card__media {
+      grid-column: 2;
+      grid-row: 1;
+      aspect-ratio: 4 / 3;
+    }
+
+    .product-grid--index .product-card__info {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .product-grid--index .product-card__name {
+      font-size: 19px;
+    }
+
+    .product-grid--index .product-card__info .product-card__price {
+      display: none;
+    }
+
+    .product-grid--index .product-card__type {
+      display: block;
+    }
+
+    .product-grid--index .product-card__columns {
+      display: contents;
+    }
+
+    /* The data columns always start after the name, with or without a catalog number */
+    .product-grid--index .product-card__column:first-child {
+      grid-column-start: 4;
+    }
+
+    .product-card__code {
+      white-space: nowrap;
+    }
+
+    .product-grid--index .product-card__column,
+    .product-grid--index .product-card__column--options,
+    .product-grid--index .product-card__column--price {
+      display: block;
+      font-size: var(--font-small-size);
+    }
+
+    .product-grid--index .product-card__column--options {
+      color: var(--color-text-muted);
+    }
+
+    .product-grid--index .product-card__column--price {
+      justify-self: end;
+    }
+
+    .product-grid--index .product-card__column-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
     }
   }
 {% endstylesheet %}

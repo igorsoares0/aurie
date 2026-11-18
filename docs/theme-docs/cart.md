@@ -7,7 +7,7 @@ In **Theme settings › Cart › Cart type**:
 - **Drawer**: adding a product opens a panel over the current page, with the cart lines, totals and the checkout button. Customers can change quantities or remove items without leaving the page. A **View cart** link opens the full cart page.
 - **Page**: adding a product goes to the cart page.
 
-Both show the subtotal, automatic discounts, a note about taxes and shipping, the checkout button and the accelerated checkout buttons your store offers.
+Both show the cart as an order: numbered lines with the product's catalog number, its options with their codes (such as F-01 Linen sand), the card detail line (sizes, material or dimensions) and the lead time. Below them come the subtotal, automatic discounts, a note about taxes and shipping, the checkout button and the accelerated checkout buttons your store offers.
 
 ## Cart note
 

@@ -2,6 +2,20 @@
   assign columns_desktop = section.settings.columns_desktop
   assign card_sizes = '(min-width: 990px) calc((100vw - 120px) / ' | append: columns_desktop | append: '), (min-width: 750px) calc((100vw - 64px) / 3), calc((100vw - 36px) / ' | append: section.settings.columns_mobile | append: ')'
 
+  assign default_view = blank
+  if section.settings.show_view_switch
+    assign default_view = section.settings.default_view
+  endif
+  assign index_columns = section.settings.index_columns | strip
+  assign index_pairs = index_columns | split: ','
+  capture index_template
+    echo '52px 104px minmax(180px, 2fr)'
+    for pair in index_pairs
+      echo ' minmax(56px, 0.6fr)'
+    endfor
+    echo ' minmax(110px, 1.2fr) 150px'
+  endcapture
+
   assign has_active_filters = false
   for filter in search.filters
     if filter.active_values.size > 0
@@ -19,7 +33,7 @@
   data-section="{{ section.id }}"
 >
   <div class="main-search__head page-width">
-    <h1 class="main-search__title">{{ 'search.title' | t }}</h1>
+    <h1 class="main-search__title label text-muted">{{ 'search.title' | t }}</h1>
 
     <form class="main-search__form" action="{{ routes.search_url }}" method="get" role="search">
       <label class="visually-hidden" for="MainSearchInput-{{ section.id }}">{{ 'search.placeholder' | t }}</label>
@@ -37,7 +51,7 @@
     </form>
 
     {%- if search.performed -%}
-      <p class="main-search__summary text-small text-muted" role="status">
+      <p class="main-search__summary figure-caption" role="status">
         {%- if search.results_count == 0 and has_active_filters == false -%}
           {{ 'search.no_results_html' | t: terms: search.terms }}
         {%- else -%}
@@ -57,22 +71,39 @@
             section_id: section.id,
             enable_filtering: section.settings.enable_filtering,
             enable_sorting: section.settings.enable_sorting,
-            products_count: search.results_count
+            products_count: search.results_count,
+            default_view: default_view
           %}
         {%- endif -%}
 
         <div class="results" data-facets-part="results">
           {%- if search.results.size > 0 -%}
             <ul
-              class="product-grid"
+              class="product-grid{% if default_view == 'index' %} product-grid--index{% endif %}"
               role="list"
-              style="--columns-desktop: {{ columns_desktop }}; --columns-mobile: {{ section.settings.columns_mobile }};"
+              style="--columns-desktop: {{ columns_desktop }}; --columns-mobile: {{ section.settings.columns_mobile }}; --index-template: {{ index_template }};"
               data-product-grid
             >
+              {%- if default_view != blank -%}
+                <li class="product-grid__head label" aria-hidden="true">
+                  <span>{{ 'collections.index_number' | t }}</span>
+                  <span></span>
+                  <span>{{ 'collections.index_piece' | t }}</span>
+                  {%- for pair in index_pairs -%}
+                    <span>{{ pair | split: ':' | first | strip }}</span>
+                  {%- endfor -%}
+                  <span>{{ 'product.card.options' | t }}</span>
+                  <span>{{ 'collections.index_from' | t }}</span>
+                </li>
+              {%- endif -%}
               {%- for result in search.results -%}
                 <li class="product-grid__item">
                   {%- if result.object_type == 'product' -%}
-                    {% render 'product-card', product: result, sizes: card_sizes, heading_tag: 'h2' %}
+                    {%- if default_view != blank -%}
+                      {% render 'product-card', product: result, sizes: card_sizes, heading_tag: 'h2', index_columns: index_columns, show_index: true %}
+                    {%- else -%}
+                      {% render 'product-card', product: result, sizes: card_sizes, heading_tag: 'h2' %}
+                    {%- endif -%}
                   {%- else -%}
                     {% render 'search-result-card', result: result, heading_tag: 'h2' %}
                   {%- endif -%}
@@ -133,20 +164,36 @@
   .main-search__head {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 40px;
-    text-align: center;
+    gap: 16px;
+    margin-bottom: 32px;
   }
 
+  /* The query is the page's title: large type on a strong underline */
   .main-search__form {
     display: flex;
-    gap: 8px;
-    width: min(100%, 560px);
+    align-items: flex-end;
+    gap: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-text);
   }
 
   .main-search__input {
     flex: 1;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: var(--font-h1-size);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .main-search__input:focus-visible {
+    outline-offset: 6px;
   }
 
   .main-search__input::-webkit-search-cancel-button {
@@ -214,6 +261,39 @@
         }
       ],
       "default": "numbers"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_collection.index_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_switch",
+      "label": "t:sections.main_collection.show_view_switch",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "default_view",
+      "label": "t:sections.main_collection.default_view",
+      "options": [
+        {
+          "value": "plates",
+          "label": "t:sections.main_collection.default_view_plates"
+        },
+        {
+          "value": "index",
+          "label": "t:sections.main_collection.default_view_index"
+        }
+      ],
+      "default": "index"
+    },
+    {
+      "type": "text",
+      "id": "index_columns",
+      "label": "t:sections.main_collection.index_columns",
+      "info": "t:sections.main_collection.index_columns_info",
+      "default": "W: custom.width, D: custom.depth, H: custom.height"
     },
     {
       "type": "header",

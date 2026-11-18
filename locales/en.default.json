@@ -19,11 +19,15 @@
     },
     "comment_moderated": "Thanks for your comment. It will appear once it's approved.",
     "comment_posted": "Thanks for your comment.",
-    "moderated_notice": "Comments are reviewed before they're published."
+    "moderated_notice": "Comments are reviewed before they're published.",
+    "entry_count": {
+      "one": "{{ count }} entry",
+      "other": "{{ count }} entries"
+    }
   },
   "cart": {
     "checkout": "Check out",
-    "title": "Your bag",
+    "title": "Your order",
     "update": "Update",
     "remove": "Remove",
     "quantity": "Quantity",
@@ -42,8 +46,9 @@
     "shipping_and_codes_at_checkout": "Shipping and discount codes are added at checkout.",
     "size_reminder": "You have the {{ product }} in two sizes. Not sure which one fits?",
     "size_reminder_link": "See size guide",
-    "view_cart": "View bag",
-    "yes": "Yes"
+    "view_cart": "View full order",
+    "yes": "Yes",
+    "lead_time": "Lead time"
   },
   "customers": {
     "login": {
@@ -54,7 +59,11 @@
     }
   },
   "collections": {
-    "title": "Collections"
+    "title": "Collections",
+    "plate": "Plate — {{ title }}",
+    "index_number": "Nº",
+    "index_piece": "Piece",
+    "index_from": "From"
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
@@ -119,7 +128,7 @@
     "search": "Search",
     "account": "Account",
     "find_a_store": "Find a store",
-    "bag_count_html": "Bag ({{ count }})"
+    "bag_count_html": "Cart ({{ count }})"
   },
   "localization": {
     "country_label": "Country/region",
@@ -188,10 +197,13 @@
     },
     "product_comparison": {
       "price": "Price"
+    },
+    "product_index": {
+      "show_all": "Show all {{ count }} products"
     }
   },
   "product": {
-    "add_to_cart": "Add to bag",
+    "add_to_cart": "Add to cart",
     "unavailable": "Unavailable",
     "variant": "Variant",
     "quantity": {
@@ -204,7 +216,10 @@
     "media": {
       "gallery": "Product media",
       "choose": "Choose media",
-      "show_item": "Show media {{ number }} of {{ total }}"
+      "show_item": "Show media {{ number }} of {{ total }}",
+      "figure": "Fig. {{ number }}",
+      "width_short": "W",
+      "height_short": "H"
     },
     "price": {
       "regular_price": "Regular price",
@@ -243,8 +258,11 @@
       "count_html": "{{ count }} of {{ max }} characters."
     },
     "card": {
-      "available_sizes": "Available sizes"
-    }
+      "available_sizes": "Available sizes",
+      "options": "Options"
+    },
+    "catalog_number": "Nº {{ number }}",
+    "specification": "Specification"
   },
   "facets": {
     "filter": "Filter",
@@ -264,7 +282,10 @@
     "empty_filtered_title": "Nothing matches these filters",
     "empty_filtered_text": "Try other options, or clear the filters to see the whole collection.",
     "empty_title": "This collection is empty",
-    "empty_text": "New products are on their way. Browse the rest of the store in the meantime."
+    "empty_text": "New products are on their way. Browse the rest of the store in the meantime.",
+    "view": "View",
+    "view_index": "Index",
+    "view_plates": "Plates"
   },
   "pagination": {
     "label": "Pagination",
@@ -274,7 +295,13 @@
   },
   "not_found": {
     "title": "Page not found",
-    "text": "The page you were looking for doesn't exist or has moved. Try a search, or keep browsing."
+    "text": "The page you were looking for doesn't exist or has moved. Try a search, or keep browsing.",
+    "code": "Error 404",
+    "requested": "Requested",
+    "status": "Status",
+    "status_value": "Not in the index, or moved",
+    "search_label": "Search the index",
+    "home": "Go to the home page"
   },
   "contact": {
     "name": "Name",
@@ -283,5 +310,10 @@
     "message": "Message",
     "submit": "Send",
     "success": "Thanks for getting in touch. We'll reply as soon as we can."
+  },
+  "blocks": {
+    "specification": {
+      "empty": "Add values in the theme editor, or connect them to product metafields."
+    }
   }
 }

@@ -2,6 +2,12 @@
   "sections": {
     "main": {
       "type": "main-product",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "media_ratio": "auto",
+        "show_breadcrumb": true,
+        "sticky_info": true
+      },
       "blocks": {
         "title": {
           "type": "title",
@@ -22,17 +28,29 @@
         "variant_picker": {
           "type": "variant-picker",
           "settings": {
-            "style": "buttons",
+            "style": "rows",
             "show_swatches": true,
-            "swatch_style": "circle",
+            "swatch_style": "labeled",
             "size_guide_options": "Size",
             "size_guide_label": "Size guide"
           }
         },
-        "fit_notes": {
-          "type": "fit-notes",
+        "dimensions": {
+          "type": "dimensions",
           "settings": {
-            "text": "<p>Model is 177 cm and wears S. Relaxed through the body, size down for a closer cut.</p>"
+            "heading": "Will it fit?",
+            "unit_note": "All sizes in cm",
+            "label_1": "Width",
+            "label_2": "Depth",
+            "label_3": "Height",
+            "label_4": "Seat height"
+          }
+        },
+        "lead_time": {
+          "type": "lead-time",
+          "settings": {
+            "icon": "truck",
+            "text": "<p><strong>Made to order, ships in 6 to 8 weeks.</strong> Delivery to the room and assembly included.</p>"
           }
         },
         "buy_buttons": {
@@ -56,24 +74,39 @@
             "show_description": true
           }
         },
-        "tab_care": {
+        "tab_delivery": {
           "type": "collapsible-tab",
           "settings": {
-            "heading": "Materials and care",
+            "heading": "Delivery and assembly",
             "heading_style": "label",
             "open": false,
             "show_description": false,
-            "content": "<p>Share fabric composition and care instructions.</p>"
+            "content": "<p>Explain lead times, delivery slots and assembly.</p>"
           }
         },
-        "tab_shipping": {
+        "tab_warranty": {
           "type": "collapsible-tab",
           "settings": {
-            "heading": "Shipping and returns",
+            "heading": "Warranty and returns",
             "heading_style": "label",
             "open": false,
             "show_description": false,
-            "content": "<p>Share delivery times and your return policy.</p>"
+            "content": "<p>Share your warranty and return policy.</p>"
+          }
+        },
+        "specification": {
+          "type": "specification",
+          "settings": {
+            "heading": "Specification",
+            "mono_values": false,
+            "label_1": "Dimensions",
+            "label_2": "Seat height, cm",
+            "label_3": "Materials and care",
+            "label_4": "",
+            "label_5": "",
+            "label_6": "",
+            "label_7": "",
+            "label_8": ""
           }
         }
       },
@@ -82,25 +115,21 @@
         "price",
         "installments",
         "variant_picker",
-        "fit_notes",
         "buy_buttons",
+        "dimensions",
+        "lead_time",
         "pickup",
+        "specification",
         "tab_details",
-        "tab_care",
-        "tab_shipping"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "media_ratio": "auto",
-        "show_breadcrumb": true,
-        "sticky_info": true
-      }
+        "tab_delivery",
+        "tab_warranty"
+      ]
     },
     "complementary": {
       "type": "product-recommendations",
       "settings": {
         "color_scheme": "scheme-1",
-        "heading": "Complete the look",
+        "heading": "Complete | the room",
         "intent": "complementary",
         "products_to_show": 4
       }
@@ -109,7 +138,7 @@
       "type": "product-recommendations",
       "settings": {
         "color_scheme": "scheme-1",
-        "heading": "You may also like",
+        "heading": "You may | also like",
         "intent": "related",
         "products_to_show": 4
       }

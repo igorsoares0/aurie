@@ -7,6 +7,7 @@
   @param {boolean} [show_excerpt] - Show the excerpt. Default: true
   @param {string} [heading_tag] - Tag for the title. Default: 'h3'
   @param {string} [sizes] - Image sizes attribute
+  @param {number} [number] - Entry number shown before the date, such as 01
 
   @example
   {% render 'article-card', article: article, show_author: true %}
@@ -38,8 +39,15 @@
   </div>
 
   <div class="article-card__info">
-    {%- if show_date or show_author -%}
+    {%- if show_date or show_author or number -%}
       <p class="article-card__meta label text-muted">
+        {%- if number -%}
+          <span class="index-no">
+            {%- if number < 10 -%}0{%- endif -%}
+            {{- number -}}
+          </span>
+          {%- if show_date or show_author %} · {% endif -%}
+        {%- endif -%}
         {%- if show_date -%}
           {{ article.published_at | time_tag: format: 'date' }}
         {%- endif -%}
@@ -74,6 +82,7 @@
   .article-card__media {
     overflow: hidden;
     aspect-ratio: 4 / 3;
+    border: 1px solid var(--color-divider);
     border-radius: var(--radius-media);
     background-color: var(--color-tile);
   }

@@ -7,7 +7,7 @@
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
-    {% unless settings.heading_font.system? and settings.body_font.system? %}
+    {% unless settings.heading_font.system? and settings.body_font.system? and settings.label_font.system? %}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {% endunless %}
     {% unless settings.body_font.system? %}

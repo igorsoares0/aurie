@@ -1,37 +1,28 @@
 {%- liquid
   assign layout = settings.header_layout
-  assign use_words = false
-  if layout == 'center_text'
-    assign use_words = true
-  endif
   assign menu = section.settings.menu
 -%}
 
 <div class="header-wrapper color-{{ section.settings.color_scheme }}{% if section.settings.show_divider %} header-wrapper--divider{% endif %}">
   <header class="header header--{{ layout }} page-width">
     <button
-      class="button-unstyled header__menu-toggle{% if use_words %} label{% endif %}"
+      class="button-unstyled header__menu-toggle label"
       type="button"
       aria-haspopup="dialog"
       aria-expanded="false"
       aria-controls="MenuDrawer"
       data-menu-drawer-open
     >
-      {%- if use_words -%}
-        {{- 'header.menu' | t -}}
-      {%- else -%}
-        {% render 'icon', name: 'menu' %}
-        <span class="visually-hidden">{{ 'header.menu' | t }}</span>
-      {%- endif -%}
+      {{- 'header.menu' | t -}}
     </button>
 
     {%- if layout == 'center_icons' -%}
       <div class="header__tools header__tools--start">
-        {% render 'header-search-link', use_words: use_words %}
+        {% render 'header-search-link' %}
         {%- if section.settings.store_link != blank -%}
           <a class="header__tool" href="{{ section.settings.store_link }}">
-            {% render 'icon', name: 'pin' %}
-            <span class="visually-hidden">{{ 'header.find_a_store' | t }}</span>
+            <span class="header__tool-icon">{% render 'icon', name: 'pin' %}</span>
+            <span class="header__tool-word">{{ 'header.find_a_store' | t }}</span>
           </a>
         {%- endif -%}
       </div>
@@ -58,16 +49,28 @@
       {%- else -%}
         <span class="header__logo-text">{{ shop.name }}</span>
       {%- endif -%}
+      {%- if section.settings.tagline != blank -%}
+        <span class="header__tagline label">{{ section.settings.tagline }}</span>
+      {%- endif -%}
     </a>
 
     {%- if menu.links.size > 0 -%}
       <nav class="header__nav" aria-label="{{ 'header.main_menu' | t }}">
-        <ul class="header__menu label" role="list">
+        <ul class="header__menu" role="list">
           {%- for link in menu.links -%}
+            {%- capture menu_number -%}
+              {%- if section.settings.show_menu_numbers -%}
+                <span class="index-no header__menu-no" aria-hidden="true">
+                  {%- if forloop.index < 10 -%}0{%- endif -%}
+                  {{- forloop.index -}}
+                </span>
+              {%- endif -%}
+            {%- endcapture -%}
             <li class="header__menu-item">
               {%- if link.links.size > 0 -%}
                 <details class="header__dropdown">
                   <summary class="header__menu-link{% if link.child_active or link.active %} header__menu-link--active{% endif %}">
+                    {{- menu_number -}}
                     {{- link.title -}}
                     {% render 'icon', name: 'caret' %}
                   </summary>
@@ -130,6 +133,7 @@
                     aria-current="page"
                   {% endif %}
                 >
+                  {{- menu_number -}}
                   {{- link.title -}}
                 </a>
               {%- endif -%}
@@ -139,19 +143,15 @@
       </nav>
     {%- endif -%}
 
-    <div class="header__tools header__tools--end{% if use_words %} label{% endif %}">
-      {% render 'header-search-link', use_words: use_words %}
+    <div class="header__tools header__tools--end">
+      {% render 'header-search-link' %}
 
       {%- if shop.customer_accounts_enabled -%}
         <shopify-account class="header__tool header__account" menu="{{ section.settings.customer_account_menu.handle | default: 'customer-account-main-menu' }}">
-          {%- if use_words -%}
-            <span class="header__account-label label" slot="signed-out-avatar">{{ 'header.account' | t }}</span>
-          {%- else -%}
-            <span class="header__account-label" slot="signed-out-avatar">
-              {%- render 'icon', name: 'account' -%}
-              <span class="visually-hidden">{{ 'header.account' | t }}</span>
-            </span>
-          {%- endif -%}
+          <span class="header__account-label" slot="signed-out-avatar">
+            <span class="header__tool-icon">{% render 'icon', name: 'account' %}</span>
+            <span class="header__tool-word">{{ 'header.account' | t }}</span>
+          </span>
         </shopify-account>
       {%- endif -%}
 
@@ -165,14 +165,10 @@
           aria-haspopup="dialog"
         {% endif %}
       >
-        {%- if use_words -%}
-          {%- comment -%} One element, so the flex gap doesn't split "Bag (0)" into pieces that can wrap {%- endcomment -%}
-          <span class="header__cart-label">{{- 'header.bag_count_html' | t: count: cart_count_html -}}</span>
-        {%- else -%}
-          {% render 'icon', name: 'bag' %}
-          <span aria-hidden="true" data-cart-count>{{ cart.item_count }}</span>
-          <span class="visually-hidden">{{ 'header.bag_count_html' | t: count: cart_count_html }}</span>
-        {%- endif -%}
+        <span class="header__tool-icon">{% render 'icon', name: 'bag' %}</span>
+        <span class="header__cart-count mono" aria-hidden="true" data-cart-count>{{ cart.item_count }}</span>
+        {%- comment -%} One element, so the flex gap doesn't split "Cart (0)" into pieces that can wrap {%- endcomment -%}
+        <span class="header__tool-word header__cart-label mono">{{- 'header.bag_count_html' | t: count: cart_count_html -}}</span>
       </a>
     </div>
   </header>
@@ -210,6 +206,12 @@
                       {%- endif -%}
                     </span>
                   {%- endif -%}
+                    {%- if section.settings.show_menu_numbers -%}
+                      <span class="index-no menu-drawer__no" aria-hidden="true">
+                        {%- if forloop.index < 10 -%}0{%- endif -%}
+                        {{- forloop.index -}}
+                      </span>
+                    {%- endif -%}
                     <span class="menu-drawer__label">{{- link.title -}}</span>
                     {% render 'icon', name: 'caret' %}
                   </summary>
@@ -251,7 +253,13 @@
                       {%- endif -%}
                     </span>
                   {%- endif -%}
-                  <span class="menu-drawer__label">{{- link.title -}}</span>
+                  {%- if section.settings.show_menu_numbers -%}
+                      <span class="index-no menu-drawer__no" aria-hidden="true">
+                        {%- if forloop.index < 10 -%}0{%- endif -%}
+                        {{- forloop.index -}}
+                      </span>
+                    {%- endif -%}
+                    <span class="menu-drawer__label">{{- link.title -}}</span>
                 </a>
               {%- endif -%}
             </li>
@@ -283,7 +291,7 @@
   }
 
   .header-wrapper--divider {
-    border-bottom: 1px solid var(--color-divider);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .header {
@@ -308,6 +316,7 @@
     grid-area: logo;
     display: flex;
     align-items: center;
+    gap: 12px;
     min-width: 0;
     min-height: var(--touch-target);
     text-decoration: none;
@@ -340,9 +349,14 @@
     margin-block: -0.15em;
   }
 
-  .header--center_text .header__logo-text {
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+  .header__logo-image {
+    align-self: center;
+  }
+
+  .header__tagline {
+    display: none;
+    color: var(--color-text-muted);
+    white-space: nowrap;
   }
 
   .header__nav {
@@ -364,6 +378,11 @@
     gap: 0;
   }
 
+  /* Shopify adds an empty <shopify-store> next to the account component; keep it out of the row's gaps */
+  .header__tools > shopify-store {
+    position: absolute;
+  }
+
   .header__tool {
     display: inline-flex;
     align-items: center;
@@ -376,24 +395,26 @@
     color: inherit;
   }
 
-  .header__tools--end.label .header__tool {
-    min-width: 0;
+  /* Small screens show icons; the word stays for screen readers */
+  .header__tool-word {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 
-  .header__search-link {
-    display: none;
-  }
-
-  .header--center_icons .header__tools--end .header__search-link,
-  .header--left .header__tools--end .header__search-link {
+  .header__tool-icon {
     display: inline-flex;
   }
 
-  .header--center_text .header__account::part(signed-out-avatar) {
-    width: auto;
-    min-width: 0;
-    height: auto;
-    padding: 0;
+  .header__cart-count {
+    font-size: var(--font-caption-size);
+  }
+
+  .header--center_icons .header__tools--end .header__search-link {
+    display: none;
   }
 
   .header__account {
@@ -410,6 +431,7 @@
   .header__account-label {
     display: inline-flex;
     align-items: center;
+    font-size: var(--font-body-size);
     color: var(--color-text);
   }
 
@@ -429,12 +451,17 @@
 
   .header__menu-link {
     display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    padding-block: 4px;
+    align-items: baseline;
+    gap: 6px;
+    padding-block: 10px;
+    border-bottom: 2px solid transparent;
     text-decoration: none;
     cursor: pointer;
     list-style: none;
+  }
+
+  .header__menu-link .icon {
+    align-self: center;
   }
 
   .header__menu-link::-webkit-details-marker {
@@ -452,11 +479,13 @@
   }
 
   .header__menu-link--active,
-  .header__menu-link[aria-current='page'],
+  .header__menu-link[aria-current='page'] {
+    border-bottom-color: currentcolor;
+  }
+
   .header__menu-link:hover {
     color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    border-bottom-color: var(--color-divider);
   }
 
   /* The dropdown panel fades in; closing is instant, as <details> hides it at once */
@@ -541,33 +570,43 @@
       display: block;
     }
 
-    .header__search-link {
-      display: inline-flex;
+    /* Large screens show words: Search, Account, Cart (2) */
+    .header__tool-word {
+      position: static;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      clip: auto;
     }
 
-    .header--center_icons .header__tools--end .header__search-link {
+    .header__tool-icon,
+    .header__cart-count {
       display: none;
     }
 
-    .header--center_text {
-      grid-template-areas: 'nav logo end';
-      padding-block: 16px;
+    .header__tools {
+      gap: 24px;
     }
 
-    .header--center_text .header__nav {
-      grid-area: nav;
-    }
-
-    .header--center_text .header__menu {
-      gap: 8px 24px;
-    }
-
-    .header--center_text .header__tools--end {
-      gap: 8px 24px;
-    }
-
-    .header--center_text .header__tool {
+    .header__tool {
+      min-width: 0;
       padding-inline: 0;
+    }
+
+    .header__account::part(signed-out-avatar) {
+      width: auto;
+      min-width: 0;
+      height: auto;
+      padding: 0;
+    }
+
+    .header__tagline {
+      display: inline;
+    }
+
+    /* Logo text and tagline share a baseline once the tagline shows */
+    .header__logo {
+      align-items: baseline;
     }
 
     .header--center_icons {
@@ -603,26 +642,40 @@
     .header--left {
       grid-template-columns: auto 1fr auto;
       grid-template-areas: 'logo nav end';
-      column-gap: 32px;
-      padding-block: 16px;
+      column-gap: 40px;
+      min-height: 72px;
+      padding-block: 0;
     }
 
     .header--left .header__logo-text {
-      font-size: calc(2rem * var(--font-heading-scale));
+      font-size: calc(1.75rem * var(--font-heading-scale));
     }
 
     .header--left .header__nav {
       grid-area: nav;
-      justify-self: center;
+      align-self: stretch;
+      display: flex;
     }
 
     .header--left .header__menu {
-      gap: 4px 28px;
+      align-items: stretch;
+      gap: 0 28px;
+    }
+
+    /* Links and dropdown toggles fill the header's height, so every item lines up */
+    .header--left .header__menu-item,
+    .header--left .header__dropdown {
+      display: flex;
     }
 
     .header--left .header__menu-link {
-      padding-block: 6px;
+      align-items: center;
     }
+  }
+
+  .menu-drawer__no {
+    margin-inline-end: 10px;
+    font-size: var(--font-caption-size);
   }
 
   .menu-drawer {
@@ -802,7 +855,7 @@
       "type": "checkbox",
       "id": "show_divider",
       "label": "t:sections.header.show_divider",
-      "default": false
+      "default": true
     },
     {
       "type": "header",
@@ -825,6 +878,12 @@
       "default": 120
     },
     {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:sections.header.tagline",
+      "info": "t:sections.header.tagline_info"
+    },
+    {
       "type": "header",
       "content": "t:sections.header.navigation_header"
     },
@@ -833,6 +892,12 @@
       "id": "menu",
       "label": "t:labels.menu",
       "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_menu_numbers",
+      "label": "t:sections.header.show_menu_numbers",
+      "default": true
     },
     {
       "type": "link_list",

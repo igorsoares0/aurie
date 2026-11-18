@@ -1,6 +1,6 @@
 <article class="main-article color-{{ section.settings.color_scheme }}">
   <header class="main-article__head page-width">
-    <nav class="main-article__breadcrumb text-caption text-muted" aria-label="{{ 'product.breadcrumb' | t }}">
+    <nav class="main-article__breadcrumb figure-caption" aria-label="{{ 'product.breadcrumb' | t }}">
       <a class="touch-area" href="{{ blog.url }}">{{ blog.title }}</a>
     </nav>
     <h1 class="main-article__title">{{ article.title }}</h1>
@@ -11,7 +11,7 @@
   </header>
 
   {%- if article.image and section.settings.show_image -%}
-    <div class="main-article__media page-width">
+    <figure class="main-article__media page-width">
       {{
         article.image
         | image_url: width: 2400
@@ -20,10 +20,15 @@
           sizes: '(min-width: 1440px) 1392px, calc(100vw - 32px)',
           loading: 'eager',
           fetchpriority: 'high',
+          preload: true,
           alt: article.image.alt,
           class: 'main-article__image'
       }}
-    </div>
+      <figcaption class="main-article__caption figure-caption">
+        {{- 'product.media.figure' | t: number: 1 -}}
+        {%- if article.image.alt != blank %} — {{ article.image.alt | escape }}{% endif -%}
+      </figcaption>
+    </figure>
   {%- endif -%}
 
   <div class="main-article__body page-width">
@@ -41,7 +46,7 @@
 
     {%- if blog.comments_enabled? -%}
       <section class="main-article__comments" id="comments" aria-labelledby="CommentsTitle">
-        <h2 class="h3" id="CommentsTitle">{{ 'blog.comments_count' | t: count: article.comments_count }}</h2>
+        <h2 class="main-article__comments-title label" id="CommentsTitle">{{ 'blog.comments_count' | t: count: article.comments_count }}</h2>
 
         {%- paginate article.comments by 10 -%}
           {%- if article.comments.size > 0 -%}
@@ -123,8 +128,18 @@
   }
 
   .main-article__head {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+  }
+
+  .main-article__media {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-article__comments-title {
+    padding-top: 16px;
+    border-top: var(--rule-strong);
   }
 
   .main-article__breadcrumb a {

@@ -12,7 +12,21 @@ In the theme editor, open **Theme settings**, select **Change theme style** and 
 Type `|` with a space on each side between the two halves, such as `Shop | by room`. Turn on **Theme settings › Typography › Show rule in split headings** to draw a line between them.
 
 **Can I use my own fonts?**
-Arvel uses Shopify's font library, which loads fonts quickly and in the right weights. Pick them in **Theme settings › Typography**.
+Caliper uses Shopify's font library, which loads fonts quickly and in the right weights. Pick them in **Theme settings › Typography**: one for headings, one for body text and one for labels, catalog numbers and measurements.
+
+## Spec sheet
+
+**Why don't I see catalog numbers or dimension lines?**
+They read product metafields. Create the metafields, fill them in on your products and enter them in **Theme settings › Spec sheet**. Products without a value don't show the number or the lines. See [Spec sheet](spec-sheet.md).
+
+**How do I change or remove option codes?**
+Edit **Theme settings › Spec sheet › Option codes**. Each entry is an option name and a letter, such as `Fabric: F`. Remove an entry to hide the codes for that option, or empty the field to hide all codes.
+
+**Can I use inches instead of centimeters?**
+Yes. Enter your measurements in inches in the metafields and set **Theme settings › Spec sheet › Unit** to `in`.
+
+**Can shoppers choose between the grid and the table?**
+Yes. Turn on **Show index and plates switch** in the **Product grid** and **Search results** sections. See [Collections and search](collections-and-search.md).
 
 ## Products
 
@@ -58,7 +72,7 @@ The theme's own text, such as buttons, labels and messages, comes in English and
 ## Accessibility and performance
 
 **Is the theme accessible?**
-Arvel is built for keyboard and screen reader use: focus is always visible, drawers trap focus and close with Escape, and touch targets are at least 44 × 44 px on mobile. Keep enough contrast between the background and text colors in your color schemes.
+Caliper is built for keyboard and screen reader use: focus is always visible, drawers trap focus and close with Escape, and touch targets are at least 44 × 44 px on mobile. Keep enough contrast between the background and text colors in your color schemes.
 
 **Can I turn off animations?**
 Yes. Set **Theme settings › Animations › Speed** to **None**. Visitors who ask their device to reduce motion never see animations.

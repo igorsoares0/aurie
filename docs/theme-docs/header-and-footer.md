@@ -6,11 +6,15 @@ The header's look comes from **Theme settings › Header › Layout**. Its conte
 
 - **Color scheme** and **Show divider** (a line under the header).
 - **Logo image** replaces the store name. **Logo width** sets its size.
+- **Tagline**: a short text next to the logo on large screens, such as "Furniture index".
 - **Menu**: the main menu. Menu items with child links open a dropdown on desktop and expand in the mobile menu.
+- **Number the main menu items**: shows 01, 02, 03 before each top-level item, on desktop and in the mobile menu. Screen readers skip the numbers.
 - **Customer account menu**: the links shown in the account menu when customers are signed in.
-- **Store locator link**: shown as an icon in the **Centered logo, icons, menu below** layout, and in the mobile menu.
+- **Store locator link**: shown in the **Logo centered, menu below** layout, and in the mobile menu.
 - **Show country/region selector** and **Show language selector**: shown in the mobile menu. Add more countries and languages in **Settings › Markets** and **Settings › Languages**.
 - **Show collection images in mobile menu**: menu items that link to a collection show its image.
+
+On desktop, search, account and cart show as words ("Search", "Account", "Cart (2)"); on smaller screens they become icons.
 
 ### Menu promotions
 

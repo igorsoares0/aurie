@@ -4,7 +4,7 @@ Open the theme editor and select the gear icon (**Theme settings**). These setti
 
 ## Colors
 
-Arvel uses **color schemes**: named sets of colors that you assign to sections. Each preset comes with a light scheme and a dark one, and you can add more.
+Caliper uses **color schemes**: named sets of colors that you assign to sections. Each preset comes with a light scheme and a dark one, and you can add more.
 
 Each scheme has these colors:
 
@@ -17,8 +17,8 @@ Each scheme has these colors:
 | Image background | The tile behind product photos and placeholders |
 | Divider | Hairlines between rows and blocks |
 | Border | Field and outline button borders |
-| Accent | Links on hover, sale prices, sale badges and discounts |
-| Text on accent | Text placed on an accent background, such as the fabric library's highlight |
+| Accent | Catalog numbers, option codes, dimension lines, sale prices, sale badges and discounts |
+| Text on accent | Text placed on an accent background, such as a sale badge |
 | Solid button background | Solid buttons |
 | Solid button label | Text on solid buttons |
 
@@ -26,9 +26,10 @@ Keep enough contrast between each background and its text color. The theme doesn
 
 ## Typography
 
-- **Heading font** and **Body font**: chosen from Shopify's font library. Bold and italic styles are loaded automatically.
+- **Heading font**, **Body font** and **Label font**: chosen from Shopify's font library. Bold and italic styles are loaded automatically. The label font sets catalog numbers, measurements, codes and small labels; a monospaced font suits it best.
 - **Heading size**: scales every heading, from 80% to 150%.
 - **Heading case**: **Default** or **Uppercase**.
+- **Italic accent in headings**: sets the second half of split headings and the last word of product titles in italic, such as "Pebble *signet*".
 - **Show rule in split headings**: adds a line between the two halves of a split heading. To split a heading, type `|` with a space on each side between the halves, such as `Shop | by room`.
 
 ## Layout
@@ -51,7 +52,7 @@ Visitors who ask their device to reduce motion never see animations, whatever th
 
 ## Header
 
-- **Layout**: **Centered logo, text links**; **Centered logo, icons, menu below**; or **Logo on the left, centered menu**. See [Header and footer](header-and-footer.md).
+- **Layout**: **Logo on the left, menu beside it** or **Logo centered, menu below**. See [Header and footer](header-and-footer.md).
 
 ## Product cards
 
@@ -61,10 +62,19 @@ Visitors who ask their device to reduce motion never see animations, whatever th
 - **Size option names**: the option names treated as sizes, separated by commas, such as `Size, Waist`.
 - **Material metafield** and **Dimensions metafield**: the product metafields shown when **Card details** is **Material** or **Dimensions**. See [Metafields and swatches](metafields-and-swatches.md).
 - **Show second image on hover**: shows the product's second image when the pointer is over the card.
+- **Show dimension lines on cards**: draws the width and height from the metafields set in **Spec sheet** on each card's image.
 
 ## Product media
 
 - **Gallery layout**: **Grid** (two columns), **Thumbnails beside** or **Thumbnails below**. On mobile every layout becomes a swipeable gallery.
+
+## Spec sheet
+
+- **Catalog number metafield**: the product metafield shown as "Nº 014" next to product names, such as `custom.catalog_number`.
+- **Option codes**: an option name and its code letter, separated by commas, such as `Fabric: F, Color: C`. Values then show as F-01, F-02 in their order.
+- **Width metafield**, **Height metafield** and **Unit**: the measurements drawn as dimension lines.
+
+Leave a field empty to hide what it controls. See [Spec sheet](spec-sheet.md).
 
 ## Cart
 

@@ -4,6 +4,13 @@ Add a section from **Add section** in any template. Every section has a **Color 
 
 Most sections that hold text accept a split heading: type `|` with a space on each side between the two halves, such as `Shop | by room`.
 
+## Catalog
+
+| Section | What it does |
+| --- | --- |
+| **Catalog hero** | The opening of a home page: an **Eyebrow**, a **Heading** and **Text**, up to four **Fact** blocks (a label and a value, such as Lead time and 6–8 weeks) and two buttons. Beside it, a **Product** is shown as a plate: its image, or the **Image** you choose, with optional **crop marks**, the product's **dimension lines** and a **Caption** that links to the product with its catalog number. When it's the first section on the page, its heading is the page's main heading. |
+| **Product index** | Products from a **Collection** as rows of a table: catalog number, image, name, the **Index columns** you choose, option codes and price. **Index columns** are pairs of a label and a product metafield, such as `W: custom.width, D: custom.depth`. **Filter links** shows a menu's links above the index, and the link at the foot says how many products the collection has. On mobile the rows become a compact list. |
+
 ## Images and banners
 
 | Section | What it does |
@@ -46,7 +53,7 @@ Most sections that hold text accept a split heading: type `|` with a space on ea
 | Section | What it does |
 | --- | --- |
 | **Material guide** | Your materials side by side, each with an image, a name and care notes. |
-| **Fabric library** | **Fabric** blocks with an image or a **Swatch color**, a **Name** and a **Type**, and an optional material panel with a heading, text and points. |
+| **Fabric library** | **Fabric** blocks with an image or a **Swatch color**, a **Code** (such as F-01, to match the option codes on the product page), a **Name** and a **Type**, and an optional material panel with a heading, text and points. |
 | **Craft process** | Numbered steps of how your products are made. |
 | **Delivery and assembly** | The stages from order to delivery. |
 | **Size guide** | A size table from a page (**Size table page**) with **Measuring tip** blocks. |

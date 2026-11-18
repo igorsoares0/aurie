@@ -1,16 +1,34 @@
 <div class="main-404 color-{{ section.settings.color_scheme }}">
   <div class="main-404__inner page-width">
-    <p class="label text-muted">404</p>
-    <h1 class="main-404__title">{{ 'not_found.title' | t }}</h1>
-    <p>{{ 'not_found.text' | t }}</p>
+    <div class="main-404__head">
+      <p class="label text-muted">{{ 'not_found.code' | t }}</p>
+      <h1 class="main-404__title display">{{ 'not_found.title' | t }}</h1>
+      <p class="main-404__text">{{ 'not_found.text' | t }}</p>
+    </div>
+
+    <dl class="spec-list main-404__spec">
+      <div class="spec-list__row">
+        <dt>{{ 'not_found.requested' | t }}</dt>
+        <dd class="mono">{{ request.path | escape }}</dd>
+      </div>
+      <div class="spec-list__row">
+        <dt>{{ 'not_found.status' | t }}</dt>
+        <dd>{{ 'not_found.status_value' | t }}</dd>
+      </div>
+    </dl>
 
     <form class="main-404__search" action="{{ routes.search_url }}" method="get" role="search">
-      <label class="visually-hidden" for="NotFoundSearch">{{ 'search.placeholder' | t }}</label>
-      <input class="field" id="NotFoundSearch" type="search" name="q" placeholder="{{ 'search.placeholder' | t }}">
-      <button class="button button--secondary" type="submit">{{ 'search.submit' | t }}</button>
+      <label class="label text-muted" for="NotFoundSearch">{{ 'not_found.search_label' | t }}</label>
+      <div class="main-404__search-row">
+        <input class="main-404__input" id="NotFoundSearch" type="search" name="q" placeholder="{{ 'search.placeholder' | t }}">
+        <button class="button" type="submit">{{ 'search.submit' | t }}</button>
+      </div>
     </form>
 
-    <a class="button" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue_shopping' | t }}</a>
+    <div class="button-row">
+      <a class="button button--secondary" href="{{ routes.root_url }}">{{ 'not_found.home' | t }}</a>
+      <a class="button button--secondary" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue_shopping' | t }}</a>
+    </div>
   </div>
 </div>
 
@@ -18,17 +36,51 @@
   .main-404__inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    gap: 32px;
+    max-width: calc(52rem + var(--page-margin) * 2);
     padding-block: var(--section-spacing);
-    text-align: center;
+  }
+
+  .main-404__head {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .main-404__text {
+    max-width: 34rem;
+    font-size: 17px;
   }
 
   .main-404__search {
     display: flex;
-    gap: 8px;
-    width: min(100%, 480px);
-    margin-top: 8px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* The same large underlined query as the search page */
+  .main-404__search-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-text);
+  }
+
+  .main-404__input {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-size: var(--font-h2-size);
+    line-height: 1.2;
+  }
+
+  .main-404__input:focus-visible {
+    outline-offset: 6px;
   }
 {% endstylesheet %}
 

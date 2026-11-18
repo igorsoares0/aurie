@@ -12,7 +12,9 @@
           }
         }
       },
-      "block_order": ["announcement_1"],
+      "block_order": [
+        "announcement_1"
+      ],
       "settings": {
         "color_scheme": "scheme-2"
       }
@@ -21,15 +23,21 @@
       "type": "header",
       "settings": {
         "color_scheme": "scheme-1",
-        "show_divider": false,
+        "show_divider": true,
         "logo_width": 120,
         "menu": "main-menu",
         "customer_account_menu": "customer-account-main-menu",
         "store_link": "",
         "show_country_selector": true,
-        "show_language_selector": true
+        "show_language_selector": true,
+        "tagline": "Collection index",
+        "show_menu_numbers": true,
+        "drawer_images": true
       }
     }
   },
-  "order": ["announcement_bar", "header"]
+  "order": [
+    "announcement_bar",
+    "header"
+  ]
 }

@@ -10,9 +10,13 @@
   @param {product} product - The product whose media is shown
   @param {string} [ratio] - CSS aspect ratio for the media, such as '3 / 4'
   @param {string} [section_id] - Section id, used for unique element ids
+  @param {boolean} [show_figures] - Number each piece of media as a figure: Fig. 1, Fig. 2
+  @param {string} [dimension_width] - Width drawn as a dimension line along the first image's bottom edge
+  @param {string} [dimension_height] - Height drawn as a dimension line along the first image's right edge
+  @param {string} [dimension_unit] - Unit added to the width label, such as cm
 
   @example
-  {% render 'product-media', product: product, ratio: '3 / 4', section_id: section.id %}
+  {% render 'product-media', product: product, ratio: '3 / 4', section_id: section.id, show_figures: true, dimension_width: '220', dimension_height: '78', dimension_unit: 'cm' %}
 {% enddoc %}
 
 {%- liquid
@@ -50,9 +54,11 @@
                 if forloop.first
                   assign loading = 'eager'
                   assign fetchpriority = 'high'
+                  assign preload = true
                 else
                   assign loading = 'lazy'
                   assign fetchpriority = 'auto'
+                  assign preload = false
                 endif
               -%}
               {{
@@ -63,6 +69,7 @@
                   sizes: media_sizes,
                   loading: loading,
                   fetchpriority: fetchpriority,
+                  preload: preload,
                   alt: media.alt,
                   class: 'product-media__asset'
               }}
@@ -87,6 +94,32 @@
                 {{ media | media_tag: image_size: '1200x', toggleable: true }}
               </div>
           {%- endcase -%}
+
+          {%- if show_figures -%}
+            <span class="product-media__fig figure-caption" aria-hidden="true">
+              {{- 'product.media.figure' | t: number: forloop.index -}}
+            </span>
+          {%- endif -%}
+
+          {%- if forloop.first and media.media_type == 'image' -%}
+            {%- if dimension_width != blank -%}
+              <span class="dim dim--width">
+                <span class="dim__label">
+                  {%- comment -%} A value that brings its own symbol, such as Ø 45, needs no W {%- endcomment -%}
+                  {%- unless dimension_width contains 'Ø' -%}
+                    {{ 'product.media.width_short' | t }}
+                  {% endunless -%}
+                  {{ dimension_width }}
+                  {{ dimension_unit -}}
+                </span>
+              </span>
+            {%- endif -%}
+            {%- if dimension_height != blank -%}
+              <span class="dim dim--height">
+                <span class="dim__label">{{ 'product.media.height_short' | t }} {{ dimension_height }}</span>
+              </span>
+            {%- endif -%}
+          {%- endif -%}
         </li>
       {%- endfor -%}
     </ul>
@@ -108,6 +141,11 @@
               | image_url: width: 240
               | image_tag: loading: 'lazy', widths: '120, 240', sizes: '120px', alt: '', class: 'product-media__thumb-image'
             }}
+            {%- if show_figures -%}
+              <span class="product-media__thumb-fig figure-caption" aria-hidden="true">
+                {{- 'product.media.figure' | t: number: forloop.index -}}
+              </span>
+            {%- endif -%}
             <span class="visually-hidden">
               {{- 'product.media.show_item' | t: number: forloop.index, total: forloop.length -}}
             </span>
@@ -146,9 +184,24 @@
   }
 
   .product-media__item {
+    position: relative;
     flex: 0 0 100%;
     scroll-snap-align: start;
     min-width: 0;
+  }
+
+  /* Figure number, top left of each piece of media */
+  .product-media__fig {
+    position: absolute;
+    top: 12px;
+    left: 14px;
+    padding: 1px 6px;
+    background-color: var(--color-tile);
+    pointer-events: none;
+  }
+
+  .product-media__item .dim {
+    --dim-label-background: var(--color-tile);
   }
 
   .product-media__asset,
@@ -180,17 +233,30 @@
   }
 
   .product-media__thumb {
+    display: flex;
+    flex-direction: column;
     flex: 0 0 72px;
     padding: 0;
-    border: 1px solid transparent;
+    border: 1px solid var(--color-divider);
     border-radius: var(--radius-media);
     background-color: var(--color-tile);
+    color: var(--color-text);
+    text-align: start;
     cursor: pointer;
     overflow: hidden;
   }
 
   .product-media__thumb[aria-current='true'] {
     border-color: var(--color-text);
+  }
+
+  .product-media__thumb-fig {
+    padding: 5px 8px;
+    background-color: var(--color-background);
+  }
+
+  .product-media__thumb[aria-current='true'] .product-media__thumb-fig {
+    color: var(--color-text);
   }
 
   .product-media__thumb-image {
@@ -210,7 +276,9 @@
       overflow: visible;
     }
 
-    .product-media--grid .product-media__item:only-child {
+    /* One item, or an odd number of them: the first one spans both columns, so no row ends with a hole */
+    .product-media--grid .product-media__item:only-child,
+    .product-media--grid .product-media__item:first-child:nth-last-child(2n + 3) {
       grid-column: 1 / -1;
     }
   }
@@ -239,10 +307,13 @@
       flex-basis: auto;
     }
 
+    /* One row of figures: more than four scroll sideways instead of leaving a half-empty row */
     .product-media--thumbnails_below .product-media__thumbs {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
+    }
+
+    .product-media--thumbnails_below .product-media__thumb {
+      flex: 0 0 calc((100% - 36px) / 4);
     }
 
     .product-media--thumbnails_below .product-media__thumb-image {

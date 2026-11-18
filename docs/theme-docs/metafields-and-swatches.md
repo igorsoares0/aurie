@@ -1,6 +1,6 @@
 # Metafields and swatches
 
-Metafields let each product carry its own details, such as its material, its dimensions or a fit note. Arvel reads them in product cards, the cart and several product blocks.
+Metafields let each product carry its own details, such as its material, its dimensions or a fit note. Caliper reads them in product cards, the cart and several product blocks.
 
 ## Create a metafield definition
 
@@ -10,13 +10,18 @@ Metafields let each product carry its own details, such as its material, its dim
 4. Choose the type **Single line text** (or **Multi-line text** for longer notes) and save.
 5. Open a product and fill in the new field under **Metafields**.
 
-## Where Arvel uses metafields
+## Where Caliper uses metafields
 
 | Where | How to connect it | Suggested metafield |
 | --- | --- | --- |
+| Catalog number on cards, the product page and the cart | **Theme settings › Spec sheet › Catalog number metafield** | `custom.catalog_number`, such as "014" |
+| Dimension lines on the product page, cards and the Catalog hero | **Theme settings › Spec sheet › Width metafield** and **Height metafield** | `custom.width` and `custom.height`, numbers such as "220" |
+| Index columns on collection, search and Product index | **Index columns** in the **Product grid**, **Search results** and **Product index** sections | Any text metafield, such as `custom.width` or `custom.style` |
+| Product page, Specification block | Select the database icon next to each **value** | Any text metafield, such as `custom.composition` |
 | Product card, material line | **Theme settings › Product cards › Card details: Material**, then **Material metafield** | `custom.material` |
 | Product card, dimensions line | **Card details: Dimensions**, then **Dimensions metafield** | `custom.dimensions`, such as "W 220 × D 95 × H 78 cm" |
 | Cart line, lead time | **Theme settings › Cart › Lead time metafield** | `custom.lead_time` |
+| Product page, Lead time block | Select the database icon next to **Text** | `custom.lead_time`, such as "Ships in 5 days" |
 | Product page, Fit notes block | Select the database icon next to **Text** and pick the metafield | `custom.fit` |
 | Product page, Dimensions block | Connect each **value** field to a metafield | `custom.width`, `custom.depth`, `custom.height`, `custom.seat_height` |
 | Product page, Text or Collapsible tab blocks | Select the database icon next to the text field | Any text metafield, such as materials and care |

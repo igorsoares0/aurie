@@ -42,9 +42,9 @@
         "social"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "style": "plain",
-        "show_wordmark": true,
+        "show_wordmark": false,
         "show_country_selector": true,
         "show_language_selector": true,
         "show_follow_on_shop": true,

@@ -3,6 +3,20 @@
   assign columns_desktop = section.settings.columns_desktop
   assign card_sizes = '(min-width: 990px) calc((100vw - 120px) / ' | append: columns_desktop | append: '), (min-width: 750px) calc((100vw - 64px) / 3), calc((100vw - 36px) / ' | append: section.settings.columns_mobile | append: ')'
 
+  assign default_view = blank
+  if section.settings.show_view_switch
+    assign default_view = section.settings.default_view
+  endif
+  assign index_columns = section.settings.index_columns | strip
+  assign index_pairs = index_columns | split: ','
+  capture index_template
+    echo '52px 104px minmax(180px, 2fr)'
+    for pair in index_pairs
+      echo ' minmax(56px, 0.6fr)'
+    endfor
+    echo ' minmax(110px, 1.2fr) 150px'
+  endcapture
+
   assign has_active_filters = false
   for filter in collection.filters
     if filter.active_values.size > 0
@@ -20,7 +34,7 @@
   data-section="{{ section.id }}"
 >
   {%- if section.settings.show_breadcrumb -%}
-    <nav class="main-collection__breadcrumb page-width text-caption text-muted" aria-label="{{ 'product.breadcrumb' | t }}">
+    <nav class="main-collection__breadcrumb page-width figure-caption" aria-label="{{ 'product.breadcrumb' | t }}">
       <ol class="main-collection__breadcrumb-list" role="list">
         <li><a class="touch-area" href="{{ routes.root_url }}">{{ 'product.home' | t }}</a></li>
         <li aria-current="page">{{ collection.title }}</li>
@@ -34,18 +48,32 @@
     if section.settings.show_image
       assign banner_image = collection.image | default: collection.featured_image
     endif
+
+    comment
+      The banner image is the largest paint when there is one; the product cards then skip the high fetch priority so they do not compete with it
+    endcomment
+    assign banner_sizes = '100vw'
+    if banner_layout == 'split'
+      assign banner_sizes = '(min-width: 750px) 50vw, 100vw'
+    endif
+    assign card_priority = true
+    if banner_image
+      assign card_priority = false
+    endif
   -%}
 
   {%- capture banner_media -%}
     {%- if banner_image -%}
+      {%- comment -%} The collection image as a plate, with crop marks and a caption {%- endcomment -%}
       {{
         banner_image
         | image_url: width: 2400
         | image_tag:
-          widths: '600, 900, 1200, 1600, 2000, 2400',
-          sizes: '100vw',
+          widths: '600, 750, 900, 1200, 1600, 2000, 2400',
+          sizes: banner_sizes,
           loading: 'eager',
           fetchpriority: 'high',
+          preload: true,
           alt: banner_image.alt,
           class: 'collection-banner__image'
       }}
@@ -61,7 +89,7 @@
     {%- endif -%}
 
     <div class="collection-banner__text">
-      {%- if section.settings.show_count and banner_layout == 'centered' -%}
+      {%- if section.settings.show_count and banner_layout != 'overlay' -%}
         <p class="label text-muted">{{ 'facets.product_count' | t: count: collection.all_products_count }}</p>
       {%- endif -%}
       {%- unless banner_layout == 'overlay' and banner_image -%}
@@ -76,7 +104,10 @@
     </div>
 
     {%- if banner_image and banner_layout != 'overlay' -%}
-      <div class="collection-banner__media">{{ banner_media }}</div>
+      <figure class="collection-banner__media crop-marks">
+        {{ banner_media }}
+        <figcaption class="collection-banner__caption figure-caption">{{ 'collections.plate' | t: title: collection.title }}</figcaption>
+      </figure>
     {%- endif -%}
   </header>
 
@@ -109,17 +140,31 @@
         section_id: section.id,
         enable_filtering: section.settings.enable_filtering,
         enable_sorting: section.settings.enable_sorting,
-        products_count: collection.products_count
+        products_count: collection.products_count,
+        default_view: default_view
       %}
 
       <div class="results" data-facets-part="results">
         {%- if collection.products.size > 0 -%}
           <ul
-            class="product-grid"
+            class="product-grid{% if default_view == 'index' %} product-grid--index{% endif %}"
             role="list"
-            style="--columns-desktop: {{ columns_desktop }}; --columns-mobile: {{ section.settings.columns_mobile }};"
+            style="--columns-desktop: {{ columns_desktop }}; --columns-mobile: {{ section.settings.columns_mobile }}; --index-template: {{ index_template }};"
             data-product-grid
           >
+            {%- if default_view != blank -%}
+              {%- comment -%} Column headings of the index view; each row carries its own labels for assistive tech {%- endcomment -%}
+              <li class="product-grid__head label" aria-hidden="true">
+                <span>{{ 'collections.index_number' | t }}</span>
+                <span></span>
+                <span>{{ 'collections.index_piece' | t }}</span>
+                {%- for pair in index_pairs -%}
+                  <span>{{ pair | split: ':' | first | strip }}</span>
+                {%- endfor -%}
+                <span>{{ 'product.card.options' | t }}</span>
+                <span>{{ 'collections.index_from' | t }}</span>
+              </li>
+            {%- endif -%}
             {%- for product in collection.products -%}
               <li class="product-grid__item">
                 {%- liquid
@@ -127,8 +172,16 @@
                   if forloop.index <= columns_desktop
                     assign eager = true
                   endif
+                  assign priority = false
+                  if forloop.first and card_priority
+                    assign priority = true
+                  endif
                 -%}
-                {% render 'product-card', product: product, sizes: card_sizes, eager: eager, priority: forloop.first, heading_tag: 'h2' %}
+                {%- if default_view != blank -%}
+                  {% render 'product-card', product: product, sizes: card_sizes, eager: eager, priority: priority, heading_tag: 'h2', index_columns: index_columns, show_index: true %}
+                {%- else -%}
+                  {% render 'product-card', product: product, sizes: card_sizes, eager: eager, priority: priority, heading_tag: 'h2' %}
+                {%- endif -%}
               </li>
             {%- endfor -%}
           </ul>
@@ -238,6 +291,20 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .collection-banner__media.crop-marks {
+    margin: 0;
+    color: var(--color-background);
+  }
+
+  .collection-banner__caption {
+    position: absolute;
+    left: 20px;
+    bottom: 18px;
+    z-index: 1;
+    padding: 2px 8px;
+    background-color: var(--color-background);
   }
 
   .collection-banner--centered {
@@ -432,6 +499,39 @@
         }
       ],
       "default": "numbers"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_collection.index_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_switch",
+      "label": "t:sections.main_collection.show_view_switch",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "default_view",
+      "label": "t:sections.main_collection.default_view",
+      "options": [
+        {
+          "value": "plates",
+          "label": "t:sections.main_collection.default_view_plates"
+        },
+        {
+          "value": "index",
+          "label": "t:sections.main_collection.default_view_index"
+        }
+      ],
+      "default": "plates"
+    },
+    {
+      "type": "text",
+      "id": "index_columns",
+      "label": "t:sections.main_collection.index_columns",
+      "info": "t:sections.main_collection.index_columns_info",
+      "default": "W: custom.width, D: custom.depth, H: custom.height"
     },
     {
       "type": "header",

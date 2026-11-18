@@ -872,11 +872,6 @@
     "name": "Oriel demo",
     "settings": {
       "templates/index.json": {
-        "sections.macro.settings.image": "shopify://shop_images/hero-banner.jpg",
-        "sections.icons.settings.collection": "the-icons",
-        "sections.icons.settings.link": "shopify://collections/the-icons",
-        "sections.editorial.settings.image": "shopify://shop_images/story-split.jpg",
-        "sections.editorial.blocks.button.settings.link": "shopify://collections/earrings",
         "sections.portraits.blocks.c1.settings.collection": "rings",
         "sections.portraits.blocks.c1.settings.image": "shopify://shop_images/collection-rings.jpg",
         "sections.portraits.blocks.c2.settings.collection": "earrings",
@@ -893,16 +888,21 @@
         "sections.gifts.blocks.g2.settings.collection": "wedding-gifts",
         "sections.gifts.blocks.g2.settings.image": "shopify://shop_images/gift-anniversary.jpg",
         "sections.gifts.blocks.g3.settings.collection": "just-because",
-        "sections.gifts.blocks.g3.settings.image": "shopify://shop_images/gift-engravable.jpg"
+        "sections.gifts.blocks.g3.settings.image": "shopify://shop_images/gift-engravable.jpg",
+        "sections.hero.settings.product": "pebble-signet",
+        "sections.hero.settings.button_link": "shopify://collections/the-icons",
+        "sections.hero.settings.button_link_2": "shopify://pages/ring-size-guide",
+        "sections.index.settings.collection": "the-icons"
       },
       "templates/product.json": {
-        "sections.main.blocks.spec.settings.text": "<p>{{ product.metafields.custom.material.value }}</p>",
         "sections.main.blocks.variant_picker.settings.size_guide_page": "ring-size-guide",
-        "sections.main.blocks.tab_details.settings.content": "<p>{{ product.metafields.custom.dimensions.value }}</p>",
         "sections.main.blocks.tab_materials.settings.content": "",
         "sections.main.blocks.tab_materials.settings.page": "materials-and-care",
         "sections.main.blocks.tab_shipping.settings.content": "",
-        "sections.main.blocks.tab_shipping.settings.page": "shipping-and-returns"
+        "sections.main.blocks.tab_shipping.settings.page": "shipping-and-returns",
+        "sections.main.blocks.specification.settings.value_1": "{{ product.metafields.custom.material.value }}",
+        "sections.main.blocks.specification.settings.value_2": "{{ product.metafields.custom.dimensions.value }}",
+        "sections.main.blocks.specification.settings.value_3": "{{ product.metafields.custom.style.value }}"
       },
       "sections/header-group.json": {
         "sections.header.settings.menu": "oriel-main"

@@ -1,7 +1,8 @@
 <div class="main-blog color-{{ section.settings.color_scheme }}">
   <div class="main-blog__inner page-width">
     <header class="main-blog__head">
-      <h1 class="main-blog__title">{{ blog.title }}</h1>
+      <p class="label text-muted">{{ 'blog.entry_count' | t: count: blog.articles_count }}</p>
+      <h1 class="main-blog__title display">{{ blog.title }}</h1>
 
       {%- if section.settings.show_tags and blog.all_tags.size > 0 -%}
         <nav class="main-blog__tags" aria-label="{{ 'blog.filter_by_tag' | t }}">
@@ -40,11 +41,13 @@
         <ul class="main-blog__grid" role="list">
           {%- for article in blog.articles -%}
             <li>
+              {%- assign entry_number = paginate.current_offset | plus: forloop.index -%}
               {% render 'article-card',
                 article: article,
                 show_date: section.settings.show_date,
                 show_author: section.settings.show_author,
-                heading_tag: 'h2'
+                heading_tag: 'h2',
+                number: entry_number
               %}
             </li>
           {%- endfor -%}
@@ -105,15 +108,35 @@
     color: var(--color-background);
   }
 
+  /* The journal as an index of entries: one per row, so any number of posts lines up */
   .main-blog__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
-    gap: 56px var(--grid-gap);
+    display: flex;
+    flex-direction: column;
     margin: 0;
+    border-top: var(--rule-strong);
   }
 
-  .card--portrait .main-blog__grid {
-    column-gap: 24px;
+  .main-blog__grid > li {
+    padding-block: 20px;
+    border-bottom: var(--rule-thin);
+  }
+
+  .main-blog__grid .article-card {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .main-blog__grid .article-card {
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 32px;
+    }
+
+    .main-blog__grid .article-card__info {
+      max-width: 40rem;
+    }
   }
 {% endstylesheet %}
 

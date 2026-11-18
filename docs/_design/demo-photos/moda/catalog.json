@@ -1239,12 +1239,11 @@
     }
   ],
   "theme": {
-    "listing": null,
-    "preset": "Arvel",
+    "listing": "seam",
+    "preset": "Seam",
     "name": "Arvel demo",
     "settings": {
       "templates/index.json": {
-        "sections.hero.settings.image": "shopify://shop_images/hero-banner.jpg",
         "sections.category_index.blocks.c1.settings.collection": "dresses",
         "sections.category_index.blocks.c1.settings.image": "shopify://shop_images/category-dresses.jpg",
         "sections.category_index.blocks.c2.settings.collection": "knitwear",
@@ -1255,18 +1254,10 @@
         "sections.category_index.blocks.c4.settings.image": "shopify://shop_images/category-denim.jpg",
         "sections.category_index.blocks.c5.settings.link": "shopify://pages/size-guide",
         "sections.category_index.blocks.c5.settings.image": "shopify://shop_images/fit-guide.jpg",
-        "sections.new_in.settings.collection": "new-in",
-        "sections.new_in.settings.link": "shopify://collections/new-in",
-        "sections.editorial_split.settings.image": "shopify://shop_images/editorial-split.jpg",
-        "sections.editorial_split.blocks.link.settings.link": "shopify://collections/denim",
         "sections.shop_the_look.settings.image": "shopify://shop_images/shop-the-look.jpg",
         "sections.shop_the_look.blocks.h1.settings.product": "trinelle-wool-coat",
         "sections.shop_the_look.blocks.h2.settings.product": "rowani-knit",
         "sections.shop_the_look.blocks.h3.settings.product": "adeline-wide-trousers",
-        "sections.captioned_pair.blocks.a.settings.image": "shopify://shop_images/pair-right.jpg",
-        "sections.captioned_pair.blocks.a.settings.link": "shopify://collections/tailoring",
-        "sections.captioned_pair.blocks.b.settings.image": "shopify://shop_images/pair-left.jpg",
-        "sections.captioned_pair.blocks.b.settings.link": "shopify://collections/coats-jackets",
         "sections.testimonials.blocks.t1.settings.author": "Marta, Trinelle wool coat in S",
         "sections.testimonials.blocks.t2.settings.author": "Hannah, Adeline wide trousers in 36",
         "sections.testimonials.blocks.t3.settings.author": "Clara, Rowani knit in M",
@@ -1276,14 +1267,17 @@
         "sections.fit_guide.blocks.relaxed.settings.link": "shopify://collections/relaxed",
         "sections.fit_guide.blocks.guide.settings.link": "shopify://pages/size-guide",
         "sections.journal.settings.blog": "journal",
-        "sections.hero.settings.mobile_image": "shopify://shop_images/hero-banner-mobile.jpg"
+        "sections.hero.settings.product": "trinelle-wool-coat",
+        "sections.hero.settings.button_link": "shopify://collections/the-fall-edit",
+        "sections.hero.settings.button_link_2": "shopify://pages/size-guide",
+        "sections.index.settings.collection": "the-fall-edit"
       },
       "templates/product.json": {
         "sections.main.blocks.variant_picker.settings.size_guide_page": "size-guide",
         "sections.main.blocks.fit_notes.settings.text": "<p>{{ product.metafields.custom.fit.value }}</p>",
-        "sections.main.blocks.tab_care.settings.content": "<p>{{ product.metafields.custom.composition.value }}</p>",
         "sections.main.blocks.tab_shipping.settings.content": "",
-        "sections.main.blocks.tab_shipping.settings.page": "shipping-and-returns"
+        "sections.main.blocks.tab_shipping.settings.page": "shipping-and-returns",
+        "sections.main.blocks.specification.settings.value_1": "{{ product.metafields.custom.composition.value }}"
       },
       "sections/header-group.json": {
         "sections.header.settings.menu": "arvel-main"
@@ -1293,9 +1287,9 @@
         "sections.footer.blocks.studio.settings.menu": "arvel-studio"
       },
       "config/settings_data.json": {
-        "presets.Arvel.social_instagram_link": "https://www.instagram.com/shopify",
-        "presets.Arvel.social_pinterest_link": "https://www.pinterest.com/shopify",
-        "presets.Arvel.social_tiktok_link": "https://www.tiktok.com/@shopify"
+        "presets.Seam.social_instagram_link": "https://www.instagram.com/shopify",
+        "presets.Seam.social_pinterest_link": "https://www.pinterest.com/shopify",
+        "presets.Seam.social_tiktok_link": "https://www.tiktok.com/@shopify"
       }
     }
   }

@@ -9,11 +9,11 @@
 -%}
 
 {%- if has_values or request.design_mode -%}
-  <div class="dimensions" {{ block.shopify_attributes }}>
+  <div class="dimensions note-box" {{ block.shopify_attributes }}>
     <div class="dimensions__head">
-      <h2 class="dimensions__heading">{{ block.settings.heading }}</h2>
+      <h2 class="dimensions__heading note-box__title">{{ block.settings.heading }}</h2>
       {%- if block.settings.unit_note != blank -%}
-        <span class="text-caption text-muted">{{ block.settings.unit_note }}</span>
+        <span class="figure-caption">{{ block.settings.unit_note }}</span>
       {%- endif -%}
     </div>
 
@@ -27,8 +27,8 @@
         -%}
         {%- if value != blank -%}
           <div class="dimensions__item">
-            <dt class="text-caption text-muted">{{ label }}</dt>
-            <dd class="dimensions__value">{{ value }}</dd>
+            <dt class="label text-muted">{{ label }}</dt>
+            <dd class="dimensions__value mono">{{ value }}</dd>
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -42,12 +42,8 @@
 
 {% stylesheet %}
   .dimensions {
-    display: flex;
-    flex-direction: column;
     gap: 14px;
-    padding: 20px;
     border-radius: var(--radius-media);
-    background-color: var(--color-tile);
   }
 
   .dimensions__head {
@@ -58,8 +54,8 @@
   }
 
   .dimensions__heading {
-    font-size: calc(1.125rem * var(--font-heading-scale));
-    line-height: 1;
+    font-weight: var(--font-label-weight);
+    line-height: 16px;
   }
 
   .dimensions__list {
@@ -70,11 +66,15 @@
     font-variant-numeric: tabular-nums;
   }
 
+  .dimensions__item {
+    padding-top: 8px;
+    border-top: var(--rule-thin);
+  }
+
   .dimensions__value {
-    margin: 2px 0 0;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: var(--font-body-weight-medium);
+    margin: 4px 0 0;
+    font-size: 18px;
+    line-height: 24px;
   }
 {% endstylesheet %}
 

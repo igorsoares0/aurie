@@ -6,7 +6,7 @@ Collection pages use the **Product grid** section.
 
 **Banner**
 
-- **Layout**: **Text beside image**, **Centered** or **Title on image**.
+- **Layout**: **Text beside image**, **Centered** or **Title on image**. The collection image is shown as a plate, with crop marks and a caption.
 - **Show collection image**, **Show collection description** and **Show product count**.
 - **Category chips**: pick a menu to show its links as chips above the products, for quick jumps between related collections.
 
@@ -14,6 +14,19 @@ Collection pages use the **Product grid** section.
 
 - **Products per page**, **Columns on desktop** and **Columns on mobile** (**1 column** or **2 columns**).
 - **Pagination**: **Page numbers** or **Load more button**.
+
+**Index view**
+
+Collections can be read two ways, and shoppers switch between them with the **Index** and **Plates** buttons above the products:
+
+- **Plates**: the product cards in a grid.
+- **Index**: one row per product, like a table: catalog number, image, name and type, the columns you choose, option codes and price.
+
+Settings:
+
+- **Show index and plates switch**.
+- **First view**: **Plates** or **Index**. The shopper's choice is remembered on their device.
+- **Index columns**: pairs of a column label and a product metafield, separated by commas, such as `W: custom.width, D: custom.depth, H: custom.height`. Leave it empty to show only the name, option codes and price.
 
 **Filtering and sorting**
 
@@ -38,14 +51,17 @@ Product cards look the same across collections, search results, recommendations 
 - **Card style**: **Portrait**, **Square** or **Framed**.
 - **Card details**: **Sizes** lists every size, with sold-out sizes struck through; **Material** and **Dimensions** show a product metafield.
 - **Show second image on hover**.
+- **Show dimension lines on cards**: draws the width and height on the card image. See [Spec sheet](spec-sheet.md).
+
+Cards show the product's catalog number at the top of the image when it has one.
 
 When a product has color swatches, customers can pick a color on the card: the card image and link switch to that color.
 
 ## Search
 
-The search icon or link in the header opens a search panel. As customers type, it suggests products, collections, pages and articles. Pressing Enter opens the full **Search results** page.
+The search link in the header opens a search panel. As customers type, it suggests products, collections, pages and articles. Pressing Enter opens the full **Search results** page.
 
-The **Search results** section has the same grid, filter and sorting settings as collection pages: **Results per page**, **Columns on desktop**, **Columns on mobile**, **Pagination**, **Enable filtering**, **Filter layout on desktop** and **Enable sorting**.
+The **Search results** section has the same grid, filter and sorting settings as collection pages: **Results per page**, **Columns on desktop**, **Columns on mobile**, **Pagination**, **Enable filtering**, **Filter layout on desktop** and **Enable sorting**, plus the same **Index view** settings. The search page shows the query in large type, and its results open in the index view by default.
 
 ## Collections list page
 

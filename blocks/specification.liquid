@@ -1,0 +1,109 @@
+{% doc %}
+  Renders the product's specification as rows of a spec sheet: a label and a
+  value per row, such as Dimensions and W 220 × D 95 × H 78 cm. Values can be
+  connected to metafields. Rows without a value are left out.
+
+  @example
+  {% content_for 'block', type: 'specification', id: 'specification' %}
+{% enddoc %}
+
+{%- liquid
+  assign has_rows = false
+  for i in (1..8)
+    assign value_key = 'value_' | append: i
+    if block.settings[value_key] != blank
+      assign has_rows = true
+      break
+    endif
+  endfor
+-%}
+
+{%- if has_rows or request.design_mode -%}
+  <div class="specification" {{ block.shopify_attributes }}>
+    {%- if block.settings.heading != blank -%}
+      <h2 class="specification__heading label text-muted">{{ block.settings.heading }}</h2>
+    {%- endif -%}
+
+    <dl class="spec-list">
+      {%- for i in (1..8) -%}
+        {%- liquid
+          assign label_key = 'label_' | append: i
+          assign value_key = 'value_' | append: i
+          assign label = block.settings[label_key]
+          assign value = block.settings[value_key]
+        -%}
+        {%- if value != blank -%}
+          <div class="spec-list__row">
+            <dt>{{ label }}</dt>
+            <dd{% if block.settings.mono_values %} class="mono"{% endif %}>{{ value }}</dd>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </dl>
+
+    {%- unless has_rows -%}
+      <p class="specification__empty text-small text-muted">{{ 'blocks.specification.empty' | t }}</p>
+    {%- endunless -%}
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .specification {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .specification .spec-list__row dd.mono {
+    font-size: var(--font-small-size);
+  }
+
+  .specification__empty {
+    padding-block: 12px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.specification.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Specification"
+    },
+    {
+      "type": "checkbox",
+      "id": "mono_values",
+      "label": "t:blocks.specification.mono_values",
+      "default": false
+    },
+    {
+      "type": "paragraph",
+      "content": "t:blocks.specification.rows_info"
+    },
+    { "type": "text", "id": "label_1", "label": "t:blocks.specification.label_1", "default": "Dimensions" },
+    { "type": "text", "id": "value_1", "label": "t:blocks.specification.value_1" },
+    { "type": "text", "id": "label_2", "label": "t:blocks.specification.label_2", "default": "Materials" },
+    { "type": "text", "id": "value_2", "label": "t:blocks.specification.value_2" },
+    { "type": "text", "id": "label_3", "label": "t:blocks.specification.label_3", "default": "Finish" },
+    { "type": "text", "id": "value_3", "label": "t:blocks.specification.value_3" },
+    { "type": "text", "id": "label_4", "label": "t:blocks.specification.label_4", "default": "Care" },
+    { "type": "text", "id": "value_4", "label": "t:blocks.specification.value_4" },
+    { "type": "text", "id": "label_5", "label": "t:blocks.specification.label_5", "default": "Lead time" },
+    { "type": "text", "id": "value_5", "label": "t:blocks.specification.value_5" },
+    { "type": "text", "id": "label_6", "label": "t:blocks.specification.label_6", "default": "Warranty" },
+    { "type": "text", "id": "value_6", "label": "t:blocks.specification.value_6" },
+    { "type": "text", "id": "label_7", "label": "t:blocks.specification.label_7" },
+    { "type": "text", "id": "value_7", "label": "t:blocks.specification.value_7" },
+    { "type": "text", "id": "label_8", "label": "t:blocks.specification.label_8" },
+    { "type": "text", "id": "value_8", "label": "t:blocks.specification.value_8" }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.specification.name"
+    }
+  ]
+}
+{% endschema %}

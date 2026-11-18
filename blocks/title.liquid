@@ -8,13 +8,33 @@
     else
       assign eyebrow = blank
   endcase
+
+  assign catalog_number = blank
+  if block.settings.show_catalog_number and settings.catalog_number_metafield != blank
+    assign catalog_key = settings.catalog_number_metafield | split: '.'
+    assign catalog_number = product.metafields[catalog_key.first][catalog_key.last].value
+  endif
 -%}
 
 <div class="product-title" {{ block.shopify_attributes }}>
-  {%- if eyebrow != blank -%}
-    <p class="label text-muted">{{ eyebrow }}</p>
+  {%- if eyebrow != blank or catalog_number != blank -%}
+    <p class="label text-muted">
+      {%- if catalog_number != blank -%}
+        <span class="index-no">{{ 'product.catalog_number' | t: number: catalog_number }}</span>
+        {%- if eyebrow != blank %} · {% endif -%}
+      {%- endif -%}
+      {{- eyebrow -}}
+    </p>
   {%- endif -%}
-  <h1 class="product-title__heading">{{ product.title }}</h1>
+  <h1 class="product-title__heading">
+    {%- assign title_words = product.title | split: ' ' -%}
+    {%- if settings.heading_italic_accent and title_words.size > 1 -%}
+      {%- assign last_word = title_words | last -%}
+      {{- product.title | remove_last: last_word | strip }} <span class="italic-accent">{{ last_word }}</span>
+    {%- else -%}
+      {{- product.title -}}
+    {%- endif -%}
+  </h1>
 </div>
 
 {% stylesheet %}
@@ -48,6 +68,13 @@
         }
       ],
       "default": "type"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_catalog_number",
+      "label": "t:blocks.title.show_catalog_number",
+      "info": "t:blocks.title.show_catalog_number_info",
+      "default": true
     }
   ],
   "presets": [

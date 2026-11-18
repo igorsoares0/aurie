@@ -2,29 +2,30 @@
 
 A preset is a set of theme settings and page templates. All three presets use the same code, sections and blocks; they differ in the settings below and in the sections their templates start with.
 
-| Setting | Arvel | Facet | Sotto |
+| Setting | Caliper | Seam | Facet |
 | --- | --- | --- | --- |
-| Header › Layout | Centered logo, text links | Centered logo, icons, menu below | Logo on the left, centered menu |
-| Product cards › Card style | Portrait | Square | Framed |
-| Product cards › Card details | Sizes | Material | Dimensions |
-| Product media › Gallery layout | Grid | Thumbnails beside | Thumbnails below |
-| Shape › Corner style | Square | Pill buttons | Rounded |
-| Typography › Heading case | Default | Default | Uppercase |
-| Animations › Speed | Slow | Balanced | Quick |
-| Color schemes | Warm paper and espresso | Near-white and onyx | Linen and walnut |
-| Fonts | Cormorant and Work Sans | Playfair Display and Jost | Barlow Condensed and Barlow |
+| Typography › Fonts | Archivo, Inter and IBM Plex Mono | Space Grotesk, Inter and Azeret Mono | Fraunces, Jost and Roboto Mono |
+| Typography › Italic accent in headings | Off | Off | On |
+| Color schemes | Warm paper and ink, rust accent | Blueprint paper and navy, blue accent | Black and cream, gold accent |
+| Product cards › Card style | Framed | Portrait | Square |
+| Product cards › Card details | Dimensions | Sizes | Material |
+| Product cards › Show dimension lines on cards | On | Off | Off |
+| Product media › Gallery layout | Thumbnails below | Grid | Thumbnails beside |
+| Animations › Speed | Quick | Quick | Balanced |
 
-## Arvel
+Every preset uses the logo on the left with a numbered menu, square corners and the spec sheet features described in [Spec sheet](spec-sheet.md).
 
-For fashion and apparel. The home page opens with a full-width campaign image and moves through a category index, new arrivals, an editorial split, a shoppable look, a captioned image pair, testimonials, a fit guide and the journal. Product cards show the available sizes, and the product page has fit notes and a size guide drawer.
+## Caliper
+
+For furniture and home. The home page opens with a **Catalog hero**: a headline, four facts such as lead time and warranty, and a product photo shown as a plate with crop marks and dimension lines. Then come the **Product index** with width, depth, height and seat height, collection tabs as plates, a fabric library with material codes, delivery and assembly, and a testimonial. Product cards are framed and show dimensions; the product page has variant rows with fabric codes, a specification block, a dimensions note and lead times per product.
+
+## Seam
+
+For clothing. The home page opens with a **Catalog hero** about cut, cloth and fit, then the **Product index**, a numbered collection list, a shoppable look, a fit guide, testimonials and the journal. Product cards are portrait and list sizes; the product page has a two-column gallery, color codes, fit notes, a size guide drawer and the composition in a specification block.
 
 ## Facet
 
-For jewelry and accessories. The home page opens with a split headline, followed by a macro image, a short introduction, the icons collection, an editorial, collection portraits, a material guide, a gift guide and the store's services. Product cards show the material, the product gallery has thumbnails beside the main image, and the product page can collect engraving text.
-
-## Sotto
-
-For furniture and home. The home page opens with a large room image and moves through the store's promises, shop by room, collection tabs, a shoppable room, a fabric library, the craft process, delivery and assembly, and a testimonial. Product cards show dimensions in a framed card, and the product page has a dimensions block and lead time.
+For jewelry, on a dark color scheme. The home page opens with a **Catalog hero** whose headline sets its second half in italic, then the **Product index** (named Register), a numbered collection list, a material guide and a gift guide. Product cards are square and show the material; the product page has thumbnails beside the gallery, metal codes, ring sizes in rows, an engraving field and a specification block with material, measurements and style.
 
 ## Switch preset
 

@@ -105,10 +105,14 @@
       "name": "Typography",
       "heading_font": "Heading font",
       "body_font": "Body font",
+      "label_font": "Label font",
+      "label_font_info": "Used for catalog numbers, measurements, codes and small labels. A monospaced font suits it best.",
       "heading_scale": "Heading size",
       "heading_case": "Heading case",
       "heading_case_none": "Default",
       "heading_case_uppercase": "Uppercase",
+      "heading_italic_accent": "Italic accent in headings",
+      "heading_italic_accent_info": "Sets the second half of split headings and the last word of product titles in italic.",
       "heading_split_rule": "Show rule in split headings",
       "heading_split_rule_info": "Adds a line between the two halves of a split heading."
     },
@@ -147,9 +151,8 @@
     "header": {
       "name": "Header",
       "layout": "Layout",
-      "layout_center_text": "Centered logo, text links",
-      "layout_center_icons": "Centered logo, icons, menu below",
-      "layout_left": "Logo on the left, centered menu"
+      "layout_center_icons": "Logo centered, menu below",
+      "layout_left": "Logo on the left, menu beside it"
     },
     "product_cards": {
       "name": "Product cards",
@@ -174,7 +177,9 @@
       "card_dimensions_metafield": "Dimensions metafield",
       "metafield_info": "Product metafield as namespace.key, such as custom.material",
       "dimensions_metafield_info": "Product metafield as namespace.key, such as custom.dimensions",
-      "lead_time_metafield_info": "Product metafield as namespace.key, such as custom.lead_time"
+      "lead_time_metafield_info": "Product metafield as namespace.key, such as custom.lead_time",
+      "card_dimension_lines": "Show dimension lines on cards",
+      "card_dimension_lines_info": "Draws width and height from the metafields set in Spec sheet"
     },
     "product_media": {
       "name": "Product media",
@@ -207,6 +212,18 @@
       "name": "Favicon",
       "image": "Favicon image",
       "image_info": "Displayed at 32 x 32px"
+    },
+    "spec_sheet": {
+      "name": "Spec sheet",
+      "intro": "Catalog numbers, option codes and dimension lines read product metafields and options. Leave a field empty to hide what it controls.",
+      "catalog_number_metafield": "Catalog number metafield",
+      "catalog_number_metafield_info": "Namespace and key, such as custom.catalog_number. Shown as Nº 014 next to product names.",
+      "option_codes": "Option codes",
+      "option_codes_info": "Option name and code letter, separated by commas, such as Fabric: F. Values then show as F-01, F-02 in their order.",
+      "dimensions_header": "Dimension lines",
+      "dimension_width_metafield": "Width metafield",
+      "dimension_height_metafield": "Height metafield",
+      "dimension_unit": "Unit"
     }
   },
   "sections": {
@@ -226,7 +243,7 @@
       "navigation_header": "Navigation",
       "customer_account_menu": "Customer account menu",
       "store_link": "Store locator link",
-      "store_link_info": "Shown as an icon in the centered layout with icons, and in the mobile menu",
+      "store_link_info": "Shown in the centered logo layout and in the mobile menu",
       "localization_header": "Mobile menu",
       "blocks": {
         "promotion": "Menu promotion",
@@ -234,7 +251,10 @@
         "menu_item_info": "Shown in the open panel of the menu item with this exact name, such as Clothing"
       },
       "drawer_images": "Show collection images in mobile menu",
-      "drawer_images_info": "Menu items that link to a collection show its image"
+      "drawer_images_info": "Menu items that link to a collection show its image",
+      "tagline": "Tagline",
+      "tagline_info": "Short text shown next to the logo on large screens, such as Furniture index",
+      "show_menu_numbers": "Number the main menu items"
     },
     "footer": {
       "name": "Footer",
@@ -254,7 +274,7 @@
         "social": "Social media",
         "text": "Text",
         "heading_size": "Heading size",
-        "heading_size_label": "Small caps",
+        "heading_size_label": "Label font",
         "heading_size_small": "Medium",
         "heading_size_large": "Large",
         "menu_heading_info": "Uses the menu name when empty",
@@ -325,7 +345,14 @@
       "filter_layout_drawer": "Drawer",
       "enable_sorting": "Enable sorting",
       "chips_menu": "Category chips",
-      "chips_menu_info": "Shows the links of this menu as chips above the products"
+      "chips_menu_info": "Shows the links of this menu as chips above the products",
+      "index_header": "Index view",
+      "show_view_switch": "Show index and plates switch",
+      "default_view": "First view",
+      "default_view_plates": "Plates",
+      "default_view_index": "Index",
+      "index_columns": "Index columns",
+      "index_columns_info": "Column label and product metafield, separated by commas, such as W: custom.width, D: custom.depth"
     },
     "main_list_collections": {
       "name": "Collections list",
@@ -349,7 +376,11 @@
       "media_ratio_landscape": "Landscape",
       "media_ratio_info": "Images are cropped to fit",
       "show_breadcrumb": "Show breadcrumb",
-      "sticky_info": "Keep product information visible while scrolling"
+      "sticky_info": "Keep product information visible while scrolling",
+      "spec_header": "Spec sheet",
+      "show_figure_numbers": "Number images as figures",
+      "show_dimension_lines": "Show dimension lines on the first image",
+      "show_dimension_lines_info": "Reads the width and height metafields set in Theme settings, Spec sheet"
     },
     "main_search": {
       "name": "Search results",
@@ -538,7 +569,7 @@
     },
     "fabric_library": {
       "name": "Fabric library",
-      "color_scheme_info": "The panel uses the scheme's accent color, the library uses its image background color",
+      "color_scheme_info": "The panel uses the scheme's text color as its background, the library uses its image background color",
       "panel_header": "Material panel",
       "show_panel": "Show material panel",
       "panel_points": "Points",
@@ -547,7 +578,9 @@
       "blocks": {
         "fabric": "Fabric",
         "image": "Image",
-        "kind": "Type"
+        "kind": "Type",
+        "code": "Code",
+        "code_info": "Matches the option code, such as F-01"
       }
     },
     "slideshow": {
@@ -637,6 +670,36 @@
     },
     "apps": {
       "name": "Apps"
+    },
+    "catalog_hero": {
+      "name": "Catalog hero",
+      "eyebrow": "Eyebrow",
+      "plate_header": "Plate",
+      "product": "Product",
+      "product_info": "Links the plate to a product and draws its dimension lines",
+      "image_info": "Replaces the product's image. 4:3 aspect ratio recommended",
+      "caption": "Caption",
+      "show_crop_marks": "Show crop marks",
+      "show_dimension_lines": "Show the product's dimension lines",
+      "buttons_header": "Buttons",
+      "button_label": "First button label",
+      "button_link": "First button link",
+      "button_label_2": "Second button label",
+      "button_link_2": "Second button link",
+      "blocks": {
+        "stat": "Fact",
+        "stat_label": "Label",
+        "stat_value": "Value"
+      },
+      "image": "Image"
+    },
+    "product_index": {
+      "name": "Product index",
+      "collection": "Collection",
+      "products_to_show": "Products to show",
+      "menu": "Filter links",
+      "menu_info": "Optional links above the index, such as one per room",
+      "link_label": "Link label"
     }
   },
   "blocks": {
@@ -645,7 +708,9 @@
       "eyebrow": "Text above title",
       "eyebrow_none": "None",
       "eyebrow_type": "Product type",
-      "eyebrow_vendor": "Vendor"
+      "eyebrow_vendor": "Vendor",
+      "show_catalog_number": "Show catalog number",
+      "show_catalog_number_info": "Reads the metafield set in Theme settings, Spec sheet"
     },
     "price": {
       "name": "Price",
@@ -670,7 +735,8 @@
       "size_guide_page_info": "Opens in a drawer next to the option",
       "size_guide_options": "Show next to options",
       "size_guide_options_info": "Option names separated by commas, such as Size, Ring size",
-      "size_guide_label": "Link label"
+      "size_guide_label": "Link label",
+      "style_rows": "Rows with codes and prices"
     },
     "buy_buttons": {
       "name": "Buy buttons",
@@ -727,7 +793,7 @@
     "collapsible_tab": {
       "name": "Collapsible tab",
       "heading_style": "Heading style",
-      "heading_style_label": "Small caps",
+      "heading_style_label": "Label font",
       "heading_style_heading": "Heading font",
       "open": "Open by default",
       "show_description": "Show product description",
@@ -745,6 +811,27 @@
       "name": "Custom Liquid",
       "label": "Liquid code",
       "info": "Add app snippets or other code to create advanced customizations"
+    },
+    "specification": {
+      "name": "Specification",
+      "mono_values": "Use the label font for values",
+      "rows_info": "Each row shows when its value is filled in. Connect values to metafields to fill them per product.",
+      "label_1": "Row 1 label",
+      "value_1": "Row 1 value",
+      "label_2": "Row 2 label",
+      "value_2": "Row 2 value",
+      "label_3": "Row 3 label",
+      "value_3": "Row 3 value",
+      "label_4": "Row 4 label",
+      "value_4": "Row 4 value",
+      "label_5": "Row 5 label",
+      "value_5": "Row 5 value",
+      "label_6": "Row 6 label",
+      "value_6": "Row 6 value",
+      "label_7": "Row 7 label",
+      "value_7": "Row 7 value",
+      "label_8": "Row 8 label",
+      "value_8": "Row 8 value"
     }
   }
 }

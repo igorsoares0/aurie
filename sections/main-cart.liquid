@@ -23,7 +23,7 @@
       <span>{{ 'cart.title' | t }}</span>
       <span class="main-cart__rule" aria-hidden="true"></span>
       {%- if cart.item_count > 0 -%}
-        <span class="main-cart__count text-small text-muted">{{ 'cart.item_count' | t: count: cart.item_count }}</span>
+        <span class="main-cart__count figure-caption">{{ 'cart.item_count' | t: count: cart.item_count }}</span>
       {%- endif -%}
     </h1>
 
@@ -85,7 +85,7 @@
         </div>
 
         <aside class="main-cart__summary" aria-labelledby="CartSummaryTitle-{{ section.id }}">
-          <h2 class="main-cart__summary-title h3" id="CartSummaryTitle-{{ section.id }}">{{ 'cart.summary' | t }}</h2>
+          <h2 class="main-cart__summary-title label text-muted" id="CartSummaryTitle-{{ section.id }}">{{ 'cart.summary' | t }}</h2>
           {% render 'cart-summary', form_id: form_id, context: 'page' %}
         </aside>
       </div>
@@ -120,9 +120,10 @@
 
   .main-cart__title {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 8px 18px;
+    margin-bottom: 28px;
   }
 
   .main-cart__rule {
@@ -164,8 +165,8 @@
     gap: 8px 16px;
     margin-bottom: -16px;
     padding: 12px 16px;
+    border: 1px dashed var(--color-accent);
     border-radius: var(--radius-input);
-    background-color: var(--color-tile);
   }
 
   .main-cart__update {
@@ -202,8 +203,9 @@
   .main-cart__summary {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     padding: 24px;
+    border: 1px solid var(--color-divider);
     border-radius: var(--radius-media);
     background-color: var(--color-tile);
   }

@@ -22,7 +22,7 @@
         "variant_picker": {
           "type": "variant-picker",
           "settings": {
-            "style": "buttons",
+            "style": "rows",
             "show_swatches": true,
             "swatch_style": "circle",
             "size_guide_options": "Size",
@@ -56,16 +56,6 @@
             "show_description": true
           }
         },
-        "tab_care": {
-          "type": "collapsible-tab",
-          "settings": {
-            "heading": "Materials and care",
-            "heading_style": "label",
-            "open": false,
-            "show_description": false,
-            "content": "<p>Share fabric composition and care instructions.</p>"
-          }
-        },
         "tab_shipping": {
           "type": "collapsible-tab",
           "settings": {
@@ -74,6 +64,21 @@
             "open": false,
             "show_description": false,
             "content": "<p>Share delivery times and your return policy.</p>"
+          }
+        },
+        "specification": {
+          "type": "specification",
+          "settings": {
+            "heading": "Specification",
+            "mono_values": false,
+            "label_1": "Composition and care",
+            "label_2": "",
+            "label_3": "",
+            "label_4": "",
+            "label_5": "",
+            "label_6": "",
+            "label_7": "",
+            "label_8": ""
           }
         }
       },
@@ -85,8 +90,8 @@
         "fit_notes",
         "buy_buttons",
         "pickup",
+        "specification",
         "tab_details",
-        "tab_care",
         "tab_shipping"
       ],
       "settings": {

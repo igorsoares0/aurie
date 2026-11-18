@@ -1,0 +1,32 @@
+{% doc %}
+  Outputs the code of an option value, such as F-01 for the first value of a
+  Fabric option, from the Option codes theme setting. Outputs nothing when the
+  option has no code letter.
+
+  @param {string} option_name - The option's name, such as Fabric
+  @param {number} position - The value's position in the option, starting at 1
+
+  @example
+  {% render 'option-code', option_name: option.name, position: forloop.index %}
+{% enddoc %}
+
+{%- liquid
+  assign option_key = option_name | downcase | strip
+  assign code_pairs = settings.option_codes | split: ','
+  for pair in code_pairs
+    assign parts = pair | split: ':'
+    assign pair_name = parts.first | downcase | strip
+    if pair_name == option_key and parts.size > 1
+      assign code_letter = parts.last | strip
+      if code_letter != blank
+        echo code_letter
+        echo '-'
+        if position < 10
+          echo '0'
+        endif
+        echo position
+      endif
+      break
+    endif
+  endfor
+-%}

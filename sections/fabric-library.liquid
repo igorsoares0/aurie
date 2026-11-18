@@ -43,6 +43,9 @@
           -%}
           <li class="fabric-library__swatch" {{ block.shopify_attributes }}>
             <span class="fabric-library__sample" style="{{ swatch_style }}"></span>
+            {%- if block.settings.code != blank -%}
+              <span class="index-no">{{ block.settings.code }}</span>
+            {%- endif -%}
             <span class="fabric-library__name">{{ block.settings.name }}</span>
             {%- if block.settings.kind != blank -%}
               <span class="text-caption text-muted">{{ block.settings.kind }}</span>
@@ -76,8 +79,9 @@
     min-height: 440px;
     padding: clamp(28px, 4vw, 48px);
     border-radius: var(--radius-media);
-    background-color: var(--color-accent);
-    color: var(--color-accent-label);
+    /* Ink, not the accent: the accent belongs to dimension lines and codes */
+    background-color: var(--color-text);
+    color: var(--color-background);
   }
 
   .fabric-library__panel-text {
@@ -238,6 +242,12 @@
           "id": "color",
           "label": "t:sections.material_guide.blocks.swatch_color",
           "default": "#c8b49a"
+        },
+        {
+          "type": "text",
+          "id": "code",
+          "label": "t:sections.fabric_library.blocks.code",
+          "info": "t:sections.fabric_library.blocks.code_info"
         },
         {
           "type": "text",

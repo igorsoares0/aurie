@@ -75,4 +75,45 @@
     position: absolute;
     inset: 0;
   }
+
+  /* In the index view a page or article is a row: image, then its type, title and excerpt */
+  .product-grid--index .result-card {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 2px 12px;
+    padding-block: 12px;
+    border-bottom: var(--rule-thin);
+  }
+
+  .product-grid--index .result-card > * {
+    grid-column: 2;
+  }
+
+  .product-grid--index .result-card__media {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin: 0;
+    aspect-ratio: 1;
+  }
+
+  .product-grid--index .result-card__title {
+    font-size: 19px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .product-grid--index .result-card {
+      grid-template-columns: 52px 104px minmax(0, 1fr);
+      gap: 0 12px;
+      padding-block: 10px;
+    }
+
+    .product-grid--index .result-card > * {
+      grid-column: 3;
+    }
+
+    .product-grid--index .result-card__media {
+      grid-column: 2;
+      aspect-ratio: 4 / 3;
+    }
+  }
 {% endstylesheet %}

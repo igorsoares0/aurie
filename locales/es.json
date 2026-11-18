@@ -19,11 +19,15 @@
     },
     "comment_moderated": "Gracias por tu comentario. Aparecerá cuando se apruebe.",
     "comment_posted": "Gracias por tu comentario.",
-    "moderated_notice": "Los comentarios se revisan antes de publicarse."
+    "moderated_notice": "Los comentarios se revisan antes de publicarse.",
+    "entry_count": {
+      "one": "{{ count }} entrada",
+      "other": "{{ count }} entradas"
+    }
   },
   "cart": {
     "checkout": "Finalizar compra",
-    "title": "Tu bolsa",
+    "title": "Tu pedido",
     "update": "Actualizar",
     "remove": "Eliminar",
     "quantity": "Cantidad",
@@ -42,8 +46,9 @@
     "shipping_and_codes_at_checkout": "El envío y los códigos de descuento se añaden al finalizar la compra.",
     "size_reminder": "Tienes {{ product }} en dos tallas. ¿No sabes cuál te queda bien?",
     "size_reminder_link": "Ver guía de tallas",
-    "view_cart": "Ver bolsa",
-    "yes": "Sí"
+    "view_cart": "Ver el pedido completo",
+    "yes": "Sí",
+    "lead_time": "Plazo"
   },
   "customers": {
     "login": {
@@ -54,7 +59,11 @@
     }
   },
   "collections": {
-    "title": "Colecciones"
+    "title": "Colecciones",
+    "plate": "Lámina — {{ title }}",
+    "index_number": "N.º",
+    "index_piece": "Pieza",
+    "index_from": "Desde"
   },
   "gift_card": {
     "add_to_apple_wallet": "Añadir a Apple Wallet",
@@ -119,7 +128,7 @@
     "search": "Buscar",
     "account": "Cuenta",
     "find_a_store": "Buscar una tienda",
-    "bag_count_html": "Bolsa ({{ count }})"
+    "bag_count_html": "Carrito ({{ count }})"
   },
   "localization": {
     "country_label": "País/región",
@@ -188,10 +197,13 @@
     },
     "product_comparison": {
       "price": "Precio"
+    },
+    "product_index": {
+      "show_all": "Ver los {{ count }} productos"
     }
   },
   "product": {
-    "add_to_cart": "Añadir a la bolsa",
+    "add_to_cart": "Añadir al carrito",
     "unavailable": "No disponible",
     "variant": "Variante",
     "quantity": {
@@ -204,7 +216,10 @@
     "media": {
       "gallery": "Contenido multimedia del producto",
       "choose": "Elegir contenido multimedia",
-      "show_item": "Mostrar elemento {{ number }} de {{ total }}"
+      "show_item": "Mostrar elemento {{ number }} de {{ total }}",
+      "figure": "Fig. {{ number }}",
+      "width_short": "An.",
+      "height_short": "Al."
     },
     "price": {
       "regular_price": "Precio habitual",
@@ -243,8 +258,11 @@
       "count_html": "{{ count }} de {{ max }} caracteres."
     },
     "card": {
-      "available_sizes": "Tallas disponibles"
-    }
+      "available_sizes": "Tallas disponibles",
+      "options": "Opciones"
+    },
+    "catalog_number": "N.º {{ number }}",
+    "specification": "Ficha técnica"
   },
   "facets": {
     "filter": "Filtrar",
@@ -264,7 +282,10 @@
     "empty_filtered_title": "Ningún producto coincide con estos filtros",
     "empty_filtered_text": "Prueba otras opciones o borra los filtros para ver toda la colección.",
     "empty_title": "Esta colección está vacía",
-    "empty_text": "Pronto llegarán productos nuevos. Mientras tanto, explora el resto de la tienda."
+    "empty_text": "Pronto llegarán productos nuevos. Mientras tanto, explora el resto de la tienda.",
+    "view": "Vista",
+    "view_index": "Índice",
+    "view_plates": "Láminas"
   },
   "pagination": {
     "label": "Paginación",
@@ -274,7 +295,13 @@
   },
   "not_found": {
     "title": "Página no encontrada",
-    "text": "La página que buscas no existe o se ha movido. Prueba a buscar o sigue navegando."
+    "text": "La página que buscas no existe o se ha movido. Prueba a buscar o sigue navegando.",
+    "code": "Error 404",
+    "requested": "Dirección",
+    "status": "Estado",
+    "status_value": "No está en el índice o se movió",
+    "search_label": "Buscar en el índice",
+    "home": "Ir a la página de inicio"
   },
   "contact": {
     "name": "Nombre",
@@ -283,5 +310,10 @@
     "message": "Mensaje",
     "submit": "Enviar",
     "success": "Gracias por escribirnos. Te responderemos lo antes posible."
+  },
+  "blocks": {
+    "specification": {
+      "empty": "Añade valores en el editor de temas o conéctalos a metacampos del producto."
+    }
   }
 }

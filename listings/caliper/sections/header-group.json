@@ -31,14 +31,16 @@
       "type": "header",
       "settings": {
         "color_scheme": "scheme-1",
-        "show_divider": false,
+        "show_divider": true,
         "logo_width": 120,
         "menu": "main-menu",
         "customer_account_menu": "customer-account-main-menu",
         "store_link": "",
         "show_country_selector": true,
         "show_language_selector": true,
-        "drawer_images": true
+        "drawer_images": true,
+        "tagline": "Furniture index",
+        "show_menu_numbers": true
       }
     }
   },

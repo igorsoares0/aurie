@@ -64,6 +64,73 @@
             {%- endfor -%}
           </select>
         </div>
+      {%- elsif block.settings.style == 'rows' -%}
+        {%- capture selected_code -%}
+          {%- for value in option.values -%}
+            {%- if value.selected -%}
+              {%- render 'option-code', option_name: option.name, position: forloop.index -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endcapture -%}
+        <fieldset class="variant-picker__option variant-picker__option--fieldset variant-picker__option--rows" data-option>
+          <legend class="variant-picker__label label text-muted">
+            {{- option.name }} —
+            {% if selected_code != blank %}{{ selected_code }} {% endif -%}
+            <span class="variant-picker__selected">{{ option.selected_value }}</span>
+          </legend>
+          {{ size_guide_link }}
+
+          <div class="variant-picker__rows">
+            {%- for value in option.values -%}
+              {%- liquid
+                assign value_id = option_id | append: '-' | append: forloop.index
+                assign swatch_style = blank
+                if has_swatches
+                  if value.swatch.image
+                    assign swatch_image_url = value.swatch.image | image_url: width: 96
+                    assign swatch_style = 'background-image: url(' | append: swatch_image_url | append: ');'
+                  elsif value.swatch.color
+                    assign swatch_style = 'background-color: ' | append: value.swatch.color | append: ';'
+                  endif
+                endif
+              -%}
+              {%- capture value_code -%}
+                {%- render 'option-code', option_name: option.name, position: forloop.index -%}
+              {%- endcapture -%}
+              <input
+                class="variant-picker__input visually-hidden"
+                type="radio"
+                id="{{ value_id }}"
+                name="{{ option_id }}"
+                value="{{ value | escape }}"
+                data-option-value-id="{{ value.id }}"
+                {% if value.selected %}
+                  checked
+                {% endif %}
+              >
+              <label
+                class="variant-picker__row{% unless value.available %} variant-picker__row--unavailable{% endunless %}"
+                for="{{ value_id }}"
+              >
+                <span class="variant-picker__radio" aria-hidden="true"></span>
+                {%- if swatch_style != blank -%}
+                  <span class="swatch variant-picker__row-swatch" style="{{ swatch_style }}"></span>
+                {%- endif -%}
+                {%- if value_code != blank -%}
+                  <span class="index-no variant-picker__code">{{ value_code }}</span>
+                {%- endif -%}
+                <span class="variant-picker__row-name">{{ value }}</span>
+                <span class="variant-picker__row-meta mono">
+                  {%- if value.available == false -%}
+                    {{ 'product.price.sold_out' | t }}
+                  {%- elsif product.price_varies and value.variant -%}
+                    {{ value.variant.price | money }}
+                  {%- endif -%}
+                </span>
+              </label>
+            {%- endfor -%}
+          </div>
+        </fieldset>
       {%- else -%}
         <fieldset class="variant-picker__option variant-picker__option--fieldset" data-option>
           <legend class="variant-picker__label">
@@ -188,6 +255,83 @@
     cursor: pointer;
   }
 
+  /* Rows: each value is a line of the spec sheet, with its code and price */
+  .variant-picker__rows {
+    display: flex;
+    flex-direction: column;
+    clear: both;
+  }
+
+  .variant-picker__row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 56px;
+    padding: 6px 12px;
+    border: 1px solid var(--color-divider);
+    border-radius: 0;
+    cursor: pointer;
+  }
+
+  /* Rows share their borders */
+  .variant-picker__row ~ .variant-picker__row {
+    margin-top: -1px;
+  }
+
+  .variant-picker__radio {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--color-text);
+    border-radius: 50%;
+  }
+
+  .variant-picker__row-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-input);
+  }
+
+  .variant-picker__code {
+    min-width: 40px;
+  }
+
+  .variant-picker__row-name {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .variant-picker__row-meta {
+    font-size: var(--font-small-size);
+    white-space: nowrap;
+  }
+
+  .variant-picker__input:checked + .variant-picker__row {
+    z-index: 1;
+    border-color: var(--color-text);
+    background-color: var(--color-tile);
+  }
+
+  .variant-picker__input:checked + .variant-picker__row .variant-picker__radio {
+    background: radial-gradient(circle, var(--color-text) 0 4px, transparent 4.5px);
+  }
+
+  .variant-picker__input:focus-visible + .variant-picker__row {
+    z-index: 2;
+    outline: 2px solid var(--color-text);
+    outline-offset: -2px;
+  }
+
+  .variant-picker__row--unavailable .variant-picker__row-name {
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+  }
+
+  .variant-picker__row--unavailable .variant-picker__row-meta {
+    color: var(--color-text-muted);
+  }
+
   .variant-picker__values {
     display: flex;
     flex-wrap: wrap;
@@ -282,6 +426,10 @@
         {
           "value": "dropdown",
           "label": "t:blocks.variant_picker.style_dropdown"
+        },
+        {
+          "value": "rows",
+          "label": "t:blocks.variant_picker.style_rows"
         }
       ],
       "default": "buttons"

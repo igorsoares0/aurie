@@ -1,6 +1,6 @@
 <div class="main-page color-{{ section.settings.color_scheme }}">
   <div class="main-page__inner page-width main-page__inner--{{ section.settings.width }}">
-    <h1 class="main-page__title">{{ page.title }}</h1>
+    <h1 class="main-page__title h1">{{ page.title }}</h1>
     <div class="main-page__content rte">{{ page.content }}</div>
   </div>
 </div>
@@ -19,6 +19,12 @@
     flex-direction: column;
     gap: 32px;
     padding-block: 48px var(--section-spacing);
+  }
+
+  /* The title closes on a strong rule, like an entry heading in a catalog */
+  .main-page__title {
+    padding-bottom: 20px;
+    border-bottom: var(--rule-strong);
   }
 
   .main-page__inner--narrow {

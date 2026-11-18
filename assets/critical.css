@@ -76,12 +76,16 @@ ol[role='list'] {
   --font-small-size: 13px;
   --font-caption-size: 12px;
   --font-label-size: 11px;
-  --font-label-spacing: 0.08em;
+  --font-label-spacing: 0.06em;
 
-  --font-display-size: calc(2.75rem * var(--font-heading-scale));
-  --font-h1-size: calc(2rem * var(--font-heading-scale));
-  --font-h2-size: calc(1.625rem * var(--font-heading-scale));
+  --font-display-size: calc(2.875rem * var(--font-heading-scale));
+  --font-h1-size: calc(2.5rem * var(--font-heading-scale));
+  --font-h2-size: calc(1.875rem * var(--font-heading-scale));
   --font-h3-size: calc(1.25rem * var(--font-heading-scale));
+
+  /* Hairlines between rows, and the stronger rule that opens a section */
+  --rule-thin: 1px solid var(--color-divider);
+  --rule-strong: 1px solid var(--color-border);
 
   /* Durations (--duration-short, -medium, -long) come from the Animations theme setting */
   --ease: cubic-bezier(0.2, 0, 0, 1);
@@ -92,9 +96,9 @@ ol[role='list'] {
   :root {
     --page-margin: max(24px, calc(var(--page-margin-desktop) * 0.75));
     --section-spacing: calc(var(--section-spacing-desktop) * 0.8);
-    --font-display-size: calc(3.25rem * var(--font-heading-scale));
-    --font-h1-size: calc(2.375rem * var(--font-heading-scale));
-    --font-h2-size: calc(1.875rem * var(--font-heading-scale));
+    --font-display-size: calc(3.75rem * var(--font-heading-scale));
+    --font-h1-size: calc(3rem * var(--font-heading-scale));
+    --font-h2-size: calc(2.25rem * var(--font-heading-scale));
   }
 }
 
@@ -102,9 +106,9 @@ ol[role='list'] {
   :root {
     --page-margin: var(--page-margin-desktop);
     --section-spacing: var(--section-spacing-desktop);
-    --font-display-size: calc(4rem * var(--font-heading-scale));
-    --font-h1-size: calc(2.75rem * var(--font-heading-scale));
-    --font-h2-size: calc(2rem * var(--font-heading-scale));
+    --font-display-size: calc(4.75rem * var(--font-heading-scale));
+    --font-h1-size: calc(3.75rem * var(--font-heading-scale));
+    --font-h2-size: calc(2.75rem * var(--font-heading-scale));
     --font-h3-size: calc(1.5rem * var(--font-heading-scale));
   }
 }
@@ -170,19 +174,22 @@ h4,
 
 .display {
   font-size: var(--font-display-size);
-  line-height: 0.95;
-  letter-spacing: -0.01em;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
 }
 
 h1,
 .h1 {
   font-size: var(--font-h1-size);
-  line-height: 1.05;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 h2,
 .h2 {
   font-size: var(--font-h2-size);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 
 h3,
@@ -231,12 +238,21 @@ h6 {
 }
 
 .label {
-  font-family: var(--font-body-family);
+  font-family: var(--font-label-family);
+  font-style: var(--font-label-style);
   font-size: var(--font-label-size);
   line-height: 16px;
-  font-weight: var(--font-body-weight-medium);
+  font-weight: var(--font-label-weight);
   letter-spacing: var(--font-label-spacing);
   text-transform: uppercase;
+}
+
+/* Figures, measurements and codes: the label font at the size around it */
+.mono {
+  font-family: var(--font-label-family);
+  font-style: var(--font-label-style);
+  font-weight: var(--font-label-weight);
+  font-variant-numeric: tabular-nums;
 }
 
 /** Layout */
@@ -285,18 +301,16 @@ h6 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: var(--touch-target);
+  min-height: 48px;
   padding: 0 24px;
   border: 1px solid var(--color-button);
   border-radius: var(--radius-button);
   background-color: var(--color-button);
   color: var(--color-button-label);
   font-family: var(--font-body-family);
-  font-size: var(--font-label-size);
-  line-height: 16px;
+  font-size: var(--font-body-size);
+  line-height: 20px;
   font-weight: var(--font-body-weight-medium);
-  letter-spacing: var(--font-label-spacing);
-  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   transition:
@@ -331,16 +345,14 @@ h6 {
 
 /* Dynamic checkout "Buy it now": match the secondary button instead of Shopify's default blue (fails contrast). */
 .shopify-payment-button .shopify-payment-button__button--unbranded {
-  min-height: var(--touch-target);
+  min-height: 48px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-button);
   background-color: transparent;
   color: var(--color-text);
   font-family: var(--font-body-family);
-  font-size: var(--font-label-size);
+  font-size: var(--font-body-size);
   font-weight: var(--font-body-weight-medium);
-  letter-spacing: var(--font-label-spacing);
-  text-transform: uppercase;
 }
 
 .shopify-payment-button .shopify-payment-button__button--unbranded:hover:not([disabled]) {
@@ -410,8 +422,8 @@ h6 {
 .field {
   min-height: var(--touch-target);
   width: 100%;
-  padding: 0 16px;
-  border: 1px solid var(--color-border);
+  padding: 0 14px;
+  border: 1px solid var(--color-divider);
   border-radius: var(--radius-input);
   background-color: transparent;
   font-size: max(15px, var(--font-small-size));
@@ -548,6 +560,35 @@ select.field {
 
 .card--framed .product-grid {
   row-gap: var(--grid-gap);
+}
+
+/* The index view: one card per row, read as a table. On small screens the
+   sticky filter bar above already draws the opening rule. */
+.product-grid.product-grid--index {
+  display: block;
+}
+
+.product-grid__head {
+  display: none;
+}
+
+@media screen and (min-width: 990px) {
+  .product-grid--index .product-grid__head {
+    display: grid;
+    grid-template-columns: var(--index-template);
+    gap: 0 12px;
+    padding-block: 10px;
+    border-bottom: var(--rule-strong);
+    color: var(--color-text-muted);
+  }
+
+  .product-grid__head > :last-child {
+    justify-self: end;
+  }
+
+  .product-grid--index {
+    border-top: 0;
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -844,6 +885,7 @@ body:has(.footer--filled) #MainContent > .shopify-section:last-child .section:no
   padding-bottom: var(--section-spacing);
 }
 
+/* A section opens on a strong rule, like a chapter in a printed catalog */
 .section-heading {
   display: flex;
   flex-wrap: wrap;
@@ -851,6 +893,8 @@ body:has(.footer--filled) #MainContent > .shopify-section:last-child .section:no
   justify-content: space-between;
   gap: 8px 24px;
   margin-bottom: 24px;
+  padding-top: 20px;
+  border-top: var(--rule-strong);
 }
 
 .section-heading--center {
@@ -867,16 +911,23 @@ body:has(.footer--filled) #MainContent > .shopify-section:last-child .section:no
 }
 
 .section-heading__count {
-  font-family: var(--font-body-family);
+  font-family: var(--font-label-family);
   font-style: normal;
-  font-weight: var(--font-body-weight);
-  font-size: var(--font-small-size);
+  font-weight: var(--font-label-weight);
+  font-size: var(--font-caption-size);
+  letter-spacing: 0;
   text-transform: none;
   color: var(--color-text-muted);
 }
 
 .split-heading__rule {
   display: none;
+}
+
+/* Italic accent: the second half of a split heading and the last word of a product title */
+.headings--italic-accent .split-heading > span:last-child,
+.headings--italic-accent .italic-accent {
+  font-style: italic;
 }
 
 .headings--split-rule .split-heading {
@@ -1046,8 +1097,8 @@ body:has(.footer--filled) #MainContent > .shopify-section:last-child .section:no
   align-items: center;
   flex-shrink: 0;
   min-height: var(--touch-target);
-  padding: 0 18px;
-  border: 1px solid var(--color-border);
+  padding: 0 16px;
+  border: 1px solid var(--color-divider);
   border-radius: var(--radius-button);
   background: transparent;
   font-size: var(--font-small-size);
@@ -1070,3 +1121,219 @@ body:has(.footer--filled) #MainContent > .shopify-section:last-child .section:no
 .app-block {
   margin-block: 24px;
 }
+
+/**
+ * The spec sheet system. These pieces carry the theme's identity on every
+ * template: catalog numbers, figure captions, crop marks, dimension lines,
+ * definition lists and data tables.
+ */
+
+/* Catalog number, menu index and option code, such as Nº 014, 01 or F-01 */
+.index-no {
+  font-family: var(--font-label-family);
+  font-style: var(--font-label-style);
+  font-weight: var(--font-label-weight);
+  font-size: var(--font-caption-size);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-accent);
+}
+
+/* Figure and plate captions: Fig. 1 — Front */
+.figure-caption {
+  font-family: var(--font-label-family);
+  font-style: var(--font-label-style);
+  font-size: var(--font-caption-size);
+  line-height: 16px;
+  color: var(--color-text-muted);
+}
+
+/* Four corner marks drawn over a frame, as on a printer's proof */
+.crop-marks {
+  position: relative;
+}
+
+.crop-marks::after {
+  --mark: 18px;
+  --mark-color: currentcolor;
+  content: '';
+  position: absolute;
+  inset: 14px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--mark-color), var(--mark-color)) top left / var(--mark) 1px,
+    linear-gradient(var(--mark-color), var(--mark-color)) top left / 1px var(--mark),
+    linear-gradient(var(--mark-color), var(--mark-color)) top right / var(--mark) 1px,
+    linear-gradient(var(--mark-color), var(--mark-color)) top right / 1px var(--mark),
+    linear-gradient(var(--mark-color), var(--mark-color)) bottom left / var(--mark) 1px,
+    linear-gradient(var(--mark-color), var(--mark-color)) bottom left / 1px var(--mark),
+    linear-gradient(var(--mark-color), var(--mark-color)) bottom right / var(--mark) 1px,
+    linear-gradient(var(--mark-color), var(--mark-color)) bottom right / 1px var(--mark);
+  background-repeat: no-repeat;
+}
+
+/**
+ * Dimension lines along the edges of a media frame. They follow the frame,
+ * not the object, so they work with any photo. Place .dim elements inside a
+ * positioned frame; the label sits on the frame's own background color.
+ */
+.dim {
+  --dim-tick: 10px;
+  position: absolute;
+  pointer-events: none;
+  color: var(--color-accent);
+}
+
+.dim::before,
+.dim::after {
+  content: '';
+  position: absolute;
+  background-color: currentcolor;
+}
+
+.dim--width {
+  left: var(--dim-inset-start, 7%);
+  right: var(--dim-inset-end, 13%);
+  bottom: var(--dim-inset-edge, 4.5%);
+  border-top: 1px solid currentcolor;
+}
+
+.dim--width::before,
+.dim--width::after {
+  top: calc(var(--dim-tick) / -2 - 0.5px);
+  width: 1px;
+  height: var(--dim-tick);
+}
+
+.dim--width::before {
+  left: 0;
+}
+
+.dim--width::after {
+  right: 0;
+}
+
+.dim--height {
+  top: var(--dim-inset-start, 7%);
+  bottom: var(--dim-inset-end, 13%);
+  right: var(--dim-inset-edge, 6%);
+  border-left: 1px solid currentcolor;
+}
+
+.dim--height::before,
+.dim--height::after {
+  left: calc(var(--dim-tick) / -2 - 0.5px);
+  width: var(--dim-tick);
+  height: 1px;
+}
+
+.dim--height::before {
+  top: 0;
+}
+
+.dim--height::after {
+  bottom: 0;
+}
+
+.dim__label {
+  position: absolute;
+  padding: 2px 6px;
+  background-color: var(--dim-label-background, var(--color-tile));
+  font-family: var(--font-label-family);
+  font-size: var(--font-label-size);
+  line-height: 14px;
+  white-space: nowrap;
+  color: var(--color-accent);
+}
+
+.dim--width .dim__label {
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.dim--height .dim__label {
+  top: 50%;
+  left: 0;
+  padding: 6px 2px;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-rl;
+}
+
+/* Specification rows: a definition list read as a table */
+.spec-list {
+  margin: 0;
+  border-top: var(--rule-strong);
+}
+
+.spec-list__row {
+  display: grid;
+  grid-template-columns: minmax(96px, 150px) minmax(0, 1fr);
+  gap: 16px;
+  padding-block: 11px;
+  border-bottom: var(--rule-thin);
+}
+
+.spec-list__row dt {
+  color: var(--color-text-muted);
+}
+
+.spec-list__row dd {
+  margin: 0;
+}
+
+/* Data tables: the index, comparisons and the order sheet */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  padding: 12px 8px;
+  border-bottom: var(--rule-strong);
+  font-family: var(--font-label-family);
+  font-weight: var(--font-label-weight);
+  font-size: var(--font-label-size);
+  letter-spacing: var(--font-label-spacing);
+  text-transform: uppercase;
+  text-align: start;
+  color: var(--color-text-muted);
+}
+
+.data-table td {
+  padding: 12px 8px;
+  border-bottom: var(--rule-thin);
+  vertical-align: middle;
+}
+
+.data-table :is(th, td):first-child {
+  padding-inline-start: 0;
+}
+
+.data-table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+/* A wide table scrolls inside its own box instead of the page */
+.data-table-scroll {
+  overflow-x: auto;
+}
+
+/* The dashed note box used for fit, lead time and delivery checks */
+.note-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px dashed var(--color-accent);
+}
+
+.note-box__title {
+  font-family: var(--font-label-family);
+  font-size: var(--font-caption-size);
+  letter-spacing: var(--font-label-spacing);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
